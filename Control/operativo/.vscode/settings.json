@@ -1,0 +1,21 @@
+{
+    "files.exclude": {
+        "**/.jpg": true,
+        "**/.pdf": true,
+        "**/.png": true,
+        "/var/www/html/public_html/Control/operativo/cfg_factura": true,
+        "/var/www/html/public_html/Control/operativo/comparendo": true,
+        "/var/www/html/public_html/Control/operativo/consignacion": true,
+        "/var/www/html/public_html/Control/operativo/doc": true,
+        "/var/www/html/public_html/Control/operativo/factura_pdf": true,
+        "/var/www/html/public_html/Control/operativo/garantia": true,
+        "/var/www/html/public_html/Control/operativo/lineasv": true,
+        "/var/www/html/public_html/Control/operativo/lineavehiculo": true,
+        "/var/www/html/public_html/Control/operativo/manual": true,
+        "/var/www/html/public_html/Control/operativo/marca": true,
+        "/var/www/html/public_html/Control/operativo/planos": true,
+        "/var/www/html/public_html/Control/operativo/seguros": true,
+        "/var/www/html/public_html/Control/operativo/siniestro": true,
+        "/var/www/html/public_html/Control/operativo/vehiculo": true
+    }
+}

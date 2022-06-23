@@ -1,0 +1,51 @@
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<button ng-click="comeback()">Cerrar</button>
+<br><br>
+<h4>Detalles</h4>
+<table class="table">
+	<thead>
+		<tr>
+			<th>id</th>	
+			<th>descripcion</th>
+			<th>concepto</th>
+			<th>cantidad</th>
+			<th>unitario</th>			
+			<th>subtotal</th>			
+			<th>iva</th>
+			<th>total</th>
+			<th>Opciones</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="detalles in detalles_prefactura" >
+			<td>{{detalles.id}}</td>
+			<td>{{detalles.descripcion}}</td>			
+			<td>{{decode_utf8(detalles.concepto_nombre)}}</td>
+			<td contenteditable="true" ng-keypress="number_validation(detalles)" ng-blur="modify_quantity(detalles)">{{get_detalles(detalles,"cantidad")}}</td>
+			<td contenteditable="true" ng-keypress="number_validation(detalles)" ng-blur="modify_unitary_value(detalles)">{{detalles.unitario}}</td>			
+			<td>{{detalles.total}}</td>			
+			<td>{{detalles.iva}}</td>
+			<td>{{sum_values(detalles.total,detalles.iva)}}</td>
+			<td>
+				<button title="Editar" ng-click="edit_detalles_prefactura(detalles)"><i class="fas fa-edit"></i></button>
+				<button title="Eliminar" ng-click="delete_detalles_prefactura(detalles.id)""><i class="fas fa-trash"></i></button>				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5">TOTAL</td>
+			<td>{{prefact.subtotal = sum_column(detalles_prefactura,"total")}}</td>
+			<td>{{prefact.iva = sum_column(detalles_prefactura,"iva")}}</td>
+			<td>{{prefact.total = sum_values(prefact.subtotal,prefact.iva)}}</td>
+		</tr>
+	</tbody>
+</table>
+<button ng-click="add_prefact_detail()">Agregar otro detalle a la prefactura</button>
+
+<a style="cursor:pointer" ng-click="generate_consecutivo_fact();" class="info"><img src="gifs/standar/aplicar.png" border="0" height="16" align="absmiddle">Factura<span style="width:100px">Grabar los datos de la cabecera de la factura</span></a>&nbsp;&nbsp;
+<a style="cursor:pointer" ng-click="aprove_fact();" class="info"><img src="gifs/standar/permisos.png" border="0" height="16" align="absmiddle">Aprobar<span style="width:100px">Aprobar la factura</span></a>
+<a style="cursor:pointer" ng-click="imprimir_factura();" class="info"><img src="gifs/print.png" border="0" height="16" align="absmiddle">Imprimir<span style="width:100px">Imprimir la Factura</span></a>
+
+
+
+
+		

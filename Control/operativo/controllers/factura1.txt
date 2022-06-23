@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMLPtesa>
+   <ControlDocumento>
+      <Version>1.0</Version>
+   </ControlDocumento>
+   <Documentos>
+      <Documento>
+         <FacturaElectronica>
+            <Resolucion>
+               <NumeroAutorizacion>18763002872050</NumeroAutorizacion>
+               <FechaInicio>2019-12-20</FechaInicio>
+               <FechaFin>2021-12-20</FechaFin>
+               <Prefijo>IS</Prefijo>
+               <Desde>1</Desde>
+               <Hasta>20000</Hasta>
+            </Resolucion>
+            <TipoOperacion>10</TipoOperacion>
+            <NumeroDocumento>IS17666</NumeroDocumento>
+            <AmbienteDestino>1</AmbienteDestino>
+            <FechaEmision>2021-10-08T15:03:23-05:00</FechaEmision>
+            <FechaVencimientoFactura>2021-10-07</FechaVencimientoFactura>
+            <TipoFactura>1</TipoFactura>
+            <DivisaFactura>COP</DivisaFactura>
+            <CantidadLineasFactura>1</CantidadLineasFactura>
+            <PeriodoFacturacion>
+               <FechaInicio>2021-10-08</FechaInicio>
+               <FechaFin>2021-10-09</FechaFin>
+            </PeriodoFacturacion>
+            <ProveedorOF>
+               <Identificador>102579</Identificador>
+               <TipoOrganizacion>1</TipoOrganizacion>
+               <CIIU>7710</CIIU>
+               <NombreComercialEmisor>ADMINISTRACIÓN OPERATIVA AUTOMOTRIZ S.A.S</NombreComercialEmisor>
+               <DireccionFisica>
+                  <CodigoMunicipio>11001</CodigoMunicipio>
+                  <NombreCiudad>BOGOTÁ, D.C.</NombreCiudad>
+                  <CodigoPostal>111121</CodigoPostal>
+                  <NombreDepartamento>Bogotá</NombreDepartamento>
+                  <CodigoDepartamento>11</CodigoDepartamento>
+                  <Lineas>
+                     <Linea>CR 69b 98A 10, Bogotá</Linea>
+                  </Lineas>
+                  <CodigoPais>CO</CodigoPais>
+                  <NombrePais>Colombia</NombrePais>
+                  <IDLenguajePais>es</IDLenguajePais>
+               </DireccionFisica>
+               <InfoFiscal>
+                  <NombreRazonSocialFiscal>ADMINISTRACIÓN OPERATIVA AUTOMOTRIZ S.A.S</NombreRazonSocialFiscal>
+                  <NitEmisorFiscal>900174552</NitEmisorFiscal>
+                  <DVEmisorFiscal>5</DVEmisorFiscal>
+                  <TipoIDEmisorFiscal>31</TipoIDEmisorFiscal>
+                  <RegimenEmisor>O-23</RegimenEmisor>
+                  <ListaRegimenEmisor>No aplica</ListaRegimenEmisor>
+                  <DireccionFisica>
+                     <CodigoMunicipio>11001</CodigoMunicipio>
+                     <NombreCiudad>BOGOTÁ, D.C.</NombreCiudad>
+                     <NombreDepartamento>Bogotá</NombreDepartamento>
+                     <CodigoDepartamento>11</CodigoDepartamento>
+                     <Lineas>
+                        <Linea>CR 69b 98A 10, Bogotá</Linea>
+                     </Lineas>
+                     <CodigoPais>CO</CodigoPais>
+                     <NombrePais>Colombia</NombrePais>
+                     <IDLenguajePais>es</IDLenguajePais>
+                  </DireccionFisica>
+                  <IdentificadorTributo>01</IdentificadorTributo>
+                  <NombreTributo>IVA</NombreTributo>
+               </InfoFiscal>
+               <InfoLegal>
+                  <NombreRazonSocialLegal>ADMINISTRACIÓN OPERATIVA AUTOMOTRIZ S.A.S</NombreRazonSocialLegal>
+                  <NitEmisorLegal>900174552</NitEmisorLegal>
+                  <DVNitEmisorLegal>5</DVNitEmisorLegal>
+                  <TipoIDEmisorLegal>31</TipoIDEmisorLegal>
+                  <PrefijoFacturacion>IS</PrefijoFacturacion>
+               </InfoLegal>
+               <Contacto>
+                  <EmailContacto>feclientes@aoacolombia.com</EmailContacto>
+               </Contacto>
+            </ProveedorOF>
+            <ClienteADQ>
+               <TipoPersona>2</TipoPersona>
+               <IdentificacionADQ>45477929</IdentificacionADQ>
+               <NombreComercial>LORENZA   LUJAN TORRES</NombreComercial>
+               <DireccionFisica>
+                  <CodigoMunicipio>05001</CodigoMunicipio>
+                  <NombreCiudad>MEDELLIN</NombreCiudad>
+                  <NombreDepartamento>ANTIOQUIA</NombreDepartamento>
+                  <CodigoDepartamento>05</CodigoDepartamento>
+                  <Lineas>
+                     <Linea>CARRERA 65F NA 30C-10 APT 401</Linea>
+                  </Lineas>
+                  <CodigoPais>CO</CodigoPais>
+                  <NombrePais>Colombia</NombrePais>
+                  <IDLenguajePais>es</IDLenguajePais>
+               </DireccionFisica>
+               <InfoFiscalClienteADQ>
+                  <NombreRazonSocialFiscalADQ>LORENZA   LUJAN TORRES</NombreRazonSocialFiscalADQ>
+                  <NitFiscalADQ>45477929</NitFiscalADQ>
+                  <TipoIDADQ>13</TipoIDADQ>
+                  <CodigoImpuesto>R-99-PN</CodigoImpuesto>
+                  <RegimenADQ>No aplica</RegimenADQ>
+                  <DireccionFisica>
+                     <CodigoMunicipio>05001</CodigoMunicipio>
+                     <NombreCiudad>MEDELLIN</NombreCiudad>
+                     <NombreDepartamento>ANTIOQUIA</NombreDepartamento>
+                     <CodigoDepartamento>05</CodigoDepartamento>
+                     <Lineas>
+                        <Linea>CARRERA 65F Nº 30C-10 APT 401</Linea>
+                     </Lineas>
+                     <CodigoPais>CO</CodigoPais>
+                     <NombrePais>Colombia</NombrePais>
+                     <IDLenguajePais>es</IDLenguajePais>
+                  </DireccionFisica>
+                  <IdentificadorTributo>01</IdentificadorTributo>
+                  <NombreTributo>IVA</NombreTributo>
+               </InfoFiscalClienteADQ>
+               <Contacto>
+                  <TelefonoContacto>3008050843</TelefonoContacto>
+                  <EmailContacto>lujanlorenza31@gmail.com</EmailContacto>
+               </Contacto>
+               <PersonaNatural>
+                  <NombresADQ>LORENZA   LUJAN TORRES</NombresADQ>
+               </PersonaNatural>
+            </ClienteADQ>
+            <Pago>
+               <IDMetodoPago>1</IDMetodoPago>
+               <CodigoMedioPago>46</CodigoMedioPago>
+               <FechaVencimiento>2019-10-05</FechaVencimiento>
+            </Pago>
+            <TotalImpuestos>
+               <TotalImpuesto>
+                  <ValorTributos>9579.8</ValorTributos>
+                  <MontoRedondeo>0.00</MontoRedondeo>
+                  <SubTotalTributoTarifa>
+                     <BaseImponible>50420</BaseImponible>
+                     <ValorTributo>9579.8</ValorTributo>
+                     <Porcentaje>19.00</Porcentaje>
+                  </SubTotalTributoTarifa>
+                  <IdentificadorTributo>01</IdentificadorTributo>
+                  <NombreTributo>IVA</NombreTributo>
+               </TotalImpuesto>
+            </TotalImpuestos>
+            <ValoresTotalesFactura>
+               <TotalValorBruto>50420</TotalValorBruto>
+               <TotalBaseImponible>50420</TotalBaseImponible>
+               <TotalValorBrutoMasTributos>59999.8</TotalValorBrutoMasTributos>
+               <ValorAPagarFactura>59999.8</ValorAPagarFactura>
+            </ValoresTotalesFactura>
+            <LineasDetalle>
+               <LineaDetalle>
+                  <IDLinea>1</IDLinea>
+                  <CantidadProductoServicio>1.00</CantidadProductoServicio>
+                  <IDUnidadMedida>94</IDUnidadMedida>
+                  <ValorTotalLinea>50420</ValorTotalLinea>
+                  <Impuestos>
+                     <Impuesto>
+                        <ValorTributoLinea>9579.8</ValorTributoLinea>
+                        <MontoRedondeo>0.00</MontoRedondeo>
+                        <SubTotalTributoTarifa>
+                           <BaseImponibleLinea>50420.00</BaseImponibleLinea>
+                           <ValorTributoLineaBase>9579.8</ValorTributoLineaBase>
+                           <Porcentaje>19.00</Porcentaje>
+                        </SubTotalTributoTarifa>
+                        <IdentificadorTributo>01</IdentificadorTributo>
+                        <NombreTributo>IVA</NombreTributo>
+                     </Impuesto>
+                  </Impuestos>
+                  <Item>
+                     <DescripcionItem>
+                        <Texto>SERVICIO DE CONSTITUCION DE GARANTIA PROTECCION TOTAL POR 15 DIAS SINIESTRO 105914714 DE PLACA FVR130 IVA 19.00%</Texto>
+                     </DescripcionItem>
+                     <Extensiones>
+                        <Extension>
+                           <Tipo>ITEM</Tipo>
+                           <Clave>VlrTotalItem</Clave>
+                           <Valor>59999.8</Valor>
+                        </Extension>
+                     </Extensiones>
+                  </Item>
+                  <Precio>
+                     <PrecioArticulo>50420.00</PrecioArticulo>
+                     <CantidadBase>1.00</CantidadBase>
+                     <UnidadDeCantidad>ZZ</UnidadDeCantidad>
+                  </Precio>
+               </LineaDetalle>
+            </LineasDetalle>
+            <Extensiones>
+               <Extension>
+                  <Tipo>DOC</Tipo>
+                  <Clave>ValorLetras</Clave>
+                  <Valor>CINCUENTA Y NUEVE MIL NOVECIENTOS NOVENTA Y NUEVE  PESOS</Valor>
+               </Extension>
+               <Extension>
+                  <Tipo>DOC</Tipo>
+                  <Clave>MensRespon</Clave>
+                  <Valor>Actividades Economicas No. 7710 Y 7020
+Grandes Contribuyentes Impuestos Distritales Bogota Resolucion
+DDI-032117 Shda 25 Oct 2019</Valor>
+               </Extension>
+               <Extension>
+                  <Tipo>DOC</Tipo>
+                  <Clave>Concepto</Clave>
+                  <Valor>Documento oficial de autorizacion de numeracion de facturacion No. 
+		18763002872050 de 2019-12-20 vigencia 24 meses 
+		IS1 IS2000</Valor>
+               </Extension>
+               <Extension>
+                  <Tipo>DOC</Tipo>
+                  <Clave>PTESA.COMPANY_BRANCH</Clave>
+                  <Valor>102579</Valor>
+               </Extension>
+               <Extension>
+                  <Tipo>DOC</Tipo>
+                  <Clave>OrdServicio</Clave>
+                  <Valor>105914714</Valor>
+               </Extension>
+               <Extension>
+                  <Tipo>DOC</Tipo>
+                  <Clave>TxtMora</Clave>
+                  <Valor>El incuplimiento de pago de esta factura causa interes de mora,a la tase maxima legal permitida por la ley.</Valor>
+               </Extension>
+            </Extensiones>
+         </FacturaElectronica>
+      </Documento>
+   </Documentos>
+</XMLPtesa>

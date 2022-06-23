@@ -1,0 +1,172 @@
+<html>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+	<style>
+		td{font-size: <?php echo $Tam_Fuente ?>;}
+	</style>
+
+	<body>
+	<table width='100%' class='table_image' border cellspacing='0' align='center'>
+				<tr>
+					<td width='20%' rowspan=3 align='center' valign='middle'>
+						<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+					</td>
+					<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo $Tipo->nombre ?></b></td>
+					<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+				</tr>
+		</table>
+		<table border='0' cellspacing='0' cellpadding='0' width='100%' align='center'>
+			<tr>
+				<td width='20%'></td>
+				<td align='center' style='font-size:8px;' width='50%'>
+					<span id='subtitle'> Consecutivo Interno Número </span>:<?php echo $Nconsecutivo ?></td>
+				<td width='30%'></td>
+			</tr>
+		</table>
+			<!--cabecera-->
+		<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+	
+		<table  border cellspacing='0' cellpadding='0' width='100%'>
+			<tr>
+				<td colspan="6">
+					<b>NOTA:</b> "NOTA: ESTE FORMATO DEBE SER DILIGENCIADO COMPLETAMENTE, EN EL SOLO PUEDE 
+					CONSIGNARSE INFORMACIÓN QUE PUEDA SER CERTIFICADA Y CONSTATADA EN EL PROCESO DE CALIDAD DE 
+					ACUERDO A LOS SOPORTES DE GRABACION O PROCESOS OPERATIVOS ESTABLECIDOS. LA FIRMA DE ESTE IMPLICA 
+					QUE SE DEBEN REALIZAR LOS COMPROMISOS DE MEJORA Y SEGUIMIENTOS DE ACUERDO A LA RETROALIMENTACION REALIZADA, 
+					LA CUAL PUEDE IR ACOMPAÑADA DEL LLAMADO DE ATENCION."
+                  </td>
+			</tr>
+			
+			<tr>
+				<td class="theader">FECHA DE AUDITORIA:</td>
+				<td><span  class='writetd' onclick="make_visible(1)" ondblclick="make_invisible(1)"><input class="date_input" id="einput1"  type="date"></span></td>
+				<td class="theader">FECHA DE GESTION:</td>
+				<td><span  class='writetd' onclick="make_visible(2)" ondblclick="make_invisible(2)"><input class="date_input" id="einput2"  type="date"></span></td>
+			</tr>
+			
+			<tr>			
+				<td class="theader">FECHA</td>
+				<td><span  class='writetd' onclick="make_visible(3)" ondblclick="make_invisible(3)"><input class="date_input" id="einput3"  type="date"></span></td>
+				<td class="theader">TIPO DE MONITOREO</td>
+				<td>
+					<select>
+						<option></option>
+						<option>LLAMADA INBOUND</option>
+						<option>LLAMADA OUTBOUND</option>
+						<option>AUDITORIA</option>
+						<option>QUEJA</option>
+						<option>PETICIÓN</option>
+					</select>
+				</td>
+				<td class="theader">TIPO DE CASO</td>
+				<td>
+					<select>
+						<option></option>
+						<option>ERROR CRITICO</option>
+						<option>ERROR NO CRITICO</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>ASEGURADORA</td>
+				<td  contenteditable="true"></td>
+				<td>SINIESTRO</td>
+				<td  contenteditable="true"></td>
+				<td>PLACA</td>
+				<td contenteditable="true"></td>
+			</tr>
+			<tr>
+				<td>
+					<select>
+						<option></option>
+						<option>AUXILIAR DE AUDITORIAS</option>
+						<option>AUXILIAR DE SINIESTROS</option>
+						<option>ANALISTA CALIDAD</option>
+						<option>ANALISTA CALIDAD BACKUP</option>
+						<option>COORDINADOR</option>
+						<option>COORDINADOR JUNIOR</option>
+						<option>DIRECTOR</option>
+					</select>  
+				</td>
+				<td  contenteditable="true"></td>
+				<td>DIRECTOR:</td>
+				<td  contenteditable="true"></td>
+				<td>COLABORADOR</td>
+				<td contenteditable="true"></td>
+			</tr>
+			<tr>
+				<td class="theader" style="text-align:center;" colspan="6" height="30px">DESCRIPCIÓN GENERAL DEL CASO</td>
+			</tr>
+			<tr>
+				<td height="50px" contenteditable="true" colspan="6"></td>
+			</tr>
+			<tr>
+				<td class="theader" style="text-align:center;" colspan="6" height="30px">ASPECTOS POSITIVOS</td>
+			</tr>
+			<tr>
+				<td height="50px" contenteditable="true" colspan="6"></td>
+			</tr>			
+			<tr>
+				<td class="theader" style="text-align:center;" colspan="6" height="30px">SUGERENCIA ANALISTA DE CALIDAD</td>
+			</tr>
+			<tr>
+				<td height="50px" contenteditable="true" colspan="6"></td>
+			</tr>
+			<tr>
+				<td class="theader" style="text-align:center;" colspan="6" height="30px">COMPROMISOS ADQUIRIDOS</td>
+			</tr>
+			<tr>
+				<td height="50px" contenteditable="true" colspan="6"></td>
+			</tr>
+			<tr>
+				<td class="theader" style="text-align:center;" colspan="6" height="30px">SEGUIMIENTO</td>
+			</tr>
+			<tr>
+				<td height="50px" contenteditable="true" colspan="6"></td>
+			</tr>
+			<tr>
+				<td class="theader" style="text-align:center;" colspan="6" height="30px">ACCIÓN EMPRENDIDA</td>
+			</tr>
+			<tr>
+				<td height="50px" contenteditable="true" colspan="6"></td>
+			</tr>
+			<tr>
+				<td colspan="2" style="height:25px;">FIRMA COLABORADOR</td>
+				<td colspan="2">FIRMA
+				<br>
+				<select>
+						<option></option>
+						<option>AUXILIAR DE AUDITORIAS</option>
+						<option>AUXILIAR DE SINIESTROS</option>
+						<option>ANALISTA CALIDAD</option>
+						<option>ANALISTA CALIDAD BACKUP</option>
+						<option>COORDINADOR</option>
+						<option>COORDINADOR JUNIOR</option>
+						<option>DIRECTOR</option>
+					</select>
+				</td>
+				<td colspan="2">FIRMA DIRECTOR</td>
+				
+			</tr>
+		</table>		
+	</div>
+		
+		<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">		
+			<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+	
+	</body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	
+	<script src="/Administrativo/views/js/editable_table.js"></script>
+	<script src="/Administrativo/views/js/basicinput.js"></script>
+	<script src="/Administrativo/views/js/save_document.js"></script>
+
+</html>
+	

@@ -1,0 +1,109 @@
+<html>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+	<style>
+		td{
+			font-size: <?php echo $Tam_Fuente ?>;
+		}
+	</style>
+		<body>
+		<table width='90%' class='table_image' border cellspacing='0' align='center'>
+				<tr>
+					<td width='20%' rowspan=3 align='center' valign='middle'>
+						<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+					</td>
+					<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo utf8_encode($Tipo->nombre) ?></b></td>
+					<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+				</tr>
+		</table>
+		<table border='0' cellspacing='0' cellpadding='0' width='90%' align='center'>
+			<tr>
+				<td width='20%'></td>
+				<td align='center' style='font-size:8px;' width='50%'>
+					<span id='subtitle'><?php echo utf8_encode("Consecutivo Interno Número") ?></span>:<?php echo $Nconsecutivo ?></td>
+				<td width='30%'></td>
+			</tr>
+		</table>
+			<!--cabecera-->
+		<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+		&nbsp;
+		<table border cellspacing='0' width='100%' >
+			<tr>
+				<td  width='15%' rowspan=4 align='center'><b>Infraestructura</b></td>
+				<td  colspan=48 align='center'><b>AÃ±o: <select>
+						<option></option>
+						<option>2017</option>
+						<option>2018</option>
+						<option>2019</option>
+						<option>2020</option>
+						<option>2021</option>
+						<option>2022</option>
+						<option>2023</option>
+					</select></b></td>
+			</tr>
+			<tr>
+				<td  align='center' colspan=4>Enero</td>
+				<td  align='center' colspan=4>Febrero</td>
+				<td  align='center' colspan=4>Marzo</td>
+				<td  align='center' colspan=4>Abril</td>
+				<td  align='center' colspan=4>Mayo</td>
+				<td  align='center' colspan=4>Junio</td>
+				<td  align='center' colspan=4>Julio</td>
+				<td  align='center' colspan=4>Agosto</td>
+				<td  align='center' colspan=4>Septiembre</td>
+				<td  align='center' colspan=4>Octubre</td>
+				<td  align='center' colspan=4>Noviembre</td>
+				<td  align='center' colspan=4>Diciembre</td>
+			</tr>
+			<tr>
+				<td  align='center' colspan=4>Semanas</td>
+				<td  align='center' colspan=4>Semanas</td>
+				<td  align='center' colspan=4>Semanas</td>
+				<td  align='center' colspan=4>Semanas</td>
+				<td  align='center' colspan=4>Semanas</td>
+				<td  align='center' colspan=4>Semanas</td>
+				<td  align='center' colspan=4>Semanas</td>
+				<td  align='center' colspan=4>Semanas</td>
+				<td  align='center' colspan=4>Semanas</td>
+				<td  align='center' colspan=4>Semanas</td>
+				<td  align='center' colspan=4>Semanas</td>
+				<td  align='center' colspan=4>Semanas</td>
+			</tr>
+			<tr>
+				<td  align='center'>1</td><td  align='center'>2</td><td  align='center'>3</td><td  align='center'>4</td>
+				<td  align='center'>1</td><td  align='center'>2</td><td  align='center'>3</td><td  align='center'>4</td>
+				<td  align='center'>1</td><td  align='center'>2</td><td  align='center'>3</td><td  align='center'>4</td>
+				<td  align='center'>1</td><td  align='center'>2</td><td  align='center'>3</td><td  align='center'>4</td>
+				<td  align='center'>1</td><td  align='center'>2</td><td  align='center'>3</td><td  align='center'>4</td>
+				<td  align='center'>1</td><td  align='center'>2</td><td  align='center'>3</td><td  align='center'>4</td>
+				<td  align='center'>1</td><td  align='center'>2</td><td  align='center'>3</td><td  align='center'>4</td>
+				<td  align='center'>1</td><td  align='center'>2</td><td  align='center'>3</td><td  align='center'>4</td>
+				<td  align='center'>1</td><td  align='center'>2</td><td  align='center'>3</td><td  align='center'>4</td>
+				<td  align='center'>1</td><td  align='center'>2</td><td  align='center'>3</td><td  align='center'>4</td>
+				<td  align='center'>1</td><td  align='center'>2</td><td  align='center'>3</td><td  align='center'>4</td>
+				<td  align='center'>1</td><td  align='center'>2</td><td  align='center'>3</td><td  align='center'>4</td>
+			</tr>
+			<?php static $k=0; for($i=0;$i<27;$i++){ ?>
+				<tr>
+					<td class="writetd" contenteditable="true">&nbsp;</td>
+					<?php for($j=0;$j<48;$j++){ ?>
+						<td onclick="make_visible(<?php echo ($i+$k) ?>)" ondblclick="make_invisible(<?php echo ($i+$k) ?>)"><div style='text-align:center;'><input type='checkbox' id="einput<?php echo ($i+$k) ?>" class='check_input'></div></td> <?php $k++; ?>						
+					<?php } ?>
+				</tr>
+			<?php } ?>
+		</table>
+		<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">		
+			<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+	</body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="/Administrativo/views/js/editable_table.js"></script>
+	<script src="/Administrativo/views/js/basicinput.js"></script>
+	<script src="/Administrativo/views/js/save_document.js"></script>
+</html>

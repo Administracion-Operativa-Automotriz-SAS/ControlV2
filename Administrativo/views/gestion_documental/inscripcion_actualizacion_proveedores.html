@@ -1,0 +1,594 @@
+<html>
+<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+		<style>
+			td{
+				font-size: 12px;
+			}
+	</style>
+	<table width='100%' class='table_image' border cellspacing='0' align='center'>
+		<tr>
+			<td width='20%' rowspan=3 align='center' valign='middle'>
+				<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+			</td>
+			<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo $Tipo->nombre ?></b></td>
+			<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+		</tr>
+		<tr>
+			<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+		</tr>
+		<tr>
+			<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+		</tr>
+	</table>
+	<table border='0' cellspacing='0' cellpadding='0' width='100%' align='center'>
+		<tr>
+			<td width='20%'></td>
+			<td align='center' style='font-size:8px;' width='50%'>
+				<span id='subtitle'>Consecutivo Interno Número</span>:<?php echo $Nconsecutivo ?></td>
+			<td width='30%'></td>
+		</tr>
+	</table>
+		<!--cabecera-->
+	<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+	
+	
+	
+	
+	<div class="row">
+		<div class="col-lg-12">
+		<BR>
+			<table border cellspacing='0' width='100%' align='left' >
+				<tr >
+					<td rowspan=2>
+						TIPO DE
+						<BR>TRANSACCIÓN
+					</td>
+					<td>
+						Cliente
+					</td>
+					<td colspan=2><div style="text-align:center;"><input type="radio" name="tipo_transaccion"></div></td>
+				</tr>
+				<tr>				
+					<td>
+						Proveedor
+					</td>
+					<td colspan=2><div style="text-align:center;"><input type="radio" name="tipo_transaccion"></div></td>
+				</tr>
+				<tr>
+					<td colspan=2 style="text-align:center;">AREA QUE SOLICITA LA INSCRIPCIÓN</td>
+					<td contenteditable="true" colspan=2>
+						<br><br>
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2 style="text-align:center;">Fecha diligenciamiento</td>
+					<td colspan=2 onclick="make_visible(0)" ondblclick="make_invisible(0)">
+						<div style="text-align:center">
+							<input class="date_input" id="einput0"  type="date">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2 style="text-align:center;">Oficina</td>
+					<td colspan=2>
+						<div style="text-align:center">
+							<select>
+								<option></option>
+								<?php foreach($oficinas as $oficina) { ?>
+									<option><?php echo $oficina->nombre ?></option>
+								<?php } ?>
+							</select>
+						</div>
+					</td>
+				</tr>				
+				<tr>
+					<td class="theader" bgcolor='#CCCCCC' colspan="4">INFORMACIÓN GENERAL</td>
+				</tr>
+				<tr>
+					<td class='Estilo4' colspan="2">Tipo de persona</td>
+					<td class='Estilo4'>NATURAL <input type="radio" name="tipo_persona" class="form-control"></td>
+					<td class='Estilo4'>JURIDICA <input type="radio" name="tipo_persona" class="form-control"></td>
+				</tr>
+				<tr>
+					<td class='Estilo4'>Apellidos:</td>
+					<td width="25%" contenteditable="true"></td>
+					<td class='Estilo4'>Nombres:</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td class='Estilo4' colspan="2">Nombre establecimiento:</td>
+					<td contenteditable="true" colspan="2"></td>
+				</tr>
+				<tr>
+					<td class='Estilo4' colspan="2">Razón social:</td>
+					<td contenteditable="true" colspan="2"></td>
+				</tr>
+				<tr>
+					<td>
+						NIT <input type="radio" name="tipo_iden">
+						CC <input type="radio" name="tipo_iden">
+						CE <input type="radio" name="tipo_iden">
+						OTRO <input type="radio" name="tipo_iden">
+						¿CUAL?						
+					</td>
+					<td contenteditable="true"></td>
+					<td>Número de documento:</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td class='Estilo4'>Dirección de Notificación:</td>
+					<td contenteditable="true"></td>
+					<td class='Estilo4'>Ciudad:</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td class='Estilo4'>Dirección de Correspondencia:</td>
+					<td contenteditable="true"></td>
+					<td class='Estilo4'>Ciudad:</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td class='Estilo4'>Dirección de Correspondencia:</td>
+					<td contenteditable="true"></td>
+					<td class='Estilo4'>Ciudad:</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td class='Estilo4'>Celular:</td>
+					<td contenteditable="true"></td>
+					<td class='Estilo4'>Telefono:</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td class='Estilo4'>Fax:</td>
+					<td contenteditable="true"></td>
+					<td class='Estilo4'>Email:</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td class='Estilo4' colspan="2">pagina web:</td>
+					<td contenteditable="true" colspan="2"></td>					
+				</tr>
+				<tr>
+					<td class="theader" bgcolor='#CCCCCC' colspan="4">INFORMACIÓN DEL REPRESENTANTE LEGAL </td>
+				</tr>
+				<tr>
+					<td class='Estilo4'>Nombre Completo:</td>
+					<td colspan=3 contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td>
+						NIT <input type="radio" name="tipo_iden">
+						CC <input type="radio" name="tipo_iden">
+						CE <input type="radio" name="tipo_iden">
+						OTRO <input type="radio" name="tipo_iden">
+						¿CUAL?						
+					</td>
+					<td contenteditable="true"></td>
+					<td>Número de documento:</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td class='Estilo4'>Celular:</td>
+					<td contenteditable="true"></td>
+					<td class='Estilo4'>Telefono:</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td class='Estilo4'>Fax:</td>
+					<td contenteditable="true"></td>
+					<td class='Estilo4'>Email:</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td class='Estilo4' colspan="2">pagina web:</td>
+					<td contenteditable="true" colspan="2"></td>					
+				</tr>
+				<tr>
+					<td class="theader" style="text-align:center"  colspan="4">Información Tributaria para Impuestos Nacionales (DIAN)  </td>
+				</tr>
+				<tr>
+					<td>¿Es autorretenedor?  <input type="radio" name="auto_ret"> SI <br> <input style="margin-left:112px;" type="radio" name="auto_ret"> NO</td>
+					<td>Número de Resolución: <input type="text" placeholder="__________________________________  _____________________________"></td>
+					<td onclick="make_visible(5)" ondblclick="make_invisible(5)"> Fecha  
+						<div style="text-align:center">
+							<input class="date_input" id="einput5"  type="date">
+						</div>
+					</td>
+					<td>Regimen <input type="radio" name="reg_iva"> Común <br> <input style="margin-left:50px;" type="radio" name="reg_iva"> Simplificado</td>
+				</tr>
+				<tr>
+					<td>¿Tipo de contribuyente?  <input type="radio" name="t_con"> GRAN CONTRIBUYENTE <br> <input  type="radio" name="t_con"> CONTRIBUYENTE<input  type="radio" name="t_con">NO CONTRIBUYENTE</td></td>
+					<td>Tipo de Regimen (Si es persona juridica)<br> <input type="radio" name="t_reg"> Regimen General <br> <input  type="radio" name="t_reg"> Regimen Especial</td>
+					<td>Número de Resolución: <input type="text" placeholder="__________________________________  _____________________________"></td>
+					<td onclick="make_visible(6)" ondblclick="make_invisible(6)">Fecha
+						<div style="text-align:center">
+							<input class="date_input" id="einput6"  type="date">
+						</div>
+					</td>					
+				</tr>
+				<tr>
+					<td>CODIGO CIU</td>
+					<td contenteditable="true"></td>
+					<td>DESCRIPCIÓN DE LA ACTIVIDAD ECONOMICA</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td class="theader" style="text-align:center"  colspan="4">Información Tributaria para Impuestos Distritales (Secretaria de  Hacienda, Bogotá D.C)</td>
+				</tr>
+				<tr>
+					<td>¿Es autorretenedor?  <input type="radio" name="auto_ret"> SI <br> <input style="margin-left:112px;" type="radio" name="auto_ret"> NO</td>
+					<td>Número de Resolución: <input type="text" placeholder="__________________________________  _____________________________"></td>
+					<td onclick="make_visible(1)" ondblclick="make_invisible(1)"> Fecha  
+						<div style="text-align:center">
+							<input class="date_input" id="einput1"  type="date">
+						</div>
+					</td>
+					<td>Regimen <input type="radio" name="reg_iva"> Común <br> <input style="margin-left:50px;" type="radio" name="reg_iva"> Simplificado</td>
+				</tr>
+				<tr>
+					<td>¿Tipo de contribuyente?  <input type="radio" name="t_con"> GRAN CONTRIBUYENTE <br> <input  type="radio" name="t_con"> CONTRIBUYENTE<input  type="radio" name="t_con">NO CONTRIBUYENTE</td></td>
+					<td>Tipo de Regimen (Si es persona juridica)<br> <input type="radio" name="t_reg"> Regimen General <br> <input  type="radio" name="t_reg"> Regimen Especial</td>
+					<td>Número de Resolución: <input type="text" placeholder="__________________________________  _____________________________"></td>
+					<td onclick="make_visible(2)" ondblclick="make_invisible(2)">Fecha
+						<div style="text-align:center">
+							<input class="date_input" id="einput2"  type="date">
+						</div>
+					</td>					
+				</tr>
+				<tr>
+					<td>Actividad economica</td>
+					<td>
+						<input type="radio" name="t_act"> Servicios 
+						<input type="radio" name="t_act"> Industria
+						<input type="radio" name="t_act"> No aplica <br>
+						<input type="radio" name="t_act"> Comercial
+						<input type="radio" name="t_act"> Sector financiero						
+					</td>
+					<td>Ciudad: <input type="text" placeholder="__________________________________ "></td>
+					<td>Tarifa: <input type="text" placeholder="__________________________________ "></td>
+				</tr>
+				<tr>
+					<td class="theader" style="text-align:center"  colspan="4">Información Bancaria para el pago electronico</td>
+				</tr>
+				<tr>
+					<td>Entidad Bancaria</td>
+					<td contenteditable="true"></td>
+					<td>Sucursal</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td>Titular de la cuenta</td>
+					<td contenteditable="true"></td>
+					<td>CC o NIT Titular</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td>Numero de Cuenta Bancaria</td>
+					<td contenteditable="true"></td>
+					<td>Tipo de cuenta</td>
+					<td> Corriente <input type="checkbox" name="t_cuenta"> Ahorro<input type="checkbox"> </td>
+				</tr>
+				<tr>
+					<td>Correo Electronico para Información</td>
+					<td colspan=3></td>
+				</tr>
+				<tr>
+					<td class="theader" style="text-align:center"  colspan="4">DATOS DE CONTACTO</td>
+				</tr>
+				<tr>
+					<td>Area Comercial Nombre:</td>
+					<td contenteditable="true"></td>
+					<td>Telefono</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td>Celular:</td>
+					<td contenteditable="true"></td>
+					<td>Dirección</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td colspan=2>Email</td>
+					<td colspan=2 contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td>Area Administrativa Nombre:</td>
+					<td contenteditable="true"></td>
+					<td>Telefono</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td>Celular:</td>
+					<td contenteditable="true"></td>
+					<td>Dirección</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td colspan=2>Email</td>
+					<td colspan=2 contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td>Area Cartera Nombre:</td>
+					<td contenteditable="true"></td>
+					<td>Telefono</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td>Celular:</td>
+					<td contenteditable="true"></td>
+					<td>Dirección</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td colspan=2>Email</td>
+					<td colspan=2 contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td>Area Tesoreria Nombre:</td>
+					<td contenteditable="true"></td>
+					<td>Telefono</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td>Celular:</td>
+					<td contenteditable="true"></td>
+					<td>Dirección</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td colspan=2>Email</td>
+					<td colspan=2 contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td class="theader" style="text-align:center"  colspan="4">Referencias Comerciales(Clientes Principales)</td>
+				</tr>
+				<tr>
+					<td>Nombre de la empresa:</td>
+					<td contenteditable="true"></td>
+					<td>Teléfono fijo:</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td>Telefono celular:</td>
+					<td contenteditable="true"></td>
+					<td>Ciudad:</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td>Tiempo como proveedor:</td>
+					<td contenteditable="true"></td>
+					<td>Persona de contacto:</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td>Nombre de la empresa:</td>
+					<td contenteditable="true"></td>
+					<td>Teléfono fijo:</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td>Telefono celular:</td>
+					<td contenteditable="true"></td>
+					<td>Ciudad:</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td>Tiempo como proveedor:</td>
+					<td contenteditable="true"></td>
+					<td>Persona de contacto:</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td class="theader" style="text-align:center"  colspan="4">Datos relativos al credito</td>
+				</tr>
+				<tr>
+					<td>Condición de Pago:</td>
+					<td colspan="3">Contado<input type="radio" name="cond_pago">30 días<input type="radio" name="cond_pago">45 días<input type="radio" name="cond_pago">Otro<input type="radio" name="cond_pago"> Especifique <input type="text" placeholder="______________"> </td>
+				</tr>
+				<tr>
+					<td>Exige Orden de pago</td>
+					<td>
+						SI <input type="radio" name="exig_orden">
+						NO <input type="radio" name="exig_orden">
+					</td>
+					<td>Cupor otorgado </td>
+					<td contenteditable="true">$</td>
+				</tr>
+				<tr>
+					<td>Descuento Pronto Pago</td>
+					<td>
+						SI <input type="radio" name="descu_pro">
+						NO <input type="radio" name="descu_pro">
+					</td>
+					<td>Dias pronto pago</td>
+					<td contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td colspan="4" >
+						<em>
+							Declaro que la Información aquí proporcionada en el presente formulario es veraz y que conozco las sanciones legales en caso de falsedad de los datos aquí contenidos
+							Datos adicionales y declaración:
+						</em>
+						<br><BR>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4" contenteditable="true">						
+						<br><BR>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4" style="text-align:center;">						
+						_______________________________________________
+						<br>
+						FIRMA Y SELLO
+						<br><br>
+						Nombre legible <input type="text" placeholder="_______________">
+						<br><br>
+						Número de identificación <input type="text" placeholder="_______________">
+						<br>
+						<b>Nota: Todos los espacios deben ser diligenciados para realizar la inscripción del proveedor, de lo contrario será rechazado.</b>
+						<br>					
+					</td>
+				</tr>
+				<tr>
+					<td class="theader" style="text-align:center"  colspan="4">VERIFICACIÓN DE DOCUMENTOS ( DILIGENCIAMIENTO </td>
+				</tr>
+				<tr>
+					<td colspan=4>Por favor marque con una X los documentos que verifica</td>
+				</tr>
+				<tr>
+					<td colspan=2>RUT</td>
+					<td colspan=2>
+						<div style="text-align:center">
+							<input type="checkbox">
+						</div>	
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2>Certificado de Camara y comercio no mayor a 30 dias</td>
+					<td colspan=2>
+						<div style="text-align:center">
+							<input type="checkbox">
+						</div>	
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2>Certificación bancaria Vigente</td>
+					<td colspan=2>
+						<div style="text-align:center">
+							<input type="checkbox">
+						</div>	
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2>Declaración de Renta</td>
+					<td colspan=2>
+						<div style="text-align:center">
+							<input type="checkbox">
+						</div>	
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2>EEFF último Corte</td>
+					<td colspan=2>
+						<div style="text-align:center">
+							<input type="checkbox">
+						</div>	
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2>Cédula de Representante Legal</td>
+					<td colspan=2>
+						<div style="text-align:center">
+							<input type="checkbox">
+						</div>	
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2>Certificación de Experiencia</td>
+					<td colspan=2>
+						<div style="text-align:center">
+							<input type="checkbox">
+						</div>	
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2>Referencias Comerciales</td>
+					<td colspan=2>
+						<div style="text-align:center">
+							<input type="checkbox">
+						</div>	
+					</td>
+				</tr>
+				<tr>
+					<td colspan=4><em>Si la empresa se acoge a la ley 1429 del 2010: Declaración juramentada del Representante Legal en donde manifieste que cumple con los requisitos para acogerse a la ley</em></td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<p> En cumplimiento de lo establecido por la Ley Estatutaria 1581 de 2012 (por la cual se dictan disposiciones generales para la protección de datos personales), por su Decreto Reglamentario 1377 de 2013 y demás disposiciones que los modifiquen y/o desarrollen, nos permitimos informar que ADMINISTRACIÓN OPERATIVA AUTOMOTRIZ S.A.S. (en adelante AOA), con N.I.T. 900.174.552-5, ha realizado una actualización de su “Manual de Políticas y Procedimientos para la Protección de Datos Personales”, el cual podrá ser consultado a través de nuestra página web: www.aoacolombia.com.</p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<p>Los titulares de la información podrán ejercer sus derechos a: autorizar, conocer, actualizar, agregar, editar, modificar, rectificar, suprimir la información suministrada y revocar la autorización otorgada, mediante el envío de una comunicación escrita a nuestras oficinas (ubicadas en la Carrera 69B No. 98A-10, en la ciudad de Bogotá D.C) o al correo electrónico: protecciondatospersonales@aoacolombia.com.</p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<p>EL PROVEEDOR/ CLIENTE manifiesta conocer y entender el Manual de Políticas y Procedimientos en Materia de Protección de Datos Personales de AOA,  la cual hace parte integral del presente formato, y entiende que sus datos serán incorporados en nuestra base de datos, cuyo responsable es la compañía.</p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<p>AUTORIZACIÓN TRATAMIENTO DE DATOS PERSONALES: En mi calidad de titular de la información AUTORIZO de manera previa, expresa y voluntaria, a ADMINISTRACIÓN OPERATIVA AUTOMOTRIZ S.A.S. (en adelante “AOA”) para que realice el tratamiento de mi información y datos personales, dentro del marco del objeto del presente CONTRATO. Así mismo, declaro que: (i) me han sido informadas las finalidades del tratamiento de mis datos (ii) conozco sobre la existencia del “Manual de Políticas y Procedimientos para la Protección de Datos Personales” de la compañía (iii) tengo claridad en relación con la existencia de los canales de atención dispuestos por AOA para efectos de ejercer los derechos que ostento como titular de la información. </p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<p>AOA tomará las medidas de índole técnica y administrativas necesarias para garantizar el correcto ejercicio del derecho de Habeas Data como lo establece el Art. 15 de la Constitución Política de Colombia, así como la seguridad de los datos que se encuentren en su poder, evitando su publicación, alteración, pérdida, tratamiento, acceso, o reproducción no autorizada. En todo caso, las partes se obligan a dejar indemne a la otra parte, en todo momento, frente a cualquier reclamación, sanción, violación, y demás eventos que pudieren surgir como consecuencia del incumplimiento de las obligaciones a su cargo frente al correcto tratamiento de los datos personales, derivado de la ejecución de este contrato.</p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<p>AOA informa a sus PROVEEDORES/CLIENTES que cuenta con una Política Anti-Corrupción publicada en nuestra página web:  www.aoacolombia.com la cual permite dar a conocer su posición de "cero Tolerancia" frente a conductas de soborno o actos de corrupción. AOA consultara las listas Clinton y OFAC. </p>
+					</td>
+				</tr>
+				<tr>
+					<td class="theader">Funcionario Responsable del	Ciente / Proveedor</td>
+					<td class="theader">Gerente General de AOA S.A.S. </td>
+					<td class="theader">Contabilidad</td>
+					<td class="theader">Archivo Proveedores</td>
+				</tr>
+				<tr>
+					<td>
+						<br><br><br>
+						Firma
+					</td>
+					<td>
+						<br><br><br>
+						Firma
+					</td>
+					<td>
+						<br><br><br>
+						Firma
+					</td>
+					<td>
+						<br><br><br>
+						Firma
+					</td>
+				</tr>
+				<tr>
+					<td contenteditable="true">Nombre</td>
+					<td contenteditable="true">Nombre</td>
+					<td contenteditable="true">Nombre</td>
+					<td contenteditable="true">Nombre</td>
+				</tr>
+				<tr>
+					<td contenteditable="true">Cargo</td>
+					<td contenteditable="true">Cargo</td>
+					<td contenteditable="true">Cargo</td>
+					<td contenteditable="true">Cargo</td>
+				</tr>
+			</table>
+		</div>	
+	</div>
+	
+	
+	<div class="row">
+		<div class="col-lg-12">
+			<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">	
+			<input type="hidden">
+			<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+		</div>
+	</div>	
+ </body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="/Administrativo/views/js/editable_table.js"></script>
+	<script src="/Administrativo/views/js/basicinput.js"></script>
+	<script src="/Administrativo/views/js/save_document.js"></script>
+	<script src="/Administrativo/views/js/placas.js"></script>
+ </html>

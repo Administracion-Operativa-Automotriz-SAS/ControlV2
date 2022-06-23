@@ -1,0 +1,32 @@
+	<table id="prints" class='table table-hover table-bordered'>
+		<thead>
+			<tr>
+				<th>id</th>					
+				<th>Usuario</th>
+				<th>fecha</th>
+				<th>opciones</th>				
+			</tr>
+		</thead>
+		<tbody>
+		<?php foreach($impresiones as $impresion){ ?>
+			<tr>
+				<td><?php echo $impresion->id ?></td>
+				<td><?php echo $impresion->usuario ?></td>
+				<td><?php echo $impresion->fecha ?></td>
+				<td>
+					<form method="post" id="save_document" target="_blank" action="Controllers/gestion_documental_helper.php?Acc=load_print_document">
+						<input type="hidden" name="id" value="<?php echo $impresion->id ?>">	
+						<button style="width:115px !important; margin-top:5px; margin-left:30px;" class="btn btn-xs btn-success"><?php echo utf8_decode("Ver impresión") ?></button>
+					</form>							
+				</td>			
+			</tr>
+		<?php } ?>
+		</tbody>
+	</table>
+	<script>
+		$( document ).ready(function(){
+			$('#prints').DataTable({"language": {"url": "//cdn.datatables.net/plug-ins/1.10.13/i18n/Spanish.json"},"pageLength": 50});
+			
+		});			
+	</script>
+</html>

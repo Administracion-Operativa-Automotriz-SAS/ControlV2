@@ -1,0 +1,196 @@
+<html>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+	<style>
+		td{
+			font-size: <?php echo $Tam_Fuente ?>;
+		}
+	</style>
+		<table width='100%' class='table_image' border cellspacing='0' align='center'>
+			<tr>
+				<td width='20%' rowspan=3 align='center' valign='middle'>
+					<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+				</td>
+				<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo $Tipo->nombre ?></b></td>
+				<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+			</tr>
+			<tr>
+				<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+			</tr>
+			<tr>
+				<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+			</tr>
+		</table>
+		<table border='0' cellspacing='0' cellpadding='0' width='100%' align='center'>
+			<tr>
+				<td width='20%'></td>
+				<td align='center' style='font-size:8px;' width='50%'>
+					<span id='subtitle'>Consecutivo Interno Número</span>:<?php echo $Nconsecutivo ?></td>
+				<td width='30%'></td>
+			</tr>
+	    </table>
+		<!--cabecera-->
+		<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+		
+		&nbsp;
+		<table border cellspacing='0' width='100%'>
+			<tr>
+				<td  width='20%' class='theader' colspan="3"><b>NOMBRE DEL COLABORADOR</b></td>
+				<td class='writetd' contenteditable="true" colspan="4"></td>
+			</tr>
+			<tr>
+				<td  width='20%' class='theader' colspan="3"><b>CEDULA</b></td>
+				<td class='writetd' contenteditable="true" colspan="4"></td>
+			</tr>
+			<tr>
+				<td  width='20%' class='theader' colspan="3"><b>CARGO</b></td>
+				<td class='writetd' contenteditable="true" colspan="4"></td>
+			</tr>
+			<tr>
+				<td  width='20%' class='theader' colspan="3"><b>RESPONSABLE DE LA RUTA DE CAPACITACIÓN</b></td>
+				<td class='writetd' contenteditable="true" colspan="4"></td>
+			</tr>
+			<tr>
+				<td  width='20%' class='theader'><b>FECHA INGRESO DEL COLABORADOR</b></td>
+				<td   class='theader'>MES</td>
+				<td width='20%' contenteditable="true"></td>
+				<td   class='theader'>DIA</td>
+				<td width='20%' contenteditable="true"></td>
+				<td   class='theader'>AÑO</td>
+				<td width='20%' contenteditable="true"></td>
+			</tr>
+			<tr>
+				<td  width='20%' class='theader'><b>FECHA DE ENTREGA RUTA DE
+CAPACITACIÓN </b></td>
+				<td   class='theader'>MES</td>
+				<td width='20%' contenteditable="true"></td>
+				<td   class='theader'>DIA</td>
+				<td width='20%' contenteditable="true"></td>
+				<td   class='theader'>AÑO</td>
+				<td width='20%' contenteditable="true"></td>				
+			</tr>
+		</table>
+		&nbsp;
+		<table border cellspacing='0' width='100%'>			
+			<tr>
+				<td>
+					Con su firma hará constar que el Colaborador relacionado fué capacitado en los temas referentes a su área de Dirección. El
+encargado de la ruta de capacitaciòn debe hacer entrega del mismo formato en la fecha establecida
+				</td>
+			</tr>
+		</table>
+		&nbsp;
+		<table border cellspacing='0' width='100%'>
+			<tr>
+				<td  align='center' width='33%' class='theader'><b>RESPONSABLE DEL AREA</b></td>
+				<td  align='center' width='34%' class='theader'><b>FECHAS Y HORAS</b></td>
+				<td  align='center' width='33%' class='theader'><b>FIRMA</b></td>				
+			</tr>
+			
+			<tr>
+				<td class='writetd' style="text-align:center;" ><b>DIRECTOR COMERCIAL</b></td>
+				<td class='writetd' onclick="make_visible(0)" ondblclick="make_invisible(0)">
+					<div style='text-align:center;'>
+						Fecha:<input id="einput0" class="date_input" type='date'>
+						<br>
+						Hora: <input type="text">
+					</div>
+				</td>
+				<td ></td>				
+			</tr>
+			
+			<tr>
+				<td class='writetd' style="text-align:center;" ><b>DIRECTOR ADMINISTRATIVO</b></td>
+				<td class='writetd' onclick="make_visible(1)" ondblclick="make_invisible(1)">
+					<div style='text-align:center;'>
+						Fecha:<input id="einput1" class="date_input" type='date'>
+						<br>
+						Hora: <input type="text">
+					</div>
+				</td>
+				<td ></td>				
+			</tr>
+			
+			<tr>
+				<td class='writetd' style="text-align:center;"><b>DIRECTOR OPERATIVO</b></td>
+				<td class='writetd' onclick="make_visible(2)" ondblclick="make_invisible(2)">
+					<div style='text-align:center;'>
+						Fecha:<input id="einput2" class="date_input" type='date'>
+						<br>
+						Hora: <input type="text">
+					</div>
+				</td>
+				<td ></td>				
+			</tr>
+			
+			<tr>
+				<td class='writetd' style="text-align:center;"><b>DIRECTOR SERVICIO AL CLIENTE</b></td>
+				<td class='writetd' onclick="make_visible(3)" ondblclick="make_invisible(3)">
+					<div style='text-align:center;'>
+						Fecha:<input id="einput3" class="date_input" type='date'>
+						<br>
+						Hora: <input type="text">
+					</div>
+				</td>
+				<td ></td>				
+			</tr>
+			
+			<tr>
+				<td class='writetd' style="text-align:center;"><b>DIRECTOR GESTIÓN HUMANA</b></td>
+				<td class='writetd' onclick="make_visible(4)" ondblclick="make_invisible(4)">
+					<div style='text-align:center;'>
+						Fecha:<input id="einput4" class="date_input" type='date'>
+						<br>
+						Hora: <input type="text">
+					</div>
+				</td>
+				<td ></td>				
+			</tr>
+			
+			
+			<tr>
+				<td class='writetd' style="text-align:center;"><b>DIRECTOR TECNOLOGIA Y PLANEACIÓN</b></td>
+				<td class='writetd' onclick="make_visible(5)" ondblclick="make_invisible(5)">
+					<div style='text-align:center;'>
+						Fecha:<input id="einput5" class="date_input" type='date'>
+						<br>
+						Hora: <input type="text">
+					</div>
+				</td>
+				<td ></td>				
+			</tr>
+			
+			<tr>
+				<td class='writetd' style="text-align:center;"><b>COORDINADOR DE SISTEMAS DE GESTIÒN</b></td>
+				<td class='writetd' onclick="make_visible(6)" ondblclick="make_invisible(6)">
+					<div style='text-align:center;'>
+						Fecha:<input id="einput6" class="date_input" type='date'>
+						<br>
+						Hora: <input type="text">
+					</div>
+				</td>
+				<td ></td>				
+			</tr>
+			
+		</table>
+		<table border cellspacing='0' width='100%'>
+			<tr>
+				<td class='theader'>FIRMA DEL COLABORADOR</td>
+				<td width="50%" height="30px"></td>
+			</tr>
+			<tr>
+				<td class='theader'>FIRMA DEL RESPONSABLE DE RUTA DE CAPACITACIÓN</td>
+				<td width="50%" height="30px"></td>
+			</tr>
+		</table>
+		
+	<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">	
+	<input type="hidden">
+	<button id="document_save_button" onclick="save_document()">Guardar</button>	
+	</body>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<script src="/Administrativo/views/js/editable_table.js"></script>
+		<script src="/Administrativo/views/js/basicinput.js"></script>
+		<script src="/Administrativo/views/js/save_document.js"></script>
+</html>

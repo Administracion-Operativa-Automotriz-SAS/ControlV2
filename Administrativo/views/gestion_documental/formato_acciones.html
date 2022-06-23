@@ -1,0 +1,187 @@
+<html>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+	<style>
+		td{
+			font-size: <?php echo $Tam_Fuente ?>;
+		}
+	</style>	
+	<body>
+		<!--cabecera-->
+		<table width='100%' class='table_image' border cellspacing='0' align='center'>
+			<tr>
+				<td width='20%' rowspan=3 align='center' valign='middle'>
+					<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+				</td>
+				<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo $Tipo->nombre ?></b></td>
+				<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+			</tr>
+			<tr>
+				<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+			</tr>
+			<tr>
+				<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+			</tr>
+		</table>
+		<table border='0' cellspacing='0' cellpadding='0' width='100%' align='center'>
+			<tr>
+				<td width='20%'></td>
+				<td align='center' style='font-size:8px;' width='50%'>
+					<span id='subtitle'>Consecutivo Interno Número</span>:<?php echo $Nconsecutivo ?></td>
+				<td width='30%'></td>
+			</tr>
+	    </table>
+		<!--cabecera-->
+		<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+		&nbsp;
+		<table border cellspacing='0' width='100%' >
+			<tr>
+				<td  align='center' colspan="2" class='theader'><b>APERTURA</b></td>
+				<td  align='center' colspan="2" class='theader'><b>CIERRE</b></td>
+			</tr>
+			<tr>
+				<td   colspan="2" width='60%'>Fecha de apertura de la acción: <span  class='writetd' onclick="make_visible(0)" ondblclick="make_invisible(0)"><input class="date_input" id="einput0"  type="date"></span>
+					<br>Acción No. <input type='number'>
+					<br>RESPONSABLE<input type='text'><br>
+					Proceso: <input type='text'>
+					<br>Líder de Proceso: <input type='text'>
+					<br>
+					<center><b>Tipo de Acción</b></center>
+					<br>
+					<center> Correctiva |<input type='radio' name='accion'>|   Preventiva |<input type='radio' name='accion'>|  Mejora |<input type='radio' name='accion'>|</center>&nbsp;</br>
+					<b>Fuente</b>&nbsp;
+					Servicio |<input type='radio' name='fuente'>| Cliente |<input type='radio' name='fuente'>| Proceso |<input type='radio' name='fuente'>| Auditoría |<input type='radio' name='fuente'>| Riesgo |<input type='radio' name='fuente'>| <br>  Otro Â¿CuÃ¡l? <input type='text'>
+					<br><br>
+				</td>
+				<td colspan="2" >
+				Fecha Programada de cierre: <span  class='writetd' onclick="make_visible(1)" ondblclick="make_invisible(1)"><input class="date_input" id="einput1"  type="date"></span>
+				<br>
+				Fecha real de cierre: <span  class='writetd' onclick="make_visible(2)" ondblclick="make_invisible(2)"><input class="date_input" id="einput2"  type="date">&nbsp;
+				<center><b>Acción Correctiva o Preventiva</b>&nbsp;Hallazgos que soportan la eficacia de la acción</center>
+				<textarea style="width:100%"></textarea>
+				<center><b>Acción de mejora</b>&nbsp;¿Que beneficios lograron con la implementación?</center>
+				<textarea style="width:100%"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td   colspan="2" align='center' class='theader'><b>DESCRIPCIÓN DE LA NO CONFORMIDAD (Acción Correctiva o Preventiva)
+				DESCRIPCION DEL OBJETIVO DE LA MEJORA (Acción de Mejora)</b></td>
+				<td  colspan="2" align='center' class='theader'><b>AUTORIZAN EL CIERRE:</b></td>
+			</tr>
+			<tr>
+				<td contenteditable="true" colspan="2"></td>
+				<td style="font-size:0.6em;">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<center>____________________________ </center><br>
+					  Nombre:<input type="text"><br> 
+					  Cargo: <input type="text"> <br>
+					  Proceso: <input type="text"><br>
+				</td>
+				<td style="font-size:0.6em;">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<center>____________________________ </center><br>
+					  Nombre:<input type="text"><br> 
+					  Cargo: <input type="text"> <br>
+					  Proceso: <input type="text"><br>
+				</td>
+			</tr>
+		</table>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		<!--
+		<table border cellspacing='0' width='100%' >
+			<tr>
+				<td  class='theader' align='center'><b>APERTURA</b></td>
+				<td  class='theader' align='center'><b>CIERRE</b></td>
+			</tr>
+			<tr>
+				<td  width='60%'>Fecha de apertura de la acción: <span  class='writetd' onclick="make_visible(3)" ondblclick="make_invisible(3)"><input class="date_input" id="einput3"  type="date"></span>   Acción No. <input type='number'></td>
+				<td >Fecha Programada de cierre: <span  class='writetd' onclick="make_visible(4)" ondblclick="make_invisible(4)"><input class="date_input" id="einput4"  type="date"></span>&nbsp;<br>Fecha real de cierre: <span  class='writetd' onclick="make_visible(5)" ondblclick="make_invisible(5)"><input class="date_input" id="einput5"  type="date"></span>&nbsp;</td>
+			</tr>
+		</table>
+		-->
+		
+		<table border cellspacing='0' width='100%' >
+			<tr>
+				<td  class='theader' align='center' colspan=2><b>ANALISIS DE CAUSAS O JUSTIFICACIÓN</b></td>
+			</tr>
+			<tr>
+				
+				<td  colspan="2" align='center'><b>Causas (si es Acción Correctiva o Preventiva) o justificación (si es Acción de Mejora)</b></td>
+			</tr>
+			</tr>
+				<td colspan="2" height="100px;" contenteditable="true">
+					
+				</td>
+			</tr>
+		</table>
+		
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		&nbsp;
+		<!--
+		<table border cellspacing='0' width='100%' >
+			<tr>
+				<td class='theader' align='center'><b>APERTURA</b></td>
+				<td class='theader' align='center'><b>CIERRE</b></td>
+			</tr>
+			<tr>
+				<td  width='60%'>Fecha de apertura de la acción: <span  class='writetd' onclick="make_visible(8)" ondblclick="make_invisible(8)"><input class="date_input" id="einput8"  type="date"></span>   Acción No. <input type='number'></td>
+				<td >Fecha Programada de cierre: <span  class='writetd' onclick="make_visible(6)" ondblclick="make_invisible(6)"><input class="date_input" id="einput6"  type="date"></span>&nbsp;<br>Fecha real de cierre: <span  class='writetd' onclick="make_visible(7)" ondblclick="make_invisible(7)"><input class="date_input" id="einput7"  type="date"></span>&nbsp;</td>
+			</tr>
+		</table>
+		-->
+		<table border cellspacing='0' width='100%' >
+			<tr>
+				<td  class='theader' align='center' colspan=5><b>PLAN DE ACCIÓN&nbsp;(Actividades a realizar para eliminar las causas delas no conformidades o implementar la mejora)</b></td>
+				<td  class='theader' align='center' colspan=3><b>SEGUIMIENTO
+(Diligenciar el avance que se tiene en la actividad del plan de acción - pueden realizarse el número de seguimientos que se considere)</b></td>
+			</tr>
+			<tr>
+				<td  class='theader' colspan=2 rowspan=2 align='center'><b>Actividad</b></td>
+				<td  class='theader' align='center' rowspan=2><b>Responsable</b>&nbsp;Funcionarios de planta: Cargo&nbsp;Copntratistas: Nombre y apellido</td>
+				<td  class='theader' align='center' rowspan=2><b>Fecha de&nbsp;Inicio&nbsp;Planteada</b></td>
+				<td  class='theader' align='center' rowspan=2><b>Fecha de&nbsp;Fin&nbsp;Planteada</b></td>
+				<td  class='theader' align='center' colspan=2><b>Descripción del avance del plan de acción</b></td>
+				<td  class='theader' align='center' rowspan=2><b>Evidencia/&nbsp;ubicación</b></td>
+			</tr>
+			<tr>
+				<td  class='theader' align='center' ><b>Fecha de&nbsp;seguimiento</b></td>
+				<td  class='theader' align='center' ><b>Avance</b></td>
+			</tr>
+			
+			<?php static $j = 15; for($i=1;$i<=6;$i++){ ?>
+			<tr>
+				<td  width='1%' rowspan=3><?php echo $i ?></td>
+				<td width='20%' class='writetd' rowspan=3 contenteditable="true"></td><td class='writetd' rowspan=3 contenteditable="true"></td><td rowspan=3 class='writetd' onclick="make_visible(<?php echo $i+$j ?>)" ondblclick="make_invisible(<?php echo $i+$j ?>)"><input class="date_input" id="einput<?php echo $i+$j ?>"  type="date"></td><?php $j++ ?>
+				<td rowspan=3 class='writetd' onclick="make_visible(<?php echo $i+$j ?>)" ondblclick="make_invisible(<?php echo $i+$j ?>)"><input class="date_input" id="einput<?php echo $i+$j ?>"  type="date"></td><?php $j++ ?>
+				<td class='writetd' onclick="make_visible(<?php echo $i+$j ?>)" ondblclick="make_invisible(<?php echo $i+$j ?>)"><input class="date_input" id="einput<?php echo $i+$j ?>"  type="date"></td><?php $j++ ?>
+				<td class='writetd' onclick="make_visible(<?php echo $i+$j ?>)" ondblclick="make_invisible(<?php echo $i+$j ?>)"><input class="date_input" id="einput<?php echo $i+$j ?>"  type="date"></td><?php $j++ ?>
+				<td class='writetd' onclick="make_visible(<?php echo $i+$j ?>)" ondblclick="make_invisible(<?php echo $i+$j ?>)"><input class="date_input" id="einput<?php echo $i+$j ?>"  type="date"></td><?php $j++ ?>
+			</tr>
+			<tr>
+				<td class='writetd' onclick="make_visible(<?php echo $i+$j ?>)" ondblclick="make_invisible(<?php echo $i+$j ?>)"><input class="date_input" id="einput<?php echo $i+$j ?>"  type="date"></td><?php $j++ ?>
+				<td class='writetd' onclick="make_visible(<?php echo $i+$j ?>)" ondblclick="make_invisible(<?php echo $i+$j ?>)"><input class="date_input" id="einput<?php echo $i+$j ?>"  type="date"></td><?php $j++ ?>
+				<td class='writetd' onclick="make_visible(<?php echo $i+$j ?>)" ondblclick="make_invisible(<?php echo $i+$j ?>)"><input class="date_input" id="einput<?php echo $i+$j ?>"  type="date"></td><?php $j++ ?>
+			</tr>
+			<tr>
+				<td class='writetd' onclick="make_visible(<?php echo $i+$j ?>)" ondblclick="make_invisible(<?php echo $i+$j ?>)"><input class="date_input" id="einput<?php echo $i+$j ?>"  type="date"></td><?php $j++ ?>
+				<td class='writetd' onclick="make_visible(<?php echo $i+$j ?>)" ondblclick="make_invisible(<?php echo $i+$j ?>)"><input class="date_input" id="einput<?php echo $i+$j ?>"  type="date"></td><?php $j++ ?>
+				<td class='writetd' onclick="make_visible(<?php echo $i+$j ?>)" ondblclick="make_invisible(<?php echo $i+$j ?>)"><input class="date_input" id="einput<?php echo $i+$j ?>"  type="date"></td><?php $j++ ?>
+			</tr>
+			<?php } ?>
+		
+
+			</table>&nbsp;
+		<table border cellspacing='0' width='50%' >
+			<tr><td  align='right'>Fecha último Seguimiento</td><td width='50%' onclick="make_visible(100)" ondblclick="make_invisible(100)"><input class="date_input" id="einput100"  type="date"></td>
+		</table>
+	<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">	
+	<input type="hidden">
+	<button id="document_save_button" onclick="save_document()">Guardar</button>
+	</body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="/Administrativo/views/js/editable_table.js"></script>
+	<script src="/Administrativo/views/js/basicinput.js"></script>
+	<script src="/Administrativo/views/js/save_document.js"></script>
+</html>

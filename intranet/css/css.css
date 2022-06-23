@@ -1,0 +1,55 @@
+@media (max-width: 575.98px) {  
+  .list-page {
+    padding-top: 24%;
+    margin-left: 10%;
+    margin-right: 10%;
+  } 
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) { 
+  .list-page {
+    padding-top: 14%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }  
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) { 
+  .list-page {
+    padding-top: 7%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+ }
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+  .list-page {
+    padding-top: 6%;
+	
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+ }
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { 
+  .list-page {
+    padding-top: 6%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+ }
+
+ .pos-rel{
+  position: relative;
+  width:100%;
+ }
+
+ .row-search-bar{
+  position: relative;
+  z-index: 1030;
+  background-color:red;
+ }

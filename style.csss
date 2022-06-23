@@ -1,0 +1,1244 @@
+	
+			.texto-parrafo-medio-1 {
+	width: 100%;
+	font-size: 1.0em;
+	line-height: 1.5em;
+	display: block;
+}
+.boton-cuadrado-1 {
+	position: absolute;
+	bottom:0px;
+}
+#modalVer {
+	display: none !important;
+	margin: 0 0 !important;
+	padding: 0 0 !important;
+}
+.modal-header {
+	background-color: rgba(168,173,0,0.3);
+	height: 140px;
+}
+.logo-modal {
+	width: 66%;
+	padding: 3px 0 20px 0;
+	margin-left: -7px;
+}
+#tabla thead {
+	background-color: rgba(168,173,0,0.3);
+}
+#tabla th,
+#tabla td {
+	padding: 10px 10px;
+	line-height: 1.4em;
+}
+.swal2-icon-text {
+	color: rgba(168,173,0,1);
+}
+.swal2-icon.swal2-info.swal2-animate-info-icon {
+	border-color: rgba(168,173,0,1);
+}
+.vehiculos {
+	margin-bottom: 80px;
+}
+hr.linea-inicio-seccion {
+	border-top: 2px dashed #003057;
+  width: 90%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.wpsm_nav-tabs {
+	border-bottom: 0px solid #fff!important;
+}
+.contenedor-mapa-navegacion {
+	width: 60%;
+	margin: 0 20% 0 20%;
+}
+.texto-bold-titulo {
+	font-size: 2em;
+	font-weight: bold;
+	margin: 0 0 0 3.5%;
+}
+.texto-bold-titulo-1 {
+	font-size: 2em;
+	font-weight: bold;
+}
+.texto-bold {
+	font-size: 2em;
+	font-weight: bold;
+}
+.texto-parrafo-medio {
+	width: 70%;
+	margin: 0 0 0 3.5%;
+	font-size: 1.5em;
+	line-height: 1.5em;
+	display: block;
+}
+.separacion-superior {
+	padding: 20px 0 0 0;
+}
+.parrafo-subtitulo {
+	line-height: 1.5em;
+	padding: 10px 15% 0 15%;
+}
+.contador-usuarios-nacional { margin: 0 0 0 0;
+padding: 0 0 0 0;
+	color: #003057;
+}
+.columna {
+	position: relative;
+	border: 1px solid #a8ad00;
+	height: 100%;
+	margin-bottom: 20px;
+}
+.texto-bold-1 {
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+	margin: 0 auto;
+	padding: 20px 0 0 0;
+}
+.parrafo-servicios {
+	padding: 0 10% 20px 10%;
+	text-align: justify;
+}
+hr.linea-titulo {
+	border-top: 2px dashed #003057;
+	width: 20%;
+	vertical-align: middle;
+}
+hr.linea-2-titulo {
+	border-top: 2px dashed #003057;
+	width: 20%;
+	vertical-align: middle;
+	margin: 30px 40% 30px 40%;
+}
+hr.linea-3-titulo {
+	border-top: 2px dashed #003057;
+	width: 20%;
+	vertical-align: middle;
+	margin: -30px 40% 50px 40%;
+}
+hr.linea-titulo-1 {
+	border-top: 2px dashed #003057;
+	width: 20%;
+	vertical-align: middle;
+	margin-top: 60px;
+	margin-bottom: 40px;
+}
+hr.linea-servicios {
+	border-top: 1px dashed #a8ad00;
+	width: 60%;
+	vertical-align: middle;
+}
+.imagen-servicios {
+	width: 60%;
+	margin: 0 20% 0 20%;
+	padding: 0 0 20px 0;
+}
+.boton-cuadrado {
+	position: absolute;
+	bottom:10px;
+	color: #a8ad00;
+	font-size: 1.5em;
+	font-weight: bold;
+	background-color: #ffffff;
+	border: 1px solid #a8ad00;
+	margin: 0 45% 0 45%;
+	padding: 5px 10px 5px 10px;
+}
+.boton-cuadrado:hover {
+	position: absolute;
+	bottom: 10px;
+	color: #ffffff;
+	font-size: 1.5em;
+	font-weight: bold;
+	background-color: #76881d;
+	border: 1px solid #76881d;
+	margin: 0 45% 0 45%;	
+}
+.contenedor-slider {
+	margin: -90px 0 0 0;
+	z-index:-1;
+}
+.subtitulo-contacto {
+	width: 60%;
+	height: 50px;
+	font-weight: bold;
+	margin: 30px 0% 30px 20%;
+	padding: 10px 0 0 0;
+	background-color: rgba(168,173,0,1);
+	color: #fff;
+}
+.acceso-clientes {
+	margin: -30px 0 0 0;
+}
+pre.wp-block-code {
+	background-color: rgba(255,255,255,0);
+}
+/*============ Formulario Consultar PQR =====*/
+.formulario-pqr,
+.formulario-entrada {
+	width: 80%;
+	margin: 50px 0 0 10%;
+	padding: 10px 20px 10px 20px;
+	background-color: rgba(255,255,255,0.7);
+	border: 1px solid #a8ad00;
+	position: relative;
+	font-family: arial;
+}
+.formulario-acceso-clientes {
+	width: 80%;
+	margin: 50px 0 50px 10%;
+	padding: 10px 20px 10px 20px;
+	background-color: rgba(255,255,255,0.7);
+	border: 1px solid #a8ad00;
+	position: relative;
+	font-family: arial;
+}
+.formulario-contacto {
+	width: 80%;
+	margin: 50px 0 0 10%;
+	padding: 10px 20px 10px 20px;
+	background-color: rgba(255,255,255,0.7);
+	border: 1px solid #a8ad00;
+	position: relative;
+	font-family: arial;
+}
+.formulario-consultar-pqr {
+	width: 80%;
+	margin: 50px 0 40px 10%;
+	padding: 10px 20px 10px 20px;
+	background-color: rgba(255,255,255,0.7);
+	border: 1px solid #a8ad00;
+	position: relative;
+	font-family: arial;
+}
+.formulario-contacto h3,
+.formulario-pqr h3,
+.formulario-consultar-pqr h3 {
+	color: rgba(0,48,87,1);
+	font-weight: bold;
+	word-break: keep-all;
+	text-align:center;
+	background-color: rgba(168,173,0,0.3);
+	margin: 10px 0 10px 0;
+	padding: 10px 0 10px 0;
+	width: 100%;
+}
+.formulario-acceso-clientes h3,
+.formulario-entrada h3 {
+	color: rgba(0,48,87,1);
+	font-weight: bold;
+	word-break: keep-all;
+	text-align:center;
+	background-color: rgba(168,173,0,0.3);
+	margin: 0 0 0 0;
+	padding: 10px 0 10px 0;
+	width: 100%;
+}
+.formulario-acceso-clientes p,
+.formulario-entrada p {
+	color: rgba(0,48,87,1);
+	font-weight: bold;
+	word-break: keep-all;
+	text-align:center;
+	margin: -20px 0 0 0;
+	padding: 0 0 0 0;
+	width: 100%;	
+}
+.formulario-contacto .contenedor-formulario-izq-der,
+.formulario-pqr .contenedor-formulario-izq-der,
+.formulario-consultar-pqr .contenedor-formulario-consultar-izq-der,
+.formulario-acceso-clientes .contenedor-formulario-acceso-clientes-izq-der,
+.formulario-entrada .contenedor-formulario-entrada-izq-der {
+	display: flex;
+}
+.formulario-contacto .formulario-contacto-izq,
+.formulario-pqr .formulario-contacto-izq,
+.formulario-consultar-pqr .formulario-consultar-izq,
+.formulario-acceso-clientes .formulario-acceso-clientes-izq,
+.formulario-entrada .formulario-entrada-izq {
+	flex: 1;
+	flex-direction: column;
+	padding-right: 5px;
+}
+.formulario-contacto .formulario-contacto-der,
+.formulario-pqr .formulario-contacto-der,
+.formulario-consultar-pqr .formulario-consultar-der,
+.formulario-acceso-clientes .formulario-acceso-clientes-der,
+.formulario-entrada .formulario-entrada-der {
+	flex: 1;
+	flex-direction: column;
+	padding-left: 5px;
+}
+.formulario-contacto input[type='text'],
+.formulario-contacto input[type='email'],
+.formulario-contacto input[type='tel'],
+.formulario-pqr input[type='text'],
+.formulario-pqr input[type='email'],
+.formulario-pqr input[type='tel'],
+.formulario-pqr input[type='number'],
+.formulario-consultar-pqr input[type='number'],
+.formulario-consultar-pqr input[type='text'],
+.formulario-acceso-clientes input[type='text'],
+.formulario-acceso-clientes input[type='number'],
+.formulario-acceso-clientes input[type='tel'],
+.formulario-entrada input[type='text'],
+.formulario-entrada input[type='number'] {
+	background-color: rgba(255,255,255,0);
+	border-style: solid;
+	border-width: 0px 0px 1px 0px;
+	border-color: #a8ad00;
+	border-radius: 0px;
+	margin: 10px 0 10px 0;
+	padding: 8px 8px;
+	width: 100%;
+}
+.formulario-contacto span.custom-select select {
+	background-color: rgba(255,255,255,0);
+	color: rgba(115,115,115,1);
+	border-style: solid;
+	border-width: 0px 0px 1px 0px;
+	border-color: #a8ad00;
+	border-radius: 0px;
+	margin: 29px 0 10px 0;
+	width: 100%;
+}
+.formulario-contacto .select-selected {
+	background-color: rgba(242,243,217,0.3);
+	margin: 0;
+	padding: 8px 8px;
+		}
+.formulario-pqr span.custom-select select,
+.formulario-consultar-pqr span.custom-select select {
+	background-color: rgba(255,255,255,0);
+	color: rgba(115,115,115,1);
+	border-style: solid;
+	border-width: 0px 0px 1px 0px;
+	border-color: #a8ad00;
+	border-radius: 0px;
+	margin: 18px 0 10px 0;
+	width: 100%;
+}
+.formulario-pqr .select-selected,
+.formulario-consultar-pqr .select-selected {
+	background-color: rgba(242,243,217,0.3);
+	margin: 0;
+	padding: 8px 8px;
+		}
+.formulario-contacto .select-selected:after,
+.formulario-pqr .select-selected:after,
+.formulario-consultar-pqr .select-selected:after {
+	position: absolute;
+	content: '';
+	top: 20px;
+	right: 10px;
+	width: 0;
+	height: 0;
+	border: 6px solid transparent;
+	border-color: #a8ad00 transparent transparent transparent;
+}
+.formulario-contacto .select-selected.select-arrow-active:after,
+.formulario-pqr .select-selected.select-arrow-active:after,
+.formulario-consultar-pqr .select-selected.select-arrow-active:after {
+	border-color: transparent transparent #a8ad00 transparent;
+	top: 12px;
+}
+.formulario-contacto .select-items div .select-selected,
+.formulario-pqr .select-items div .select-selected,
+.formulario-consultar-pqr .select-items div .select-selected {
+	color: rgba(0,48,87,1);
+	padding: 8px 8px;
+	border: 1px solid transparent;
+	border-color: transparent transparent rgba(168, 173, 0, 0.7) transparent;
+	cursor: pointer;
+	user-select: none;
+}
+.formulario-contacto .select-items,
+.formulario-pqr .select-items,
+.formulario-consultar-pqr .select-items  {
+	position: absolute;
+	background-color: rgba(239,239,189,0.9);
+	top: 100%;
+	left: 0;
+	right: 0;
+	z-index: 99;
+}
+.formulario-contacto .select-hide,
+.formulario-pqr .select-hide,
+.formulario-consultar-pqr .select-hide {
+	display: none;
+}
+.formulario-contacto .select-items div:hover .same-as-selected,
+.formulario-pqr .select-items div:hover,
+.formulario-consultar-pqr .select-items div:hover {
+	background-color: rgba(168,173,0,0.3);
+}
+.formulario-contacto textarea,
+.formulario-pqr textarea,
+.formulario-consultar-pqr textarea {
+	background-color: rgba(255,255,255,0.3);
+	margin: 0;
+	padding: 10px 10px 10px 10px;
+	box-sizing: border-box;
+	width: 100%;
+	height: 80px;
+}
+.formulario-contacto .contenedor-areatexto,
+.formulario-pqr .contenedor-areatexto,
+.formulario-consultar-pqr .contenedor-areatexto {
+	margin: 0 8px 0 8px;
+}
+.formulario-contacto .contenedor-enviar,
+.formulario-pqr .contenedor-enviar,
+.formulario-consultar-pqr .contenedor-enviar,
+.formulario-acceso-clientes .contenedor-enviar,
+.formulario-entrada .contenedor-enviar {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+button.swal2-confirm.swal2-styled,
+.modal-footer #cerrar,
+.formulario-contacto #enviar,
+.formulario-pqr #enviar-pqr,
+.formulario-consultar-pqr #consultar-pqr,
+.formulario-acceso-clientes #acceso-clientes,
+.formulario-entrada #acceso-clave {
+	width: 180px;
+	color: #fff;
+	background-color: rgba(168,173,0,1);
+	padding: 10px 20px 10px 20px;
+	margin: 10px 0 10px 0;
+	cursor: pointer;
+	border: 0px;
+}
+button.swal2-confirm.swal2-styled:hover,
+.modal-footer #cerrar:hover,
+.formulario-contacto #enviar:hover,
+.formulario-pqr #enviar-pqr:hover,
+.formulario-consultar-pqr #consultar-pqr:hover,
+.formulario-acceso-clientes #acceso-clientes:hover,
+.formulario-entrada #acceso-clave:hover {
+	background-color: rgba(118,136,29,1);
+}
+button.swal2-confirm.swal2-styled:focus,
+.modal-footer #cerrar:focus,
+.formulario-contacto #enviar:focus,
+.formulario-pqr #enviar-pqr:focus,
+.formulario-consultar-pqr #consultar-pqr:focus,
+.formulario-acceso-clientes #acceso-clientes:focus,
+.formulario-entrada #acceso-clave:focus {
+	background-color: rgba(168,173,0,1);
+}
+.ancho-placa-vehiculo,
+.ancho-cedula {
+	width: 95%;
+}
+.separador-azul {
+	border-top: 1px solid #003057;
+}
+.franja-informacion {
+	width: 100%;
+	margin: 0 0 0 0;
+	padding: 20px 0 20px 0;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	background-color: rgba(255,255,255,0.7);
+}
+.franja-informacion img.logo-AOA-principal {
+	width: 180px;
+	height: 90px;
+}
+.informacion-oficina {
+	text-align: right;
+	margin: 2px 2% 0 2%;
+}
+.linea-vertical {
+	border: 1px solid #003057;
+	margin: 0 0 0 0;
+	height: auto;
+}
+.franja-informacion img.logo-asorenting {
+	width: 144px;
+	height: 80px;
+}
+.franja-informacion img.logo-iso {
+	width: 80px;
+	margin: 0 20px 0 20px;
+}
+.informacion-afiliacion {
+	text-align: left;
+	margin: 35px 2% 0 2%;
+}
+.parrafo-footer-1 {
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+	margin: 0 0 0 0;
+}
+.parrafo-footer-2 {
+	font-size: 0.7em;
+	font-weight: bold;
+	text-align: center;
+	margin: 0 0 0 0;
+}
+.linea-footer {
+	color: #fff;
+	margin: 10px 0 0 0;
+	padding: 0 0 0 0;
+}
+#footer {
+	padding: 20px 0 0 0;
+}
+#copyright {
+	margin: -20px 0 0 0;
+	padding: 0 0 20px 0;
+}
+.ancho-columnas-info-oficinas {
+	width: 70%;
+	text-align: justify;
+	margin: 10px 15% -30px 15%;
+}
+.contenedor-oficinas-nacional{
+	margin: 30px 0 0px 0;
+}
+.ancho-columnas-servicios {
+	width: 70%;
+	text-align: justify;
+	margin: 0 15% 60px 15%;
+}
+.espaciado-columnas-servicios {
+	padding: 0 5% 0 5%;
+}
+.ancho-columnas-contacto {
+	width: 60%;
+	text-align: justify;
+	margin: 30px 20% 0 20%;
+}
+.ancho-columnas-servicios-color {
+	width: 70%;
+	text-align: justify;
+	margin: 0 15% 0 15%;
+}
+.parrafo-columnas-servicios {
+	padding: 0 5% 0 5%;
+	margin: 20px 5% 0 5%;
+	border: 1px solid #a8ad00;
+	background-color: #fbfbf2;
+	height: 70px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+}
+h2.titulo-condiciones-servicio {
+	margin: 30px 0 0 0%;
+	font-weight: bold;
+	padding: 0 16% 0 16%;
+}
+.titulo-beneficios {
+	margin: 0 0 0 16.5%;
+	font-weight: bold;
+}
+#tab_container_900 {
+	margin: 30px 0 0 0;
+	padding: 0 16% 0 16%;
+}
+.datos-aseguradora {
+	display: flex;
+  flex-wrap: nowrap;
+}
+.datos-aseguradora p {
+	flex: 1;
+	font-size: 1em;
+	font-weight: bold;
+}
+.boton-condiciones {
+	color: #fff;
+  background-color: #a8ad00;
+  padding: 5px 10px 5px 10px;
+}
+.boton-condiciones:hover {
+	color: #fff;
+  background-color: #76881d;
+  padding: 5px 10px 5px 10px;
+}
+.contacto-aseguradora p.titulo-datos {
+	font-size: 1.2em;
+	font-weight: bold;
+	text-align: left;
+}
+.contacto-aseguradora {
+	margin-top: 20px;
+	text-align: center;
+}
+.contacto-aseguradora button {
+	text-align: center;
+	margin-bottom: 10px;
+}
+#89.page-content.clearfix {
+		border: 1px solid #a8ad00;
+}
+.colaboradores {
+	margin: 40px 0 0 0;
+}
+#main-container {
+			background-color: #fff;
+			background-repeat: no-repeat;
+			background-position: bottom;
+	background-size: 100%;
+}
+.imagen-contacto {
+	margin-top: 20px;
+}
+.iconos-50 {
+	width: 45px;
+	margin: 0 auto;
+}
+.numeros {
+	font-weight: bold;
+}
+.datos-contacto-1,
+.datos-contacto-2 {
+	background-color: rgba(168,173,0,0.1);
+	text-align: center;
+}
+.datos-contacto-1 img,
+.datos-contacto-2 img {
+	width: 45px;
+	height: 45px;
+	margin: 20px 0 0 0;
+}
+.dato-1 {
+	color: #a8ad00;
+	font-size: 16px;
+	margin: 0 0 0 0;
+}
+.dato-2 {
+	color: #a8ad00;
+	font-size: 28px;
+	font-weight: bold;
+	margin: 5px 0 0 0;
+	padding: 0 0 20px 0;
+}
+#layerslider_1 {
+	z-index:0;
+}
+@media only screen and (max-width: 567px) {
+.ancho-columnas-info-oficinas {
+	width: 100%;
+	text-align: justify;
+	margin: 10px 0 -30px 0;
+}
+h2.titulo-condiciones-servicio {
+	margin: 30px 0 0 0;
+	font-weight: bold;
+	padding: 0 2% 0 2%;
+}
+#tab_container_900 {
+	margin: 30px 0 0 0;
+	padding: 0 2% 0 2%;
+}
+.vehiculos {
+	margin-bottom: 100px;
+}
+.contenedor-slider {
+	margin: -30px 0 0 0;
+	z-index:-1;
+}
+hr.linea-inicio-seccion {
+	border-top: 2px dashed #003057;
+  width: 80%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.texto-bold-titulo {
+	font-size: 1.7em;
+	font-weight: bold;
+	margin: 0 0 0 3.5%;
+}
+.texto-parrafo-medio {
+	width: 80%;
+	margin: 0 0 0 3.5%;
+	font-size: 1.3em;
+	line-height: 1.4em;
+	display: block;
+}
+.texto-bold {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+.parrafo-subtitulo {
+	line-height: 1.3em;
+	padding: 10px 10% 0 10%;
+}
+pre.wp-block-code {
+	background-color: rgba(255,255,255,0);
+}
+.formato-consultar-pqr {
+	margin: -100px 0 0 0;
+}
+.formulario-pqr,
+.formulario-acceso-clientes,
+.formulario-entrada {
+	width: 100%;
+	margin: -70px 0 0 0;
+	padding: 10px 10px 10px 10px;
+	background-color: rgba(255,255,255,0.3);
+	border: 1px solid #a8ad00;
+	position: relative;
+	font-family: arial;
+}
+.formulario-contacto {
+	width: 100%;
+	margin: 20px 0 0 0;
+	padding: 10px 10px 10px 10px;
+	background-color: rgba(255,255,255,0.3);
+	border: 1px solid #a8ad00;
+	position: relative;
+	font-family: arial;
+}
+.formulario-consultar-pqr {
+	width: 100%;
+	margin: 20px 0 0 0;
+	padding: 10px 10px 10px 10px;
+	background-color: rgba(255,255,255,0.3);
+	border: 1px solid #a8ad00;
+	position: relative;
+	font-family: arial;
+}
+.formulario-contacto h3,
+.formulario-pqr h3,
+.formulario-consultar-pqr h3 {
+	color: rgba(0,48,87,1);
+	word-break: keep-all;
+	font-weight: bold;
+	text-align:center;
+	background-color: rgba(168,173,0,0.3);
+	margin: 0 0 10px 0;
+	padding: 10px 10px 10px 10px;
+	width: 100%;
+}
+.formulario-acceso-clientes h3,
+.formulario-entrada h3 {
+	color: rgba(0,48,87,1);
+	font-weight: bold;
+	word-break: keep-all;
+	text-align:center;
+	background-color: rgba(168,173,0,0.3);
+	margin: 0 0 0 0;
+	padding: 10px 10px 10px 10px;
+	width: 100%;
+}
+.formulario-acceso-clientes p,
+.formulario-entrada p {
+	color: rgba(0,48,87,1);
+	font-weight: bold;
+	word-break: keep-all;
+	text-align:center;
+	line-height: 1em;
+	margin: 0 0 10px 0;
+	padding: 0 0 0 0;
+	width: 100%;	
+}
+.formulario-contacto .contenedor-formulario-izq-der,
+.formulario-pqr .contenedor-formulario-izq-der,
+.formulario-consultar-pqr .contenedor-formulario-consultar-izq-der,
+.formulario-acceso-clientes .contenedor-formulario-acceso-clientes-izq-der,
+.formulario-entrada .contenedor-formulario-entrada-izq-der{
+	display: flex;
+	flex-direction: column;
+}
+.formulario-contacto .formulario-contacto-izq,
+.formulario-pqr .formulario-contacto-izq,
+.formulario-consultar-pqr .formulario-consultar-izq,
+.formulario-acceso-clientes .formulario-acceso-clientes-izq,
+.formulario-entrada .formulario-entrada-izq {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	padding: 0 5px 0 5px;
+}
+.formulario-contacto .formulario-contacto-der,
+.formulario-pqr .formulario-contacto-der,
+.formulario-consultar-pqr .formulario-consultar-der,
+.formulario-acceso-clientes .formulario-acceso-clientes-der,
+.formulario-entrada .formulario-entrada-der {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	padding: 0 5px 0 5px;
+	margin: 20px 0 0 0;
+}
+.formulario-contacto input[type='text'],
+.formulario-contacto input[type='email'],
+.formulario-contacto input[type='tel'],
+.formulario-pqr input[type='text'],
+.formulario-pqr input[type='email'],
+.formulario-pqr input[type='tel'],
+.formulario-pqr input[type='number'],
+.formulario-consultar-pqr input[type='number'],
+.formulario-acceso-clientes input[type='text'],
+.formulario-acceso-clientes input[type='number'],
+.formulario-entrada input[type='text'],
+.formulario-entrada input[type='number'] {
+	background-color: rgba(255,255,255,0);
+	border-style: solid;
+	border-width: 0px 0px 1px 0px;
+	border-color: #a8ad00;
+	border-radius: 0px;
+	margin: 0 0 0 0;
+	padding: 8px 8px;
+}
+.formulario-contacto input[type='tel'],
+.formulario-acceso-clientes input[type='number'],
+.formulario-entrada input[type='number'] {
+		width: 100%;
+	}
+.formulario-contacto div.custom-select select,
+.formulario-pqr span.custom-select select,
+.formulario-consultar-pqr span.custom-select select {
+	background-color: rgba(255,255,255,0);
+	border-style: solid;
+	border-width: 0px 0px 1px 0px;
+	border-color: #a8ad00;
+	border-radius: 0px;
+	margin: 0 0 0 0;
+	padding: 8px 2px;
+}
+.formulario-contacto .select-selected,
+.formulario-pqr .select-selected,
+.formulario-consultar-pqr .select-selected {
+	background-color: rgba(242,243,217,0.3);
+	margin: 0;
+	padding: 8px 30px 8px 8px;
+}
+.formulario-contacto .select-selected:after,
+.formulario-pqr .select-selected:after,
+.formulario-consultar-pqr .select-selected:after {
+	position: absolute;
+	content: '';
+	top: 50px;
+	right: 10px;
+	width: 0;
+	height: 0;
+	border: 6px solid transparent;
+	border-color: #a8ad00 transparent transparent transparent;
+}
+.formulario-contacto .select-selected.select-arrow-active:after,
+.formulario-pqr .select-selected.select-arrow-active:after,
+.formulario-consultar-pqr .select-selected.select-arrow-active:after {
+	border-color: transparent transparent #a8ad00 transparent;
+	top: 42px;
+}
+.formulario-contacto .select-items div,.select-selected,
+.formulario-pqr .select-items div,.select-selected,
+.formulario-consultar-pqr .select-items div,.select-selected {
+	color: rgba(0,48,87,1);
+	padding: 8px 8px;
+	border: 1px solid transparent;
+	border-color: transparent transparent rgba(168, 173, 0, 0.7) transparent;
+	cursor: pointer;
+	user-select: none;
+}
+.formulario-contacto .select-items,
+.formulario-pqr .select-items,
+.formulario-consultar-pqr .select-items  {
+	position: absolute;
+	background-color: rgba(239,239,189,0.9);
+	top: 100%;
+	left: 0;
+	right: 0;
+	z-index: 99;
+}
+.formulario-contacto .select-hide,
+.formulario-pqr .select-hide,
+.formulario-consultar-pqr .select-hide {
+	display: none;
+}
+.formulario-contacto .select-items div:hover, .same-as-selected,
+.formulario-pqr .select-items div:hover,
+.formulario-consultar-pqr .select-items div:hover {
+	background-color: rgba(168,173,0,0.3);
+}
+.formulario-contacto textarea,
+.formulario-pqr textarea,
+.formulario-consultar-pqr textarea {
+	background-color: rgba(255,255,255,0.3);
+	margin: 0 0 0 0;
+	padding: 10px 8px 0 8px;
+	box-sizing: border-box;
+	height: 80px;
+}
+.formulario-contacto .contenedor-areatexto,
+.formulario-pqr .contenedor-areatexto,
+.formulario-consultar-pqr .contenedor-areatexto {
+	margin: 0;
+}
+.formulario-contacto .contenedor-enviar,
+.formulario-pqr .contenedor-enviar,
+.formulario-consultar-pqr .contenedor-enviar,
+.formulario-acceso-clientes .contenedor-enviar,
+.formulario-entrada .contenedor-enviar {
+	display: flex;
+	justify-content: center;
+}
+.formulario-contacto #enviar,
+.formulario-pqr #enviar-pqr,
+.formulario-consultar-pqr #consultar-pqr,
+.formulario-acceso-clientes #acceso-clientes,
+.formulario-entrada #acceso-clave {
+	width: 140px;
+	color: #fff;
+	background-color: rgba(168,173,0,1);
+	padding: 10px 10px 10px 10px;
+	margin: 0 0 0 0;
+	cursor: pointer;
+}
+.formulario-contacto #enviar:hover,
+.formulario-pqr #enviar-pqr:hover,
+.formulario-consultar-pqr #consultar-pqr:hover,
+.formulario-acceso-clientes #acceso-clientes:hover,
+.formulario-entrada #acceso-clave:hover {
+	background-color: rgba(118,136,29,1);
+		}
+.formulario-contacto #enviar:focus,
+.formulario-pqr #enviar-pqr:focus,
+.formulario-consultar-pqr #consultar-pqr:focus,
+.formulario-acceso-clientes #acceso-clientes:focus,
+.formulario-entrada #acceso-clave:focus {
+	background-color: rgba(168,173,0,1);
+}
+.franja-informacion {
+	width: 100%;
+	margin: 0 0 0 0;
+	padding: 20px 0 20px 0;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	background-color: rgba(255,255,255,0);
+}
+.franja-informacion img.logo-AOA-principal {
+	width: 180px;
+	height: 90px;
+	margin: 0 auto;
+}
+.informacion-oficina {
+	text-align: center;
+	margin: 20px 2% 20px 2%;
+}
+.linea-vertical {
+	border: 1px solid #003057;
+	margin: 0 0 0 0;
+	height: auto;
+}
+.franja-informacion img.logo-asorenting {
+	width: 144px;
+	height: 80px;
+	margin: 0 auto;
+}
+.franja-informacion img.logo-iso {
+	width: 80px;
+	margin: 0 auto;
+	padding: 20px 0 20px 0;
+}
+.informacion-afiliacion {
+	text-align: center;
+	margin: 20px 2% 10px 2%;
+}
+.datos-contacto-1,
+.datos-contacto-2 {
+	background-color: rgba(168,173,0,0.1);
+	text-align: center;
+	width: 140%;
+	padding: 0 10% 0 10%;
+	margin: 0 0 0 -20%;
+}
+.datos-contacto-1 img,
+.datos-contacto-2 img {
+	width: 45px;
+	height: 45px;
+	margin: 20px 0 0 0;
+}
+.dato-1 {
+	color: #a8ad00;
+	font-size: 16px;
+	margin: 0 0 0 0;
+}
+.dato-2 {
+	color: #a8ad00;
+	font-size: 28px;
+	font-weight: bold;
+	margin: 5px 0 0 0;
+	padding: 0 0 20px 0;
+}
+}
+@media only screen and (max-width: 1024px) and (min-width: 568px) {
+h2.titulo-condiciones-servicio {
+	margin: 30px 0 0 0;
+	font-weight: bold;
+	padding: 0 5% 0 5%;
+}
+#tab_container_900 {
+	margin: 30px 0 0 0;
+	padding: 0 5% 0 5%;
+}
+.vehiculos {
+	margin-bottom: 120px;
+}
+.contenedor-slider {
+	margin: -10px 0 0 0;
+	z-index:-1;
+}
+pre.wp-block-code {
+	background-color: rgba(255,255,255,0);
+}
+.formato-consultar-pqr {
+	margin: -100px 0 0 0;
+}
+.formulario-pqr {
+	width: 90%;
+	margin: -90px 5% 0 5%;
+	padding: 10px 10px 10px 10px;
+	background-color: rgba(255,255,255,0.3);
+	border: 1px solid #a8ad00;
+	position: relative;
+	font-family: arial;
+}
+.formulario-contacto,
+.formulario-consultar-pqr {
+	width: 90%;
+	margin: 40px 5% 0 5%;
+	padding: 10px 10px 10px 10px;
+	background-color: rgba(255,255,255,0.3);
+	border: 1px solid #a8ad00;
+	position: relative;
+	font-family: arial;
+}
+.formulario-contacto h3,
+.formulario-pqr h3,
+.formulario-consultar-pqr h3 {
+	color: rgba(0,48,87,1);
+	word-break: keep-all;
+	font-weight: bold;
+	text-align:center;
+	background-color: rgba(168,173,0,0.3);
+	margin: 0 0 10px 0;
+	padding: 10px 10px 10px 10px;
+	width: 100%;
+}
+.formulario-contacto .contenedor-formulario-izq-der,
+.formulario-pqr .contenedor-formulario-izq-der,
+.formulario-consultar-pqr .contenedor-formulario-consultar-izq-der {
+	display: flex;
+	flex-direction: row;
+}
+.formulario-contacto .formulario-contacto-izq,
+.formulario-pqr .formulario-contacto-izq,
+.formulario-consultar-pqr .formulario-consultar-izq {
+	flex: 1;
+	flex-direction: column;
+	padding-right: 5px;
+}
+.formulario-contacto .formulario-contacto-der,
+.formulario-pqr .formulario-contacto-der,
+.formulario-consultar-pqr .formulario-consultar-der {
+	flex: 1;
+	flex-direction: column;
+	padding-left: 5px;
+}
+.formulario-contacto input[type='text'],
+.formulario-contacto input[type='tel'],
+.formulario-contacto input[type='email'],
+.formulario-pqr input[type='text'],
+.formulario-pqr input[type='tel'],
+.formulario-pqr input[type='number'],
+.formulario-pqr input[type='email'],
+.formulario-consultar-pqr input[type='number'] {
+	background-color: rgba(255,255,255,0);
+	border-style: solid;
+	border-width: 0px 0px 1px 0px;
+	border-color: #a8ad00;
+	border-radius: 0px;
+	margin: 5px 0 5px 0;
+	padding: 8px 8px;
+}
+
+.formulario-contacto div.custom-select select,
+.formulario-pqr span.custom-select select,
+.formulario-consultar-pqr span.custom-select select {
+	background-color: rgba(255,255,255,0);
+	border-style: solid;
+	border-width: 0px 0px 1px 0px;
+	border-color: #a8ad00;
+	border-radius: 0px;
+	margin: 9px 0 5px 0;
+	padding: 8px 0 8px 0;
+}
+.formulario-contacto .select-selected,
+.formulario-pqr .select-selected,
+.formulario-consultar-pqr .select-selected {
+	background-color: rgba(242,243,217,0.3);
+	margin: 0 0 0 0;
+	padding: 8px 30px 8px 8px;
+		}
+.formulario-contacto .select-selected:after,
+.formulario-pqr .select-selected:after,
+.formulario-consultar-pqr .select-selected:after {
+	position: absolute;
+	content: '';
+	top: 50px;
+	right: 10px;
+	width: 0;
+	height: 0;
+	border: 6px solid transparent;
+	border-color: #a8ad00 transparent transparent transparent;
+}
+.formulario-contacto .select-selected.select-arrow-active:after,
+.formulario-pqr .select-selected.select-arrow-active:after,
+.formulario-consultar-pqr .select-selected.select-arrow-active:after {
+	border-color: transparent transparent #a8ad00 transparent;
+	top: 42px;
+}
+.formulario-contacto .select-items div,.select-selected,
+.formulario-pqr .select-items div,.select-selected,
+.formulario-consultar-pqr .select-items div,.select-selected {
+	color: rgba(0,48,87,1);
+	padding: 8px 8px;
+	border: 1px solid transparent;
+	border-color: transparent transparent rgba(168, 173, 0, 0.7) transparent;
+	cursor: pointer;
+	user-select: none;
+}
+.formulario-contacto .select-items,
+.formulario-pqr .select-items,
+.formulario-consultar-pqr .select-items  {
+	position: absolute;
+	background-color: rgba(239,239,189,0.9);
+	top: 100%;
+	left: 0;
+	right: 0;
+	z-index: 99;
+}
+.formulario-contacto .select-hide,
+.formulario-pqr .select-hide,
+.formulario-consultar-pqr .select-hide {
+	display: none;
+}
+.formulario-contacto .select-items div:hover, .same-as-selected,
+.formulario-pqr .select-items div:hover,
+.formulario-consultar-pqr .select-items div:hover {
+	background-color: rgba(168,173,0,0.3);
+}
+.formulario-contacto textarea,
+.formulario-pqr textarea,
+.formulario-consultar-pqr textarea {
+	background-color: rgba(255,255,255,0.3);
+	margin: 0 0 0 0;
+	padding: 10px 8px 0 8px;
+	box-sizing: border-box;
+	height: 80px;
+}
+.formulario-contacto .contenedor-areatexto,
+.formulario-pqr .contenedor-areatexto,
+.formulario-consultar-pqr .contenedor-areatexto {
+	margin: 0 0 0 5px;
+}
+.formulario-contacto .contenedor-enviar,
+.formulario-pqr .contenedor-enviar,
+.formulario-consultar-pqr .contenedor-enviar {
+	display: flex;
+	justify-content: center;
+}
+.formulario-contacto #enviar,
+.formulario-pqr #enviar-pqr,
+.formulario-consultar-pqr #consultar-pqr {
+	width: 140px;
+	color: #fff;
+	background-color: rgba(168,173,0,1);
+	padding: 10px 10px 10px 10px;
+	margin: 0 0 0 0;
+	cursor: pointer;
+}
+.formulario-contacto #enviar:hover,
+.formulario-pqr #enviar-pqr:hover,
+.formulario-consultar-pqr #consultar-pqr:hover {
+	background-color: rgba(118,136,29,1);
+		}
+.formulario-contacto #enviar:focus,
+.formulario-pqr #enviar-pqr:focus,
+.formulario-consultar-pqr #consultar-pqr:focus {
+	background-color: rgba(168,173,0,1);
+}
+.franja-informacion {
+	width: 100%;
+	margin: 0 0 0 0;
+	padding: 20px 0 20px 0;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+}
+.franja-informacion img.logo-AOA-principal {
+	width: 120px;
+	height: 60px;
+}
+.informacion-oficina {
+	text-align: right;
+	margin: 2px 2% 0 2%;
+	font-size: 10px;
+	line-height: 14px;
+}
+.linea-vertical {
+	border: 1px solid #003057;
+	margin: 0 0 0 0;
+	height: auto;
+}
+.franja-informacion img.logo-asorenting {
+	width: 108px;
+	height: 60px;
+}
+.franja-informacion img.logo-iso {
+	width: 60px;
+	margin: 0 20px 0 20px;
+}
+.informacion-afiliacion {
+	text-align: left;
+	margin: 20px 2% 0 2%;
+	font-size: 10px;
+	line-height: 14px;
+}
+.datos-contacto-1 {
+	background-color: rgba(168,173,0,0.1);
+	text-align: center;
+	width: 140%;
+	padding: 0 10% 0 10%;
+	margin: 0 0 0 -40%;
+}
+.datos-contacto-2 {
+	background-color: rgba(168,173,0,0.1);
+	text-align: center;
+	width: 140%;
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+}
+.datos-contacto-1 img,
+.datos-contacto-2 img {
+	width: 45px;
+	height: 45px;
+	margin: 20px 0 0 0;
+}
+.dato-1 {
+	color: #a8ad00;
+	font-size: 16px;
+	margin: 0 0 0 0;
+}
+.dato-2 {
+	color: #a8ad00;
+	font-size: 28px;
+	font-weight: bold;
+	margin: 5px 0 0 0;
+	padding: 0 0 20px 0;
+}
+}	

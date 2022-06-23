@@ -1,0 +1,79 @@
+<!-- This require bootstrap & jquery -->
+
+<!--<script type="text/javascript" src="/Control/operativo/Angular/views/Resources/js/invoice_table.js"></script>-->
+
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-12">
+      <table class="table table-bordered table-hover" id="tab_logic">
+        <thead>
+          <tr>
+            <th class="text-center"> # </th>
+            <th class="text-center"> Item </th>
+            <th class="text-center"> Cantidad </th>
+            <th class="text-center"> Valor unitario </th>
+            <th class="text-center"> Iva </th>
+			<th class="text-center"> Total </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in bill_items">
+            <td>
+				{{$index}}
+				<input type="checkbox" ng-model="selected_item"  ng-change="verify_item(item)" >
+			</td>
+            <td><input type="text"   placeholder='Ingresa Nombre del Item' class="form-control" ng-model="item.desc" /></td>
+            <td><input type="number"  placeholder='Ingresa la cantidad' class="form-control qty" step="0" min="0" ng-model="item.amount" /></td>
+            <td><input type="number"  placeholder='Ingresa precio unidad' class="form-control price" step="0.00" min="0" ng-model="item.value" /></td>
+            <td>
+				<select type="number"  class="form-control total" ng-model="item.tax" >
+					<option ng-repeat="tax in tax_types" value="{{tax.value}}" >{{tax.name}}</option>
+				</select>
+			</td>
+			<td>
+				<!--{{item}}--> {{((item.value*item.amount)+((item.value*item.amount)*(item.tax/100)))}}
+			</td>
+          </tr>          
+        </tbody>
+      </table>
+	
+    </div>
+  </div>
+  <div class="row clearfix">
+    <div class="col-md-12">
+      <button id="add_row" ng-click="add_item()" class="btn btn-default pull-left">Agregar</button>
+      <button id='delete_row' ng-click="delete_item()" class="pull-right btn btn-default">Eliminar</button>
+    </div>
+  </div>
+  <div class="row clearfix" style="margin-top:20px">
+    <div class="pull-right col-md-4">
+      <table class="table table-bordered table-hover" id="tab_logic_total">
+        <tbody>
+          <!--
+		  <tr>
+            <th class="text-center">Sub Total</th>
+            <td class="text-center"><input type="number" name='sub_total' placeholder='0.00' class="form-control" id="sub_total" readonly/></td>
+          </tr>
+          
+		  <tr>
+            <th class="text-center">Tax</th>
+            <td class="text-center"><div class="input-group mb-2 mb-sm-0">
+                <input type="number" class="form-control" id="tax" placeholder="0">
+                <div class="input-group-addon">%</div>
+              </div></td>
+          </tr>
+		  
+          <tr>
+            <th class="text-center">Tax Amount</th>
+            <td class="text-center"><input type="number" name='tax_amount' id="tax_amount" placeholder='0.00' class="form-control" readonly/></td>
+          </tr>
+          <tr>
+            <th class="text-center">Grand Total</th>
+            <td class="text-center"><input type="number" name='total_amount' id="total_amount" placeholder='0.00' class="form-control" readonly/></td>
+          </tr>
+		  -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

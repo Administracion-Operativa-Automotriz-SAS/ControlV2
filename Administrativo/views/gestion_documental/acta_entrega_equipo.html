@@ -1,0 +1,158 @@
+<html>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+	<style>
+		td{
+			font-size: <?php echo $Tam_Fuente ?>;
+		}
+	</style>
+		<body>
+		<table width='100%' class='table_image' border cellspacing='0' align='center'>
+				<tr>
+					<td width='20%' rowspan=3 align='center' valign='middle'>
+						<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+					</td>
+					<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo utf8_encode($Tipo->nombre) ?></b></td>
+					<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+				</tr>
+			</table>
+			<table border='0' cellspacing='0' cellpadding='0' width='100%' align='center'>
+				<tr>
+					<td width='20%'></td>
+					<td align='center' style='font-size:8px;' width='50%'>
+						<span id='subtitle'><?php echo utf8_encode("Consecutivo Interno N�mero") ?></span>:<?php echo $Nconsecutivo ?></td>
+					<td width='30%'></td>
+				</tr>
+			</table>
+				<!--cabecera-->
+			<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+			
+		<table border cellspacing='0' width='100%' align='left'>
+			<tr>
+				<td   align='left' colspan='6'>
+					<p style='text-align: justify;text-justify: inter-word;'>
+						En la ciudad de <input type='text'>, siendo las <input type='text'> del día <input type='text'> (<select>
+							<option></option>
+							<?php for($i=1;$i<32;$i++){ ?>
+								<option><?php echo $i; ?></option>
+							<?php  } ?>
+						</select>) del mes de <select>
+							<option></option>
+							<option>Enero</option>
+							<option>Febrero</option>
+							<option>Marzo</option>
+							<option>Abril</option>
+							<option>Mayo</option>
+							<option>Junio</option>
+							<option>Julio</option>
+							<option>Agosto</option>
+							<option>Septiembre</option>
+							<option>Octubre</option>
+							<option>Noviembre</option>
+							<option>Diciembre</option>
+						</select>, del año <select>
+							<option></option>
+							<option>2017</option>
+							<option>2018</option>
+							<option>2019</option>
+							<option>2020</option>
+							<option>2021</option>
+							<option>2022</option>
+							<option>2023</option>
+						</select>, se reunieron en las instalaciones de A.O.A S.A.S, los Señores <input type='text'> y 
+						<input type='text'> identificado como aparecen al pie de sus firmas, con el fin de hacer entrega de los 
+						siguientes equipos de oficina:
+					</p>
+				</td>
+			</tr>
+            <tr ><td class="theader"><STRONG>Tipo de Equipo:</STRONG></td><td colspan='5' class="writetd"  contenteditable="true"></td></tr>
+			<tr ><td class="theader"><STRONG>MARCA:</STRONG></td><td class="writetd" width="20%" contenteditable="true">  </td><td class="theader"><STRONG>MODELO:</STRONG></td><td class="writetd" width="20%" contenteditable="true"></td><td class="theader"><STRONG>SERIAL:</STRONG></td><td class="writetd" width="20%" contenteditable="true"></td></tr>
+			<tr ><td colspan='6' class="theader"><STRONG>Detalle del Equipo:(especificar Marca, Modelo, Seriales y Accesorios)</STRONG></td></tr>
+			<tr ><td colspan='6' class="writetd" height="30px;" contenteditable="true"></td></tr>			
+			<tr>
+				<td  align='left' colspan='6'>
+					<p style='text-align: justify;text-justify: inter-word;'>
+						Así mismo, el (la) Señor(a), <input type="text"> identificado (a) con la cédula de ciudadanía 
+						No.<input type="text">, expedida en la ciudad de <input type="text"> en su calidad de <input type="text"> manifiesta: 
+						<strong>PRIMERO: </strong>Que recibe el equipo para cumplir las funciones de <input type="text">, en la ciudad 
+						de <input type="text"> en perfecto estado y se compromete a utilizarlo en debida forma y a mantenerlo en excelentes condiciones. <strong>SEGUNDO:</strong> El equipo es de uso exclusivo de ADMINISTRACIÓN OPERATIVA AUTOMOTRIZ S.A.S, 
+						motivo por el cual, sólo podrá utilizarse para desempeñar sus funciones. <strong>TERCERO:</strong> El trabajador se hace responsable por el deterioro que presente el equipo, salvo cuando el deterioro que presente se deba al uso normal del bien.
+						<strong>CUARTO:</strong> En caso de deterioro (salvo el del uso normal del bien) o perdida ocasionados directa o indirectamente por el trabajador, hecho debidamente comprobado mediante la aplicación rigurosa del régimen disciplinario vigente en 
+						ADMINISTRACIÓN OPERATIVA AUTOMOTRIZ S.A.S, el trabajador se compromete a pagar el importe total de los daños. 
+						<strong>QUINTO:</strong> El equipo  recibido por el trabajador, podrá ser revisado en cualquier momento por la persona que designe
+						ADMINISTRACIÓN OPERATIVA AUTOMOTRIZ S.A.S,<strong>SEXTO:</strong> El trabajador será plenamente responsable laboral, civil y penalmente
+						por los daños que ocasione a ADMINISTRACIÓN OPERATIVA AUTOMOTRIZ S.A.S, o a terceros por el uso indebido del equipo anteriormente descrito. 
+						<strong>SÉPTIMO:</strong> Así mismo desde ya autorizo a ADMINISTRACIÓN OPERATIVA AUTOMOTRIZ S.A.S, para descontar de los salarios y/o liquidación 
+						final de prestaciones sociales, el valor del equipo en caso de pérdida o daño imputable al empleado, adicionalmente, autorizo a ADMINISTRACIÓN 
+						OPERATIVA AUTOMOTRIZ S.A.S, descontar de los salarios y/o prestaciones el valor resultante del exceso en el cargo básico de consumo mensual.
+						<strong>OCTAVO:</strong> Adicionalmente, el trabajador firma al pie de su nombre comprometiéndose a mantener en las condiciones relacionadas en 
+						este documento y a responder como lo establece el numeral tercero y cuarto, los implementos que recibió el día <input type="text"> (<select>
+								<option></option>
+								<?php for($i=1;$i<32;$i++){ ?>
+									<option><?php echo $i; ?></option>
+								<?php  } ?>
+							</select>) del mes de <select>
+								<option></option>
+								<option>Enero</option>
+								<option>Febrero</option>
+								<option>Marzo</option>
+								<option>Abril</option>
+								<option>Mayo</option>
+								<option>Junio</option>
+								<option>Julio</option>
+								<option>Agosto</option>
+								<option>Septiembre</option>
+								<option>Octubre</option>
+								<option>Noviembre</option>
+								<option>Diciembre</option>
+							</select> 
+						del año <select>
+								<option></option>
+								<option>2017</option>
+								<option>2018</option>
+								<option>2019</option>
+								<option>2020</option>
+								<option>2021</option>
+								<option>2022</option>
+								<option>2023</option>
+							</select> y que constan en la presente Acta.
+						&nbsp;<strong>Observaciones adicionales:</strong>
+						&nbsp;Leído por los intervinientes, quienes están de acuerdo con lo descrito en la presente acta y para constancia y aprobación se firma un original, 
+						y su respectiva copia los cuales serán archivados así:
+						&nbsp;<strong>Original 1:</strong> 	Carpeta inventario de activos fijos – equipos de comunicación
+						&nbsp;<strong>Original 2:</strong> 	Hoja de vida trabajador – Departamento de Gestión Humana - Bogotá
+					</p>
+				</td>
+			</tr>
+			<td  colspan='2'>QUIEN ENTREGA:
+			&nbsp;_________________________
+			<br>
+			&nbsp;Nombre:<input type='text'>
+			<br>
+			&nbsp;Cargo:<input type='text'>
+			<br>
+			&nbsp;C.C:<input type='text'></td>
+			<td></td>
+			<td  colspan='3'>QUIEN RECIBE:
+			&nbsp;_________________________
+			<br>
+			&nbsp;Nombre:<input type='text'>
+			<br>&nbsp;Cargo:<input type='text'>
+			<br>&nbsp;C.C:<input type='text'></td>
+			</tr>	
+		</table>
+		<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">		
+			<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+	</body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="/Administrativo/views/js/editable_table.js"></script>
+	<script src="/Administrativo/views/js/basicinput.js"></script>
+	<script src="/Administrativo/views/js/save_document.js"></script>
+</html>

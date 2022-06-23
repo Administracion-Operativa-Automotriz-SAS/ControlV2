@@ -1,0 +1,145 @@
+<html>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+		<style>
+			td{
+				font-size: <?php echo $Tam_Fuente ?>;
+			}
+		</style>
+		<table width='90%' class='table_image' border cellspacing='0' align='center'>
+			<tr>
+				<td width='20%' rowspan=3 align='center' valign='middle'>
+					<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+				</td>
+				<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo utf8_encode($Tipo->nombre) ?></b></td>
+				<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+			</tr>
+			<tr>
+				<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+			</tr>
+			<tr>
+				<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+			</tr>
+		</table>
+		<table border='0' cellspacing='0' cellpadding='0' width='90%' align='center'>
+			<tr>
+				<td width='20%'></td>
+				<td align='center' style='font-size:8px;' width='50%'>
+					<span id='subtitle'><?php echo utf8_encode("Consecutivo Interno N�mero") ?></span>:<?php echo $Nconsecutivo ?></td>
+				<td width='30%'></td>
+			</tr>
+	    </table>
+		<!--cabecera-->
+		<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+		&nbsp;
+		<table border cellspacing='0' width='90%' align='center'>
+			<tr>
+				<td  class='theader' >Fecha de la auditoría:</td>
+				<td colspan=3 class='writetd' onclick="make_visible(0)" ondblclick="make_invisible(0)"><input class="date_input" id="einput0"  type="date"></td>				
+			</tr>
+			<tr>
+				<td  class='theader'>Lugar:</td>
+				<td colspan=3 class='writetd' contenteditable="true"></td>
+			</tr>
+			<tr><td  class='theader' style='text-align:center;' colspan='4'><b>Datos Generales</b></td></tr>
+			<tr>
+				<td  class='theader' >Objetivo</td>
+				<td colspan='3' class='writetd' contenteditable="true"></td>
+			</tr>
+			<tr>
+				<td  class='theader'>Alcance</td>
+				<td colspan='3' class='writetd' contenteditable="true"></td>
+			</tr>
+			<tr>
+				<td  class='theader'>Criterios</td>
+				<td class='writetd' contenteditable="true" colspan='3'></td>
+			</tr>
+			<tr><td  class='theader' style='text-align:center;' colspan='4'><b>Datos de Identificación</b></td></tr>
+			<tr>
+				<td  class='theader'>Tipo de Auditoría</td>
+				<td colspan='3' class='writetd' contenteditable="true"></td>
+			</tr>
+			<tr>
+				<td  class='theader'>Representante en la dirección</td>
+				<td colspan='3' class='writetd' contenteditable="true"></td>
+			</tr>
+			<tr>
+				<td  class='theader'>Participantes del auditado</td>
+				<td colspan='3' class='writetd' contenteditable="true"></td>
+			</tr>
+			<tr>
+				<td  class='theader'>Auditor</td>
+				<td colspan='3' class='writetd' contenteditable="true"></td>
+			</tr>
+			<tr><td  class='theader' style='text-align:center;' colspan='4'><b>Resultados de la auditoría</b></td></tr>
+			<tr>
+				<td  class='theader' colspan='4' align='center'><b>FORTALEZAS</b>&nbsp;(Factores críticos de éxito implementados asertivamente)</td></tr>
+			<tr>
+				<td  class='theader' align='center'>Aspecto evaluado</td>
+				<td  class='theader' align='center'>Aspecto encontrado</td>
+				<td  class='theader' align='center'>Contribución actual</td>
+				<td  class='theader' align='center'>Procesos implicados</td>
+			</tr>
+			<?php for($i=0;$i<4;$i++){ ?>
+			<tr>
+				<td  align='center' class='writetd' contenteditable="true">&nbsp;</td>
+				<td class='writetd' contenteditable="true"></td>
+				<td class='writetd' contenteditable="true"></td>
+				<td class='writetd' contenteditable="true"></td>
+			</tr>
+			<?php } ?>
+			<tr><td  class='theader' colspan='4' align='center'><b>OPORTUNIDADES DE MEJORA</b>&nbsp;(Riesgos que podrían materializarse)</td></tr>
+			<tr>
+				<td  class='theader' align='center'>Aspecto evaluado</td>
+				<td  class='theader' align='center'>Oportunidad o riesgo encontrado</td>
+				<td  class='theader' align='center'>Beneficio esperado al implementar la mejora o mitigar el riesgo</td>
+				<td  class='theader' align='center'>Procesos implicados</td>
+			</tr>
+			<?php for($i=0;$i<4;$i++){ ?>
+			<tr>
+				<td  align='center' class='writetd' contenteditable="true">&nbsp;</td>
+				<td class='writetd' contenteditable="true"></td>
+				<td class='writetd' contenteditable="true"></td>
+				<td class='writetd' contenteditable="true"></td>
+			</tr>
+			<?php } ?>
+			<tr><td  class='theader' colspan='4' align='center'><b>HALLAZGOS</b>&nbsp;(Incumplimientos a los criterios de auditoría)</td></tr>
+			<tr>
+				<td  class='theader' align='center'>Aspecto evaluado</td>
+				<td  class='theader' align='center' colspan=2>Descripción</td>
+				<td  class='theader' align='center'>Procesos implicados</td>
+			</tr>
+			<?php for($i=0;$i<4;$i++){ ?>
+			<tr>
+				<td  align='center' class='writetd' contenteditable="true">&nbsp;</td>
+				<td class='writetd' contenteditable="true" colspan="2"></td>				
+				<td class='writetd' contenteditable="true"></td>
+			</tr>
+			<?php } ?>
+		</table>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		
+	
+		&nbsp;
+		<table border cellspacing='0' width='90%' align='center'>
+			<tr><td  class='theader' colspan='4' align='center'><b>RESULTADOS DE LA REVISIÓN FRENTE A ACCIÓN ANTERIORES</b>&nbsp;(Avance frente a auditorías previas)</td></tr>
+			<tr><td  class='writetd' contenteditable="true" colspan=4>&nbsp;</td></tr>
+			<tr><td  class='writetd' contenteditable="true" colspan=4>&nbsp;</td></tr>
+			<tr><td  class='writetd' contenteditable="true" colspan=4>&nbsp;</td></tr>
+			<tr><td  class='writetd' contenteditable="true" colspan=4>&nbsp;</td></tr>
+			<tr><td  class='theader' colspan='4' align='center'><b>OBSERVACIONES</b>&nbsp;(Registrar temas adicionales)</td></tr>
+			<tr><td  class='writetd' contenteditable="true" colspan=4>&nbsp;</td></tr>
+			<tr><td  class='writetd' contenteditable="true" colspan=4>&nbsp;</td></tr>
+			<tr><td  class='theader' colspan='4' align='center'><b>CONCLUSIONES DE LA AUDITORIA</b>&nbsp;(Valoración frente a los objetivos y criterios de la auditoría)</td></tr>
+			<tr><td  class='writetd' contenteditable="true" colspan=4>&nbsp;</td></tr>
+			<tr><td  colspan=4 align='center'>&nbsp;&nbsp;Auditor   _____________________________&nbsp;&nbsp;</td></tr>
+		</table>
+		<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">	
+	<input type="hidden">
+	<button style="margin-left:4.6em;" id="document_save_button"  onclick="save_document()">Guardar</button>
+	</body>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<script src="/Administrativo/views/js/editable_table.js"></script>
+		<script src="/Administrativo/views/js/basicinput.js"></script>
+		<script src="/Administrativo/views/js/save_document.js"></script>
+</html>

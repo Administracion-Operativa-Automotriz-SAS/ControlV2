@@ -1,0 +1,208 @@
+<html>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+	<style>
+		td{
+			font-size: <?php echo $Tam_Fuente ?>;
+		}
+	</style>
+		<body>
+		<table width='90%' class='table_image' border cellspacing='0' align='center'>
+				<tr>
+					<td width='20%' rowspan=3 align='center' valign='middle'>
+						<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+					</td>
+					<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo $Tipo->nombre ?></b></td>
+					<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+				</tr>
+		</table>
+		<table border='0' cellspacing='0' cellpadding='0' width='90%' align='center'>
+			<tr>
+				<td width='20%'></td>
+				<td align='center' style='font-size:8px;' width='50%'>
+					<span id='subtitle'><?php echo "Consecutivo Interno Número" ?></span>:<?php echo $Nconsecutivo ?></td>
+				<td width='30%'></td>
+			</tr>
+		</table>
+			<!--cabecera-->
+		<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+		
+	<table width='100%' style="text-align:center;" border cellspacing='0'>
+		<tr>
+			<td style='font-size:$Tam_Fuente1;'  bgcolor='#CCCCCC' class="theader" colspan="4" align='center'><b>ADMINISTRACION OPERATIVA AUTOMOTRIZ S.A.S</b></td>
+		</tr>
+		<tr>
+			<td style='font-size:$Tam_Fuente1;' width="20%" bgcolor='#CCCCCC' colspan="2" class="theader"><b>DIRECCIÓN PRODUCTORA</b></td>
+			<td width="20%" contenteditable="true" class="writetd" colspan="2"></td>			
+			
+		</tr>
+		<tr>
+			<td style='font-size:$Tam_Fuente1;' colspan='4' align='center' bgcolor='#CCCCCC' class="theader"><b>FECHA ENTREGA ARCHIVO CENTRAL</b></td>			
+		</tr>
+		<tr>
+			<td style='font-size:$Tam_Fuente1;' colspan="2" align='center' bgcolor='#CCCCCC' class="theader"><b>Año</b></td>
+			<td style='font-size:$Tam_Fuente1;' align='center' bgcolor='#CCCCCC' class="theader"><b>Mes</b></td>
+			<td style='font-size:$Tam_Fuente1;' align='center' bgcolor='#CCCCCC' class="theader"><b>Día</b></td>
+		</tr>
+		<tr>
+			
+			<td class="writetd" colspan="2">
+				<div style="text-align:center;">
+				<select>
+					<option></option>
+					<option>2017</option>
+					<option>2018</option>
+					<option>2019</option>
+					<option>2020</option>
+					<option>2021</option>
+					<option>2022</option>
+					<option>2023</option>
+				</select>
+				</div>
+			</td>
+			<td class="writetd" >
+				<div style="text-align:center;">
+				<select>
+					<option></option>
+					<option>Enero</option>
+					<option>Febrero</option>
+					<option>Marzo</option>
+					<option>Abril</option>
+					<option>Mayo</option>
+					<option>Junio</option>
+					<option>Julio</option>
+					<option>Agosto</option>
+					<option>Septiembre</option>
+					<option>Octubre</option>
+					<option>Noviembre</option>
+					<option>Diciembre</option>
+				</select>
+				</div>
+			</td>
+			<td class="writetd" >
+				<div style="text-align:center;">
+				<select>
+					<option></option>
+					<?php for($i=1;$i<32;$i++){ ?>
+						<option><?php echo $i; ?></option>
+					<?php  } ?>
+				</select>
+				</div>
+			</td>
+		</tr>
+		
+	</table>
+	<table border cellspacing='0' cellpadding='0' width='100%' align='center'>
+			<tr>
+				<td  width='' align='center' rowspan=2 bgcolor='#CCCCCC' class="theader">Item</td>
+				<td  width='' align='center' rowspan=2 bgcolor='#CCCCCC' class="theader">Serie</td>
+				<td  width='' align='center' rowspan=2 bgcolor='#CCCCCC' class="theader">Subserie</td>
+				<td  width='' align='center' rowspan=2 bgcolor='#CCCCCC' class="theader">Unidad<br>Documental</td>
+				<td  width='' align='center' colspan=2 bgcolor='#CCCCCC' class="theader">Fechas Extremas</td>
+				<td  width='' align='center' colspan=6 bgcolor='#CCCCCC' class="theader">Unidad de Conservación</td>
+				<td  width='' align='center' rowspan=2 bgcolor='#CCCCCC' class="theader">Número<br>de&nbsp;<br>Folios</td>
+				
+				<td  width='' align='center' rowspan=2 bgcolor='#CCCCCC' class="theader">Observaciones</td>
+			</tr>
+			<tr>
+				<td  width='' bgcolor='#CCCCCC' class="theader" align='center'>Inicial</td>
+				<td  width='' bgcolor='#CCCCCC' class="theader" align='center'>Final</td>
+				<td  width='' bgcolor='#CCCCCC' class="theader" align='center'>No.<br>Caja</td>
+				<td  width='' bgcolor='#CCCCCC' class="theader" align='center'>No.<br>Carpeta</td>
+				<td  width='' bgcolor='#CCCCCC' class="theader" align='center'>No.<br>Tomo</td>				
+				<td  width='' bgcolor='#CCCCCC' class="theader" align='center'>AZ</td>
+				<td  width='' bgcolor='#CCCCCC' class="theader" align='center'>Legajo</td>
+				<td  width='' bgcolor='#CCCCCC' class="theader" align='center'>Otro</td>
+			</tr>
+			<?php for($i=1;$i<18;$i++){?>
+			<tr <?php if($i+1==18): ?> id="add_after_this"  <?php endif ?> >
+				<td contenteditable="true" class="writetd">&nbsp;</td>
+				<td contenteditable="true" class="writetd"></td>
+				<td contenteditable="true" class="writetd"></td>
+				<td contenteditable="true" class="writetd"></td>
+				<td class="writetd" onclick="make_visible(<?php echo $i ?>)" ondblclick="make_invisible(<?php echo $i ?>)"><input class="date_input" id="einput<?php echo $i ?>"  type="date"></td>
+				<td class="writetd" onclick="make_visible(<?php echo (100+$i) ?>)" ondblclick="make_invisible(<?php echo (100+$i) ?>)"><input class="date_input" id="einput<?php echo (100+$i) ?>"  type="date"></td>
+				<td contenteditable="true" class="writetd"></td>				
+				<td contenteditable="true" class="writetd"></td>
+				<td contenteditable="true" class="writetd"></td>
+				<td contenteditable="true" class="writetd"></td>
+				<td contenteditable="true" class="writetd"></td>				
+				<td contenteditable="true" class="writetd"></td>
+				<td contenteditable="true" class="writetd"></td>				
+				<td contenteditable="true" class="writetd"></td>
+			</tr>
+			<?php } ?>
+		</table>
+		<table border cellspacing='0' cellpadding='0' width='100%'>
+			<tr>
+				<td  align='center' bgcolor='#CCCCCC' class="theader" colspan="2">Elaboró</td>
+				<td  align='center' bgcolor='#CCCCCC' class="theader" colspan="2">Entregó</td>
+				<td  align='center' bgcolor='#CCCCCC' class="theader" colspan="2">Recibió y cotejó</td>
+			</tr>
+			<tr>
+				<td style='font-size:$Tam_Fuente1;'>Nombres y Apellidos:</td>
+				<td width="20%" contenteditable="true" class="writetd"></td>
+				<td style='font-size:$Tam_Fuente1;'>Nombres y Apellidos:</td>
+				<td width="20%" contenteditable="true" class="writetd"></td>
+				<td style='font-size:$Tam_Fuente1;'>Nombres y Apellidos:</td>
+				<td width="20%" contenteditable="true" class="writetd"></td>
+			</tr>
+			<tr>
+				<td style='font-size:$Tam_Fuente1;'>Cargo:</td>
+				<td contenteditable="true" class="writetd"></td>
+				<td style='font-size:$Tam_Fuente1;'>Cargo:</td>
+				<td contenteditable="true" class="writetd"></td>
+				<td style='font-size:$Tam_Fuente1;'>Cargo:</td>
+				<td contenteditable="true" class="writetd"></td>
+			</tr>
+			<tr>
+				<td style='font-size:$Tam_Fuente1;'>Firma:</td>
+				<td></td>
+				<td style='font-size:$Tam_Fuente1;'>Firma:</td>
+				<td></td>
+				<td style='font-size:$Tam_Fuente1;'>Firma:</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td style='font-size:$Tam_Fuente1;'>Lugar:</td>
+				<td contenteditable="true" class="writetd"></td>
+				<td style='font-size:$Tam_Fuente1;'>Lugar:</td>
+				<td contenteditable="true" class="writetd"></td>
+				<td style='font-size:$Tam_Fuente1;'>Lugar:</td>
+				<td contenteditable="true" class="writetd"></td>
+			</tr>
+			<tr>
+				<td style='font-size:$Tam_Fuente1;'>Fecha:</td>
+				<td class="writetd" onclick="make_visible(301)" ondblclick="make_invisible(301)">
+					<input class="date_input" id="einput301"  type="date">
+				</td>
+				<td>Fecha:</td>
+				<td class="writetd" onclick="make_visible(302)" ondblclick="make_invisible(302)">
+					<input class="date_input" id="einput302"  type="date">
+				</td>
+				<td>Fecha:</td>
+				<td class="writetd" onclick="make_visible(303)" ondblclick="make_invisible(303)">
+					<input class="date_input" id="einput303"  type="date">
+				</td>
+			</tr>
+		</table>
+		<input type="hidden" name="max_num_row" value="18">	
+		<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">		
+		<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+		<button  id="addrow_button"  onclick="add_row()">Agregar Linea</button>
+		<button  id="addrow_button"  onclick="Quitar()">Quitar Linea</button>
+		
+	</body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="/Administrativo/views/js/editable_table.js"></script>
+	<script src="/Administrativo/views/js/basicinput.js"></script>
+	<script src="/Administrativo/views/js/save_document.js"></script>
+	<script src="/Administrativo/views/js/inventario_entrega_documental_addrow.js"></script>
+</html>

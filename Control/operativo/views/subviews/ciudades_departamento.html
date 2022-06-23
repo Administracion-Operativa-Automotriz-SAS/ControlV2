@@ -1,0 +1,28 @@
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<table id="table_c">
+	<thead>
+		<tr>
+			<th>Codigo</th>
+			<th>Ciudad</th>
+			<th>Opcion</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach($ciudades as $ciudad){  ?>
+		<tr>
+			<td><?php echo $ciudad->codigo ?></td>
+			<td><?php echo $ciudad->nombre ?></td>
+			<td> <button onclick="angular.element(this).scope().add_ciudad('<?php echo $ciudad->codigo ?>','<?php echo $ciudad->nombre ?>')">Seleccionar</button> </td>
+		</tr>
+		<?php } ?>
+	</tbody>
+</table>
+<script>
+	$('#table_c').DataTable({
+		 "bSort": false,
+		 "language": {
+			"url": "//cdn.datatables.net/plug-ins/1.10.13/i18n/Spanish.json"
+	     }
+	});
+</script>				

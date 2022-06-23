@@ -1,0 +1,44 @@
+<html>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+		<link rel="stylesheet" href="/Administrativo/views/css/letter_style.css">	
+		<body class='no_prt'>
+			<div class='container'>
+				<p align='left' class='first_line'><?php echo $Tipo->codigo."-".$Nconsecutivo ?></p>
+				<br>
+				<p >Bogotá D.C. <?php echo $Fecha_completa ?></p>&nbsp;
+				<br>
+				
+				Señor (a):&nbsp;
+				<br><br>
+				<span><b><input type='text' name="para" placeholder='Para'></b></span>	
+				<br>
+				<span style='margin-top="-0.3em;"'><b><input type='text' name="cargo" placeholder='Cargo para'></b>&nbsp;
+				<br>
+				<span><input type='text' name="empresa" placeholder='Empresa'>&nbsp;		
+				<br>
+				<span><input type='text' name="direccion" placeholder='Dirección'></b>&nbsp;&nbsp;
+				<br>
+				<span><input type='text' name="direccion" placeholder='Ciudad'>&nbsp;&nbsp;
+				
+				<br>
+				<br>
+				Asunto: <input type='text' name="asunto" placeholder='Asunto'>&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+				
+				<p align='justify' >
+					<textarea style='width:100%;' name="texto" id='textArea'></textarea>
+				</p>
+			<p>Cordialmente</p>
+			<br>
+				<p ><b><input type="text" name="remitente" placeholder='Remitente'></b>&nbsp;<br><b><input type="text" name="cargo_remitente" placeholder='Cargo remitente'></b>&nbsp;<br>&nbsp;
+		</div>
+		<button  onclick="imprimir_pagina()" class="btn btn-warning form-control">Imprimir</button>
+		<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">	
+		<input type="hidden" name="page_consecutivo" value="<?php echo $Tipo->codigo."-".$Nconsecutivo; ?>">
+		<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+	</body>
+	 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<script src="/Administrativo/views/js/editable_table.js"></script>		
+		<script src="/Administrativo/views/js/comunicacion_externa.js"></script>	
+</html>

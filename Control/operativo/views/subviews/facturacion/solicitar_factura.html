@@ -1,0 +1,95 @@
+<script language='javascript'>
+				function validar_formulario()
+				{
+					with(document.forma)
+					{
+						if(!alltrim(descripcion.value)) {alert('Debe especificar una descripción');descripcion.style.backgroundColor='ffffdd';descripcion.focus();return false;}
+						if(!alltrim(forma_pago.value)) {alert('Debe seleccionar una forma de pago');forma_pago.style.backgroundColor='ffffdd';forma_pago.focus();return false;}
+						Enviar.style.visibility='hidden';
+					}
+					document.forma.submit();
+				}
+</script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<body>
+		<script language='javascript'>centrar(600,400);</script><h3>Solicitud de Facturación</h3>
+		<form action='zcitas.php' method='post' target='_self' name='forma' id='forma'>
+			Concepto a facturar: <?php echo menu1("concepto","Select id,nombre from concepto_fac where activo_solicitud=1") ?>
+			<br>
+			<br>
+			Cantidad: <input type='text' name='cantidad' id='cantidad' size=5 maxlength=10 value='1' onblur="calc_value()" class='numero'>		
+			<br>
+			<br>
+			Escriba la descripción de lo que se necesita facturar:
+			<br>
+			<textarea name='descripcion' rows=4 cols=80 style='font-family:arial;font-size:12px'></textarea>
+			<br>
+			<br>			
+			Valor sin iva:&nbsp <span id="valor_sin_iva"></span>
+			<br>
+			<br>			
+			Valor incluido Iva:&nbsp<input type='text' class='numero' name='valor'>
+			<br>
+			<br>
+			Forma de pago: 
+			<?php echo menu3("forma_pago","R,NUEVO PAGO EN EFECTIVO O T.DEBITO;T,NUEVO PAGO CON VOUCHER;G,PAGO CONTRA LA GARANTIA;A,ASEGURADORA ASUME EL PAGO;E,TRANSFERENCIA ELECETRONICA O CHEQUE",' ',1,'',' ') ?>
+			<br>
+			<br>
+			<input type='button' name='Enviar' id='Enviar' value='CONTINUAR' onclick='validar_formulario();'>
+			<input type='hidden' name='Acc' value='solicitar_factura_ok'>
+			<input type='hidden' name='siniestro' value='$Cita->siniestro'>
+			<input type='hidden' name='cita' value='$cita'>
+		</form>
+</body>
+
+<script>
+
+	$(document).ready(function(){
+		
+		$('#concepto').append($('<option>', {
+			value: null,
+			selected:"selected",
+			text: 'Selecciona'
+		}));
+	
+	});
+
+	var aseguradora = "<?php echo $Sin->aseguradora ?>";
+	var concepto = "";
+	var tarifa = "";
+	
+	function calc_value()
+	{
+		if(concepto == "")
+		{
+			concepto = $("#concepto").val();
+		}
+		$.post("",{aseguradora:aseguradora,concepto:concepto,Acc:"datos_tarifa_aseg_concept"},function(response){
+			tarifa = JSON.parse(response);
+			console.log(tarifa);
+				$.post("",{concepto:tarifa.concepto,Acc:"concepto_fact_tarifa"},function(response){
+					conc = JSON.parse(response);
+					console.log(concepto);
+					var valor_sin_iva = tarifa.valor*$("#cantidad").val();
+					$("#valor_sin_iva").html(parseInt(valor_sin_iva));
+					console.log(valor_sin_iva);
+					if(conc)
+					{
+						var valor_con_iva = parseInt(valor_sin_iva+(valor_sin_iva*(conc.porc_iva/100))); 
+						$("input[name='valor']").val(valor_con_iva);
+					}					
+					//console.log(valor);
+					
+				});					
+			});
+		
+	}
+	
+	
+	
+	$("#concepto").change(function()
+	{
+		concepto = $( this ).val();
+		calc_value();
+	});
+</script>

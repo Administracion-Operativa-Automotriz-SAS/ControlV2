@@ -1,0 +1,94 @@
+<script>
+	function ver_Facturas(id)
+	{
+		//alert("Ver facturas "+id);
+		$.post("zbalance_estadoDev.php",{Acc:"tabla_facturas_requisicion",id:id},function(response){
+			$("#ajax-table-content").html(response);
+			$("#ver_facturas_Modal").modal("show");
+		});		
+	}
+	
+	function agregar_Facturas(id)
+	{
+		//alert("Agregar facturas "+id);
+		$("#agregar_facturas_Modal").modal("show");
+		$("#add_fact_id").val(id);
+	}
+</script>
+
+<!-- Modal -->
+<div class="modal fade" id="ver_facturas_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ver facturas</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="ajax-table-content"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>      
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="agregar_facturas_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar facturas</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="form_consecutivo_factura" action="zbalance_estado.php" method="post">
+			<input type="hidden" name="id" id="add_fact_id">
+			<input type="hidden" name="Acc" value="agregar_factura_requisicion">
+			<div class="form-group">
+				<label>Consecutivo de factura</label>
+				<input type="" class="form-control" name="factura_referencia">
+			</div>
+			<div class="form-group">
+				<button class="form-control btn btn-success">Agregar Consecutivo de factura</button>
+			</div>
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>        
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+	$("#form_consecutivo_factura").submit(function(){
+		event.preventDefault();
+		  var formData = new FormData($(this)[0]);
+		  action_url = $(this).attr("action");
+		  $.ajax({
+			  url: action_url,
+			  type: "POST",
+			  data: formData,
+			  async: false,
+			  success: function (data) {
+				  console.log(data);
+				  data = JSON.parse(data);	
+				  if(data.status == 1)
+				  {
+					$("#form_consecutivo_factura")[0].reset();
+					$("#agregar_facturas_Modal").modal("hide");
+				  }
+				  alert(data.message);				  	
+			  },
+			  cache: false,
+			  contentType: false,
+			  processData: false
+	  });				  
+  });
+</script>
+

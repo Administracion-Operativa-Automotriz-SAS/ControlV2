@@ -1,0 +1,131 @@
+<html>
+	<meta http-equiv='Content-Type' content='text/html;' charset="UTF-8">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+	<style>
+		td{
+			font-size: <?php echo $Tam_Fuente ?>;
+		}
+	</style>
+	<body>
+	
+	
+	<table width='90%' class='table_image' border cellspacing='0' align='center'>
+				<tr>
+					<td width='20%' rowspan=3 align='center' valign='middle'>
+						<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+					</td>
+					<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo utf8_encode($Tipo->nombre) ?></b></td>
+					<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+				</tr>
+		</table>
+		<table border='0' cellspacing='0' cellpadding='0' width='90%' align='center'>
+			<tr>
+				<td width='20%'></td>
+				<td align='center' style='font-size:8px;' width='50%'>
+					<span id='subtitle'><?php echo utf8_encode("Consecutivo Interno N�mero") ?></span>:<?php echo $Nconsecutivo ?></td>
+				<td width='30%'></td>
+			</tr>
+		</table>
+			<!--cabecera-->
+		<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+	&nbsp;
+
+	<p style='font-size:$Tam_Fuente;text-align:justify;' >En <input type='text'>, a los <input type='text'> días del mes de <input type='text'> de <input type='text'> siendo las <input type='text'> 
+	horas, se  reunen , en la oficina ubicada en <input type='text'> los funcionarios:<input type='text'> del proceso de <input type='text'>  y <input type='text'> de la dependencia <input type='text'>
+	con el fin de dar inicio al proceso de destruccion de los documentos relacionados en esta acta, aprobada mediante la tabla de retencion documental.</p>
+	<br>
+	<p>Por lo anterior se procede a la destruccion los siguientes documentos:</p>
+	<table border cellspacing='0' cellpadding='0' width='100%' align='center'>
+			<tr>
+				<td bgcolor='#CCCCCC' class="theader" width='' align='center' rowspan=2>No. de&nbsp;Orden</td>
+				<td bgcolor='#CCCCCC' class="theader" width='' align='center' rowspan=2>Nombre de las Series y Subseries&nbsp;o Asuntos</td>
+				<td bgcolor='#CCCCCC' class="theader" width='' align='center' rowspan=2>Nombre del Expediente</td>
+				<td bgcolor='#CCCCCC' class="theader" width='' align='center' colspan=2>Fechas</td>
+				<td bgcolor='#CCCCCC' class="theader" width='' align='center' colspan=3>Unidad de&nbsp;Conservación</td>
+				<td bgcolor='#CCCCCC' class="theader" width='' align='center' rowspan=2>Folios</td>
+				<td bgcolor='#CCCCCC' class="theader" width='' align='center' colspan=2>Digitalizado</td>
+			</tr>
+			<tr>
+				<td bgcolor='#CCCCCC' class="theader" width='' align='center'>Inicial</td>
+				<td bgcolor='#CCCCCC' class="theader" width='' align='center'>Final</td>
+				<td bgcolor='#CCCCCC' class="theader" width='' align='center'>Carp.</td>
+				<td bgcolor='#CCCCCC' class="theader" width='' align='center'>Tomo</td>
+				<td bgcolor='#CCCCCC' class="theader" width='' align='center'>Otro</td>
+				<td bgcolor='#CCCCCC' class="theader" width='' align='center'>Si</td>
+				<td bgcolor='#CCCCCC' class="theader" width='' align='center'>No</td>
+				<td bgcolor='#CCCCCC' class="theader" width='' align='center'>Eliminar linea</td>
+			</tr>
+			<?php for($i=1;$i<20;$i++){ ?>
+			<tr id='add_after_this<?php echo $i; ?>'>				
+				<td class="writetd" <?php if($i==0): ?> id="start" value='<?php echo $i; ?>' <?php endif ?> contenteditable="true"></td>
+				<td class="writetd" contenteditable="true"></td>
+				<td class="writetd" contenteditable="true"></td>
+				<td class="writetd" onclick="make_visible(<?php echo $i ?>)" ondblclick="make_invisible(<?php echo $i ?>)" ><input class="date_input" id="einput<?php echo $i ?>"  type="date"></td>
+				<td class="writetd" onclick="make_visible(<?php echo (100+$i) ?>)" ondblclick="make_invisible(<?php echo (100+$i) ?>)" ><input class="date_input" id="einput<?php echo (100+$i) ?>"  type="date"></td>
+				<td><div style="text-align:center;"><input type="checkbox" name="unidad"></div></td>
+				<td><div style="text-align:center;"><input type="checkbox" name="unidad"></div></td>
+				<td><div style="text-align:center;"><input type="checkbox" name="unidad"></div></td>
+				<td contenteditable="true"></td>
+				<td><div style="text-align:center;"><input type="radio" name="digitalizado<?php echo $i ?>"></div></td>
+				<td><div style="text-align:center;"><input type="radio" name="digitalizado<?php echo $i ?>"></div></td>
+				<td><button  id="addrow_button"  onclick="remuve(<?php echo $i; ?>)">Remueve Linea</button></td>
+			</tr>
+			<?php } ?>
+			<tr id='add_after_this<?php  echo $i; ?>'>
+				<td class="writetd"  id="start" contenteditable="true">20</td>
+				<td class="writetd" contenteditable="true"></td>
+				<td class="writetd" contenteditable="true"></td>
+				<td class="writetd" onclick="make_visible(<?php echo $i ?>)" ondblclick="make_invisible(<?php echo $i ?>)" ><input class="date_input" id="einput<?php echo $i ?>"  type="date"></td>
+				<td class="writetd" onclick="make_visible(<?php echo (100+$i) ?>)" ondblclick="make_invisible(<?php echo (100+$i) ?>)" ><input class="date_input" id="einput<?php echo (100+$i) ?>"  type="date"></td>
+				<td><div style="text-align:center;"><input type="checkbox" name="unidad"></div></td>
+				<td><div style="text-align:center;"><input type="checkbox" name="unidad"></div></td>
+				<td><div style="text-align:center;"><input type="checkbox" name="unidad"></div></td>
+				<td contenteditable="true"></td>
+				<td><div style="text-align:center;"><input type="radio" name="digitalizado<?php echo $i ?>"></div></td>
+				<td><div style="text-align:center;"><input type="radio" name="digitalizado<?php echo $i ?>"></div></td>
+				<td><button  id="addrow_button"  onclick="remuve(<?php echo $i; ?>)">Remueve Linea</button></td>
+			</tr>
+		</table>&nbsp;
+		<p style='text-align:center;'>Método de Eliminación:   PICADO (Informacion sensible) <input type='radio' name='tipo_eliminacion'>   RASGADO (Informacion no relevante) <input type='radio' name='tipo_eliminacion'> </p>
+		<table width='100%'>
+			<tr>
+				<td>Nombre:</td><td class="writetd" contenteditable="true"></td>
+				<td>Nombre:</td><td class="writetd" contenteditable="true"></td>
+				<td>Nombre:</td><td class="writetd" contenteditable="true"></td></tr>
+			<tr>
+				<td style='font-size:$Tam_Fuente1;'>Cargo:</td><td class="writetd" contenteditable="true"></td>
+				<td style='font-size:$Tam_Fuente1;'>Cargo:</td><td class="writetd" contenteditable="true"></td>
+				<td style='font-size:$Tam_Fuente1;'>Cargo:</td><td class="writetd" contenteditable="true"></td>
+			</tr>
+			<br>
+			<tr></tr>
+			<tr>
+				<td style='font-size:$Tam_Fuente1;'>Firma:</td><td>__________________</td>
+				<td style='font-size:$Tam_Fuente1;'>Firma:</td><td>__________________</td>
+				<td style='font-size:$Tam_Fuente1;'>Firma:</td><td>__________________</td>
+			</tr>
+			<tr>
+			   <td><br><h5 style="text-align:center;">Nota:  Entregar documento original con firmas al archivo central y dejar copia como constancia.</h5></td>
+			</tr>
+		</table>
+		<br>
+		<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">		
+			<input type="hidden" name="max_num_row" value="21">
+			<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+			<button  id="addrow_button"  onclick="add_row()">Agregar Linea</button>
+			
+	</body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="/Administrativo/views/js/acta_eliminacion_addrow.js"></script>
+	<script src="/Administrativo/views/js/editable_table.js"></script>
+	<script src="/Administrativo/views/js/basicinput.js"></script>
+	<script src="/Administrativo/views/js/save_document.js"></script>
+</html>

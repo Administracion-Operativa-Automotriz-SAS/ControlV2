@@ -1,0 +1,369 @@
+<?xml virsion="1.0" encoding="utf-8" standalone="yes"?>
+<fe:Invoice xsi:schemaLocation="http://www.dian.gov.co/contratos/facturaelectronica/v1 http://www.dian.gov.co/micrositios/fac_electronica/documentos/XSD/r0/DIAN_UBL.xsd urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2 http://www.dian.gov.co/micrositios/fac_electronica/documentos/common/UnqualifiedDataTypeSchemaModule-2.0.xsd urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2 http://www.dian.gov.co/micrositios/fac_electronica/documentos/common/UBL-QualifiedDatatypes-2.0.xsd" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" xmlns:clmIANAMIMEMediaType="urn:un:unece:uncefact:codelist:specification:IANAMIMEMediaType:2003" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:sts="http://www.dian.gov.co/contratos/facturaelectronica/v1/Structures" xmlns:clm54217="urn:un:unece:uncefact:codelist:specification:54217:2001" xmlns:clm66411="urn:un:unece:uncefact:codelist:specification:66411:2001" xmlns:fe="http://www.dian.gov.co/contratos/facturaelectronica/v1" xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ext:UBLExtensions>		
+		<ext:UBLExtension>
+			<ext:ExtensionContent>
+				<!--PtesaExtensions := Estructura propia de ptesa para registrar la información adicional de cada negocio-->
+				<PtesaExtensions:PtesaExtensions xmlns="http://www.ptesa.com/facturaelectronica/v1/Structures" xmlns:PtesaExtensions="http://www.ptesa.com/facturaelectronica/v1/Structures">
+					<InformacionDeAdquiriente>
+						<!--Informacion Email del adquiriente-->
+						<Informacion>
+							<Identificador>EmailAdq</Identificador>
+							<Valor>sergiocastillo@aoacolombia.com</Valor>
+						</Informacion>
+						<!--Digito de verificacion del adquiriente-->
+						<Informacion>
+							<Identificador>DigitoVerif</Identificador>
+							<Valor>1</Valor>
+						</Informacion>
+						<!--Informacion Rut del adquiriente 0:No aplica (si es persona natural o no cuentan con la informacion) 1: Aplica-->
+						<Informacion>
+							<Identificador>AplicaRUT</Identificador>
+							<Valor>0</Valor>
+						</Informacion>
+						<!--Informacion Camara de comercio del adquiriente 0:No aplica (si es persona natural o no cuentan con la informacion) 1: Aplica-->
+						<Informacion>
+							<Identificador>AplicaCC</Identificador>
+							<Valor>0</Valor>
+						</Informacion>
+						<!-- SOLO SI APLICA si no dejar vacio-->
+						<InformacionRUT>
+							<!-- SOLO SI APLICA:   Nombre del establecimiento de comercio-->
+							<Identificador>AR-01</Identificador>
+							<Valor>Nombre SAS.</Valor>
+						</InformacionRUT>
+						<!-- SOLO SI APLICA:  Tipo de Establecimiento de comercio -->
+						<InformacionRUT>
+							<Identificador>AR-02</Identificador>
+							<Valor>E-07</Valor>
+						</InformacionRUT>
+						<!-- SOLO SI APLICA:   Número de la matricula mercantil del establecimento de comercio-->
+						<InformacionRUT>
+							<Identificador>AR-03</Identificador>
+							<Valor>69631</Valor>
+						</InformacionRUT>
+						<!-- SOLO SI APLICA:  Barrio | Seccion | Zona de la ciudad-->
+						<InformacionRUT>
+							<Identificador>AR-04</Identificador>
+							<Valor>Usaquén</Valor>
+						</InformacionRUT>
+						<!-- SOLO SI APLICA:  Nombre de la ciudad-->
+						<InformacionRUT>
+							<Identificador>AR-05</Identificador>
+							<Valor>BOGOTA, D.C.</Valor>
+						</InformacionRUT>
+						<!-- SOLO SI APLICA:  Nombre del Departamento-->
+						<InformacionRUT>
+							<Identificador>AR-06</Identificador>
+							<Valor>BOGOTA, D.C.</Valor>
+						</InformacionRUT>
+						<!-- SOLO SI APLICA: Dirección del punto de venta-->
+						<InformacionRUT>
+							<Identificador>AR-07</Identificador>
+							<Valor>CR 11 10 92</Valor>
+						</InformacionRUT>
+						<!-- SOLO SI APLICA: Código del pais -->		
+						<InformacionRUT>
+							<Identificador>AR-08</Identificador>
+							<Valor>CO</Valor>
+						</InformacionRUT>
+						<!-- SOLO SI APLICA: Nombre del pais. -->		
+						<InformacionRUT>
+							<Identificador>AR-09</Identificador>
+							<Valor>COLOMBIA</Valor>
+						</InformacionRUT>
+						<!-- SOLO SI APLICA: Nombre del vendedor/mandatario/contribuyente en el rut/nombre del comerciante -->		
+						<InformacionRUT>
+							<Identificador>AR-10</Identificador>
+							<Valor>Comercial SAS.</Valor>
+						</InformacionRUT>
+						<!-- SOLO SI APLICA: Número del NIT  con digito de verificacion (Casilla 5 y 6 del RUT)-->		
+						<InformacionRUT>
+							<Identificador>AR-11</Identificador>
+							<Valor>830016046-1</Valor>
+						</InformacionRUT>
+						<!-- SOLO SI APLICA: Responsabilidades y obligaciones  (Casilla 53 y 54 del RUT)-->		
+						<InformacionRUT>
+							<Identificador>AR-12</Identificador>
+							<Valor>O-03;O-05;O-07;O-08;O-09;O-10;O-11;O-13;O-14;O-15;O-33;O-19;O-18;O-40;O-41;O-42</Valor>
+						</InformacionRUT>
+						<!-- SOLO SI APLICA: Barrio del la sede del comerciante-->		
+						<InformacionRUT>
+							<Identificador>AR-13</Identificador>
+							<Valor>Chico</Valor>
+						</InformacionRUT>
+						<!-- SOLO SI APLICA: Ciudad del comerciante (Casilla 40 del RUT)-->		
+						<InformacionRUT>
+							<Identificador>AR-14</Identificador>
+							<Valor>BOGOTA, D.C.</Valor>
+						</InformacionRUT>
+						<!-- SOLO SI APLICA: Departamento del comerciante (Casilla 39) -->		
+						<InformacionRUT>
+							<Identificador>AR-15</Identificador>
+							<Valor>BOGOTA, D.C.</Valor>
+						</InformacionRUT>
+						<!-- SOLO SI APLICA: Dirección del comerciante (Casilla 41 del RUT)-->		
+						<InformacionRUT>
+							<Identificador>AR-16</Identificador>
+							<Valor>CR 11 93 92</Valor>
+						</InformacionRUT>
+						<!-- SOLO SI APLICA: Código del pais -->		
+						<InformacionRUT>
+							<Identificador>AR-17</Identificador>
+							<Valor>CO</Valor>
+						</InformacionRUT>
+						<!-- SOLO SI APLICA: Nombre del pais. (Casilla 38 del RUT) -->		
+						<InformacionRUT>
+							<Identificador>AR-18</Identificador>
+							<Valor>COLOMBIA</Valor>
+						</InformacionRUT>
+						<!-- SOLO SI APLICA: Razon social del comerciante en la camara de comercio o equivalente -->		
+						<InformacionCamaraComercio>
+							<Identificador>AC-01</Identificador>
+							<Valor>AVANTEL SAS.</Valor>
+						</InformacionCamaraComercio>
+						<!-- SOLO SI APLICA: Número matricula mercantil de la empresa-->
+						<InformacionCamaraComercio>
+							<Identificador>AC-02</Identificador>
+							<Valor>696311</Valor>
+						</InformacionCamaraComercio>
+						<!-- SOLO SI APLICA: Barrio del comerciante en camara de comercio-->
+						<InformacionCamaraComercio>
+							<Identificador>AC-03</Identificador>
+							<Valor>Chico</Valor>
+						</InformacionCamaraComercio>
+						<!-- SOLO SI APLICA: Ciudad del comerciante en camara de comercio-->
+						<InformacionCamaraComercio>
+							<Identificador>AC-04</Identificador>
+							<Valor>BOGOTA, D.C.</Valor>
+						</InformacionCamaraComercio>
+						<!-- SOLO SI APLICA: Zona Postal del comerciante en carmara de comercio-->
+						<InformacionCamaraComercio>
+							<Identificador>AC-05</Identificador>
+							<Valor>11001</Valor>
+						</InformacionCamaraComercio>
+						<!-- SOLO SI APLICA: Departamento del comerciante en camara de comercio-->
+						<InformacionCamaraComercio>
+							<Identificador>AC-06</Identificador>
+							<Valor>BOGOTA, D.C.</Valor>
+						</InformacionCamaraComercio>
+						<!-- SOLO SI APLICA: Dirección del comerciante en camara de comercio-->
+						<InformacionCamaraComercio>
+							<Identificador>AC-07</Identificador>
+							<Valor>CR 11 93 92</Valor>
+						</InformacionCamaraComercio>
+						<!-- SOLO SI APLICA: Código del pais en Camara de Comercio-->
+						<InformacionCamaraComercio>
+							<Identificador>AC-08</Identificador>
+							<Valor>CO</Valor>
+						</InformacionCamaraComercio>
+						<!-- SOLO SI APLICA: Nombre del pais en Camara de Comercio-->
+						<InformacionCamaraComercio>
+							<Identificador>AC-09</Identificador>
+							<Valor>COLOMBIA</Valor>
+						</InformacionCamaraComercio>
+					</InformacionDeAdquiriente>
+					<InformacionDeDocumento>
+						<!--Informacion Fecha Vencimiento-->		
+						<Informacion>
+							<Identificador>FechaVenc</Identificador>
+							<Valor>2018/07/06</Valor>
+						</Informacion>
+						<Informacion>
+							<Identificador>TextoResolDian</Identificador>	
+							<Valor>Autorización Numeración de Facturación No.12354417 Factura por Computador de junio 21 de 2017 Prefijo FV. Rango 22351 al 30122 Vigencia por 12 Meses</Valor>
+						</Informacion>
+						<Informacion>
+							<Identificador>TextoEstatusOBL</Identificador>
+							<Valor>Agente retenedor de iva
+							autorretenedores segun resolucion 078951 de 230324 tasa de cambio sujeta a recaudacion despes de tres dias calendario de fecha factura
+							</Valor>
+						</Informacion>
+						<Informacion>
+							<Identificador>VlrEnLetras</Identificador>
+							<Valor>SON: TREINTA Y CINCO MIL PESOS MCTE CON CERO CENTAVOS</Valor>
+						</Informacion>
+							<Informacion>
+							<Identificador>OrdCompra</Identificador>
+							<Valor>PA-SRP0000000005</Valor>
+						</Informacion>
+					</InformacionDeDocumento>
+				</PtesaExtensions:PtesaExtensions>
+			</ext:ExtensionContent>
+		</ext:UBLExtension>
+	</ext:UBLExtensions>
+	<!--Valor predeterminado(No cambiar)-->												
+	<cbc:UBLVersionID>UBL 2.0</cbc:UBLVersionID>
+	<!--Valor predeterminado(No cambiar)-->												
+	<cbc:ProfileID>DIAN 1.0</cbc:ProfileID>
+	<!--ID := Numero de la factura con prefijo-->
+	<cbc:ID>FE1</cbc:ID>
+	<!--IssueDate := Fecha de emision-->
+	<cbc:IssueDate>2018-08-01</cbc:IssueDate>	
+	<!--IssueTime := Hora de emision-->
+	<cbc:IssueTime>17:05:05</cbc:IssueTime>
+	<!--Valor predeterminado(No cambiar)-->												
+	<cbc:InvoiceTypeCode listAgencyID="195" listAgencyName="CO, DIAN (Direccion de Impuestos y Aduanas Nacionales)" listURI="http://www.dian.gov.co" listSchemeURI="http://www.dian.gov.co/contratos/facturaelectronica/v1/InvoiceType">1</cbc:InvoiceTypeCode>
+	<cbc:DocumentCurrencyCode>COP</cbc:DocumentCurrencyCode>
+	<!--DATOS DEL Obligado-->
+	<!--AccountingSupplierParty := Seccion para registrar la información del obligado a facturar-->
+	<fe:AccountingSupplierParty>
+		<!--AdditionalAccountID:= segun la tabla tipo contribuyente  tabla8-->
+		<cbc:AdditionalAccountID schemeDataURI="http://www.dian.gov.co">1</cbc:AdditionalAccountID>
+		<fe:Party>
+			<cac:PartyIdentification>
+				<!--ID := Numero de identificacion
+				ID.schemeID := codigo del tipo de identificacion según tabla "Tipos de documentos de identidad"
+				ID.schemeName := Descripción del tipo de documento de identificacion según tabla "Tipos de documentos de identidad"-->
+				<cbc:ID schemeID="31" schemeName="NIT" schemeAgencyID="195" schemeAgencyName="CO, DIAN (Direccion de Impuestos y Aduanas Nacionales)">900174552</cbc:ID>
+			</cac:PartyIdentification>
+			<cac:PartyName>
+				<!--Name := Nombre del establecimiento de comercio o nombre comercial o Razón social-->
+				<cbc:Name>ADMINISTRACION OPERATIVA AUTOMOTRIZ S.A.S</cbc:Name>
+			</cac:PartyName>
+			<fe:PhysicalLocation>
+				<fe:Address>
+					<cbc:Department>Bogotá D.C.</cbc:Department>
+					<cbc:CitySubdivisionName>La Alborada</cbc:CitySubdivisionName>
+					<cbc:CityName>Bogotá D.C.</cbc:CityName>
+					<cac:AddressLine>
+						<cbc:Line>Cl. 98a #69-96</cbc:Line>
+					</cac:AddressLine>
+					<cac:Country>
+						<cbc:IdentificationCode listID="ISO 3166-1">CO</cbc:IdentificationCode>
+						<cbc:Name>Colombia</cbc:Name>
+					</cac:Country>
+				</fe:Address>
+			</fe:PhysicalLocation>
+			<fe:PartyTaxScheme>
+				<!--TaxLevelCode:= Regimen según tabla "Tipos de Régimen"-->
+				<cbc:TaxLevelCode>0</cbc:TaxLevelCode>
+				<cac:TaxScheme/>
+			</fe:PartyTaxScheme>
+			<!--PartyLegalEntity:= Información del Tag obligatorio-->
+			<fe:PartyLegalEntity>
+				<!--RegistrationName := Razón social-->
+				<cbc:RegistrationName>ADMINISTRACION OPERATIVA AUTOMOTRIZ S.A.S</cbc:RegistrationName>				
+			</fe:PartyLegalEntity>
+			<cac:Contact>
+				<cbc:Telephone>(1) 5897548</cbc:Telephone>
+			</cac:Contact>
+		</fe:Party>
+	</fe:AccountingSupplierParty>
+	<!--AccountingCustomerParty := Seccion para registrar la información del comprador/adquiriente/cliente-->
+	<fe:AccountingCustomerParty>
+		<!--AdditionalAccountID:= segun la tabla tipo contribuyente-->
+		<cbc:AdditionalAccountID schemeDataURI="http://www.dian.gov.co">2</cbc:AdditionalAccountID>
+		<fe:Party>
+			<cac:PartyIdentification>
+				<!--ID := Numero de identificacion
+				ID.schemeID := codigo del tipo de identificacion según tabla "Tipos de documentos de identidad"
+				ID.schemeName := Descripción del tipo de documento de identificacion según tabla "Tipos de documentos de identidad"-->
+				<cbc:ID schemeID="13" schemeName="CC" schemeAgencyID="195" schemeAgencyName="CO, DIAN (Direccion de Impuestos y Aduanas Nacionales)">00000000</cbc:ID>
+			</cac:PartyIdentification>
+			<cac:PartyName>
+				<!--Name := Nombre del establecimiento de comercio o nombre comercial o Razón social, poner al menos el primer nombre y primer apellido-->
+				<cbc:Name>Pepito Perez</cbc:Name>
+			</cac:PartyName>
+			<fe:PhysicalLocation>
+				<fe:Address>
+					<cbc:Department>Bogota D.C.</cbc:Department>
+					<cbc:CitySubdivisionName>CHICO</cbc:CitySubdivisionName>
+					<cbc:CityName>Bogotá D.C.</cbc:CityName>
+					<cac:AddressLine>
+						<cbc:Line>Cra X # XX - XX</cbc:Line>
+					</cac:AddressLine>
+					<cac:Country>
+						<cbc:IdentificationCode listID="ISO 3166-1">CO</cbc:IdentificationCode>
+						<cbc:Name>Colombia</cbc:Name>
+					</cac:Country>
+				</fe:Address>
+			</fe:PhysicalLocation>
+			<fe:PartyTaxScheme>
+				<!--TaxLevelCode:= Regimen según tabla "Tipos de Régimen"-->
+				<cbc:TaxLevelCode>0</cbc:TaxLevelCode>				
+				<cac:TaxScheme/>
+			</fe:PartyTaxScheme>
+			<fe:PartyLegalEntity>
+				<!--RegistrationName := Razón social si es persona natural se deja vacio-->
+				<cbc:RegistrationName>Soluciones Pepito S.A.S.</cbc:RegistrationName>				
+			</fe:PartyLegalEntity>
+			<cac:Contact>
+				<cbc:Telephone>(+571) 88 88 888</cbc:Telephone>
+			</cac:Contact>			
+			<!--Person:= Nombres de la persona, tag obligatorio si AdditionalAccountID es 2 -->
+			<fe:Person>
+				<!--FirstName := Primer nombre de la persona-->
+				<cbc:FirstName>Pepito</cbc:FirstName>
+				<!--FamilyName := Apellidos de la persona-->
+				<cbc:FamilyName>Perez</cbc:FamilyName>
+				<!--MiddleName := (Opcional) segundo nombre de la persona-->
+				<cbc:MiddleName/>
+			</fe:Person>
+		</fe:Party>
+	</fe:AccountingCustomerParty>
+	<!--Agregar tantos taxTotal como diferentes impuestos a registrar-->
+	<!--TaxTotal := Registro de un impuesto, en este primer caso IVA(ID = 01) diferenciando subtotales con 2 porcentajes-->
+	<fe:TaxTotal>
+		<!-- TaxAmount := total global del iva -->
+		<cbc:TaxAmount currencyID="COP">4300.00</cbc:TaxAmount>
+		<cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+		<!--TaxSubtotal := Subtotal de iva con el 19%-->
+		<fe:TaxSubtotal>
+			<!--TaxableAmount := base para calcular iva con el 19%-->
+			<cbc:TaxableAmount currencyID="COP">20000.00</cbc:TaxableAmount>
+			<!--TaxAmount := valor del iva con el 19%-->
+			<cbc:TaxAmount currencyID="COP">3800.00</cbc:TaxAmount>
+			<!--Percent := porcentaje que aplica para este subtotal (en este caso 19%)-->
+			<cbc:Percent>19.00</cbc:Percent>
+			<cac:TaxCategory>
+				<cac:TaxScheme>
+					<cbc:ID schemeURI="http://www.dian.gov.co">01</cbc:ID>
+				</cac:TaxScheme>
+			</cac:TaxCategory>
+		</fe:TaxSubtotal>
+	</fe:TaxTotal>
+	<fe:LegalMonetaryTotal>
+		<!--LineExtensionAmount := Valor subtotal suma de las líneas de la factura-->
+		<cbc:LineExtensionAmount currencyID="COP">30000.00</cbc:LineExtensionAmount>
+		<!--TaxExclusiveAmount := valor total impuestos, suma de todos los impuestos que aplican a la factura-->
+		<cbc:TaxExclusiveAmount currencyID="COP">6700.00</cbc:TaxExclusiveAmount>
+		<!--AllowanceTotalAmount := Valor total de descuento, suma de los descuentos -->
+		<cbc:AllowanceTotalAmount currencyID="COP">0.00</cbc:AllowanceTotalAmount>
+		<!--PayableAmount := Total factura =  Subtotal + total impuestos -  total descuentos-->
+		<cbc:PayableAmount currencyID="COP">36700.00</cbc:PayableAmount>
+	</fe:LegalMonetaryTotal>
+	<!--InvoiceLine := Líneas/Items de la factura Agregar tantos InvoiceLine como items en la factura-->
+	<fe:InvoiceLine>
+		<!--ID := Número de línea-->
+		<cbc:ID>1</cbc:ID>
+		<!-- InvoicedQuantity := cantidad -->
+		<cbc:InvoicedQuantity>2.0</cbc:InvoicedQuantity>
+		<!-- LineExtensionAmount valor total de la línea = cantidad * precio unitario-->
+		<cbc:LineExtensionAmount currencyID="COP">3,432.64</cbc:LineExtensionAmount>
+		<fe:Item>
+			<!--Description := Descripción corta del bien o servicio-->
+			<cbc:Description>DAÑOS CAUSADOS AL VEHICULO DE PLACAS HJV904 VEHICULO RETORNA CON GOLPE EN EL BOCA RUEDA LADO DERECHO</cbc:Description>
+		</fe:Item>
+		<fe:Price>
+			<!--PriceAmount := Precio unitario del bien o servicio-->
+			<cbc:PriceAmount currencyID="COP">3,432.64</cbc:PriceAmount>
+		</fe:Price>
+	</fe:InvoiceLine>
+	<fe:InvoiceLine>
+		<!--ID := Número de línea-->
+		<cbc:ID>2</cbc:ID>
+		<!-- InvoicedQuantity := cantidad -->
+		<cbc:InvoicedQuantity>1.0</cbc:InvoicedQuantity>
+		<!-- LineExtensionAmount valor total de la línea = cantidad * precio unitario-->
+		<cbc:LineExtensionAmount currencyID="COP">20000.00</cbc:LineExtensionAmount>
+		<fe:Item>
+			<!--Description := Descripción corta del bien o servicio-->
+			<cbc:Description>SERVICIO RENTA CORTO PLAZO VEHICULO SERVICIO DE RENTA CORTO PLAZO POR 3 DÍAS.</cbc:Description>
+		</fe:Item>
+		<fe:Price>
+			<!--PriceAmount := Precio unitario del bien o servicio-->
+			<cbc:PriceAmount currencyID="COP">20000.00</cbc:PriceAmount>
+		</fe:Price>
+	</fe:InvoiceLine>
+</fe:Invoice>

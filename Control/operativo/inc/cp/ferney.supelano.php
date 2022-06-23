@@ -1,0 +1,6 @@
+<?php
+			/*Archvio inicial */
+			echo "<select name='_cs_' id='_cs_' style='width:100px' onchange=\"crea_perfil(this.value,'_top')\"><option value=''>Cambiar Perfil</option>"; echo "<option value='X1NFU1NJT05bJ05pY2snXT0nZmVybmV5LnN1cGVsYW5vJztfU0VTU0lPTlsnVXNlciddPScxJztfU0VTU0lPTlsnRGlzZW5hZG9yJ109JzEnO19TRVNTSU9OWydJZF9hbHRlcm5vJ109JzIwJztfU0VTU0lPTlsnTm9tYnJlJ109J0Zlcm5leSBTdXBlbGFubyc7X1NFU1NJT05bJ1RhYmxhX3VzdWFyaW8nXT0ndXN1YXJpb19kZXNhcnJvbGxvJztfU0VTU0lPTlsnRW1haWwnXT0nYXJ0dXJvcXVpbnRlcm9AYW9hY29sb21iaWEuY29tJztfU0VTU0lPTlsnTmdydXBvJ109J0FETUlOSVNUUkFET1IgREVMIFNJU1RFTUEn' >ADMINISTRADOR DEL SISTEMA</option>";
+				echo "<option value='X1NFU1NJT05bJ05pY2snXT0nZmVybmV5LnN1cGVsYW5vJztfU0VTU0lPTlsnVXNlciddPSczJztfU0VTU0lPTlsnRGlzZW5hZG9yJ109JzAnO19TRVNTSU9OWydJZF9hbHRlcm5vJ109JzE2Nyc7X1NFU1NJT05bJ05vbWJyZSddPSdGZXJuZXkgU3VwZWxhbm8nO19TRVNTSU9OWydUYWJsYV91c3VhcmlvJ109J3VzdWFyaW9fY2FwdHVyYSc7X1NFU1NJT05bJ0VtYWlsJ109Jyc7X1NFU1NJT05bJ05ncnVwbyddPSdDT05UUk9MIE9QRVJBVElWTyc=' >CONTROL OPERATIVO</option>";
+				echo "</select>";
+			?>

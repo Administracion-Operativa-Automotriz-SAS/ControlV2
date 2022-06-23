@@ -1,0 +1,157 @@
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<?php 
+function difference_hours($ingreso,$contacto)
+{
+	$date1 = strtotime($ingreso);
+	$date2 = strtotime($contacto);
+	$all = floor(($date2 - $date1) / 60);
+	$d = floor ($all / 1440);
+	$h = floor (($all - $d * 1440) / 60);
+	$m = $all - ($d * 1440) - ($h * 60);
+	//return $all;
+	//return $d." dias con ".$h." horas con ".$m." minutos";
+	return $d;
+}
+
+
+ ?>
+
+<button onclick="angular.element(this).scope().comeback()">Regresar</button>
+
+		<body>
+			<script language='javascript'>centrar(800,700);</script>
+			<h3 align='center'>GENERACION DE FACTURA A PARTIR DE CITAS </H3>
+			
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Siniestro</th>						
+						<th>Estado del <br>Siniestro</th>
+						<th>Fecha inicial</th>
+						<th>Fecha final</th>
+						<th>Días</th>
+						<th>Odometro<br>inicial</th>
+						<th>Odometro<br>final</th>
+						<th>Kilometros</th>
+						<th>Vehiculos</th>
+						<th>Flota</th>
+					</tr>
+				</thead>
+				<tbody>	
+					<?php foreach($SINIESTROS as $SINIESTRO){ ?>
+						<tr>
+							<td><?php echo $SINIESTRO->numero ?></td>
+							<td><?php echo $SINIESTRO->estado_nombre ?></td>
+							<td><?php echo $SINIESTRO->fecha_inicial ?></td>
+							<td><?php echo $SINIESTRO->fecha_final ?></td>
+							<td>
+								<?php echo difference_hours($SINIESTRO->fecha_inicial,$SINIESTRO->fecha_final) ?> Días
+								<?php if(difference_hours($SINIESTRO->fecha_inicial,$SINIESTRO->fecha_final)>8){  ?> <font color='red'>Dias de exceso: <?php echo (difference_hours($SINIESTRO->fecha_inicial,$SINIESTRO->fecha_final))-8 ?></font> <?php } ?>
+							</td>
+							<td><?php echo $SINIESTRO->odometro_inicial ?></td>
+							<td><?php echo $SINIESTRO->odometro_final ?></td>
+							<td><?php echo ($SINIESTRO->odometro_final-$SINIESTRO->odometro_inicial) ?> <?php if(($SINIESTRO->odometro_final-$SINIESTRO->odometro_inicial)>$aseguradora->limite_kilometraje){  ?> <font color='red'>Kilometros de exceso: <?php echo ($SINIESTRO->odometro_final-$SINIESTRO->odometro_inicial)-$aseguradora->limite_kilometraje ?> <?php } ?></td>
+							<td><?php echo $SINIESTRO->placa ?></td>
+							<td><?php echo $SINIESTRO->nombre_flota ?></td>
+						</tr>
+					<?php } ?>
+				</tbody>
+			</table>
+			<br><br>
+			<span>Aseguradora : <?php echo  $aseguradora->nombre ?> </span> 
+			
+			<form action='' id="userform" method='post' target='_self' name='forma' id='forma'>
+			
+			
+			<br>
+			<table cellspacing=3>
+			
+			<tr>
+				<td rowspan=3><img style="max-width:200px; max-height:200px;" src='<?php echo $aseguradora->emblema_f ?>'></td>			
+			
+			</tr>
+			
+			
+			
+			<tr>
+				<td align='right'>Tipo de identificación del Asegurado:</td>
+				<td colspan='2'>
+					<select name="tipo_id" id="tipo_id" style="">
+						<option value="">Seleccione una opción</option>
+						<?php foreach($tipos_doc as $tipo){ ?>
+							<option value="<?php echo $tipo->codigo ?>"><?php echo $tipo->nombre ?></option>
+						<?php } ?>
+					</select>
+				</td>
+			</tr>
+		    <tr>
+				<td align='right'>Identificación del Asegurado:</td>
+				<td colspan='2'><input type='text' name='identificacion' id='identificacion'  size=15 class='numero' onblur='angular.element(this).scope().get_customer_data()'></td>
+			</tr>
+			<tr>
+				<td align='right'>Lugar de expedición de la Identificación:</td>
+				<td colspan='2'><input type='text' name='lugar_expdoc' id='lugar_expdoc'  size=50></td>
+			</tr>
+			<tr>
+				<td align='right'>Nombres del Asegurado:</td>
+				<td colspan='2'><input type='text' name='nombre' id='nombre'  size=50></td>
+			</tr>
+			<tr>
+				<td align='right'>Apellidos del Asegurado:</td>
+				<td colspan='2'><input type='text' name='apellido' id='apellido'  size=50></td>
+			</tr>
+			<tr>
+				<td align='right'>Pais del Asegurado:</td>
+				<td colspan='2'>
+					<select  name="pais" id="pais" style="">
+						<option value="">Seleccione una opción</option>
+						<?php foreach($paises as $pais){ ?>
+							<option value='<?php echo $pais->codigo ?>' ><?php echo utf8_encode($pais->nombre) ?></option>
+						<?php } ?>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td align='right'>Departamentos:</td>
+				<td colspan='2'>
+					<select onchange="angular.element(this).scope().get_ciudades()"  id="departamento" style="">
+						<option value="">Seleccione una opción</option>
+						<?php foreach($departamentos as $departamento){ ?>
+							<option value='<?php echo utf8_encode($departamento->departamento) ?>' ><?php echo utf8_encode($departamento->departamento) ?></option>
+						<?php } ?>
+					</select>
+				</td>
+			</tr>
+		    <tr>
+				<td align='right'>Ciudad:</td>
+				<td colspan='2'><input type='hidden' name='ciudad' id='ciudad'  size='70' type="hidden"> <input type='text'  id="n_ciudad" readonly></td></tr>
+			<tr>
+				<td align='right'>Barrio</td>
+				<td colspan='2'><input type='text' name='barrio' id='barrio'  size='50'></td></tr>
+			<tr>
+				<td align='right'>Dirección Domicilio</td>
+				<td colspan='2'><input type='text' name='direccion' id='direccion'  size='50'></td></tr>
+			<tr>
+				<td align='right'>Teléfono Oficina</td>
+				<td colspan='2'><input type='text' name='telefono_oficina' id='telefono_oficina'  size='50'></td></tr>
+			<tr>
+				<td align='right'>Teléfono Casa</td>
+				<td colspan='2'><input type='text' name='telefono_casa' id='telefono_casa'  size='50'></td></tr>
+			<tr>
+				<td align='right'>Celular</td>
+				<td colspan='2'><input type='text' name='celular' id='celular' size='10' maxlength='10'  class='numero'></td></tr>
+			<tr>
+				<td align='right'>Dirección de correo electrónico</td>
+				<td colspan='2'><input type='text' name='email_e' id="email_e"  size='50'></td></tr>
+			<tr><td align='right'>Observaciones</td><td colspan='2'><textarea name='observaciones' id='observaciones'  rows='1' cols='60'></textarea></td></tr>			
+			</table>		
+			</form>
+			<div style="text-align:center;">
+				<button  onclick="angular.element(this).scope().user_data_process(this)">Guardar información de cliente</button>
+			</div>
+	
+	</body>
+<script>
+	
+	
+</script>

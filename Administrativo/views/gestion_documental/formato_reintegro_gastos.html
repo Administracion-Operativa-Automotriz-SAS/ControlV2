@@ -1,0 +1,134 @@
+<html>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>		
+	<style>
+			td{
+				font-size: <?php echo $Tam_Fuente ?>;
+			}
+	</style>
+	<table width='90%' class='table_image' border cellspacing='0' align='center'>
+		<tr>
+			<td width='20%' rowspan=3 align='center' valign='middle'>
+				<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+			</td>
+			<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo utf8_encode($Tipo->nombre) ?></b></td>
+			<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+		</tr>
+		<tr>
+			<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+		</tr>
+		<tr>
+			<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+		</tr>
+	</table>
+	<table border='0' cellspacing='0' cellpadding='0' width='90%' align='center'>
+		<tr>
+			<td width='20%'></td>
+			<td align='center' style='font-size:8px;' width='50%'>
+				<span id='subtitle'><?php echo utf8_encode("Consecutivo Interno Número") ?></span>:<?php echo $Nconsecutivo ?></td>
+			<td width='30%'></td>
+		</tr>
+	</table>
+		<!--cabecera-->
+	<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+	
+	<table border cellspacing='0' width='100%' align='left'>
+	
+		<tr>			
+			<td bgcolor='#CCCCCC' class='theader' style='text-align:center;' colspan='7'> FECHA DE RADICACION REINTEGRO GASTOS</td>
+			<td colspan=4 class="writetd" onclick="make_visible(0)" ondblclick="make_invisible(0)"><input class="date_input" id="einput0"  type="date"></td>			
+		</tr>
+		<tr>
+			<td bgcolor='#CCCCCC' class='theader' colspan='11' style='text-align:center;'> RESPONSABLE REINTEGRO GASTOS </td>
+		</tr>
+		<tr>
+			<td bgcolor='#CCCCCC' class='theader' colspan='5' style='text-align:center;'> NOMBRE DEL EMPLEADO </td>
+			<td colspan='6' class="writetd" contenteditable="true"></td>
+		</tr>
+		<tr>
+			<td bgcolor='#CCCCCC' class='theader' colspan='2' style='text-align:center;'> DOCUMENTO DE IDENTIDAD </td>
+			<td colspan='3' class="writetd" contenteditable="true"></td>
+			<td bgcolor='#CCCCCC' class='theader' colspan='2' style='text-align:center;'> CIUDAD </td>
+			<td colspan='4' class="writetd" contenteditable="true"></td>
+		</tr>
+		<tr>
+			<td bgcolor='#CCCCCC' class='theader' colspan='11' style='text-align:center;'> DISCRIMINACIÃ“N GASTOS A REINTEGRAR </td>
+		</tr>
+		<tr>
+			<td bgcolor='#CCCCCC' class='theader' colspan='5' style='text-align:center;'> VALOR A REINTEGRAR </td>
+			<td colspan='6' class="writetd" contenteditable="true"></td>
+		</tr>
+		<tr>
+			<td bgcolor='#CCCCCC' class='theader' colspan='11' style='text-align:center;'> FACTURAS A REINTEGRAR </td>
+		</tr>
+		<tr>
+			<th scope='col' bgcolor='#CCCCCC' ><span class='theader'>No.</span></th>
+			<th scope='col' bgcolor='#CCCCCC' ><span class='theader'>FECHA</span></th>
+			<th scope='col' bgcolor='#CCCCCC' ><span class='theader'>NIT/CEDULA</span></th>
+			<th scope='col' bgcolor='#CCCCCC' ><span class='theader'>NOMBRE DEL <br> PROVEEDOR</span></th>
+			<th scope='col' bgcolor='#CCCCCC' ><span class='theader'>OBSERVACIONES</span></th>
+			<th scope='col' bgcolor='#CCCCCC' ><span class='theader'>PROYECTO<br>PLACA</span></th>
+			<th scope='col' bgcolor='#CCCCCC' ><span class='theader'>CENTRO DE<BR> COSTOS</span></th>
+			<th scope='col' bgcolor='#CCCCCC' ><span class='theader'>FACTOR</span></th>
+			<th scope='col' bgcolor='#CCCCCC' ><span class='theader'>CENTRO DE<br> OPERACION</span></th>
+			<th scope='col' bgcolor='#CCCCCC' ><span class='theader'>FACTURA DE<br>REINTEGRO</span></th>
+			<th scope='col' bgcolor='#CCCCCC' ><span class='theader'>VALOR <br> TOTAL</span></th>
+		</tr>
+		
+			<?php for($i=1;$i<15;$i++) { ?>
+		 	<tr <?php if($i+1==15): ?> id="add_after_this"  <?php endif ?> >
+				<td height='30' <?php if($i==1): ?> id="start"  <?php endif ?> class="writetd" contenteditable="true"></td>
+				<td height='30' class="writetd" onclick="make_visible(<?php echo $i ?>)" ondblclick="make_invisible(<?php echo $i ?>)"><input class="date_input" id="einput<?php echo $i ?>"  type="date"></td>
+				<td height='30' class="writetd" contenteditable="true"></td>
+				<td height='30' class="writetd" contenteditable="true"></td>
+				<td height='30' class="writetd" contenteditable="true"></td>			
+				<td class="writetd"><input height='25'  contenteditable="true" maxlength='7'></input></td>
+				<td height='30' class="writetd" contenteditable="true"></td>
+				<td height='30' class="writetd" contenteditable="true"></td>
+				<td height='30' class="writetd" contenteditable="true"></td>
+				<td height='30' class="writetd" contenteditable="true"></td>
+				<td height='30' class="writetd" contenteditable="true"></td>				
+			</tr> 
+			<?php } ?>
+		
+			<tr>
+				<td colspan='11' height='50' class="writetd" contenteditable="true"></td>
+			</tr>
+			<tr>
+				<td bgcolor='#CCCCCC' class='theader' colspan='5' style='text-align:center;'> VALOR A REINTEGRAR POR GASTOS </td>
+				<td colspan='6' class="writetd" contenteditable="true"></td>
+			</tr>
+			<tr>
+				<td bgcolor='#CCCCCC' class='theader' colspan='11'  style='text-align:center;'> OBSERVACIONES </td>
+			</tr>
+			<tr>
+				<td height='50' colspan='11' class="writetd" contenteditable="true"> </td>
+			</tr>
+			<tr>
+				<td bgcolor='#CCCCCC' class='theader' colspan='2' style='text-align:center;'> ELABORADO POR: </td>
+				<td bgcolor='#CCCCCC' class='theader' colspan='2' style='text-align:center;'> REVISADO POR: </td>
+				<td bgcolor='#CCCCCC' class='theader' colspan='2' style='text-align:center;'> V.B. TESORERIA: </td>
+				<td bgcolor='#CCCCCC' class='theader' colspan='2' style='text-align:center;'> ESPACIO CONTABILIDAD </td>
+				<td bgcolor='#CCCCCC' class='theader' colspan='3' style='text-align:center;'> OTROS </td>
+			</tr>
+			<tr>
+				<td  colspan='2' height='50' class="writetd" contenteditable="true">  </td>
+				<td  colspan='2' height='50' class="writetd" contenteditable="true">  </td>
+				<td  colspan='2' height='50' class="writetd" contenteditable="true">  </td>
+				<td  colspan='2' height='50' class="writetd" contenteditable="true">  </td>
+				<td  colspan='3' height='50' class="writetd" contenteditable="true">  </td>
+			</tr>		
+	</table>
+	<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">	
+	<input type="hidden" name="max_num_row" value="15">
+	<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+	<button  id="addrow_button"  onclick="add_row()">Agregar Linea</button>
+	</body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="/Administrativo/views/js/editable_table.js"></script>	
+	<script src="/Administrativo/views/js/basicinput.js"></script>
+	<script src="/Administrativo/views/js/save_document.js"></script>
+	<script src="/Administrativo/views/js/reintegro_gastos_addrow.js"></script>
+</html>
+	

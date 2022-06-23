@@ -1,0 +1,6 @@
+AddType application/x-ns-proxy-autoconfig .dat
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+

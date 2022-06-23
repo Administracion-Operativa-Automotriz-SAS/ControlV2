@@ -1,0 +1,6 @@
+<?php
+			/*Archvio inicial */
+			echo "<select name='_cs_' id='_cs_' style='width:100px' onchange=\"crea_perfil(this.value,'_top')\"><option value=''>Cambiar Perfil</option>"; echo "<option value='X1NFU1NJT05bJ05pY2snXT0nd2lsc29uLmJvdGluYSc7X1NFU1NJT05bJ1VzZXInXT0nMTAnO19TRVNTSU9OWydEaXNlbmFkb3InXT0nMCc7X1NFU1NJT05bJ0lkX2FsdGVybm8nXT0nMzMnO19TRVNTSU9OWydOb21icmUnXT0nV0lMU09OIEFMRlJFRE8gQk9USU5BIENSVVonO19TRVNTSU9OWydUYWJsYV91c3VhcmlvJ109J3VzdWFyaW9fb2ZpY2luYSc7X1NFU1NJT05bJ05ncnVwbyddPSdESVJFQ1RPUiBDSVVEQUQn' >DIRECTOR CIUDAD</option>";
+				echo "<option value='X1NFU1NJT05bJ05pY2snXT0nd2lsc29uLmJvdGluYSc7X1NFU1NJT05bJ1VzZXInXT0nMjMnO19TRVNTSU9OWydEaXNlbmFkb3InXT0nMCc7X1NFU1NJT05bJ0lkX2FsdGVybm8nXT0nNDknO19TRVNTSU9OWydOb21icmUnXT0nV0lMU09OIEFMRlJFRE8nO19TRVNTSU9OWydUYWJsYV91c3VhcmlvJ109J29wZXJhcmlvJztfU0VTU0lPTlsnTmdydXBvJ109J09QRVJBUklPIEZMT1RBUyc=' >OPERARIO FLOTAS</option>";
+				echo "</select>";
+			?>

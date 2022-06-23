@@ -1,0 +1,186 @@
+<html>
+<head>
+  <title>Cargues informacion</title>  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.angularjs.org/1.3.11/angular.js"></script>
+  <script src="Angular/Libraries/xlsx.full.min.js"></script>
+  <script src="Angular/Libraries/angular-js-xlsx.js"></script>
+  <script src="Angular/Libraries/date.js"></script>
+
+</head>
+<style>
+	.table-condensed{
+	  font-size: 10px;
+	}
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"> </script>
+<body ng-app="myApp">
+		<div class="col-lg-8 col-md-8" ng-controller="UploadController">
+			<div class="panel panel-default">
+			  <div class="panel-heading">Modulo cargue de Items</div>
+			  <div class="panel-body">
+			  <div class="panel-heading">Carga de item Administrativos</div>
+			  <div class="panel-body">
+			  	
+			  	<p>Como realizar este proceso?</p>
+			  	<br>
+               <blockquote class="imgur-embed-pub" lang="en" data-id="a/uQn1C8c"><a href="//imgur.com/uQn1C8c"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+               <br>
+               El Archivo de excel se debera cargar con las siguientes columnas:<br>
+                <ul>
+			  		<li><b>ITEM:</b>Esta columna se debera cargar el item que esta espesificado en el selector de items <strong>IMPORTANTE COLOCAR LOS VERDADEROS ITEMS DE LO CONTRARIO EL CARGUE QUEDARA MAL</strong></li>
+			  		<li><b>CLASE_DE_REUQICISION:</b>Colocar clase de requicion por ejemplo administrativo</li>
+			  		<li><b>VALOR:</b>Valor unitario.</li>
+			  		<li><b>OBSERVACIONES:</b>Las debidas observaciones.</li>
+			  		<li><b>COBRO:</b> Se tendra que colocar <strong>S</strong> o <strong>C</strong> S = <strong>Sin recobro</strong> y C = <strong>Con recobro</strong></li>
+			  		<li><b>CANTIDA:</b>Cantidad del Item.</li>
+			  		<li><b>CENTRO_DE_OPERACIONES:</b> Codigo de centro de operaciones</li>
+			  		<li><b>CENTRO_DE_COSTOS:</b> Codigo centro de costos</li>
+			  		<li><b>PROYECTO_O_PLACA:</b>Placa del vehiculo</li>
+			  		<li><b>FACTOR:</b>Factor por ejemplo:<strong>Solicitudes de servicio y o Flota</strong></li>
+			  	</ul>
+			  	<br>
+				NOTA: Por favor colocar los datos perfectamente.Ya que si no es asi no funcionara el cargue de informacion.
+				<br>
+
+			  	<strong>Si los datos tienen errores al finalizar la carga tendran un reporte informandoles que registros tuvierón error y no pudieron ser guardados.</strong>
+				<strong>Lo bueno de este informe es que indica la linea en que esta el error.</strong>
+				
+
+			  	<br><br>
+				</div>
+				<form ng-submit="data_load('subir_datos_requisiciones')">					
+					<div class="form-group">
+						<label class="form-control">Datos a cargar</label>
+						<js-xlsx onread="read" onerror="error"></js-xlsx>											
+					</div>			
+					<div class="form-group">
+						<button class="btn btn-success form-control">Subir</button>
+					</div>
+				</form>
+				
+			  </div>
+			  <div id="results" style="margin-left:3em;"></div>
+			</div>
+		</div>
+<body>
+<script>
+
+var app = angular.module("myApp",['angular-js-xlsx']);
+	
+	
+app.service('parseDate', function() {
+    this.default = function (date) {
+        return Date.parse(date).toString("yyyy-MM-dd");
+    }
+	this.expression = function (date,expression) {
+        return Date.parse(date).toString(expression);
+    }
+});		
+app.controller("UploadController", function ($scope,$http,parseDate){
+    
+	$scope.load_info = {};
+	
+	$scope.id_requi = {};
+	
+	$scope.excel_info = [];
+    
+	$scope.idrequisicion = {};
+	
+    $scope.data_load = function(acc){		
+		
+		
+		
+		$scope.load_info.acc = acc;
+		
+		if($scope.excel_info.length == 0)
+		{		
+			return alert("No se ha cargado archivo de excel");
+		}
+		else
+		{
+			$scope.load_info.dataset = $scope.excel_info;
+			
+			$scope.load_info.idrequisicion = $scope.idrequisicion;
+			
+			console.log($scope.load_info);
+		}
+		
+        var request = $http.post("/Administrativo/Controllers/LoadController.php",$scope.load_info);
+        request.then(function(response){
+			
+			if(response.data.status == null)
+			{
+				return alert("Ocurrio un error");
+			}
+			
+			console.log(response);
+			var res = "";
+			response.data.details.forEach(function(data){
+				res += "<span> Linea: "+data.linea+" , resultado "+data.estado+"</span><br>";
+			});
+            $("#results").html(res);
+			
+        });
+    }
+	
+	$scope.read = function (workbook) {
+		/* DO SOMETHING WITH workbook HERE */
+		
+		console.log("Method exec");
+		for (let sheetName in workbook.Sheets) {
+			
+		  let jsonData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
+		  
+		  console.log(jsonData);
+		  
+		  $scope.excel_info = jsonData;
+		  //let excel_data = [];
+		  //console.log(excel_data);
+		  /*jsonData.forEach(function(data){
+			  
+			  if(data.FECHA_INICIO_POLIZA != null){
+				data.FECHA_INICIO_POLIZA = parseDate.default(data.FECHA_INICIO_POLIZA);
+				data.FECHA_VENCE_POLIZA = parseDate.default(data.FECHA_VENCE_POLIZA);	
+			  }
+			  
+			  excel_data.push(data);
+			  
+		  });*/
+		  
+		  
+		}
+    }
+
+	$scope.error = function (e) {
+		/* DO SOMETHING WHEN ERROR IS THROWN */
+		console.log(e);
+    }
+
+	
+	function obtenerValorParametro(sParametroNombre) {
+var sPaginaURL = window.location.search.substring(1);
+ var sURLVariables = sPaginaURL.split('&');
+  for (var i = 0; i < sURLVariables.length; i++) {
+    var sParametro = sURLVariables[i].split('=');
+    if (sParametro[0] == sParametroNombre) {
+      return sParametro[1];
+    }
+  }
+ return null;
+}
+
+var valor = obtenerValorParametro('idr');
+  if (valor){
+    $scope.idrequisicion = valor;
+	}else{
+    alert('El parámetro no existe en la URL');
+  }
+});
+</script>
+</html>
+

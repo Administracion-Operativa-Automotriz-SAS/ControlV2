@@ -1,0 +1,65 @@
+body { font-family: Arial, Verdana, Helvetica; font-size: 10pt; color: #000000; text-decoration: none; font-weight: normal;}
+p { font-family: Arial, Verdana, Helvetica; font-size: 8pt; color: #333333; text-decoration: none; font-weight: normal;}
+A { font-family: Arial, Verdana, Helvetica; font-size: 8pt; color: #000000; text-decoration: none; font-weight: normal;}
+A:link     { font-family: Arial, Verdana, Helvetica; font-size: 8pt; color: #000000; text-decoration: underline; font-weight: normal;}
+A:visited  { font-family: Arial, Verdana, Helvetica; font-size: 8pt; color: #222222; text-decoration: underline; font-weight: normal;}
+A:hover  { font-family: Arial, Verdana, Helvetica; font-size: 8pt; color: #444444; text-decoration: none; font-weight: normal;background-color:#ffffac;}
+.title     { font-family: Arial, Verdana, Helvetica; font-size: 8pt; color: #990000; font-weight: bold; font-style: normal; text-decoration: none;}
+td     { font-family: Arial, Verdana, Helvetica; font-size: 8pt; color: #000000; font-weight: normal; font-style: normal; text-decoration: none;}
+th     { font-family: Arial, Verdana, Helvetica; font-size: 9pt; color: #000044; font-weight: bold; font-style: normal; text-decoration: none;}
+P.pagina {page-break-before: always}
+input 	{font-family: Tahoma, Verdana, Arial; font-size: 9px; background-color:#eeeeee; border: #666666; border-style: solid; border-top-width: 1px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 1px;}
+select 	{font-family: Tahoma, Verdana, Arial; font-size: 9px; background-color: #6699CC; color: #FFFFFF; border: #999999; border-style: solid; border-top-width: 1px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 1px;}
+textarea {font-family: Tahoma, Verdana, Arial; font-size: 11px; }
+
+H4 {
+	color: #000088;
+	font-family: "Trebuchet MS", "Arial", sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	line-height:130%;
+	margin: 5px 0px 3px 0px;
+	padding: 0px 0px 3px 0px;
+	border-bottom: 1px dotted #666666;
+	}
+
+H3 {
+	color: #003388;
+	font-family: "Trebuchet MS", "Arial", sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	line-height:130%;
+	margin: 5px 0px 3px 0px;
+	padding: 0px 0px 3px 0px;
+	border-bottom: 1px dotted #666666;
+	}
+
+H2 {
+	color: #003388;
+	font-family: "Trebuchet MS", "Arial", sans-serif;
+	font-size: 17px;
+	font-weight: bold;
+	line-height:130%;
+	margin: 5px 0px 3px 0px;
+	padding: 0px 0px 3px 0px;
+	border-bottom: 1px dotted #666666;
+	}
+
+H1 {
+	color: #0044BB;
+	font-family: "Trebuchet MS", "Arial", sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	line-height:130%;
+	margin: 5px 0px 3px 0px;
+	padding: 0px 0px 3px 0px;
+	border-bottom: 1px dotted #666666;
+	}
+
+td.boton_admin {
+	background-color:#cccccc;
+	}
+td.boton_admin:hover {
+	background-color:#ffffff;
+	}
+

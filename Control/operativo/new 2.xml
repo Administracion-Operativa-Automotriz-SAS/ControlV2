@@ -1,0 +1,228 @@
+<XMLPtesa>
+	<Documentos>
+		<Documento>
+			<NotaDebito>
+				<TipoOperacion>10</TipoOperacion>
+				<NumeroDocumento>ND845</NumeroDocumento>
+				<AmbienteDestino>1</AmbienteDestino>
+				<FechaEmision>2021-10-15T11:11:11-05:00</FechaEmision>
+				<TipoFactura>91</TipoFactura>
+				<DivisaFactura>COP</DivisaFactura>
+				<CantidadLineasNota>1</CantidadLineasNota>
+				<PeriodoFacturacion>
+					<FechaInicio>2020-10-15T20:07:11-05:00</FechaInicio>
+					<FechaFin>2020-10-16T00:00:00-05:00</FechaFin>
+				</PeriodoFacturacion>
+				<ExplicacionesNota>
+					<Explicacion>
+						<CodigoCorrecion>6</CodigoCorrecion>
+						<Descripciones>
+							<Item>Anulación de facturacion electónica</Item>
+						</Descripciones>
+					</Explicacion>
+				</ExplicacionesNota>
+				<ReferenciasFacturas>
+					<Factura>
+						<Id>NC1028</Id>
+						<Cufe>40dabaf89abc8f7350a5019728de5a4cf557f37396c0c77f48ee8da8b04d25689c3307e77cad83affa35274a74ee4155</Cufe>
+						<AlgoritmoCUFE>CUFE-SHA384</AlgoritmoCUFE>
+						<FechaEmision>2021-10-15</FechaEmision>
+					</Factura>
+				</ReferenciasFacturas>
+				<ProveedorOF>
+					<Identificador>102579</Identificador>
+					<TipoOrganizacion>1</TipoOrganizacion>
+					<CIIU>7710</CIIU>
+					<NombreComercialEmisor>ADMINISTRACIÓN OPERATIVA AUTOMOTRIZ S.A.S</NombreComercialEmisor>
+					 <DireccionFisica>
+						  <CodigoMunicipio>11001</CodigoMunicipio>
+						  <NombreCiudad>BOGOTÁ, D.C.</NombreCiudad>
+						  <CodigoPostal>11001</CodigoPostal>
+						  <NombreDepartamento>Bogotá</NombreDepartamento>
+						  <CodigoDepartamento>11</CodigoDepartamento>
+						  <Lineas>
+							 <Linea>CR 69b 98A 10, Bogotá</Linea>
+						  </Lineas>
+						  <CodigoPais>CO</CodigoPais>
+						  <NombrePais>Colombia</NombrePais>
+						  <IDLenguajePais>es</IDLenguajePais>
+					   </DireccionFisica>
+					 <InfoFiscal>
+                  <NombreRazonSocialFiscal>ADMINISTRACIÓN OPERATIVA AUTOMOTRIZ S.A.S</NombreRazonSocialFiscal>
+                  <NitEmisorFiscal>900174552</NitEmisorFiscal>
+                  <DVEmisorFiscal>5</DVEmisorFiscal>
+                  <TipoIDEmisorFiscal>31</TipoIDEmisorFiscal>
+                  <RegimenEmisor>O-23</RegimenEmisor>
+                  <ListaRegimenEmisor>No aplica</ListaRegimenEmisor>
+                  <DireccionFisica>
+                     <CodigoMunicipio>11001</CodigoMunicipio>
+                     <NombreCiudad>BOGOTÁ, D.C.</NombreCiudad>
+                     <CodigoPostal>11001</CodigoPostal>
+                     <NombreDepartamento>Bogotá</NombreDepartamento>
+                     <CodigoDepartamento>11</CodigoDepartamento>
+                     <Lineas>
+                        <Linea>CR 69b 98A 10, Bogotá</Linea>
+                     </Lineas>
+                     <CodigoPais>CO</CodigoPais>
+                     <NombrePais>Colombia</NombrePais>
+                     <IDLenguajePais>es</IDLenguajePais>
+                  </DireccionFisica>
+                  <IdentificadorTributo>01</IdentificadorTributo>
+                  <NombreTributo>IVA</NombreTributo>
+               </InfoFiscal>
+					<InfoLegal>
+					  <NombreRazonSocialLegal>ADMINISTRACIÓN OPERATIVA AUTOMOTRIZ S.A.S</NombreRazonSocialLegal>
+					  <NitEmisorLegal>900174552</NitEmisorLegal>
+					  <DVNitEmisorLegal>5</DVNitEmisorLegal>
+					  <TipoIDEmisorLegal>31</TipoIDEmisorLegal>
+					  <PrefijoNota>ND</PrefijoNota>
+				   </InfoLegal>
+					  <Contacto>
+						  <EmailContacto>feclientes@aoacolombia.com</EmailContacto>
+					   </Contacto>
+				</ProveedorOF>
+				<ClienteADQ>
+					<TipoPersona>1</TipoPersona>
+					<IdentificacionADQ>8000240758</IdentificacionADQ>
+					<NombreComercial>COLTRANS S.A.S</NombreComercial>
+					<DireccionFisica>
+						<CodigoMunicipio>11001</CodigoMunicipio>
+						<NombreCiudad>BOGOTA- D.C.</NombreCiudad>
+						<NombreDepartamento>Bogota</NombreDepartamento>
+						<CodigoDepartamento>11</CodigoDepartamento>
+						<Lineas>
+							<Linea>CARRERA 98 NO. 25G-10 INT. 18</Linea>
+						</Lineas>
+						<CodigoPais>CO</CodigoPais>
+						<NombrePais>Colombia</NombrePais>
+						<IDLenguajePais>es</IDLenguajePais>
+					</DireccionFisica>
+					 <InfoFiscalClienteADQ>
+						  <NombreRazonSocialFiscalADQ>CONSORCIO  VIA AMERICAS</NombreRazonSocialFiscalADQ>
+						  <NitFiscalADQ>901270061</NitFiscalADQ>
+						  <DVADQ>5</DVADQ>
+						  <TipoIDADQ>31</TipoIDADQ>
+						  <CodigoImpuesto>R-99-PN</CodigoImpuesto>
+						  <RegimenADQ>No aplica</RegimenADQ>
+						  <DireccionFisica>
+							 <CodigoMunicipio>11001</CodigoMunicipio>
+							 <NombreCiudad>BOGOTA</NombreCiudad>
+							 <NombreDepartamento>BOGOTA D.C.</NombreDepartamento>
+							 <CodigoDepartamento>11</CodigoDepartamento>
+							 <Lineas>
+								<Linea>CR 17 93 09 P 8 ED ECOTOWER</Linea>
+							 </Lineas>
+							 <CodigoPais>CO</CodigoPais>
+							 <NombrePais>Colombia</NombrePais>
+							 <IDLenguajePais>es</IDLenguajePais>
+						  </DireccionFisica>
+						  <IdentificadorTributo>01</IdentificadorTributo>
+						  <NombreTributo>IVA</NombreTributo>
+					   </InfoFiscalClienteADQ>
+					<Contacto>
+					  <TelefonoContacto>5188500</TelefonoContacto>
+					  <EmailContacto>elizabeth.villada@ohl.com.co</EmailContacto>
+				   </Contacto>
+				</ClienteADQ>
+			    <Pago>
+					<IDMetodoPago>1</IDMetodoPago>
+					<CodigoMedioPago>46</CodigoMedioPago>
+					<FechaVencimiento>2020-10-15</FechaVencimiento>
+				</Pago>
+				<TotalImpuestos>
+					<TotalImpuesto>
+						<ValorTributos>5415.00</ValorTributos>
+						<MontoRedondeo>0.00</MontoRedondeo>
+						<SubTotalTributoTarifa>
+							<BaseImponible>5415.00</BaseImponible>
+							<ValorTributo>5415.00</ValorTributo>
+							<Porcentaje>19.00</Porcentaje>
+						</SubTotalTributoTarifa>
+						<IdentificadorTributo>01</IdentificadorTributo>
+						<NombreTributo>IVA</NombreTributo>
+					</TotalImpuesto>
+				</TotalImpuestos>
+				<ValoresTotalesFactura>
+					<TotalValorBruto>28500.00</TotalValorBruto>
+					<TotalBaseImponible>28500.00</TotalBaseImponible>
+					<TotalValorBrutoMasTributos>28500.00</TotalValorBrutoMasTributos>
+					<DescuentoTotal>0.00</DescuentoTotal>
+					<CargoTotal>0.00</CargoTotal>
+					<AnticipoTotal>0.00</AnticipoTotal>
+					<ValorAPagarFactura>28500.00</ValorAPagarFactura>
+				</ValoresTotalesFactura>
+				<LineasDetalle>
+					<LineaDetalle>
+						<IDLinea>1</IDLinea>
+						<CantidadProductoServicio>1.00</CantidadProductoServicio>
+						<IDUnidadMedida>94</IDUnidadMedida>
+						<ValorTotalLinea>28500.00</ValorTotalLinea>
+						<Impuestos>
+							<Impuesto>
+								<ValorTributoLinea>5415.00</ValorTributoLinea>
+								<MontoRedondeo>0.00</MontoRedondeo>
+								<SubTotalTributoTarifa>
+									<BaseImponibleLinea>28500.00</BaseImponibleLinea>
+									<ValorTributoLineaBase>5415.00</ValorTributoLineaBase>
+									<Porcentaje>19.00</Porcentaje>
+								</SubTotalTributoTarifa>
+								<IdentificadorTributo>01</IdentificadorTributo>
+								<NombreTributo>IVA</NombreTributo>
+							</Impuesto>
+						</Impuestos>
+						<Item>
+							<DescripcionItem>
+								<Texto>SERVICIO RENTA CORTO PLAZO</Texto>
+							</DescripcionItem>
+						</Item>
+						<Precio>
+							<PrecioArticulo>178500</PrecioArticulo>
+							<CantidadBase>1.00</CantidadBase>
+							<UnidadDeCantidad>ZZ</UnidadDeCantidad>
+						</Precio>
+					</LineaDetalle>
+				</LineasDetalle>
+				 <Extensiones>
+               <Extension>
+                  <Tipo>DOC</Tipo>
+                  <Clave>ValorLetras</Clave>
+                  <Valor>DOSCIENTOS DOCE MIL CUATROCIENTOS QUINCE  PESOS</Valor>
+               </Extension>
+               <Extension>
+                  <Tipo>DOC</Tipo>
+                  <Clave>MensRespon</Clave>
+                  <Valor>Actividades Economicas No. 7710 Y 7020
+Grandes Contribuyentes Dian Resolución 012635 14 Dic 2018
+Grandes Contribuyentes 
+		Impuestos Distritales Bogota Resolucion DDI-032117 Shda 25 Oct 2019</Valor>
+               </Extension>
+               <Extension>
+                  <Tipo>DOC</Tipo>
+                  <Clave>Concepto</Clave>
+                  <Valor>Documento oficial de autorizacion de numeracion de facturacion No. 
+		18763002872050 de 2019-12-20 vigencia 24 meses 
+		IS1 IS2000</Valor>
+               </Extension>
+			   
+               <Extension>
+                  <Tipo>DOC</Tipo>
+                  <Clave>PTESA.COMPANY_BRANCH</Clave>
+                  <Valor>102579</Valor>
+               </Extension>
+               <Extension>
+                  <Tipo>DOC</Tipo>
+                  <Clave>OrdServicio</Clave>
+                  <Valor>IS17818</Valor>
+               </Extension>
+               <Extension>
+                  <Tipo>DOC</Tipo>
+                  <Clave>TxtMora</Clave>
+                  <Valor>El incuplimiento de pago de esta factura causa
+interès de mora,a la tase maxima legal permitida por la ley.</Valor>
+               </Extension>
+            </Extensiones>
+        
+			</NotaDebito>
+		</Documento>
+	</Documentos>
+</XMLPtesa>

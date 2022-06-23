@@ -1,0 +1,6 @@
+<?php
+			/*Archvio inicial */
+			echo "<select name='_cs_' id='_cs_' style='width:100px' onchange=\"crea_perfil(this.value,'_top')\"><option value=''>Cambiar Perfil</option>"; echo "<option value='X1NFU1NJT05bJ05pY2snXT0namVzdXMudmVqYSc7X1NFU1NJT05bJ1VzZXInXT0nMSc7X1NFU1NJT05bJ0Rpc2VuYWRvciddPScxJztfU0VTU0lPTlsnSWRfYWx0ZXJubyddPScxMic7X1NFU1NJT05bJ05vbWJyZSddPSdKZXN1cyBWZWphJztfU0VTU0lPTlsnVGFibGFfdXN1YXJpbyddPSd1c3VhcmlvX2Rlc2Fycm9sbG8nO19TRVNTSU9OWydFbWFpbCddPSdhcnR1cm9xdWludGVyb0Bhb2Fjb2xvbWJpYS5jb20nO19TRVNTSU9OWydOZ3J1cG8nXT0nQURNSU5JU1RSQURPUiBERUwgU0lTVEVNQSc=' >ADMINISTRADOR DEL SISTEMA</option>";
+				echo "<option value='X1NFU1NJT05bJ05pY2snXT0namVzdXMudmVqYSc7X1NFU1NJT05bJ1VzZXInXT0nMTUnO19TRVNTSU9OWydEaXNlbmFkb3InXT0nMCc7X1NFU1NJT05bJ0lkX2FsdGVybm8nXT0nMTQ0JztfU0VTU0lPTlsnTm9tYnJlJ109J0plc3VzIFZlamEnO19TRVNTSU9OWydUYWJsYV91c3VhcmlvJ109J3VzdWFyaW9fYXBwbW92aWwnO19TRVNTSU9OWydFbWFpbCddPScnO19TRVNTSU9OWydOZ3J1cG8nXT0nQVBQIE1PVklMJw==' >APP MOVIL</option>";
+				echo "</select>";
+			?>

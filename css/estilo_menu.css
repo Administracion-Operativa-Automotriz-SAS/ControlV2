@@ -1,0 +1,48 @@
+BODY {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #ffffff; BORDER-RIGHT-WIDTH: 0px
+}
+TD.menuizq {
+	BACKGROUND: #5060BA; VERTICAL-ALIGN: top; WIDTH: 132px
+}
+TD.cont {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 16px; BACKGROUND: #FFFFFF; PADDING-BOTTOM: 0px; MARGIN: 0px; VERTICAL-ALIGN: top; PADDING-TOP: 0px
+}
+.tituloseccion {
+	BORDER-RIGHT: #5a6ba5 1px solid; BORDER-TOP: #5a6ba5 1px solid; PADDING-LEFT: 21px; FONT-WEIGHT: bold; FONT-SIZE: 90%; 
+BACKGROUND: #333333; MARGIN: 0px 5px; BORDER-LEFT: #5a6ba5 1px solid; COLOR: #ffffff; BORDER-BOTTOM: #5a6ba5 1px solid
+}
+.enlacesseccion {
+	BORDER-RIGHT: #5a6ba5 1px solid; BORDER-TOP: #5a6ba5 1px solid; FONT-SIZE: 80%; MARGIN: 0px 5px 16px; BORDER-LEFT: #5a6ba5 1px solid; BORDER-BOTTOM: #5a6ba5 1px solid
+}
+.enlacesseccion .ponerborde {
+	BORDER-RIGHT: #003366 5px solid
+}
+.enlacesseccion A {
+	DISPLAY: block; PADDING-LEFT: 10px; BACKGROUND: #eeeeee; 
+COLOR: #003366; BORDER-BOTTOM: #5a6ba5 1px solid; TEXT-DECORATION: none
+}
+.enlacesseccion A:hover {
+	BACKGROUND-COLOR: #f8f8f8;
+}
+.menuskin{
+position:absolute;
+width:130px;
+background-color: #eeeeee;
+border: #5a6ba5 1px solid;
+font:normal 12px sans-serif;
+line-height:18px;
+z-index:100;
+visibility:hidden;
+}
+.menuskin a{
+text-decoration:none;
+color:#003366;
+padding-left:10px;
+padding-right:10px;
+}
+#mouseoverstyle{
+background-color: #f8f8f8;
+}
+#mouseoverstyle a{
+color:#003366;
+}

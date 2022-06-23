@@ -1,0 +1,7 @@
+<?php
+			/*Archvio inicial */
+			echo "<select name='_cs_' id='_cs_' style='width:100px' onchange=\"crea_perfil(this.value,'_top')\"><option value=''>Cambiar Perfil</option>"; echo "<option value='X1NFU1NJT05bJ05pY2snXT0nbWFydGhhLmxvcGV6JztfU0VTU0lPTlsnVXNlciddPSc1JztfU0VTU0lPTlsnRGlzZW5hZG9yJ109JzAnO19TRVNTSU9OWydJZF9hbHRlcm5vJ109JzInO19TRVNTSU9OWydOb21icmUnXT0nTUFSVEhBIExVQ0lBIExPUEVaIE1V0U9aJztfU0VTU0lPTlsnVGFibGFfdXN1YXJpbyddPSd1c3VhcmlvX2dlc3Rpb25oJztfU0VTU0lPTlsnTmdydXBvJ109J0dFU1RJT04gSFVNQU5BJw==' >GESTION HUMANA</option>";
+				echo "<option value='X1NFU1NJT05bJ05pY2snXT0nbWFydGhhLmxvcGV6JztfU0VTU0lPTlsnVXNlciddPSc2JztfU0VTU0lPTlsnRGlzZW5hZG9yJ109JzAnO19TRVNTSU9OWydJZF9hbHRlcm5vJ109JzMnO19TRVNTSU9OWydOb21icmUnXT0nTUFSVEhBIExVQ0lBIExPUEVaIE1V0U9aJztfU0VTU0lPTlsnVGFibGFfdXN1YXJpbyddPSd1c3VhcmlvX2FjdGl2byc7X1NFU1NJT05bJ05ncnVwbyddPSdBQ1RJVk9TIEZJSk9TJw==' >ACTIVOS FIJOS</option>";
+				echo "<option value='X1NFU1NJT05bJ05pY2snXT0nbWFydGhhLmxvcGV6JztfU0VTU0lPTlsnVXNlciddPSc5JztfU0VTU0lPTlsnRGlzZW5hZG9yJ109JzAnO19TRVNTSU9OWydJZF9hbHRlcm5vJ109JzInO19TRVNTSU9OWydOb21icmUnXT0nTUFSVEhBIExVQ0lBIExPUEVaJztfU0VTU0lPTlsnVGFibGFfdXN1YXJpbyddPSd1c3VhcmlvX2hlbHBkZXNrJztfU0VTU0lPTlsnTmdydXBvJ109J0hFTFAgREVTSyc=' >HELP DESK</option>";
+				echo "</select>";
+			?>

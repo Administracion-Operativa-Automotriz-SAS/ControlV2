@@ -1,0 +1,9 @@
+[01-Feb-2012 10:03:17] PHP Fatal error:  Class 'nusoap_client' not found in /home/aoacol/public_html/Administrativo/inc/webservice/nusoapmime.php on line 54
+[01-Feb-2012 10:03:36] PHP Fatal error:  Class 'nusoap_base' not found in /home/aoacol/public_html/Administrativo/inc/webservice/class.soap_parser.php on line 15
+[01-Feb-2012 10:03:37] PHP Fatal error:  Class 'nusoap_base' not found in /home/aoacol/public_html/Administrativo/inc/webservice/class.xmlschema.php on line 15
+[01-Feb-2012 10:03:42] PHP Fatal error:  Class 'nusoap_base' not found in /home/aoacol/public_html/Administrativo/inc/webservice/class.soap_val.php on line 17
+[01-Feb-2012 10:03:46] PHP Fatal error:  Class 'nusoap_base' not found in /home/aoacol/public_html/Administrativo/inc/webservice/class.soap_fault.php on line 14
+[01-Feb-2012 10:03:49] PHP Fatal error:  Class 'nusoap_base' not found in /home/aoacol/public_html/Administrativo/inc/webservice/class.soapclient.php on line 26
+[01-Feb-2012 10:03:59] PHP Fatal error:  Class 'nusoap_base' not found in /home/aoacol/public_html/Administrativo/inc/webservice/class.soap_server.php on line 16
+[01-Feb-2012 10:04:00] PHP Fatal error:  Class 'nusoap_base' not found in /home/aoacol/public_html/Administrativo/inc/webservice/class.wsdl.php on line 15
+[01-Feb-2012 10:04:02] PHP Fatal error:  Class 'nusoap_base' not found in /home/aoacol/public_html/Administrativo/inc/webservice/class.soap_transport_http.php on line 15

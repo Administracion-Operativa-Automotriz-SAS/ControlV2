@@ -1,0 +1,80 @@
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<?php if($process == 1){ ?>
+<button id="btn_table" onclick="angular.element(this).scope().facturar_lote()">Facturar en lote</button>
+<?php } ?>
+<?php if($process == 2){ ?>
+<button id="btn_table" onclick="angular.element(this).scope().add_to_detail()">Agregar</button>
+<?php } ?>
+<br><br>
+
+<div class="form-group">
+	
+		<label>Selecciona Aseguradora</label>
+		<select class="form-control" name="aseg" >
+			<option>Selecciona</option>
+			<?php foreach($aseguradoras as $aseguradora){ ?>
+				 
+				<option value="<?php echo $aseguradora->id ?>" <?php if(isset($aseg)){if($aseg == $aseguradora->id){  ?> selected <?php }} ?>><?php echo $aseguradora->nombre ?></option>
+			<?php } ?>
+		</select>
+	
+</div>
+<div id="ajax_table">
+<table  id='scrap_table'  class='table table-responsive table-bordered'>
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Siniestro</th>
+			<th>Cita</th>
+			<th>Concepto</th>
+			<th>Aseguradora</th>
+			<th>Descripción</th>
+			<th>cantidad</th>
+			<th>valor a facturar</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php if($solicitudes != null){  foreach($solicitudes as $solicitud){ ?>
+		<tr id="<?php echo $solicitud->cita ?>"> 
+			<td><input type="checkbox" value="<?php echo $solicitud->cita ?>"> <?php echo $solicitud->id ?>  </td>
+			<td><?php echo $solicitud->siniestro_id ?></td>
+			<td><?php echo $solicitud->cita ?></td>
+			<td><?php echo utf8_encode($solicitud->concepto) ?></td>
+			<td><?php echo utf8_encode($solicitud->aseguradora) ?></td>
+			<td><?php echo utf8_encode($solicitud->descripcion) ?></td>
+			<td><?php echo $solicitud->cantidad ?></td>
+			<td>
+				<input type='number' id="valor_facturar<?php echo $solicitud->cita ?>" value="<?php echo $solicitud->valor ?>">
+				<input type="hidden" id="iva_factura<?php echo $solicitud->cita ?>" value="<?php echo $solicitud->iva ?>">
+				<input type="hidden" id="concepto_id<?php echo $solicitud->cita ?>" value="<?php echo $solicitud->concepto_id ?>">
+			</td>
+		</tr>
+		<?php }} ?>
+	</tbody>
+<table>
+</div>
+<script>
+	$('#scrap_table').DataTable({
+		 "bSort": true,
+		 "language": {
+			"url": "//cdn.datatables.net/plug-ins/1.10.13/i18n/Spanish.json"
+	     }
+	});
+	
+	$("select[name='aseg']").change(function(){		
+		$.post("controllers/SolicitudFacturacion.extension.php?Acc=reload_with_aseg",{aseg:$("select[name='aseg']").val()},function(response){
+		$("#ajax_table").html(response);
+			$('#scrap_table').DataTable({
+			 "bSort": true,
+			 "language": {
+				"url": "//cdn.datatables.net/plug-ins/1.10.13/i18n/Spanish.json"
+			 }
+			});
+		});	
+	});
+	
+</script>
+
+
+
+		

@@ -1,0 +1,35 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<br>
+<table class="table">
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>aseguradora</th>	
+			<th>cliente</th>
+			<th>fecha emision</th>
+			<th>fecha vencimiento</th>			
+			<th>subtotal</th>
+			<th>iva</th>
+			<th>total</th>
+			<th>Opciones</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="prefactura in prefacturas" ng-click="get_details_prefactura(prefactura)">
+			<td>{{prefactura.id}}</td>
+			<td>{{prefactura.aseguradora}}</td>	
+			<td>{{decode_utf8(prefactura.nombre)}}  {{decode_utf8(prefactura.apellido)}}</td>
+			<td>{{prefactura.fecha_emision}}</td>
+			<td>{{prefactura.fecha_vencimiento}}</td>			
+			<td>{{prefactura.subtotal}}</td>
+			<td>{{prefactura.iva}}</td>
+			<td>{{prefactura.total}}</td>
+			<td><button  ng-click="delete_prefactura(prefactura.id)" title="Eliminar">X</button></td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+
+		

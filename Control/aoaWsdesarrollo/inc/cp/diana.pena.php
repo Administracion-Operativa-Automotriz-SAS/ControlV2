@@ -1,0 +1,6 @@
+<?php
+			/*Archvio inicial */
+			echo "<select name='_cs_' id='_cs_' style='width:100px' onchange=\"crea_perfil(this.value,'_top')\"><option value=''>Cambiar Perfil</option>"; echo "<option value='X1NFU1NJT05bJ05pY2snXT0nZGlhbmEucGVuYSc7X1NFU1NJT05bJ1VzZXInXT0nNCc7X1NFU1NJT05bJ0Rpc2VuYWRvciddPScwJztfU0VTU0lPTlsnSWRfYWx0ZXJubyddPSczNCc7X1NFU1NJT05bJ05vbWJyZSddPSdESUFOQSBNQVJDRUxBIFBF0UEnO19TRVNTSU9OWydUYWJsYV91c3VhcmlvJ109J3VzdWFyaW9fY2FsbGNlbnRlcic7X1NFU1NJT05bJ05ncnVwbyddPSdDQUxMIENFTlRFUic=' >CALL CENTER</option>";
+				echo "<option value='X1NFU1NJT05bJ05pY2snXT0nZGlhbmEucGVuYSc7X1NFU1NJT05bJ1VzZXInXT0nMzInO19TRVNTSU9OWydEaXNlbmFkb3InXT0nMCc7X1NFU1NJT05bJ0lkX2FsdGVybm8nXT0nMTQnO19TRVNTSU9OWydOb21icmUnXT0nRElBTkEgTUFSQ0VMQSBQRdFBJztfU0VTU0lPTlsnVGFibGFfdXN1YXJpbyddPSd1c3VhcmlvX3JlY2VwY2lvbic7X1NFU1NJT05bJ05ncnVwbyddPSdSRUNFUENJT04gWSBTRVJWSUNJTyBBTCBDTElFTlRFJw==' >RECEPCION Y SERVICIO AL CLIENTE</option>";
+				echo "</select>";
+			?>

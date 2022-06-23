@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+  <title>Reporte requisiciones por fechas</title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+  <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+  <script src="https://use.fontawesome.com/ba7765318c.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js" ></script>
+  <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+  <link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+  <script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
+
+  <script type="text/javascript" src="../../Angular/Modules/Gapp.js"></script>
+  <script type="text/javascript" src="../../Angular/Services/ReportService.js"></script>
+  <script type="text/javascript" src="../../Angular/Directives/loading.js"></script>
+  <script type="text/javascript" src="../../Angular/Libraries/FileSaver.js"></script>
+  <script type="text/javascript" src="../../Angular/Directives/JsonExportExcel.js"></script>
+  <script type="text/javascript" src="../../Angular/Controller/ReportController.js"></script>
+  
+  <link rel="stylesheet"; href="../css/report_table.css">
+	
+</head>
+
+ 
+<body ng-app="Gapp" >
+
+	<div class="container" ng-controller="ReportController as Rc" ng-init="report_to_run = 'listado_vehiculos_flota'" ng-include="'../../Angular/views/basic_report_view.html'">
+	</div>	
+</body>
+
+</html>

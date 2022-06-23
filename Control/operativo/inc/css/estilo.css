@@ -1,0 +1,193 @@
+<!--
+body      { font-family: Arial; font-size: 8pt; color: #004400;  }
+p         { font-family: Arial; font-size: 8pt; color: #333333;  }
+A         { font-family: Arial; font-size: 8pt; color: #004433;  outline-style: none;outline-width: medium;z-index:21;}
+A:link     { font-family: Arial; font-size: 8pt; color: #004433; z-index:21;}
+A:visited  { font-family: Arial; font-size: 8pt; color: #224422; z-index:21;}
+A:hover    { font-family: Arial; font-size: 8pt; color: #333333; border-bottom: 0px solid #BCC173;color: #1C424A;z-index:22;}
+.title     { font-family: Arial; font-size: 8pt; color: #990000; font-weight: bold; }
+td     { font-family: Arial; font-size: 8pt; color: #004400; }
+th     { font-family: Arial; font-size: 8pt; background-color: 002200; color: #ddffee; font-weight: normal; }
+a.boton	{ cursor:pointer;}
+tr:hover {background-color: #e0ffe0; }
+P.pagina {page-break-before: always}
+.grtd    {background-color: #ddddbb; height:20;}
+.casilla {font-size:8pt; border-style:none;}
+.tdedit {height:15;}
+.tableedit {border-spacing:1;border-style:solid; border-color:#229922;border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px}
+.botonedit {font-family: Arial; font-size: 10px; font-weight:bold; height:20px;  width:200px; border: #999999; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;}
+input 	{font-family: Arial; font-size: 11px; border: #bbbbbb; border-style: solid; border-top-width: 0px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;padding:0;background-color:#ddeedd;}
+textarea 	{font-family: Arial; font-size: 12px; border: #bbbbbb; border-style: solid; border-top-width: 0px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;padding:0;background-color:#ddeedd;}
+.numero {text-align:right;}
+.directon	{text-align:right; font-family: Arial; font-size: 11px; border: #bbbbbb; border-style: solid; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px;padding:0;background-color:#ffffcc; color:#2222cc;}
+.directo	{text-align:left; font-family: Arial; font-size: 11px; border: #bbbbbb; border-style: solid; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px;padding:0;background-color:#ffffcc; color:#2222cc;}
+INPUT[type="button"]{ font-size:11px;  font-family:Verdana,Helvetica;  font-weight:bold;   color:004422;   background:#ddeedd;
+											border-style:solid; border-top-color:ccddcc;border-left-color:aabbaa;border-right-color:445544;border-bottom-color:002200;
+											border-right-width:3px;border-bottom-width:3px;border-top-width:2px;border-left-width:2px; }
+INPUT[type="submit"]{font-size:11px;  font-family:Verdana,Helvetica;  font-weight:bold;   color:004422;   background:#ddeedd;
+											border-style:solid; border-top-color:ccddcc;border-left-color:aabbaa;border-right-color:445544;border-bottom-color:002200;
+											border-right-width:3px;border-bottom-width:3px;border-top-width:2px;border-left-width:2px; }
+INPUT[type="reset"]{ font-size:11px;  font-family:Verdana,Helvetica;  font-weight:bold;   color:004444;   background:#ddeedd;   border:0px;   }
+select 	{font-family: Arial; font-size: 11px; background-color: #ddeedd; color: #000000; border: #999999; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;}
+.Menutop {font-family: Arial; font-size: 12px; font-weight:bold; background-color: #ddeedd; color: #000000; border: #999999; border-style: solid; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px;}
+.trsel {background-color: #dddeff;}
+#id { width: 200px;}
+H3 {
+	color: #003399;
+	font-family: "Arial", sans-serif;
+	font-size: 15px;
+	line-height:130%;
+	margin: 5px 0px 3px 0px;
+	padding: 0px 0px 3px 0px;
+	border-bottom: 1px dotted #666666;
+	}
+H4 {
+	color: #000099;
+	font-family: "Arial", sans-serif;
+	font-size: 12px;
+	line-height:130%;
+	margin: 5px 0px 3px 0px;
+	padding: 0px 0px 3px 0px;
+	border-bottom: 1px dotted #666666;
+	}
+H2 {
+	color: #003399;
+	font-family: "Arial", sans-serif;
+	font-size: 17px;
+	line-height:130%;
+	margin: 5px 0px 3px 0px;
+	padding: 0px 0px 3px 0px;
+	border-bottom: 1px dotted #666666;
+	}
+
+H1 {
+	color: #ff3344;
+	font-family: "Arial", sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	line-height:130%;
+	margin: 5px 0px 3px 0px;
+	padding: 0px 0px 3px 0px;
+	border-bottom: 1px dotted #666666;
+	}
+
+a.info {position:relative;z-index:24;text-decoration:none;}
+a.info:hover {z-index:100;}
+a.info span {display: none;}
+a.info:hover span {display:block;position:absolute;top:2em;left:0em;
+   border:1px solid #0055ff;background-color:#ffffE4;color:#000000;text-align: left;font-family: Arial, Helvetica, sans-serif;
+   font-size: 11px;padding: 5px;opacity: 0.90;}
+
+a.sinfo {position:relative;z-index:24;text-decoration:none;}
+a.sinfo:hover {z-index:100;}
+a.sinfo span {display: none;}
+a.sinfo:hover span {display:block;position:absolute;top:-4em;left:0em;
+   border:1px solid #0055ff;background-color:#ffffE4;color:#000033;text-align: left;font-family: Arial, Helvetica, sans-serif;
+   font-size: 11px;padding: 5px;opacity: 0.90;}
+
+a.srinfo {position:relative;z-index:24;text-decoration:none;}
+a.srinfo:hover {z-index:100;}
+a.srinfo span {display: none;}
+a.srinfo:hover span {display:block;position:absolute;top:-4em;left:-10em;
+   border:1px solid #0055ff;background-color:#ffffE4;color:#000033;text-align: left;font-family: Arial, Helvetica, sans-serif;
+   font-size: 11px;padding: 5px;opacity: 0.90;}
+
+a.rinfo { position:relative; z-index:24; text-decoration:none; }
+a.rinfo:hover { z-index:25;}
+a.rinfo span {display: none;}
+a.rinfo:hover span {display:block; position:absolute;top:2em; left:-10em;
+	border:1px solid #0055ff;background-color:#ffffE4; color:#000033;text-align: left; font-family: Arial, Helvetica, sans-serif;
+   font-size: 11px;padding: 5px;opacity: 0.90;}
+
+.calendario {position:absolute;top:0em;left:0em;z-index:245;}
+td.diacalendario {font-size:10;color:000000;cursor:pointer;text-align:center;}
+td.diacalendario:hover {font-size:11;font-weight:bold;background-color:ffffCC;color:229922;}
+
+td.menuprincipal {background-color:003344;color:ffffff;font-size:12;cursor:pointer;}
+td.menuprincipal:hover {background-color:ddddff;color:009922;}
+
+td.placa {background-image:url(img/placa.jpg);background-repeat:no-repeat;background-position:center center;height:30;color:000000;font-size:16px;font-weight:bold;}
+
+/**-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-*-*-*/
+.button, .button:visited { /* botones genéricos */
+	background: #222;
+	display: inline-block;
+	padding: 5px 10px 6px;
+	color: #dddddd;
+	text-decoration: none;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	position: relative;
+	cursor:pointer;
+}
+
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner {border: none;}
+
+.button:hover { /* el efecto hover */
+background-color: #111
+color: #FFF;
+}
+
+.button:active{ /* el efecto click */
+top: 1px;
+}
+
+/* botones pequeños */
+.small.button, .small.button:visited {
+font-size: 11px ;
+}
+
+/* botones medianos */
+.button, .button:visited,.medium.button, .medium.button:visited {
+font-size: 13px;
+font-weight: bold;
+line-height: 1;
+text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+}
+
+/* botones grandes */
+.large.button, .large.button:visited {
+font-size:14px;
+padding: 8px 14px 9px;
+}
+
+/* botones extra grandes */
+.super.button, .super.button:visited {
+font-size: 34px;
+padding: 8px 14px 9px;
+}
+
+.pink.button { background-color: #E22092; }
+.pink.button:hover{ background-color: #C81E82; }
+
+.green.button, .green.button:visited { background-color: #91BD09; }
+.green.button:hover{ background-color: #749A02; }
+
+.red.button, .red.button:visited { background-color: #E62727; }
+.red.button:hover{ background-color: #CF2525; }
+
+.orange.button, .orange.button:visited { background-color: #FF5C00; }
+.orange.button:hover{ background-color: #D45500; }
+
+.blue.button, .blue.button:visited { background-color: #2981E4; }
+.blue.button:hover{ background-color: #2575CF; }
+
+.yellow.button, .yellow.button:visited { background-color: #FFB515; }
+.yellow.button:hover{ background-color: #FC9200; }
+
+.petroleo.button, .petroleo.button:visited { background-color: #0B4C5F; }
+.petroleo.button:hover{ background-color: #0B2F3A; }
+
+
+-->

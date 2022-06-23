@@ -1,0 +1,6 @@
+<?php
+			/*Archvio inicial */
+			echo "<select name='_cs_' id='_cs_' style='width:100px' onchange=\"crea_perfil(this.value,'_top')\"><option value=''>Cambiar Perfil</option>"; echo "<option value='X1NFU1NJT05bJ05pY2snXT0nc2FudGlhZ28uc2FuY2hleic7X1NFU1NJT05bJ1VzZXInXT0nMSc7X1NFU1NJT05bJ0Rpc2VuYWRvciddPScxJztfU0VTU0lPTlsnSWRfYWx0ZXJubyddPScxMyc7X1NFU1NJT05bJ05vbWJyZSddPSdTYW50aWFnbyBTYW5jaGV6JztfU0VTU0lPTlsnVGFibGFfdXN1YXJpbyddPSd1c3VhcmlvX2Rlc2Fycm9sbG8nO19TRVNTSU9OWydFbWFpbCddPSdhcnR1cm9xdWludGVyb0Bhb2Fjb2xvbWJpYS5jb20nO19TRVNTSU9OWydOZ3J1cG8nXT0nQURNSU5JU1RSQURPUiBQUklNQVJJTyc=' >ADMINISTRADOR PRIMARIO</option>";
+				echo "<option value='X1NFU1NJT05bJ05pY2snXT0nc2FudGlhZ28uc2FuY2hleic7X1NFU1NJT05bJ1VzZXInXT0nMyc7X1NFU1NJT05bJ0Rpc2VuYWRvciddPScwJztfU0VTU0lPTlsnSWRfYWx0ZXJubyddPSczMCc7X1NFU1NJT05bJ05vbWJyZSddPSdTYW50aWFnbyBTYW5jaGV6JztfU0VTU0lPTlsnVGFibGFfdXN1YXJpbyddPSd1c3VhcmlvX2FkbWluJztfU0VTU0lPTlsnRW1haWwnXT0nJztfU0VTU0lPTlsnTmdydXBvJ109J0FETUlOSVNUUkFUSVZPJw==' >ADMINISTRATIVO</option>";
+				echo "</select>";
+			?>

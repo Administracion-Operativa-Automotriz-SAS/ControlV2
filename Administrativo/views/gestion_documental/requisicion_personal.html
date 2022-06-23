@@ -1,0 +1,141 @@
+<html>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+		<style>
+		td{
+			font-size: <?php echo $Tam_Fuente ?>;
+		}
+	</style>
+	<body>
+		<table width='90%' class='table_image' border cellspacing='0' align='center'>
+					<tr>
+						<td width='20%' rowspan=3 align='center' valign='middle'>
+							<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+						</td>
+						<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo utf8_encode($Tipo->nombre) ?></b></td>
+						<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+					</tr>
+					<tr>
+						<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+					</tr>
+					<tr>
+						<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+					</tr>
+		</table>
+		<table border='0' cellspacing='0' cellpadding='0' width='90%' align='center'>
+			<tr>
+				<td width='20%'></td>
+				<td align='center' style='font-size:8px;' width='50%'>
+					<span id='subtitle'><?php echo utf8_encode("Consecutivo Interno N�mero") ?></span>:<?php echo $Nconsecutivo ?></td>
+				<td width='30%'></td>
+			</tr>
+		</table>
+			<!--cabecera-->
+		<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+		
+		<table border cellspacing='0' width='100%' align='left'>
+			
+			<tr>
+				<th scope='col' colspan='5' class='theader' class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>SOLICITUD GESTIÓN HUMANA</span></th>
+			</tr>
+			
+			<tr>
+				<th scope='col' width='40%' height='30' class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>FECHA</span></th>
+				<td colspan='4' class="writetd" onclick="make_visible(0)" ondblclick="make_invisible(0)" ><input class="date_input" id="einput0"  type="date"></td>
+			</tr>
+			<tr>
+				<th scope='col' colspan='5'  height='30' class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>INFORME DE PUESTO VACANTE</span></th>
+			</tr>
+			<tr>
+				<th scope='col' width='40%' height='30' class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>NOMBRE DEL PUESTO</span></th>
+				<td colspan='4' class="writetd" contenteditable="true" id="start"></td>			
+			</tr>
+			<tr>
+				<th scope='col' width='40%' height='30' class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>NIVEL DE ESCOLARIDAD</span></th>
+				<td colspan='4' class="writetd" contenteditable="true"></td>			
+			</tr>
+			<tr>
+				<th scope='col' width='40%' height='30' class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>LUGAR DE RESIDENCIA</span></th>
+				<td colspan='4' class="writetd" contenteditable="true"></td>			
+			</tr>
+			<tr>
+				<th scope='col' rowspan='5' width='40%' height='30px' class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>EXPERIENCIA LABORAL</span></th>							
+			</tr>
+			<tr>
+				<th scope='col' colspan='2' width='30%'  height='30px' class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>SEIS MESES</span></th>
+				<td colspan='2'>
+					<div style="text-align:center;"><input type="radio" name="experiencia"></div>
+				</td>
+			</tr>
+			<tr>
+				<th scope='col' colspan='2' width='30%'  height='30px' class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>UN AÑO</span></th>					
+				<td colspan='2'>
+					<div style="text-align:center;"><input type="radio" name="experiencia"></div>
+				</td>
+			</tr>
+			<tr>
+				<th scope='col' colspan='2' width='30%'  height='30px' class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>MAS DE UN AÑO</span></th>
+				<td colspan='2'>
+					<div style="text-align:center;"><input type="radio" name="experiencia"></div>
+					¿Cuanto?
+					<input type='text'>
+				</td>
+			</tr>
+			<tr>
+				<th scope='col' colspan='2' width='30%'  height='30px' class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>NINGUNA</span></th>
+				<td colspan='2'>
+					<div style="text-align:center;"><input type="radio" name="experiencia"></div>
+				</td>
+			</tr>
+			<tr>
+				<th scope='col' width='40%' height='50' class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>PERFIL DEL CARGO</span></th>
+				<td colspan='4' class="writetd" contenteditable="true"></td>			
+			</tr>
+			<tr>
+				<th scope='col' width='40%' height='50' class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>NOMBRE DE LA PERSONA SOLICITANTE</span></th>
+				<td colspan='4' class="writetd" contenteditable="true"></td>			
+			</tr>
+			<tr>
+				<th scope='col' width='40%' height='50' class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>AREA SOLICITANTE</span></th>
+				<td colspan='4' class="writetd" contenteditable="true"></td>			
+			</tr>
+			<tr>
+				<th scope='col' width='40%' height='30' class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>ELABORADO POR</span></th>
+				<td colspan='4' class="writetd" contenteditable="true"></td>			
+			</tr>
+			<tr>
+				<th scope='col' width='40%' height='30' class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>NOMBRE</span></th>
+				<td colspan='4' class="writetd" contenteditable="true"></td>			
+			</tr>
+			<tr>
+				<th scope='col' width='40%' height='30' class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>CARGO</span></th>
+				<td colspan='4' class="writetd" contenteditable="true"></td>			
+			</tr>
+			<tr>
+				<th scope='col' width='40%' height='30' class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>FECHA DE CONTRATACIÓN E INICIO DE LABORES </span></th>
+				<td colspan='4' onclick="make_visible(1)" ondblclick="make_invisible(1)" ><input class="date_input" id="einput1"  type="date"></td>			
+			</tr>
+			<tr>
+				<th scope='col' colspan='5'  class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>SOLICITUD AREA DE TECNOLOGÍA</span></th>
+			</tr>
+			<tr>
+				<th scope='col' width='40%' height='30' class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>No CASO MESA DE AYUDA</span></th>
+				<td colspan='4' class="writetd" contenteditable="true"></td>			
+			</tr>
+			<tr>
+				<th scope='col' colspan='5'  class='theader' bgcolor='#CCCCCC' ><span class='Estilo4'>SOLICITUD AREA ADMINISTRATIVA</span></th>
+			</tr>
+			<tr>
+				<td scope='col' colspan='5' height='70' class="writetd" contenteditable="true"></td>
+			</tr>	
+		</table>
+			<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">		
+			<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+	 </body>
+	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="/Administrativo/views/js/editable_table.js"></script>
+	<script src="/Administrativo/views/js/basicinput.js"></script>
+	<script src="/Administrativo/views/js/save_document.js"></script>
+ </html>
+	

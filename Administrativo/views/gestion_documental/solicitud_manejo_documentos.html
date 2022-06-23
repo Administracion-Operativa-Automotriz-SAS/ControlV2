@@ -1,0 +1,123 @@
+<html>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+	<style>
+		td{
+			font-size: <?php echo $Tam_Fuente ?>;
+		}
+	</style>
+	<body>
+		<table width='90%' class='table_image' border cellspacing='0' align='center'>
+				<tr>
+					<td width='20%' rowspan=3 align='center' valign='middle'>
+						<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+					</td>
+					<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo utf8_encode($Tipo->nombre) ?></b></td>
+					<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+				</tr>
+		</table>
+		<table border='0' cellspacing='0' cellpadding='0' width='90%' align='center'>
+			<tr>
+				<td width='20%'></td>
+				<td align='center' style='font-size:8px;' width='50%'>
+					<span id='subtitle'><?php echo utf8_encode("Consecutivo Interno N�mero") ?></span>:<?php echo $Nconsecutivo ?></td>
+				<td width='30%'></td>
+			</tr>
+		</table>
+			<!--cabecera-->
+		<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+	
+		<table width='100%' border cellspacing='0' cellpadding=3>
+			<tr>
+				<td  class="theader" colspan="6" bgcolor='#CCCCCC' align='center'><b>Información General</b></td>
+			</tr>
+			<tr>
+				<td  class="theader" bgcolor='#CCCCCC' width="20%">Fecha de Solicitud</td>
+				<td colspan="2" width="30%" onclick="make_visible(0)" ondblclick="make_invisible(0)"> <input class="date_input" id="einput0"  type="date"> </td>
+				<td  class="theader" bgcolor='#CCCCCC' width="20%">Código (si aplica)</td>
+				<td colspan="2" width="30%" contenteditable="true"></td>
+			</tr>
+				<td  class="theader" bgcolor='#CCCCCC'>Documento</td>
+				<td><div style="text-align:center;"><input type="radio" name="tipo_documento"></div></td>
+				<td  class="theader" bgcolor='#CCCCCC'>Formato</td>
+				<td><div style="text-align:center;"><input type="radio" name="tipo_documento"></div></td>
+				<td  class="theader" bgcolor='#CCCCCC'>Nombre</td>
+				<td><div style="text-align:center;"><input type="radio" name="tipo_documento"></div></td>	
+			</tr>
+			<tr>
+				<td  colspan="6" class="theader" bgcolor='#CCCCCC' align='center'><b>Solicitante y Responsable</b></td>
+			</tr>
+			<tr>
+				<td  class="theader" bgcolor='#CCCCCC'>Proceso</td>
+				<td colspan="2" contenteditable="true"></td>
+				<td  class="theader" bgcolor='#CCCCCC'>Nombre del líder del proceso</td>
+				<td colspan="2" contenteditable="true"></td>				
+			</tr>
+			<tr>
+				<td  colspan="6" bgcolor='#CCCCCC' align='center'><b>Tipo de solicitud</b></td>
+			</tr>
+			<tr>
+				<td  class="theader" bgcolor='#CCCCCC' align='center'>Creación</td>
+				<td><div style="text-align:center;"><input type="radio" name="tipo_solicitud"></div></td>
+				<td  class="theader" bgcolor='#CCCCCC' align='center'>Modificación</td>
+				<td><div style="text-align:center;"><input type="radio" name="tipo_solicitud"></div></td>
+				<td  class="theader" bgcolor='#CCCCCC' align='center'>Eliminación</td>
+				<td><div style="text-align:center;"><input type="radio" name="tipo_solicitud"></div></td>				
+			</tr>
+			<tr>
+				<td  class="theader" bgcolor='#CCCCCC' align='center'>Documento Externo</td>
+				<td><div style="text-align:center;"><input type="radio" name="tipo_solicitud"></div></td>
+				<td></td>
+				<td></td>				
+				<td></td>
+				<td></td>
+			</tr>
+		</table>&nbsp;
+		<table border cellspacing='0' width='100%'>
+			<tr>
+				<td  class="theader" bgcolor='#CCCCCC' colspan="6" align='center'><b>Descripción de la Solicitud</b></td>
+			</tr>
+			<tr><td  colspan="6" align='center'>¿Aprueba Lider de proceso?</td></tr>
+			<tr>
+				<td >Si</td>
+				<td colspan="2"><div style="text-align:center;"><input type="radio" name="aprobacion_lider"></div></td>
+				<td >No</td>
+				<td colspan="2"><div style="text-align:center;"><input type="radio" name="aprobacion_lider"></div></td>				
+			</tr>
+		</table>&nbsp;
+		<table border cellspacing='0' width='100%'>
+			<tr>
+				<td  colspan="4" class="theader" bgcolor='#CCCCCC' align='center'><b>Espacio para ser diligenciado por el responsable del Sistema de Gestión de Calidad</b></td>
+			</tr>
+			<tr>
+				<td  colspan="4" align='center' onclick="make_visible(1)" ondblclick="make_invisible(1)">Fecha recepción de la solicitud  <input class="date_input" id="einput1"  type="date"> </td>
+			</tr>
+			<tr>
+				<td  align='center' colspan="4"><b>¿La solicitud es aprobada?</b> </td>
+			</tr>
+			<tr>
+				<td width="25%" >Si</td>
+				<td width="25%"><div style="text-align:center;"><input type="radio" name="aprobacion_solicitud"></div></td>
+				<td width="25%" >No</td>
+				<td width="25%"><div style="text-align:center;"><input type="radio" name="aprobacion_solicitud"></div></td>	
+			</tr>
+			<tr>
+				<td  colspan="4" align='center' onclick="make_visible(2)" ondblclick="make_invisible(2)">Fecha de entrega del borrador  <input class="date_input" id="einput2"  type="date"> </td>
+			</tr>
+		</table>
+		<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">		
+			<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+	</body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="/Administrativo/views/js/editable_table.js"></script>
+	<script src="/Administrativo/views/js/basicinput.js"></script>
+	<script src="/Administrativo/views/js/save_document.js"></script>
+	
+</html>

@@ -1,0 +1,41 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#btnSub").click(function(){
+				if($("#User").val() == "" || $("#Pass").val() == ""){
+					alert("Insert User & Password");
+					event.preventDefault();
+				}else{
+					$("#LogBox").hide();
+				}
+				
+			});	
+		});
+	
+	</script>
+
+<section class="container">
+					<div class="login">
+						<h1>Inicio de Sesión</h1>
+						<form action="http://us.mzoneweb.net/Scope.MZone.Web/Logon.ashx" method="post" target="TheMZoneFrame">
+							<p><input name="Username" id="User" type="text" placeholder="Usuario"></p>
+							<p><input name="Password" id="Pass" type="password" placeholder="Contraseña"></p>
+							<p><input name="LogoutUrl" type="hidden" value=""></p>
+							<p><input name="ErrorUrl" type="hidden" value=""></p>
+							<p><input name="Version" type="hidden" value=""></p>
+												
+							<p class="remember_me">
+							<label>
+							<input type="checkbox" name="remember_me" id="remember_me">
+							Remember me on this computer
+							</label>
+							</p>
+							<p class="submit"><input name="Submit1" id="btnSub" type="submit" value="Iniciar Sesión" ></p>
+						</form>
+					</div>
+				</section>
+
+
+<iframe src="" height="100%" id="TheMZoneFrame" name="TheMZoneFrame" width="100%" frameborder="0">
+	<noframes>Your browser does not support IFRAME elements.</noframes>
+	</iframe>

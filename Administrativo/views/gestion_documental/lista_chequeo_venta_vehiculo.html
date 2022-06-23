@@ -1,0 +1,261 @@
+<html>
+<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+		<style>
+			td{
+				font-size: <?php echo $Tam_Fuente ?>;
+			}
+	</style>
+	<table width='100%' class='table_image' border cellspacing='0' align='center'>
+		<tr>
+			<td width='20%' rowspan=3 align='center' valign='middle'>
+				<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+			</td>
+			<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo utf8_encode($Tipo->nombre) ?></b></td>
+			<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+		</tr>
+		<tr>
+			<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+		</tr>
+		<tr>
+			<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+		</tr>
+	</table>
+	<table border='0' cellspacing='0' cellpadding='0' width='100%' align='center'>
+		<tr>
+			<td width='20%'></td>
+			<td align='center' style='font-size:8px;' width='50%'>
+				<span id='subtitle'>Consecutivo Interno Número</span>:<?php echo $Nconsecutivo ?></td>
+			<td width='30%'></td>
+		</tr>
+	</table>
+		<!--cabecera-->
+	<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+	
+	<table border cellspacing='0' width='100%' align='left'>
+		<tr>
+			<td class="writetd" width="25%"  bgcolor='#CCCCCC' ><b>PLACA</b></td>
+			<td width="25%">
+				<input class="input_lists" id="placa_lists" style="width:100%;" list="placas">
+				<datalist id="placas">
+				 <?php foreach($placas as $placa){ ?>
+						<option><?php echo $placa->dplaca ?></option>
+				 <?php } ?>
+				</datalist>
+			</td>
+			<td class="writetd" width="25%" bgcolor='#CCCCCC'><b>MARCA</b></td>
+			<td class="writetd" contenteditable="true" width="25%" id="vehiculo_marca"></td>		
+		</tr>
+		<tr>
+			<td bgcolor='#CCCCCC'><b>LINEA</b></td>
+			<td class="writetd" contenteditable="true" id="vehiculo_linea"></td>
+			<td bgcolor='#CCCCCC'><b>MODELO</b></td>
+			<td class="writetd" contenteditable="true" id="vehiculo_modelo"></td>
+		</tr>
+		<tr>
+			<td bgcolor='#CCCCCC'><b>CLASE</b></td>
+			<td class="writetd" contenteditable="true" id="vehiculo_clase"></td>
+			<td bgcolor='#CCCCCC'><b>COLOR</b></td>
+			<td class="writetd" contenteditable="true" id="vehiculo_color"></td>
+		</tr>
+		<tr>
+			<td bgcolor='#CCCCCC'><b>CILINDRAJE</b></td>
+			<td class="writetd" contenteditable="true" id="vehiculo_cilindraje"></td>
+			<td bgcolor='#CCCCCC'><b>TIPO CARROCERIA</b></td>
+			<td class="writetd" contenteditable="true" id="vehiculo_tipo_carroceria"></td>
+		</tr>
+		<tr>
+			<td bgcolor='#CCCCCC'><b>PROPIETARIO</b></td>
+			<td class="writetd" contenteditable="true" id="vehiculo_propietario"></td>
+			<td bgcolor='#CCCCCC'><b>CONTRATO</b></td>
+			<td class="writetd" contenteditable="true" id="vehiculo_contrato"></td>
+		</tr>
+		<tr>
+			<td bgcolor='#CCCCCC'><b>CANAL DE VENTA</b></td>
+			<td colspan="3" style="text-align:center;" contenteditable="true"></td>
+		</tr>
+	</table>
+	<table border cellspacing='0' width='100%' align='left'>
+		<tr>
+			<td  rowspan="2"><b>VISTO BUENO VENTA ACTIVO</b></td>
+			<td><b>FIRMA/NOMBRE</b></td>
+			<td width="14%" contenteditable="true"></td>
+			<td><b>FECHA</b></td>
+			<td width="14%" onclick="make_visible(0)" ondblclick="make_invisible(0)"><input class="date_input" id="einput0" type="date" /></td>
+			<td><b>ÁREA</b></td>
+			<td width="14%" contenteditable="true"></td>
+		</tr>
+		<tr>
+			<td><b>FIRMA/NOMBRE</b></td>
+			<td contenteditable="true"></td>
+			<td><b>FECHA</b></td>
+			<td onclick="make_visible(1)" ondblclick="make_invisible(1)"><input class="date_input" id="einput1" type="date" /></td>
+			<td><b>ÁREA</b></td>
+			<td contenteditable="true"></td>
+		</tr>
+		<tr>
+			<td colspan="7" bgcolor='#CCCCCC' style="text-align:center;"><b>OBSERVACIONES Y/O CONDICIONES DE VENTA DE FLOTA</b></td>
+		</tr>
+		<tr>
+			<td colspan="7" contenteditable="true" style="height:80px;"></td>
+		</tr>
+		<tr>
+			<td  ><b>VALIDAR SINIESTRO</b></td>
+			<td><b>FIRMA/NOMBRE</b></td>
+			<td width="14%" contenteditable="true"></td>
+			<td><b>FECHA</b></td>
+			<td width="14%" onclick="make_visible(2)" ondblclick="make_invisible(2)"><input class="date_input" id="einput2" type="date" /></td>
+			<td><b>ÁREA</b></td>
+			<td width="14%" contenteditable="true"></td>
+		</tr>
+		<tr>
+			<td  ><b>PLATAFORMA DE CONTROL <br> (Cambio a nueva Ubicación  "USADOS") </b></td>
+			<td><b>FIRMA/NOMBRE</b></td>
+			<td width="14%" contenteditable="true"></td>
+			<td><b>FECHA</b></td>
+			<td width="14%" onclick="make_visible(3)" ondblclick="make_invisible(3)"><input class="date_input" id="einput3" type="date" /></td>
+			<td><b>ÁREA</b></td>
+			<td width="14%" contenteditable="true"></td>
+		</tr>		
+		<tr>
+			<td colspan="7" bgcolor='#CCCCCC' style="text-align:center;"><b>OBSERVACIONES</b></td>
+		</tr>
+		<tr>
+			<td colspan="7" contenteditable="true" style="height:80px;"></td>
+		</tr>
+		<tr>
+			<td  ><b>LEV. DE PRENDA</b></td>
+			<td><b>FIRMA/NOMBRE</b></td>
+			<td width="14%" contenteditable="true"></td>
+			<td><b>FECHA</b></td>
+			<td width="14%" onclick="make_visible(5)" ondblclick="make_invisible(5)"><input class="date_input" id="einput5" type="date" /></td>
+			<td><b>ÁREA</b></td>
+			<td width="14%" contenteditable="true"></td>
+		</tr>
+		<tr>
+			<td  ><b>PAGO SALDO LEASING</b></td>
+			<td><b>FIRMA/NOMBRE</b></td>
+			<td width="14%" contenteditable="true"></td>
+			<td><b>FECHA</b></td>
+			<td width="14%" onclick="make_visible(4)" ondblclick="make_invisible(4)"><input class="date_input" id="einput4" type="date" /></td>
+			<td><b>ÁREA</b></td>
+			<td width="14%" contenteditable="true"></td>
+		</tr>
+		<tr>
+			<td colspan="7" bgcolor='#CCCCCC' style="text-align:center;"><b>OBSERVACIONES</b></td>
+		</tr>
+		<tr>
+			<td colspan="7" contenteditable="true" style="height:80px;"></td>
+		</tr>
+		<tr>
+			<td  ><b>PLATAFORMA DE CONTROL<br>(Cambio a nueva Ubicación  "VENTA DE FLOTA")</b></td>
+			<td><b>FIRMA/NOMBRE</b></td>
+			<td width="14%" contenteditable="true"></td>
+			<td><b>FECHA</b></td>
+			<td width="14%" onclick="make_visible(6)" ondblclick="make_invisible(6)"><input class="date_input" id="einput6" type="date" /></td>
+			<td><b>ÁREA</b></td>
+			<td width="14%" contenteditable="true"></td>
+		</tr>
+		<tr>
+			<td><span ><b>FACTURA DE VENTA</b></span><input type="text" placeholder="No." style="width:100%;"></td>
+			<td><b>FIRMA/NOMBRE</b></td>
+			<td width="14%" contenteditable="true"></td>
+			<td><b>FECHA</b></td>
+			<td width="14%" onclick="make_visible(7)" ondblclick="make_invisible(7)"><input class="date_input" id="einput7" type="date" /></td>
+			<td><b>ÁREA</b></td>
+			<td width="14%" contenteditable="true"></td>
+		</tr>		
+		<tr>
+			<td width="14%" onclick="make_visible(8)" ondblclick="make_invisible(8)"><b>BANCO</b> Fecha ingreso<input class="date_input" id="einput8" type="date" /></td>	
+			<td><b>VALOR</b></td>
+			<td width="14%" contenteditable="true"></td>
+			<td><b>FIRMA/NOMBRE</b></td>
+			<td contenteditable="true"></td>
+			<td><b>ÁREA</b></td>
+			<td width="14%" contenteditable="true"></td>
+		</tr>
+		<tr>
+			<td><b>RECIBO CAJA</b><input type="text" placeholder="No." style="width:100%;"></td>
+			<td><b>FIRMA/NOMBRE</b></td>
+			<td width="14%" contenteditable="true"></td>
+			<td><b>FECHA</b></td>
+			<td width="14%" onclick="make_visible(9)" ondblclick="make_invisible(9)"><input class="date_input" id="einput9" type="date" /></td>
+			<td><b>ÁREA</b></td>
+			<td width="14%" contenteditable="true"></td>
+		</tr>
+		<tr>
+			<td colspan="7" bgcolor='#CCCCCC' style="text-align:center;"><b>OBSERVACIONES</b></td>
+		</tr>
+		<tr>
+			<td colspan="7" contenteditable="true" style="height:80px;"></td>
+		</tr>
+		<tr>
+			<td><b>EXCLUSIÓN POLIZA COLECTIVA</b><input type="text" placeholder="Aseguradora" style="width:100%;"></td>
+			<td><b>FIRMA/NOMBRE</b></td>
+			<td width="14%" contenteditable="true"></td>
+			<td><b>FECHA</b></td>
+			<td width="14%" onclick="make_visible(10)" ondblclick="make_invisible(10)"><input class="date_input" id="einput10" type="date" /></td>
+			<td><b>ÁREA</b></td>
+			<td width="14%" contenteditable="true"></td>
+		</tr>
+		<tr>
+			<td  ><b>PLATAFORMA DE CONTROL (Inactividad del vehiculo)</b></td>
+			<td><b>FIRMA/NOMBRE</b></td>
+			<td width="14%" contenteditable="true"></td>
+			<td><b>FECHA</b></td>
+			<td width="14%" onclick="make_visible(11)" ondblclick="make_invisible(11)"><input class="date_input" id="einput11" type="date" /></td>
+			<td><b>ÁREA</b></td>
+			<td width="14%" contenteditable="true"></td>
+		</tr>
+		<tr>
+			<td colspan="7" bgcolor='#CCCCCC' style="text-align:center;"><b>OBSERVACIONES</b></td>
+		</tr>
+		<tr>
+			<td colspan="7" contenteditable="true" style="height:80px;"></td>
+		</tr>
+		<tr>
+			<td><b>FACTURA DE TRAMITES</b><input type="text" placeholder="No." style="width:100%;"></td>
+			<td><b>FIRMA/NOMBRE</b></td>
+			<td width="14%" contenteditable="true"></td>
+			<td><b>FECHA</b></td>
+			<td width="14%" onclick="make_visible(12)" ondblclick="make_invisible(12)"><input class="date_input" id="einput12" type="date" /></td>
+			<td><b>ÁREA</b></td>
+			<td width="14%" contenteditable="true"></td>
+		</tr>
+		<tr>
+			<td width="14%" onclick="make_visible(13)" ondblclick="make_invisible(13)"><b>BANCO</b> Fecha ingreso:<input class="date_input" id="einput13" type="date" /></td>
+			<td><b>VALOR</b></td> 
+			<td width="14%" contenteditable="true"></td>
+			<td><b>FIRMA/NOMBRE</b></td>
+			<td contenteditable="true"></td>
+			<td><b>ÁREA</b></td>
+			<td width="14%" contenteditable="true"></td>
+		</tr>
+		<tr>
+			<td><b>RECIBO CAJA</b><input type="text" placeholder="No." style="width:100%;"></td>
+			<td><b>FIRMA/NOMBRE</b></td>
+			<td width="14%" contenteditable="true"></td>
+			<td><b>FECHA</b></td>
+			<td width="14%" onclick="make_visible(14)" ondblclick="make_invisible(14)"><input class="date_input" id="einput14" type="date" /></td>
+			<td><b>ÁREA</b></td>
+			<td width="14%" contenteditable="true"></td>
+		</tr>
+		<tr>
+			<td colspan="7" bgcolor='#CCCCCC' style="text-align:center;"><b>COMENTARIOS EN GENERAL</b></td>
+		</tr>
+		<tr>
+			<td colspan="7" contenteditable="true" style="height:80px;"></td>
+		</tr>
+	</table>	
+
+	<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">	
+	<input type="hidden">
+	<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+ </body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="/Administrativo/views/js/editable_table.js"></script>
+	<script src="/Administrativo/views/js/basicinput.js"></script>
+	<script src="/Administrativo/views/js/save_document.js"></script>
+	<script src="/Administrativo/views/js/placas.js"></script>
+ </html>

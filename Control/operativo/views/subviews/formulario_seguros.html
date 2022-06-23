@@ -1,0 +1,69 @@
+<html>
+
+<body>
+<head>
+<script language='javascript' src='inc/js/funciones.js'></script>
+<style type='text/css'>@import url(inc/css/estilo.css);</style>
+<script language="javascript">
+		var IDN=0;
+		var IMAGEN='';
+		function asignar_imagen(dato)
+		{window.open('marcoindex.php?Acc=asignar_imagen_webcam&Id=152&Foto='+dato+'&T=vehiculo&C=caratula_imagen_f&directorio=vehiculo','Oculto_imagen_webcam');}
+		</script>
+</head>
+<h2>Formulario de registro seguros</h2>
+<form action='zbalance_estado.php' target='_self' method='POST' name='forma' id='forma'>
+<table class='tableedit'>
+    <tbody>
+        <tr>
+            <td><font style='font-family:Arial;' color='#000000'>No. poliza</font>
+            </td>
+            <td class='tdedit' bgcolor=''>
+                <input type='text' style='color:#000099;background-color:#FFFFFF;' name='n_poliza' id='n_poliza' size='30' value='' onchange=''>
+            </td>
+        </tr>
+        <tr>
+            <td><font style='font-family:Arial;' color='#000000'>Vigencia desde</font>
+                <td class='tdedit' bgcolor='ffffff'>
+                <input type='date' name='vigencia_desde' id='vigencia_desde' value='0000-00-00' ></td>
+            <td><font style='font-family:Arial;' color='#000000'>Vigencia hasta</font>
+            </td>
+            <td class='tdedit' bgcolor='ffffff'>
+                <input type='date' name='vigencia_hasta' id='vigencia_hasta' value='0000-00-00' ></td>
+        </tr>
+        <tr>
+            <td><font style='font-family:Arial;' color='#000000'>Aseguradora</font></td>
+            <td class='tdedit' bgcolor='ffffff'>
+                <input type='text' style='color:#000099;background-color:#FFFFFF;' name='poliza_seguros' id='poliza_seguros' size='30'  onchange=''>
+            </td>
+        </tr>
+        <tr>
+            <td><font style='font-family:Arial;' color='#000000'>Numero de asistencia</font></td>
+            <td class='tdedit' bgcolor=''>
+                <input type='text' style='color:#000099;background-color:#FFFFFF;' name='n_asistencia' id='n_asistencia' size='30' value='' onchange=''>
+            </td>
+        </tr>
+        <tr>
+            <td><font style='font-family:Arial;' color='#000000'>Codigo Fasecolda</font></td>
+            <td class='tdedit' bgcolor='ffffff'>
+                <input type='text' style='color:#000099;background-color:#FFFFFF;' name='codigo_fasecolda' id='codigo_fasecolda' size='10' value='' onchange='' onkeyup='verificanumero(event,'codigo_fasecolda');' class='numero'>
+            </td>
+        </tr>
+        <tr>
+            <td><font style='font-family:Arial;' color='#000000'>Aseguradora</font></td>
+            <td class='tdedit' bgcolor='ffffff'>
+                <input type='text' style='color:#000099;background-color:#FFFFFF;' name='poliza_seguros' id='poliza_seguros' size='30'  onchange=''>
+            </td>
+        </tr>
+		<tr>
+            <td><font style='font-family:Arial;' color='#000000'>Corredor</font>
+            </td>
+            <td class='tdedit' bgcolor=''>
+                <input type='text' style='color:#000099;background-color:#FFFFFF;' name='corredor' id='corredor' size='30' value='' onchange=''>
+            </td>
+        </tr>
+        <tr></tr>
+    </tbody>
+</table>
+</body>
+</html>

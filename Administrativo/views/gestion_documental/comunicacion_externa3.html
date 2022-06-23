@@ -1,0 +1,71 @@
+<html>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+		<link rel="stylesheet" href="/Administrativo/views/css/letter_style.css">
+	<body class='no_prt'>
+		<table class="table table-striped" style="font-size:12px;" width='100%'  cellspacing='1' align='center'>
+		<tr><td width='20%' align='center' valign='middle'>
+			<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' class="table_image" border='0' height='50' width='110'>
+		</td>
+		<td align='center' width='50%'>
+			<b style='font-size:16px'>COMUNICADO EXTERNO</b>
+			<br/><br/>
+			<span><?php echo "consecutivo: ".$Nconsecutivo ?></span>
+		</td>
+			<td width='30%' style='font-size:12px'>
+				<?php echo "Código :".$Tipo->codigo ?><br>
+				<?php echo "Version :".$Tipo->version ?><br>
+				<?php echo "Fecha :".$Tipo->fecha_version ?>
+			</td>
+		</tr>
+		</table>
+		<table class="table table-striped"   cellspacing='1' width='90%' align='center'>
+			<tr>
+				<td width="50%">DE:</td>
+				<td  contenteditable="true"><b></b></td>
+			</tr>
+			<tr>
+				<td >DIRIGIDO A:</td>
+				<td   contenteditable="true"><b></b></td>
+			</tr>
+			<tr>
+				<td >ALCANCE:</td>
+				<td   contenteditable="true"><b></b></td>
+			</tr>
+			<tr>
+				<td >ASUNTO:</td>
+				<td   contenteditable="true"><b></b></td>
+			</tr>
+		</table>
+		&nbsp;
+		<br>
+		<p><input type="text" name="ciudad" placeholder='Ciudad' value="Bogotá D.C." style="width:130px;"><span style="margin-left:5px;"><?php echo $Fecha_completa ?></span></p>&nbsp;
+
+		<span   id="first_numeration" style='margin-left:75%'></span>
+		<br><br>
+		<p align='justify' >
+			<textarea style='width:100%;' name="texto" id='textArea'></textarea>
+		</p>
+
+		<p>Cordialmente</p>
+		<br><br>
+		<p><b><input type="text" name="remitente" placeholder='Nombre'></b>&nbsp;
+		<br>
+		<b><input type="text" name="remitente" placeholder='Cargo'></b>
+		<button  onclick="imprimir_pagina()" class="btn btn-warning form-control">Imprimir</button>
+		<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">
+		<input type="hidden" name="page_consecutivo" value="<?php echo $Tipo->codigo."-".$Nconsecutivo; ?>">
+		<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+	</body>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="/Administrativo/views/js/editable_table.js"></script>
+	<script src="/Administrativo/views/js/comunicacion_interna.js"></script>
+	<script>
+		$("input[name='ciudad']").click(function(){
+			$(this).css('width', '');
+		});
+	</script>
+
+</html>

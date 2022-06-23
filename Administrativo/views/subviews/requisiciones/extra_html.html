@@ -1,0 +1,518 @@
+<?php
+
+	$result_criticidad_proveedores=q("select * from nivel_criticidad_proveedor");
+	$result_tipos_proveedores=q("select * from tipo_gasto_proveedor");
+	
+	$criticidad_proveedores = array();
+	while ($fila = mysql_fetch_object($result_criticidad_proveedores)) {
+			array_push($criticidad_proveedores,$fila);
+	}
+	
+	$tipos_proveedores = array();
+	while ($fila = mysql_fetch_object($result_tipos_proveedores)) {
+			array_push($tipos_proveedores,$fila);
+	}	
+	
+	function generate_option_string_with_data($dataset,$key,$name)	
+	{
+		$text = "";
+		//print_r($dataset);
+		foreach($dataset as $data)
+		{
+			//print_r($data);
+			$text .= "<option value='".$data->$key."'  >".utf8_encode($data->$name)."</option>";	
+		}
+		
+		return $text;
+	
+	}
+	
+	$proveedor = qo("select * from proveedor where  id = $Req->proveedor");
+	
+	
+
+ ?>
+ <style>
+ #Busqueda_Ciudad{
+ visibility: hidden; 
+ position: absolute; 
+ border-width: 2px; 
+ background-color: rgb(238, 255, 238); 
+ z-index: 200; left: 295px; top: 104px;
+ height:400px; 
+ width:200px;
+ }
+ </style>
+ <script> 
+	var proveedor_requisicion = "<?php echo $proveedor->id ?>"; 
+ </script>
+ 
+<script>	
+		
+	function busqueda_ciudad2(Campo,Contenido)
+	{
+		var Ventana_ciudad=document.getElementById('Busqueda_Ciudad');
+		Ventana_ciudad.style.visibility='visible';
+		Ventana_ciudad.style.left='295px !important';
+		Ventana_ciudad.style.top='104px !important';
+		
+		//Ventana_ciudad.style.left=mouseX;
+		//Ventana_ciudad.style.top=mouseY-10;
+		
+		Ventana_ciudad.src='inc/ciudades.html';
+		
+		Ciudad_campo=Campo;Ciudad_forma='forma';
+	}
+	function oculta_busca_ciudad()
+	{document.getElementById('Busqueda_Ciudad').style.visibility='hidden';}
+	function validar_aplicar()
+	{
+		document.forma.submit();
+	}	
+
+</script>
+<script>
+		$('#form1').submit(function(){
+			 event.preventDefault();
+			 action_url = $( '#form1' ).attr( 'action' );
+			 //return alert(action_url);
+			 var formData = new FormData($(this)[0]);
+				$.ajax({
+					url: action_url,
+					type: 'POST',
+					data: formData,
+					async: false,
+				  success: function (data) {
+					  alert(data);
+					  location.reload();
+				  },
+				  cache: false,
+				  contentType: false,
+				  processData: false
+			  });
+			//alert('submit');
+		});		
+</script>
+
+<script>
+	$('#form2').submit(function(){
+		 event.preventDefault();
+		 action_url = $( '#form2' ).attr( 'action' );
+		 //return alert(action_url);
+		 var formData = new FormData($(this)[0]);
+			$.ajax({
+				url: action_url,
+				type: 'POST',
+				data: formData,
+				async: false,
+			  success: function (data) {
+				  alert(data);
+				  location.reload();
+			  },
+			  cache: false,
+			  contentType: false,
+			  processData: false
+		  });
+		//alert('submit');
+	});		
+</script>	
+
+		
+<script>
+	$('#form3').submit(function(){
+		 event.preventDefault();
+		 action_url = $( '#form3' ).attr( 'action' );
+		 //return alert(action_url);
+		 var formData = new FormData($(this)[0]);
+			$.ajax({
+				url: action_url,
+				type: 'POST',
+				data: formData,
+				async: false,
+			  success: function (data) {
+				  alert(data);
+				  location.reload();
+			  },
+			  cache: false,
+			  contentType: false,
+			  processData: false
+		  });
+		//alert('submit');
+	});		
+</script>
+<script>
+		function asignar_cotizacion(element)
+		{
+			event.preventDefault();
+			if(!confirm('¿Esta seguro de escoger esta cotización?'))
+			{
+				return false;
+			}
+			action_url = $( '#form3' ).attr( 'action' );
+			var formData = new FormData($(element)[0]);
+			formData.append('Acc','asignar_cotizacion');
+			console.log(action_url);
+			console.log(formData);
+			$.ajax({
+				url: action_url,
+				type: 'POST',
+				data: formData,
+				async: false,
+			  success: function (data) {
+				  alert(data);
+				  location.reload();
+			  },
+			  cache: false,
+			  contentType: false,
+			  processData: false
+		  });
+		}		
+</script>
+	
+	<div class="modal fade" id="modalfacturas_agregadas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Facturas Agregadas</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<div>
+					<div id="ajax-content"></div>
+				</div>
+			  </div>
+			  <button class="btn btn-success form-control" onclick="agregar_factura()">Agregar Factura</button> 
+			  <div class="modal-footer">				
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>				
+			  </div>
+			</div>
+		</div>
+	</div>
+		
+    <div class="modal fade" id="modalincluir_factura" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Incluir Facturas</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<form action="zrequisicion.php" id="form_agregar_factura"  method="post">
+				    <input type="hidden" name="requisiciond_id" id="req_id">
+					<input name="Acc"  type="hidden" value="incluir_factura_requisiciond">
+					<div class="form-group">
+						<label>Consecutivo uno</label>
+						<input type="text" autocomplete="off" name="consecutivo_uno" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>Consecutivo proveedor</label>
+						<input type="text" autocomplete="off" name="consecutivo_provee" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label>Valor factura</label>
+						<input type="number" autocomplete="off" name="valor_factura" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label>Imagen</label>
+						<input type="file" id="insert_new_image" name="image" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<button class="form-control btn btn-success">Guardar</button>
+					</div>
+				</form>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>				
+			  </div>
+			</div>
+		</div>
+	</div>
+		
+	<div class="modal fade" id="modalcrear_proveedor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+			<iframe id="Busqueda_Ciudad"  src="inc/ciudades.html"></iframe>
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Crear Proveedor</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+			  <span id="iframe_note"><b>Si no realiza el proceso de calificación de proveedores, el proveedor no aparecerá como valor seleccionable para las cotizaciones</b></span><br>
+			  <iframe id="data_calif" style="width:100%;height:60%;display:none;"></iframe>
+			  <form name="forma" id="forma" >
+				<input name="Acc"  type="hidden" value="crear_proveedor_abrev">
+				<label>Nombre o Razón social:</label>
+				<input type="text" name="nombre" id="nombre" value="" size="90" maxlength="200" style="margin-bottom:8px;" onkeyup="this.value=this.value.toUpperCase();" required>
+				<label>Tipo de Identificación:</label>
+				<select name="td" id="td" style="width:100px" required>
+					<option value="">Seleccione una opción</option>
+					<option value="CC">CEDULA DE CIUDADANIA</option>
+					<option value="CE">CEDULA DE EXTRANJERIA</option>
+					<option value="NIT" selected="">NIT</option>
+					<option value="RUT">RUT</option>
+				</select>
+				<label>Nit / CC:</label>
+				<input type="text" name="identificacion" id="identificacion" class="numero" value="" size="15" maxlength="15" required>
+				<label>Dígito de Verificación:</label>
+				<input type="text" name="dv" id="dv" value="" size="1" maxlength="1" >
+				<label>Sexo / tipo:</label>
+				<select name="sexo" style="width:50px" required>
+					<option value=""></option>
+					<option value="E">EMPRESA</option>
+					<option value="M">MASCULINO</option>
+					<option value="F">FEMENINO</option>
+				</select>
+				<label>Representante legal:</label>
+				<input type="text" name="representante_legal" id="representante_legal" value="" size="53" maxlength="100" onkeyup="this.value=this.value.toUpperCase();" >
+				<label>Cédula del Representante Legal</label>
+				<input type="text" name="cedula_rep_legal" id="cedula_rep_legal" value="" size="15" maxlength="15" class="numero" onfocus="if(this.value=='') this.value=document.forma.identificacion.value;" >
+				<label>Ciudad:</label>
+				<input type="text" style="color:#000099;background-color:#FFFFFF;" name="_ciudad" id="_ciudad" size="30" onclick="busqueda_ciudad2('ciudad','05001000');" readonly="" required>
+				<input type="hidden" name="ciudad" id="ciudad" value="" required><span id="bc_ciudad"></span>
+				<label>Telefono fijos</label>
+				<input type="text" name="telefono1" id="telefono1" value="" size="10" maxlength="10" class="numero" onkeyup="verificanumero(event,'telefono1');" required>
+				<label>Celular :</label>
+				<input type="text" name="celular" id="celular" value="" size="10" maxlength="10" class="numero" onkeyup="verificanumero(event,'celular');" required>
+				<label>Dirección</label>
+				<input type="text" name="direccion" id="direccion" value="" size="32" maxlength="200" onkeyup="this.value=this.value.toUpperCase();" required>
+				<label>Correo electronico</label>
+				<input type="email" name="email" id="email" value="" size="40" maxlength="100"  onkeyup="this.value=this.value.toLowerCase();">
+				<br>
+				<label>Nivel de criticidad del proveedor</label>
+				<select name='nivel_criticidad' required>
+					<option value=''>Selecciona</option>
+					<?php echo generate_option_string_with_data($criticidad_proveedores,"id","nivel") ?>
+				</select>
+				<br>				
+				<label>Tipo de proveedor</label>
+				<select name='tipo_gasto_proveedor' required>
+					<option value=''>Selecciona</option>
+					<?php echo generate_option_string_with_data($tipos_proveedores,"id","nombre") ?>
+				</select>	
+			  </div>			 
+			  <div class="modal-footer">
+				 <button class="btn btn-success" >Agregar Proveedor</button> 
+				 </form>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>				
+			  </div>
+			</div>
+		</div>
+	</div>
+		
+	<script>
+		$( document ).ready(function() {
+			$("select[name='prov']").each(function() {
+				var self = this;
+				if(this.value != "")
+				{
+					$.post( "zrequisicion.php", { Acc:"get_data_proveedor",id:this.value }).done(function( data ) {
+						
+						var response = JSON.parse(data);
+						$(self).after("<br> <b>Calificación<b>: "+response.proveedor.nota);
+					
+					});
+				}
+			});
+			
+			if(proveedor_requisicion == 2343)
+			{		
+				//console.log("remover required");
+				$('input[name="valor_factura"]').removeAttr('required');
+				$('#insert_new_image').removeAttr('required');
+			}
+			
+		});
+
+			$("#form_agregar_factura").submit(function(){
+				event.preventDefault();
+				  var formData = new FormData($(this)[0]);
+				  action_url = $(this).attr("action");
+				  $.ajax({
+					  url: action_url,
+					  type: "POST",
+					  data: formData,
+					  async: false,
+					  success: function (data) {
+						  console.log(data);						  
+						  $("#form_agregar_factura")[0].reset();
+						  $("#modalincluir_factura").modal("hide");
+						  facturas_agregadas($("#req_id").val());	
+					  },
+					  cache: false,
+					  contentType: false,
+					  processData: false
+				  });				  
+			  });
+
+		
+		</script>
+		
+		<script>
+			function crear_proovedor(){
+				$("#modalcrear_proveedor").modal("show");
+			}
+			
+		$( "#forma" ).submit(function( event ) {
+			event.preventDefault();
+			
+			if($("#ciudad").val() == ""){
+				alert("Debe seleccionar una ciudad para continuar");
+				return false;
+			}
+			
+			var data_vals = [];
+			$("select[name='prov']").each(function() {
+				console.log(this);
+				data_vals.push(this.value);
+			});
+			window.data_vals = data_vals;
+			console.log(data_vals);
+			
+		    var formData = new FormData($(this)[0]);
+			  action_url = "zrequisicion.php";
+			$.ajax({
+				  url: action_url,
+				  type: "POST",
+				  data: formData,
+				  async: false,
+				  success: function (data)
+				  {
+					  console.log("Done");
+					  response = JSON.parse(data);
+					  alert(response.message);
+					  if(response.status != "OK")
+					  {
+						return false;
+					  }
+					  else
+					  {
+						//window.data_id = response.id;
+						//$("#data_calif").attr("src","http://app.aoacolombia.com/Administrativo/zproveedor.php?Acc=adicionar_un_bs&id="+response.id);
+						$("#data_calif").attr("src","http://app.aoacolombia.com/Administrativo/zproveedor.php?Acc=add_bienes_y_servicios&id="+response.id);
+						$("#data_calif").show();
+					  }
+				
+				  },
+				  cache: false,
+				  contentType: false,
+				  processData: false 
+			});						
+		});
+		
+		$('#data_calif').load(function(){
+			console.log("loaded");
+			var iframe = $('#data_calif').contents();
+			console.log(iframe);
+			/*iframe.find("#aplicar").click(function(){
+				console.log("clicked");
+				
+				
+			});*/
+		});
+		
+		$('#modalcrear_proveedor').on('hidden.bs.modal', function () {
+			  //alert("closed");
+			  document.getElementById("forma").reset();
+			  $("#data_calif").hide();
+			  if(window.data_vals != null){
+			    $.post( "zrequisicion.php", { Acc:"return_proveedores" }).done(function( data ) {
+					var proveedores = JSON.parse(data);
+					console.log(proveedores);
+					$("select[name='prov']").each(function(element) {
+						$(this).empty();
+						var self = this;
+						$(this).append("<option>Selecciona</option>");
+						jQuery.each(proveedores, function(){
+							if(this.nombre != null)
+							{$(self).append("<option value="+this.id+">"+this.nombre+"</option>");}
+						});
+						$(this).val(window.data_vals[element]);
+					});
+				});
+			  }
+		});
+		
+		$('select[name="prov"]').on('change', function(ev) {
+		
+		  var self = this;
+		  
+		  var global_id = self.value;
+		  
+		  $.post( "zrequisicion.php", { Acc:"get_data_proveedor",id:this.value }).done(function( data ) {
+			response = JSON.parse(data);
+			var s_proveedor =  response.proveedor;	
+			if(s_proveedor.activo == 0)
+			{
+				if(s_proveedor.causal_inactivacion == 2)
+				{
+					alert("El proveedor esta inactivo por incumplimiento acuerdos comerciales");
+					return false;
+				}
+				if(s_proveedor.causal_inactivacion == 1)
+				{
+					 $.post( "zrequisicion.php", { Acc:"check_eval_proveedor",id:self.value }).done(function( data ) {
+						response = JSON.parse(data);
+						
+						var q = new Date();
+						var m = q.getMonth()+1;
+						var d = q.getDay();
+						var y = q.getFullYear();
+
+						var today = new Date(y,m,d);
+						
+						console.log(today);
+						
+						eval_date = new Date(response.evaluacion.fecha_seleccion);						
+							
+						var timeDiff = Math.abs(today.getTime() - eval_date.getTime());
+						var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+						
+						if(s_proveedor.nivel_criticidad!=null)
+						{
+							var max_days = 180;
+						}
+						else
+						{
+							if(s_proveedor.nivel_criticidad == 1 || s_proveedor.nivel_criticidad == 2 || s_proveedor.nivel_criticidad == 4)
+							{var max_days = 360;}
+							else
+							{var max_days = 180;}
+						}
+						
+						console.log(max_days);
+						
+						if(diffDays>max_days)
+						{
+							$(self).val("");
+							alert("Proceda a evalular nuevamente al proveedor");
+							window.open('http://app.aoacolombia.com/Administrativo/zproveedor.php?Acc=add_bienes_y_servicios&id='+global_id,'winname',"directories=0,titlebar=0,toolbar=0,location=0,status=0,menubar=0,scrollbars=no,resizable=no,width=400,height=350");
+							return false;
+						}
+						else
+						{
+							 $.post( "zrequisicion.php", { Acc:"activate_proveedor",id:self.value }).done(function( data ) {
+								console.log("Estado de proveedor actualizado");
+							 });
+						}
+						
+					 });
+					
+				}
+				
+			}
+			else
+			{
+			
+			
+			}
+		  });
+		});
+	
+		
+		</script>

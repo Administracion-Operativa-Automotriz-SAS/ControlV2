@@ -1,0 +1,129 @@
+<html lang="en" style="">
+	<head>
+  
+	  <title>Interfaz de factura electronica</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  
+	  <!-- Jquery -->
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	  <!--- Bootstrap --> 
+			
+	  <script id="bootstrap_script" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+
+	  <link id="bootstrap_style" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	  <!-- Font Awesome -->
+
+	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	  
+	  <!--  Angular -->
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js" ></script>				
+		
+	  <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+
+	  <link rel="stylesheet" href="/Control/operativo/views/css/fact_electronica_interfaz.css">	  
+		
+	  <script  src="/Control/operativo/Angular/Programs/consult_fact_electronica.js"></script>
+	  
+	</head>
+	
+	<body>
+
+	<style>
+
+	</style>
+		<div class="container">
+			<div ng-app="consult_fact_electronica">
+				<h2 style="text-align:center;">Detalles de factura electronica</h2>
+				<div class="panel panel-primary">
+					<div class="panel-heading">Factura electronica</div>					
+					<div class="panel-body" style="font-family: monospace;background-color: aliceblue;" ng-controller="ConsultController" ng-init="init()">
+						<div class="row" style="background-color: #c4d4ff;">
+							<div class="col-lg-6 col-md-6" style="text-align: CENTER;">
+								<span class="centered_text">Estado:</span><i class="fas fa-arrow-right"></i>
+							</div>
+							<div class="col-lg-6 col-md-6" style="TEXT-ALIGN: center;">
+								<span class="centered_text">{{estados_factura[(fact_electronica.estado-1)]}}</span>
+							</div>
+						</div>	
+						<div class="row">
+							<div class="col-lg-6 col-md-6" style="text-align: center;margin-top: 25px;">
+								<span>Respuesta de servicio</span>
+							</div>
+							<div class="col-lg-6 col-md-6" style="text-align: center;margin-top: 25px;">
+								<ul ng-if="interfaz_mode == 1">
+									<li>Codigo Respuesta: {{fact_electronica_estado.respuesta.codigoRespuesta}}</li>
+									<li>Mensaje Respuesta: {{fact_electronica_estado.respuesta.mensajeRespuesta}}</li>
+									<li>Cufe: {{fact_electronica_estado.respuesta.cufe}}</li>
+									<li>Número doc generado: {{fact_electronica_estado.respuesta.numeroDocumentoGenerado}}</li>
+								</ul>
+								<ul ng-if="interfaz_mode == 2">
+									<li>Codigo Respuesta: {{fact_electronica_estado.respuesta.codigoRespuesta}}</li>
+									<li>Mensaje Respuesta: {{fact_electronica_estado.respuesta.mensajeRespuesta}}</li>									
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-6 col-md-6" style="text-align: center;margin-top: 15px;">
+								<span>Hora de facturación eletronica</span>
+							</div>
+							<div class="col-lg-6 col-md-6" style="text-align: center;margin-top: 15px;">
+								<span>{{fact_electronica.fecha}}</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-6 col-md-6" style="text-align: center;margin-top: 15px;">
+								<span>Consecutivo</span>
+							</div>
+							<div class="col-lg-6 col-md-6" style="text-align: center;margin-top: 15px;">
+								<span>{{fact_electronica.ptesa_conse}}</span>
+							</div> 
+						</div>						
+						<div class="row">
+							<div class="col-lg-4 col-md-4"  style="margin-top: 25px;">
+								<button ng-if="interfaz_mode == 2 || interfaz_mode == 1" ng-click="generate_xml()" class="btn btn-default form-control"><span>Generar XML </span><i class="fas fa-file"></i></button>
+							</div>
+							<div ng-if="interfaz_mode == 2 || interfaz_mode == 3" class="col-lg-4 col-md-4"><button  class="btn btn-default form-control" style="margin-top: 25px;" ng-click="resend_bill()"><span>Enviar factura </span><i class="fas fa-forward"></i></button>
+							</div>
+							<div ng-if="interfaz_mode == 1" class="col-lg-4 col-md-4"><button ng-click="graphic_representation()" class="btn btn-default form-control" style="margin-top: 25px;"><span>Consultar representación gráfica </span><i class="fas fa-image"></i></button>
+							</div>
+							<div class="loader" style="display:none;"></div>
+						</div>
+					</div>	
+				</div>
+			</div>
+			
+			<div class="modal fade" id="modalProperties" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="ImageController">
+			<div class="modal-dialog modal-lg" role="document" >
+
+			    <!--Content-->
+			    <div class="modal-content resize-drag modal-resize">
+			    	<div class="modal-header">
+				        <h5 class="modal-title" id="PdfModal">Representación grafica del elemento</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+
+			        <!--Body-->
+			        <div class="modal-body" id="property_body">
+
+			            
+
+			        </div>
+
+			        <!--Footer-->
+			        <div class="modal-footer justify-content-center">
+			            
+			        </div>
+
+			    </div>
+			    <!--/.Content-->
+
+			</div>
+		</div>
+		</div>	
+	</body>
+</html>

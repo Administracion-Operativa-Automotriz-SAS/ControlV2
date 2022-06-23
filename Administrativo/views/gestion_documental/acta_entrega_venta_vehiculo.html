@@ -1,0 +1,495 @@
+<html>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+	<style>
+			td{
+				font-size: 9px;
+			}
+			select
+			{	
+				font-size: 7px;
+			}
+	</style>
+	<table width='100%' class='table_image' border cellspacing='0' align='center'>
+		<tr>
+			<td width='20%' rowspan=3 align='center' valign='middle'>
+				<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+			</td>
+			<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo utf8_encode($Tipo->nombre) ?></b></td>
+			<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+		</tr>
+		<tr>
+			<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+		</tr>
+		<tr>
+			<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+		</tr>
+	</table>
+	<table border='0' cellspacing='0' cellpadding='0' width='90%' align='center'>
+		<tr>
+			<td width='20%'></td>
+			<td align='center' style='font-size:8px;' width='50%'>
+				<span id='subtitle'>Consecutivo Interno Número</span>:<?php echo $Nconsecutivo ?></td>
+			<td width='30%'></td>
+		</tr>
+	</table>
+		<!--cabecera-->
+	
+	
+		
+	<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+	
+		<table border cellspacing='0' width='100%' align='left' class="print_table">
+			<!--Seccion info inicial-->			
+			<tr>				
+				<td >FECHA DE ENTREGA</td>
+				<td bgcolor='#CCCCCC' class="theader"><span   bgcolor='#FFFFFF' >DD</span></td>
+				<td  class="writetd">
+					<select>
+						<option></option>
+						<?php for($i=1;$i<32;$i++){ ?>
+							<option><?php echo $i; ?></option>
+						<?php  } ?>
+					</select>
+				</td>
+				<td bgcolor='#CCCCCC' class="theader" ><span  bgcolor='#FFFFFF' >MM</span></td>
+				<td  class="writetd">
+					<select>
+						<option></option>
+						<option>Enero</option>
+						<option>Febrero</option>
+						<option>Marzo</option>
+						<option>Abril</option>
+						<option>Mayo</option>
+						<option>Junio</option>
+						<option>Julio</option>
+						<option>Agosto</option>
+						<option>Septiembre</option>
+						<option>Octubre</option>
+						<option>Noviembre</option>
+						<option>Diciembre</option>
+					</select>
+				</td>
+				<td bgcolor='#CCCCCC' class="theader"  ><span  bgcolor='#FFFFFF' >AA</span></td>
+				<td  class="writetd" >
+					<select>
+						<option></option>
+						<option>2017</option>
+						<option>2018</option>
+						<option>2019</option>
+						<option>2020</option>
+						<option>2021</option>
+						<option>2022</option>
+						<option>2023</option>
+					</select>
+				</td>			
+				<td bgcolor='#CCCCCC' class="theader" >CIUDAD</td>
+				<td  class="writetd">
+					<select>
+						<option></option>
+						<?php foreach($oficinas as $oficina) { ?>
+							<option><?php echo $oficina->nombre ?></option>
+						<?php } ?>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td   >ENTREGADO A</td>
+				<td   >COMPRADOR FINAL</td>
+				<td  class="writetd" ><div style="text-align:center;"><input type="radio" name="entregado"></div></td>
+				<td   >CANAL DE VENTA</td>
+				<td  class="writetd" ><div style="text-align:center;"><input type="radio" name="entregado"></div></td>
+				<td colspan="4"></td>
+			</tr>
+			<tr>
+				<td   >CANAL DE VENTA</td>
+				<td  colspan="9" class="writetd" contenteditable="true"></td>
+			</tr>
+			<tr>
+				<th colspan="9" bgcolor='#CCCCCC' class="theader" ><span class='Estilo4'>DATOS DEL COMPRADOR</span></th>
+			</tr>
+			<tr>
+				<td   >PLACA</td>
+				<td  colspan="3" class="writetd">
+					<input class="input_lists" id="placa_lists" list="placas">
+					<datalist id="placas">
+					 <?php foreach($placas as $placa){ ?>
+							<option><?php echo $placa->dplaca ?></option>
+					 <?php } ?>
+					</datalist>
+				</td>
+				<th  >CONVENCION</th>
+				<th  colspan="2" class="writetd" >RAYON(&nbsp&nbsp)</th>
+				<th  colspan="2" class="writetd" >GOLPE(&nbsp&nbsp)</th>
+			</tr>
+			<tr>
+				<td >MARCA</td>
+				<td id="ajax-marca" class="writetd"></td>
+				<td >MODELO</td>
+				<td  id="ajax-modelo" colspan="2" class="writetd"></td>
+				<td colspan="4" rowspan="10"  align='center'>
+				<img src='http://app.aoacolombia.com/Control/operativo/img/formatos/todo.png'  class="img img-responsive">
+				<!--
+					<img src='http://app.aoacolombia.com/Control/operativo/img/formatos/vehiculo.png' border='0' height='140' width='20%'>
+					<img src='http://app.aoacolombia.com/Control/operativo/img/formatos/text.png' border='0' height='160' width='20%'>
+					<img src='http://app.aoacolombia.com/Control/operativo/img/formatos/medidores.png' border='0' height='140' width='20%'>
+					<br>
+					<img src='http://app.aoacolombia.com/Control/img/1.png' border='0' height='140' width='100%'>
+				-->
+				</td>
+			</tr>
+			<tr>
+				<td >LINEA</td>
+				<td id="ajax-linea" class="writetd" contenteditable="true"></td>
+				<td >COLOR</td>
+				<td  colspan="2" id="ajax-color" class="writetd" contenteditable="true"></td>
+				</tr>
+			<tr>
+				<td >CLASE</td>
+				<td id="ajax-clase" class="writetd" contenteditable="true"></td>				
+				<td >CILINDRAJE</td>
+				<td  colspan="2" id="ajax-cilindraje" class="writetd" contenteditable="true"></td>						
+			</tr>
+			<tr>
+				<td>KILOMETRAJE ENTREGA</td>
+				<td colspan="4" contenteditable="true"></td>
+			</tr>
+			<tr>
+				<td >TIPO CARROCERIA</td>
+				<td colspan="4" class="writetd" id="ajax-carroceria" contenteditable="true"></td>			
+			</tr>
+			<tr>
+				<td  >PROPIETARIO AUTOMOTOR </td>
+				<td  colspan="4"  class="writetd" id="ajax-propietario" contenteditable="true"></td>			
+			</tr>
+			<tr>
+				<td  >CONTRATO DE LEASING </td>
+				<td  colspan="4"  class="writetd" id="ajax-propietario" contenteditable="true"></td>			
+				
+			</tr>			
+			
+			<tr>
+				<td >POLIZA DE SEGURO</td>
+				<td  colspan="4" class="writetd" id="ajax-poliza-seguro" contenteditable="true"></td>			
+			</tr>
+			<tr style="height:15px;">
+				<td >FECHA VENCIMIENTO SOAT</td>
+				<td  colspan="4" onclick="make_visible(0)" ondblclick="make_invisible(0)" ><input class="date_input" id="einput0"  type="date"></td>			
+			</tr>
+			<tr>
+				<td  style=" border-right: solid 1px #FFF;">NOMBRE CLARO COORDINADOR CIUDAD</td>
+				<td  colspan="4" contenteditable="true" ></td>			
+			</tr>
+		</table>
+			<!--Seccion info inicial-->
+		
+		<table border cellspacing='0' width='100%' align='left' class="print_table">	
+			<!--Seccion documentos-->
+			<tr>
+				<th bgcolor='#CCCCCC' class="theader" colspan='15'><span class='Estilo4'>DOCUMENTOS ENTREGADOS CON EL VEHICULO</span></th>
+			</tr>
+			<tr>
+				<td >TARJETA DE PROPIEDAD</td>
+				<td >ORIGINAL</td>
+				<td ><div style="text-align:center;"><input type="radio" name="tarjeta_propiedad"></div></td>
+				<td >COPIA</td>
+				<td ><div style="text-align:center;"><input type="radio" name="tarjeta_propiedad"></div></td>
+				<td >SEGURO OBLIGATORIO</td>
+				<td >ORIGINAL</td>
+				<td ><div style="text-align:center;"><input type="radio" name="seguro_obligatorio"></div></td>
+				<td >COPIA</td>
+				<td ><div style="text-align:center;"><input type="radio" name="seguro_obligatorio"></div></td>
+				<td >DUPLICADO DE LLAVE</td>
+				<td >SI</td>
+				<td ><div style="text-align:center;"><input type="radio" name="duplicado_llave"></div></td>
+				<td >NO</td>
+				<td ><div style="text-align:center;"><input type="radio" name="duplicado_llave"></div></td>
+			</tr>
+			<tr>
+				<td >MANUAL DE VEHICULO</td>
+				<td >SI</td>
+				<td ><div style="text-align:center;"><input type="radio" name="manual_vehiculo"></div></td>
+				<td >NO</td>
+				<td ><div style="text-align:center;"><input type="radio" name="manual_vehiculo"></div></td>
+				<td class='Estilo4'>TOMA DE IMPRONTAS</td>
+				<td >SI</td>
+				<td ><div style="text-align:center;"><input type="radio" name="toma_improntas"></div></td>
+				<td >NO</td>
+				<td ><div style="text-align:center;"><input type="radio" name="toma_improntas"></div></td>
+				<td>CUANTOS JUEGOS</td>
+				<td colspan="2" class="writetd" contenteditable="true"></td>
+				<td colspan="2">Mínimo 3 juegos se deben tomar </td>
+			</tr>
+		
+			<tr>
+				<td  height='41'>COMENTARIOS</td>
+				<td colspan='14' height='41' class="writetd" contenteditable="true"></td>
+			</tr>
+			<!--Seccion documentos-->
+			
+			<!--Seccion pago-->
+			<tr>
+				<th bgcolor='#CCCCCC' class="theader" colspan='15'><span class='Estilo4'><span style="color:red;">ESPACIO EXCLUSIVO PARA SER DILIGENCIADO UNA VEZ REALIZADA LA VENTA VEHICULO</span></th>
+			</tr>			
+			
+			<tr>
+				<td  height='41'>CONDICIONES DE VENTA (Indicar si existe cobro de valor adicional) </td>				
+				<td colspan='14' height='41' class="writetd" contenteditable="true"></td>
+			</tr>			
+			
+			<tr>
+				<td>VALOR VENTA VEHICULO</td>
+				<td colspan='4' class="writetd" contenteditable="true" >$</td>
+				<td>VALOR GASTO DE TRÁMITES</td>
+				<td colspan='4' class="writetd" contenteditable="true" >$</td>	
+				<td>VALOR ADICIONAL</td>
+				<td colspan='4' class="writetd" contenteditable="true" >$</td>				
+			</tr>	
+
+			<tr>
+				<td rowspan="3">MODO PAGO</td>
+				<td colspan='3'>EFECTIVO</td>
+				<td colspan='2'><div style="text-align:center;"><input type="radio" name="metodo_pago"></div></td>
+				<td rowspan="3" colspan="9" style="text-align:center">
+					<br>
+					__________________________________________<br>
+					Vo. Bo. VENTA ACTIVO <br>
+					GERENTE GENERAL 
+				
+				</td>	
+			</tr>
+			<tr>
+				<td colspan='3'>TRANSFERENCIA</td>
+				<td colspan='2'><div style="text-align:center;"><input type="radio" name="metodo_pago"></div></td>
+			</tr>
+			<tr>
+				<td colspan='3'>CHEQUE</td>
+				<td colspan='2'><div style="text-align:center;"><input type="radio" name="metodo_pago"></div></td>				
+			</tr>	
+		</table>
+		
+			<!--Seccion pago-->
+		<table border cellspacing='0' width='100%' align='left' class="print_table">		
+			<!--COMPRADOR-->
+			<tr>
+				<th bgcolor='#CCCCCC' class="theader" colspan='10'><span class='Estilo4'>DATOS DEL COMPRADOR</span></th>
+			</tr>
+			<tr>
+				<td colspan="3">PERSONA NATURAL</td>
+				<td colspan="2"><div style="text-align:center;"><input type="radio" name="tipo_persona" value="1"></div></td>
+				<td colspan="3">PERSONA JURIDICA</td>
+				<td colspan="2"><div style="text-align:center;"><input type="radio" name="tipo_persona" value="2"></div></td>
+			</tr>
+			<tr>
+				<td colspan="2">NOMBRES Y APELLIDOS</td>
+				<td colspan='8' id="ajax-cliente-nombre" class="writetd" contenteditable="true"></td>
+			</tr>
+			
+			<tr>			
+				<td width="5%">CC</td>
+				<td ><div style="text-align:center;"><input type="radio" name="tipo_documentos" value="CC"></div></td>
+				<td width="5%">CE</td>
+				<td><div style="text-align:center;"><input type="radio" name="tipo_documentos" value="CE"></div></td>
+				<td width="5%">NIT</td>
+				<td><div style="text-align:center;"><input type="radio" name="tipo_documentos" value="NIT"></div></td>
+				<td width="5%">OTROS</td>
+				<td><div style="text-align:center;"><input type="radio" name="tipo_documentos" value="OTROS"></div></td>
+				<td  width='10%'>No. de identificacion</td>
+				<td class="writetd" id="doc_number" width='20%'   onblur="look_for_customer()" contenteditable="true"></td>
+			</tr>
+			<tr>
+				<td >DIRECCIÓN</td>
+				<td colspan='4' class="writetd" id="ajax-cliente-direccion" contenteditable="true"></td>
+				<td >CIUDAD</td>
+				<td colspan='4' class="writetd" id="ajax-cliente-ciudad" contenteditable="true"></td>
+			</tr>
+			<tr>
+				<td >TELEFONO FIJO</td>
+				<td colspan='2' class="writetd" id="ajax-cliente-telefono" contenteditable="true"></td>
+				<td >CELULAR</td>
+				<td colspan='2' class="writetd" id="ajax-cliente-celular" contenteditable="true"></td>
+				<td >EMAIL</td>
+				<td colspan='3' class="writetd" id="ajax-cliente-email" contenteditable="true"></td>
+			</tr>
+			<tr>
+				<td  height='41'>OBSERVACIONES</td>
+				<td colspan='5' height='41' class="writetd" contenteditable="true"></td>
+				<td colspan='2'  height='41'>
+					Documentos para personal natural:
+					&nbsp;
+					<li>Cedula.</li>
+				</td>
+				<td colspan='2'  height='41'>
+					Documentos para persona juridica:
+					&nbsp;
+					<li>Camara de comercio no mayor a 30 díƒÂ­as.</li>
+					<li>Cedula representante legal.</li>
+					<li>Rut.</li>
+				</td>
+			</tr>
+			<!--COMPRADOR-->
+		</table>
+		
+		<table border cellspacing='0' width='100%' align='left' class="print_table">	
+			<!--DOCUMENTOS-->
+			<tr>
+				<th bgcolor='#CCCCCC' class="theader" colspan='10'><span class='Estilo4'>DOCUMENTOS DE TRASPASO</span></th>
+			</tr>
+			<tr>
+				<th  colspan='2'>FLOTA AOA - PERSONA NATURAL</th>
+				<th  colspan='2'>FLOTA AOA - PERSONA JURIDICA</th>
+				<th  colspan='2'>FLOTA LEASING - PERSONA NATURAL</th>
+				<th  colspan='2'>FLOTA LEASING - PERSONA JURIDICA</th>
+				<th  colspan='2'>INSCRIPCION DE PRENDA</th>
+			</tr>			
+			<tr>
+				<td >Contrato de Compraventa</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Contrato de Compraventa</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Solicitar Contratos a Leasing</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Solicitar Contratos a Leasing</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Formulario de solicitud FUN</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+			</tr>
+			<tr>
+				<td >Formulario de  solicitud FUN</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Formulario de  solicitud FUN</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Contrato de transferencia</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Contrato de transferencia</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Copia de la TP a Nombre del nuevo Dueí±o</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+			</tr>
+				<td >Contrato de Mandato</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Contrato de Mandato</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Formulario de solicitud FUN</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Formulario de solicitud FUN</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Certificación nueva inscripción de prenda </td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+			<tr>
+				<td >Copia cédula del comprador</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Cámara de Comercio entidad Jurídica no mayor a 30 días </td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Contrato de mandato</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Contrato de mandato</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td>Improntas</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+			</tr>
+			<tr>
+				<td >RECIBIO SIM</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Copia de la cédula del representante legal  </td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Recibo Sim </td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Cámara de Comercio entidad Jurídica no mayor a 30 días </td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Contrato de Mandato </td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+			</tr>
+			<tr>
+				<td >Levantamiento prenda según sea el caso</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Copia de la cédula del representante legal  </td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Improntas</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >opia de la cédula del representante legal </td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Cédula del comprador</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+			</tr>
+			<tr>
+				<td>Improntas</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Levantamiento Prenda Segíºn sea el Caso </td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td colspan="2"></td>				
+				<td >Recibo del Sim</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Cédula del Autorizado </td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+			</tr>
+			<tr>
+				<td  colspan='2'></td>
+				<td >Improntas</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td colspan='2' ></td>
+				<td >Improntas</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td >Recibio Sim</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>							
+			</tr>
+		</table>
+		
+		<table border cellspacing='0' width='100%' align='left' class="print_table">
+			<!--DOCUMENTOS-->
+			<tr>
+				<th bgcolor='#CCCCCC' class="theader" colspan="15" ><span class='Estilo4' style="color:red">TRAMITE FINALIZADO - LISTA DE CHEQUEO CARPETA DEL VEHICULO </span></th>
+			</tr>
+			<tr>
+				<td>TARJETA DE PROPIEDAD TRAMITE FINALIZADO</td>
+				<td >ORIGINAL</td>
+				<td><div style="text-align:center;"><input type="radio" name="tarjeta_propiedad"></div></td>
+				<td >COPIA</td>
+				<td><div style="text-align:center;"><input type="radio" name="tarjeta_propiedad"></div></td>
+				<td colspan="2">SEGURO OBLIGATORIO</td>
+				<td >COPIA</td>
+				<td><div style="text-align:center;"><input type="checkbox"></div></td>
+				<td colspan="2">CERTIFICADO DE GASES</td>
+				<td >SI</td>
+				<td><div style="text-align:center;"><input type="radio" name="certificado_gases"></div></td>
+				<td >NO</td>
+				<td><div style="text-align:center;"><input type="radio" name="certificado_gases"></div></td>
+			</tr>
+			<tr>				
+				<td >DUPLICADO DE LLAVE</td>
+				<td >SI</td>
+				<td><div style="text-align:center;"><input type="radio" name="duplicado_luz"></div></td>
+				<td >NO</td>
+				<td><div style="text-align:center;"><input type="radio" name="duplicado_luz"></div></td>
+				<td >EMPADRONAMIENTO</td>
+				<td >SI</td>
+				<td><div style="text-align:center;"><input type="radio" name="empadronamiento"></div></td>
+				<td >NO</td>
+				<td><div style="text-align:center;"><input type="radio" name="empadronamiento"></div></td>
+				<td >FACTURA COMPRA VEHICULO</td>
+				<td >SI</td>
+				<td><div style="text-align:center;"><input type="radio" name="factura_compra"></div></td>
+				<td >NO</td>
+				<td><div style="text-align:center;"><input type="radio" name="factura_compra"></div></td>
+			</tr>
+			<tr>				
+				<td >RECIBOS  PAGOS IMPUESTOS Aí‘OS</td>
+				<td colspan="14" class="writetd" contenteditable="true"></td>
+			</tr>			
+			<tr>
+				<td  height='41'>OBSERVACIONES</td>
+				<td colspan="14" height='41'class="writetd" contenteditable="true"></td>
+			</tr>
+		</table>
+		
+	<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">	
+	<input type="hidden">
+	<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+	</body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="/Administrativo/views/js/editable_table.js"></script>
+	<script src="/Administrativo/views/js/basicinput.js"></script>
+	<script src="/Administrativo/views/js/save_document.js"></script>
+	<script src="/Administrativo/views/js/car_info.js"></script>
+ </html>

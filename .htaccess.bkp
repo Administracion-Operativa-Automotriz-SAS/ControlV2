@@ -1,0 +1,16 @@
+###HG DENY###
+#<Files index.php>
+order deny,allow
+deny from all
+allow from 216.110.94.228 #HTX
+# allow from 74.202.255.243 #ATX
+allow from 190.85.62.29
+#</Files>
+###END HG DENY### 
+
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+

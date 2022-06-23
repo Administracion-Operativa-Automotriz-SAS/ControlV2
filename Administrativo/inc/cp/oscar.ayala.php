@@ -1,0 +1,6 @@
+<?php
+			/*Archvio inicial */
+			echo "<select name='_cs_' id='_cs_' style='width:100px' onchange=\"crea_perfil(this.value,'_top')\"><option value=''>Cambiar Perfil</option>"; echo "<option value='X1NFU1NJT05bJ05pY2snXT0nb3NjYXIuYXlhbGEnO19TRVNTSU9OWydVc2VyJ109JzcnO19TRVNTSU9OWydEaXNlbmFkb3InXT0nMCc7X1NFU1NJT05bJ0lkX2FsdGVybm8nXT0nMTIyJztfU0VTU0lPTlsnTm9tYnJlJ109J09zY2FyIEF5YWxhJztfU0VTU0lPTlsnVGFibGFfdXN1YXJpbyddPSd1c3VhcmlvX2NhamFfbWVub3InO19TRVNTSU9OWydFbWFpbCddPScnO19TRVNTSU9OWydOZ3J1cG8nXT0nQ0FKQSBNRU5PUic=' >CAJA MENOR</option>";
+				echo "<option value='X1NFU1NJT05bJ05pY2snXT0nb3NjYXIuYXlhbGEnO19TRVNTSU9OWydVc2VyJ109JzExJztfU0VTU0lPTlsnRGlzZW5hZG9yJ109JzAnO19TRVNTSU9OWydJZF9hbHRlcm5vJ109JzkzJztfU0VTU0lPTlsnTm9tYnJlJ109J09zY2FyIEF5YWxhJztfU0VTU0lPTlsnVGFibGFfdXN1YXJpbyddPSd1c3VhcmlvX2NhbGxjZW50ZXInO19TRVNTSU9OWydFbWFpbCddPScnO19TRVNTSU9OWydOZ3J1cG8nXT0nUkVRVUlTSUNJT05FUyBBRE1JTklTVFJBVElWQVMn' >REQUISICIONES ADMINISTRATIVAS</option>";
+				echo "</select>";
+			?>

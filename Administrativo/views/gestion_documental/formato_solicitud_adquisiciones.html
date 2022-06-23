@@ -1,0 +1,205 @@
+<html>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+		<style>
+			td{
+				font-size: <?php echo $Tam_Fuente ?>; 
+			}
+	</style>
+	<table width='90%' class='table_image' border cellspacing='0' align='center'>
+		<tr>
+			<td width='20%' rowspan=3 align='center' valign='middle'>
+				<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+			</td>
+			<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo utf8_encode($Tipo->nombre) ?></b></td>
+			<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+		</tr>
+		<tr>
+			<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+		</tr>
+		<tr>
+			<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+		</tr>
+	</table>
+	<table border='0' cellspacing='0' cellpadding='0' width='90%' align='center'>
+		<tr>
+			<td width='20%'></td>
+			<td align='center' style='font-size:8px;' width='50%'>
+				<span id='subtitle'>Consecutivo Interno Número</span>:<?php echo $Nconsecutivo ?></td>
+			<td width='30%'></td>
+		</tr>
+	</table>
+		<!--cabecera-->
+	<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+
+		<table border cellspacing='0' width='100%' align='center'>
+			<tr>
+				<td colspan=2 align='left' class='theader' width='28%' colspan=2>FECHA DE LA SOLICITUD</td>
+				<td colspan=2 align='left' class='theader' width='28%' colspan=2>REQUISICION N</td>
+			</tr>
+			<tr>
+			<td colspan=2 width='20%' onclick="make_visible(0)" ondblclick="make_invisible(0)"><input class="date_input" id="einput0"  type="date"></td>
+			<td contenteditable="true" colspan="3"></td>
+			</tr>
+			<tr>
+				<td colspan=2 align='left' class='theader' width='28%' colspan=2>AREA QUE SOLICITA</td>
+				<td colspan=2 align='left' class='theader' width='28%' colspan=2>TIPO DE COMPRA</td>
+			</tr>
+			<tr>
+			<td contenteditable="true" colspan=2 width='20%' height='30px'>
+			 
+			</td>
+			<td contenteditable="false" colspan="3">
+			 Bienes<input type="radio" name="tipo" value="Bien">
+             Servicios<input type="radio" name="tipo" value="Servicio">
+			</td>
+			</tr>
+			
+			<tr>
+				<td  colspan='5' align='center' class='theader' height='20px'><b></b></td>
+			</tr>
+			<tr>
+			<td  colspan='5' align='center' class='theader' height='20px'><b>DESCRIBA EL BIEN O SERVICIO QUE DESEA ADQUIRIR<br>(Especifique, cantidades, marcas, condiciones tecnicas o especiales de los productos y servicios. Por favor sea claro en su solicitud)</b></td>
+			</tr>
+			<tr>
+				<td colspan=4 contenteditable="true" height='70px'></td>
+			</tr>
+			<tr>
+				<td  colspan='5' align='center' class='theader' height='20px'><b>COMPLETE LA SIGUIENTE INFORMACION</b></td>
+			</tr>
+			<tr>
+				<td class='theader' colspan="2">CENTRO DE COSTOS</td>
+                <td width='25%' contenteditable="true" colspan="3"> </td>
+			</tr>
+			<tr>
+				<td class='theader' colspan="2">CENTRO DE OPERACIONES</td>
+                <td width='25%' contenteditable="true" colspan="3"> </td>
+			</tr>
+			<tr>
+				<td class='theader' colspan="2">PLACA PROYECTO</td>
+                <td width='25%' contenteditable="true" colspan="3"> </td>
+			</tr>
+			<tr>
+				<td class='theader' colspan="2">FACTOR</td>
+                <td width='25%' contenteditable="true" colspan="3"> </td>
+			</tr>
+			
+			<tr>
+				<td   align='center' class='theader'><b>PROVEEDOR N 1 <br> SUGERIDO</b></td>
+				<td   align='center' ><b>NOMBRE Y/O RAZON SOCIAL </b></td>
+				<td width='25%' contenteditable="false" colspan="3"> </td>
+			</tr>
+			
+			<tr>
+				<td align='center' height='40px'><b>DIRECCION </b></td>
+				<td contenteditable="true" colspan="1"> </td>
+				<td align='center'><b>CIUDAD</b></td>
+				<td contenteditable="true" width="70px" colspan="1"> </td>
+			</tr>
+			
+			<tr>
+				<td align='center' height='40px'><b>CONTACTO: </b></td>
+				<td contenteditable="true" colspan="1"> </td>
+				<td align='center'><b>TELEFONO:</b></td>
+				<td contenteditable="true" width="70px" colspan="1"> </td>
+			</tr>
+			
+			<tr>
+				<td align='center' height='40px'><b>EMAIL:</b></td>
+				<td contenteditable="true" colspan="1"> </td>
+				<td align='center'><b>CELULAR:</b></td>
+				<td contenteditable="true" width="70px" colspan="1"></td>
+			</tr>
+			
+			<tr>
+				<td   align='center' class='theader'><b>PROVEEDOR N 1 <br> SUGERIDO</b></td>
+				<td   align='center' ><b>NOMBRE Y/O RAZON SOCIAL </b></td>
+				<td width='25%' contenteditable="false" colspan="3"> </td>
+			</tr>
+			
+			<tr>
+				<td align='center' height='40px'><b>DIRECCION </b></td>
+				<td contenteditable="true" colspan="1"> </td>
+				<td align='center'><b>CIUDAD</b></td>
+				<td contenteditable="true" width="70px" colspan="1"> </td>
+			</tr>
+			
+			<tr>
+				<td align='center' height='40px'><b>CONTACTO: </b></td>
+				<td contenteditable="true" colspan="1"> </td>
+				<td align='center'><b>TELEFONO:</b></td>
+				<td contenteditable="true" width="70px" colspan="1"> </td>
+			</tr>
+			
+			<tr>
+				<td align='center' height='40px'><b>EMAIL:</b></td>
+				<td contenteditable="true" colspan="1"> </td>
+				<td align='center'><b>CELULAR:</b></td>
+				<td contenteditable="true" width="70px" colspan="1"></td>
+			</tr>
+			<tr><td  colspan='5'  ><b>NOTA: En caso de contar con una cotizacion previa, favor enviar a este adjunto</b></td></tr>
+			<tr><td  colspan='5' align='center' class='theader'><b>ESPACIO PARA SER DILIGENCIADO POR EL AREA DE ADQUISICIONES</b></td></tr>
+			
+			
+			
+			<tr>
+			
+			<td  colspan='2'>REQUIERE APROBACION DEL COMITE DE ADQUISICIONES? Justifique el por que?</td>
+			<td  colspan='1'>Si
+			<input type='radio' name='aprobacion'>
+			</td>
+			
+			<td  colspan='1'>No
+			<input type='radio' name='aprobacion'>
+			</td>
+			</tr>
+		
+			<tr>
+			<td  colspan='5' align='center' class='theader'><b>JUSTIFIQUE</b></td>
+			</tr>
+			<tr>
+			<td height='70px' colspan=5 contenteditable="true"></td>
+			</tr>
+			</table>
+		<table border cellspacing='0' width='100%' align='center'>
+			<tr>
+				<td class='theader' width="25%">Elaborado por:</td>
+				<td contenteditable="true"></td>				
+				<td class='theader' width="25%">Autorizado por:</td>
+				<td contenteditable="true"></td>
+			</tr>
+			<tr>
+				<td class='theader'>Nombre</td>
+				<td contenteditable="true"></td>				
+				<td class='theader'>Nombre</td>
+				<td contenteditable="true"></td>
+			</tr>
+			<tr>
+				<td class='theader'>Cargo</td>
+				<td contenteditable="true"></td>				
+				<td class='theader'>Cargo</td>
+				<td contenteditable="true"></td>
+			</tr>
+			<tr>
+				<td class='theader'>Firma</td>
+				<td>
+					<br><br>
+				</td>				
+				<td class='theader'>Firma</td>
+				<td>
+					<br><br>
+				</td>
+			</tr>			
+		</table>
+		<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">	
+		<input type="hidden" name="max_num_row" value="9">
+		<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+		<button  id="addrow_button"  style='display: none' onclick="add_row()">Agregar Linea</button>
+	</body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="/Administrativo/views/js/editable_table.js"></script>
+	<script src="/Administrativo/views/js/basicinput.js"></script>
+	<script src="/Administrativo/views/js/save_document.js"></script>
+	<script src="/Administrativo/views/js/solicitud_anticipo_addrow.js"></script>
+</html>

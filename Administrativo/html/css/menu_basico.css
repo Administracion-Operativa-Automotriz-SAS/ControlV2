@@ -1,0 +1,5 @@
+.menu_tabla {background-color:#000000;border-style: solid;border-top-width: 1px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 1px;}
+td.menu_celda {width:150;background-color:#dddddd;}
+td.menu_celda:hover {background-color:#d7d7ac;}
+a.menu_a {text-decoration:none;font-weight:bold;color:#ac0056;}
+a.menu_a:hover{color:#810056;}

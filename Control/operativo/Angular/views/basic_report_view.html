@@ -1,0 +1,21 @@
+<loading></loading>
+<h2>{{table_name}}</h2>
+<div  class="table-responsive">
+<table ng-init="run_report(report_to_run)" id="datatable"  ng-table-dynamic="Rc.ReportTable with Rc.columns" class=" table table-bordered" show-filter='true'>
+	<tr ng-repeat="row in $data">    
+	  <td ng-repeat="col in $columns">			
+			<div class="resize_column">
+				{{::row[col.Field]}}
+            </div>
+			
+			<div ng-if="col.Field == 'Opciones' " style="width:10vw;">
+				<button ng-repeat="action in col.actions"  ng-if="check_conditional(row,action.conditional)" ng-click="execute_function(action.action,row)" title="{{action.title}}" style="height:1.5vw;margin-right:1vw;text-align:center;" ><i ng-if="action.icon" class="{{action.icon}}"></i>{{action.text}}</button>
+			</div>
+	  </td>             
+	</tr>             
+  </table>
+  <br>
+  
+  <button  ng-if = "ready_export_excel" ng-json-export-excel data="data_export" report-fields="export_fields" filename="'Report'" class="btn-sm btn-primary">Export Excel</button>  
+ <!--<a class="btn btn-success" download="Reporte.xls" href="#" onclick="return ngTableExcelExport.excel(this, 'datatable', 'Reporte');">Export to Excel</a>-->
+</div>

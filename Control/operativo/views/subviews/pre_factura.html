@@ -1,0 +1,50 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<button ng-click="comeback2()">Regresar</button>
+<br>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Siniestro</th>
+			<th>Concepto</th>
+			<th>Cantidad</th>
+			<th>Descripcion</th>
+			<th>valor unitario</th>
+			<th>valor total</th>
+			<th>iva</th>
+			<th>Total</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="solicitud in solicitudes">
+			<td>{{solicitud.id_siniestro}}</td>
+			<td>{{decode_utf8(solicitud.concepto)}}</td>
+			<td>{{solicitud.cantidad}}</td>
+			<td>{{decode_utf8(solicitud.descripcion)}}</td>
+			<td>{{solicitud.valor}}</td>
+			<td>{{solicitud.cantidad * solicitud.valor}}</td>
+			<td>{{solicitud.cantidad * solicitud.valor * (solicitud.iva/100)}}</td>
+			<td>{{(solicitud.cantidad * solicitud.valor) + (solicitud.cantidad * solicitud.valor * (solicitud.iva/100))}}</td>
+		</tr>
+		<tr>
+			<td colspan="5">TOTAL</td>			
+			<td>{{getTotal()}}</td>
+			<td>{{getTotal_iva()}}</td>
+			<td>{{getTotal() + getTotal_iva()}}</td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+<table>
+	<tbody>
+		<tr>
+			<td align="right">{{decode_utf8('Fecha de emisión:')}}</td>
+			<td>
+				<input type="date" name="fecha_emision" value="{{date | date:'yyyy-MM-dd'}}" id="fecha_emision"> Fecha de vencimiento: <input type="date"  name="fecha_vencimiento" id="fecha_vencimiento">
+				<a style="cursor:pointer" ng-click="grabar_datos_prefactura();" class="info"><img src="gifs/standar/aplicar.png" border="0" height="16" align="absmiddle">Crear Prefactura<span style="width:100px">Generar una prefactura para validar {{decode_utf8('información')}}</span></a>					
+			</td>			
+		</tr>
+		</tbody>
+</table>
+		

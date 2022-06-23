@@ -1,0 +1,209 @@
+<html lang="en">
+  <head>
+  
+  <title>AOA</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Jquery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!--- Bootstrap --> 
+        
+  <script type="text/javascript" id="bootstrap_script" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+
+  <link id="bootstrap_style" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- Font Awesome -->
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  
+  <!-- Custom Stylesheet -->
+  
+   <link  rel="stylesheet" href="/Control/operativo/views/css/factura_manual.css">	
+  
+  <!--  Angular -->
+   
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>				
+		
+   <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+   
+   <script type="text/javascript" >
+		
+		let app = angular.module('reporte_factura_electronica',['ngTable']);
+	
+	</script>
+   
+   
+	<script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+	<link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+	<script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
+    
+	
+	
+	<script type="text/javascript" src="/Control/operativo/Angular/Directives/loading.js"></script>
+    <script type="text/javascript" src="/Control/operativo/Angular/Libraries/FileSaver.js"></script>
+    <script type="text/javascript" src="/Control/operativo/Angular/Directives/JsonExportExcel.js"></script>
+	
+	
+	<script type="text/javascript" src="/Control/operativo/Angular/Services/ReportService.js"></script>   
+	<script type="text/javascript" src="/Control/operativo/Angular/Controller/ReportController.js"></script>
+   
+   <!-- System Services -->
+    <script type="text/javascript" src="/Control/operativo/Angular/Services/SystemServices.js"></script>   
+	<script type="text/javascript" src="/Control/operativo/Angular/Controller/SystemController.js"></script>
+   
+   
+	<!-- Sweet Alert -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.1/sweetalert2.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.1/sweetalert2.all.js"></script>
+   
+   <!-- Short Icon -->
+   <link rel="shortcut icon" href="/Control/operativo/img/aoa.ico">
+  
+  </head>
+  <body ng-app="reporte_factura_electronica">
+  
+	<div class="content-block tabs3">
+			<div class="container">
+				<div class="row">
+					<h2>Reporte de transacciones electrónicas</h2>
+					
+					<div ng-controller="SystemController">
+						
+						
+						<button  ng-if="Session.Role == 1" class="btn btn-default" ng-click="formInModal('RegisterModal')" >Insertar factura manualmente</button>
+					
+						
+						<!-- Modal -->
+						<div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						  <div class="modal-dialog" role="document">
+							<div class="modal-content">
+							  <div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Ingresar factura</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								  <span aria-hidden="true">&times;</span>
+								</button>
+							  </div>
+							  <div class="modal-body">
+								<div class="form-group">
+									<label class="form-control">Tipo de documento</label>
+									<select class="form-Control" ng-model="FormData.tipoDocumento">
+										<option value="">Selecciona</option>
+										<option value="FE">Factura electrónica Control - FE</option>
+										<option value="NC">Nota credito Control - NC</option>										
+									</select>
+								</div>
+								<div class="form-group">
+									<label class="form-control">Consecutivo</label>
+									<input class="form-control" ng-model="FormData.consecutivo" type="text">
+								</div>
+								<div class="form-group">
+									<label class="form-control">Cufe</label>
+									<input class="form-control" ng-model="FormData.cufe" type="text">
+								</div>
+							  </div>
+							  <div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+								<button type="button" class="btn btn-primary" ng-click="generatePostRequest({endPoint:'https://app.aoacolombia.com/Control/operativo/controllers/Fact_electronica_angular/Fact_electronica_angular.php',request:{acc:'verifyElecDocumentControl'}},['consecutivo','cufe','tipoDocumento'])">Verificar</button>
+							  </div>
+							</div>
+						  </div>
+						</div>
+						
+						<!------------------------>
+					
+					</div>
+					
+			       <div class="row">
+			            <div class="board">
+			                <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+			                <div class="board-inner">
+			                    <ul class="nav nav-tabs active" id="myTab">
+			                        <div class="liner"></div>			                        
+			                        <li class="">
+			                            <a href="#tabs3_Event" data-toggle="tab" onclick="run_table()" title="Facturas electrónicas" aria-expanded="true" data-original-title="Event">
+			                                <span class="round-tabs four">
+			                                    <i class="glyphicon glyphicon-calendar"></i>
+			                                </span>
+			                            </a>
+			                        </li>
+									<li class="">
+			                            <a href="#tabs4_Event" data-toggle="tab" onclick="run_table()" title="Notas creditos electrónicas" aria-expanded="true" data-original-title="Event">
+			                                <span class="round-tabs four">
+			                                    <i class="glyphicon glyphicon-list-alt"></i>
+			                                </span>
+			                            </a>
+			                        </li>
+			                      </ul>
+			                </div>
+							
+							<div class="tab-content active in">
+			                    <div class="tab-pane fade active in" id="tabs3_Event">
+								
+									<style>
+										.table{
+											font-size:10px;
+										}
+										
+									</style>
+			                        
+									 <section>
+										
+										<div class="container" id="r_controller_id" ng-controller="ReportController as Rc" ng-init="report_to_run = 'facturacion_electronica_reporte'" ng-include="'/Control/operativo/Angular/views/basic_report_view.html'"></div>
+									 
+									 </section>			
+			
+									
+									<div class="container">
+										<br><br>
+										<div class="alert alert-warning" role="alert">
+										   <strong>Nota: Se recomienda darle click a la cabezera id dos veces para filtrar todas las facturas por orden de consecutivo.</strong>
+										</div>
+										<br><br>	
+									</div>
+									
+									
+			                    </div>
+								<div class="tab-pane fade" id="tabs4_Event">
+								
+									<style>
+										.table{
+											font-size:10px;
+										}
+										
+									</style>
+			                        
+									<section>
+									
+										<div class="container" id="r_controller_id2" ng-controller="ReportController as Rc" ng-init="report_to_run = 'nota_credito_electronica_reporte'" ng-include="'/Control/operativo/Angular/views/basic_report_view.html'"></div>
+									
+									</section>			
+		
+									
+			                    </div>								
+			                    
+			                </div>
+			            </div>
+			        </div>
+
+				</div>
+				
+			</div>		
+		
+	</div>
+	
+	
+
+
+
+	
+	
+	
+
+	<script type="text/javascript"  src="/Control/operativo/views/js/factura_manual.js"></script>  
+
+  </body>
+	
+
+</html> 

@@ -1,0 +1,299 @@
+<html>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+	<style>
+		td{
+			font-size: 10px;
+			border-top: 1px solid black !important;	
+		}
+		
+	</style>
+		<body>
+			<table width='100%' class='table_image' border cellspacing='0' align='center'>
+				<tr>
+					<td width='20%' rowspan=3 align='center' valign='middle'>
+						<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+					</td>
+					<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo $Tipo->nombre ?></b></td>
+					<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+				</tr>
+			</table>
+			<table border='0' cellspacing='0' cellpadding='0' width='100%' align='center'>
+				<tr>
+					<td width='20%'></td>
+					<td align='center' style='font-size:8px;' width='50%'>
+						<span id='subtitle'>Consecutivo Interno Número</span>:<?php echo $Nconsecutivo ?></td>
+					<td width='30%'></td>
+				</tr>
+			</table>
+				<!--cabecera-->
+			<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+			
+			<table class='table' width='100%' border cellspacing='0'>
+			  <tr>
+			  <td>ADVERTENCIA: La información que se consigna en el presente formato debe corresponden a la verdad por cuanto será 
+			  utilizada para reclamaciones ante las compañías de seguros y autoridades judiciales según el caso. Consignar información 
+			  falsa tiene consecuencias legales conforme a los artículos 289 y 453 del Código Penal</td>
+			  </tr>
+			</table>
+			
+			<table class='table' width='100%' border cellspacing='0'>
+			<tr>
+			<td><p style="text-align:center">INFORMACIÓN GENERAL</p></td>
+			<tr>
+			<tr>
+			<td colspan="2" contenteditable="true">Consecutivo interno:</td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">Fecha y hora del reporte de Novedad:</td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">Fecha y Hora de la ocurrencia de la Novedad que reporta:</td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">Ciudad en la que ocurre la novedad que reporta:</td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">Aseguradora:</td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">Placas del Vehículo: </td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">Número del siniestro:</td>
+			</tr>
+			<tr>
+			<td>Utilizó asistencia de la Aseguradora: SI <input type="radio" name="asistencia" class="">
+			NO <input type="radio" name="asistencia" class=""> </td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">Nombre y número de identificación de quien reporta la novedad:</td>
+			</tr>
+			<tr>
+			<td>Medio por el cual se reporta la novedad: Call Center: <input type="radio" name="reporte_noveda"> E-mail: <input type="radio" name="reporte_noveda">  Escrito: <input type="radio" name="reporte_noveda"></td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">La novedad reporta la registra el tenedor del vehículo en reemplazo por Aseguradora o un tercero? SI <input type="radio" name="reporte_noveda2">  NO <input type="radio" name="reporte_noveda2"> Nombre y número de identificación del tercero a quien acontece la Novedad:</td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">El tenedor del vehículo de reemplazo de aseguradora prestó a un tercero el vehículo SI <input type="radio" name="reporte_noveda22">  NO <input type="radio" name="reporte_noveda22"> Nombre y número de identificación de la persona a la que fue prestado el vehículo: <br><br> Parentesco, relación laboral o comercial a quien se le prestó el vehículo de reemplazo:</td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">Teléfonos de contacto de quien reporta la novedad:</td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">Correo electrónico de quien reporta la novedad:</td>
+			</tr>
+			<tr>
+			<td>Aporta registro fotográfico:  SI:  <input type="radio" name="fotografico" class="">    NO: <input type="radio" name="fotografico" class=""> </td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">Partes del vehículo afectadas por la novedad que se reporta:</td>
+			</tr>
+			<tr>
+			<td>La novedad que reporta implica la desaparición total o parcial del vehículo entregado en remplazo SI: <input type="radio" name="desaparicion" > NO:  <input type="radio" name="desaparicion" ></td>
+			</tr>
+			<tr>
+			<td>La Novedad reportada implica daños o lesiones a terceras personas SI: <input type="radio" name="leciones" > NO:  <input type="radio" name="leciones" ></td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">Nombre y numero de identificación de las personas comprometidas: </td>
+			</tr>
+			<tr>
+			<td>La Novedad reportada implica el daño a otros vehículos SI: <input type="radio" name="otros_vehiculos" > NO:  <input type="radio" name="otros_vehiculos" ></td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">Número de placas de los vehículos comprometidos:</td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">El vehículo fue inmovilizado por las autoridades de tránsito?</td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">A qué lugar fue conducido el vehículo inmovilizado? SI: <input type="radio" name="inmovilizado" > NO:  <input type="radio" name="inmovilizado" > Cuantos días: </td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">Número de la hoja de campo levantada por las autoridades de Tránsito:</td>
+			</tr>
+			<tr>
+			<td>Tipo de novedad que se reporta:  Accidente de transito <input type="radio" name="transito" >  Hurto del vehículo <input type="radio" name="transito" > Hurto de partes del vehículo <input type="radio" name="transito" > desaparición del vehículo <input type="radio" name="transito" > </td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">Nombre  y número de identificación del conductor del vehículo al momento de registrarse la novedad que reporta:</td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">Indique el nombre completo, documento de identificación y lugar de ubicación de los testigos de la novedad que reporta:</td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true">El tenedor del vehículo en reemplazo de aseguradora, realizó el pago de dinero con ocasión a la novedad que reporta? SI: <input type="radio" name="noveda" > NO:  <input type="radio" name="noveda" > 
+				Porqué valor se hicieron pagos?  $________
+				Tiene facturas soporte SI: <input type="radio" name="noveda1" > NO:  <input type="radio" name="noveda1" >
+				Solicita reintegro? SI: <input type="radio" name="noveda2" > NO:  <input type="radio" name="noveda2" >
+			</td>
+			</tr>
+			</table>
+			<table class='table' width='100%' border cellspacing='0'>
+			<tr>
+			<td><p style="text-align:center">Descripción de la Novedad</p></td>
+			</tr>
+			<tr>
+			<td contenteditable="true"><p>A Continuación, con letra legible describir las circunstancias de modo, tiempo y lugar en que 
+			se producen la novedad que reporta. En el evento que señale nombres propios, indique nombre completo, 
+			número de identificación, lugar de ubicación, teléfonos de contacto, relación de parentesco,  laboral  o comercial con quien 
+			reporta la novedad.</p>
+			<br><br><br><br><br>
+			
+			
+			<p>Nota: En ningún evento debe interponer denuncia penal. En el evento que considere que la novedad que reporta es un delito, así debe 
+			relatarlo en la descripción. El equipo jurídico de AOA se encargará de las acciones legales a que hubiese lugar.</p>
+		    </td>
+			</tr>
+			</table>
+			
+			<table class='table' width='100%' border cellspacing='0'>
+			<tr>
+			<td><p style="text-align:center">Seguimiento al caso y acciones emprendidas</p></td>
+			</tr>
+			<tr>
+			<td>Procede denuncia penal  SI: <input type="radio" name="noveda4" > NO:  <input type="radio" name="noveda4"</td>
+			</tr>
+			<tr>
+			<td colspan="2" contenteditable="true"><p>Fecha de reporta a la compañía aseguradora a la que se está realizando el reemplazo del vehículo:</p></td>
+			</tr>
+			</table>
+			
+			<table class='table' width='100%' border cellspacing='0'>
+			<tr style=" background-color:'#e1f9ff'">
+			<td style="text-align:center">ESPACIO PARA SER DILIGENCIADO UNICA Y EXCLUSIVAMENTE POR FUNCIONARIOS DE AOA</td>
+			</tr>
+			<tr>
+			<td style="text-align:center">Seguimiento al caso y acciones emprendidas</td>
+			</tr>
+			<tr style=" background:'#e1f9ff'">
+			<td contenteditable="true">
+			Procede denuncia penal  SI: <input type="radio" name="noveda3" > NO:  <input type="radio" name="noveda3" >
+			<br><br><br><br><br>
+			</td>
+			</tr>
+			</table>
+			
+			<table class='table' width='100%' border cellspacing='0'>
+			<tr style=" background:'#e1f9ff'"><td colspan="2" contenteditable="true">Fecha de notificación a la compañía aseguradora a la que se le esta prestando el servicio de reemplazo de vehículo sobre la novedad:</td></tr>
+			<tr style=" background:'#e1f9ff'"><td colspan="2" contenteditable="true">Nombre del funcionario quien realiza el reporte a la compañía de seguros:</td></tr>
+			<tr style=" background:'#e1f9ff'"><td colspan="2" contenteditable="true">Fiscalía que conoce de la novedad reportada:</td></tr>
+			<tr style=" background:'#e1f9ff'"><td colspan="2" contenteditable="true">Número de Noticia Criminal:</td></tr>
+			<tr style=" background:'#e1f9ff'"><td colspan="2" contenteditable="true">Abogado Asesor a cargo:</td></tr>
+			
+			</table>
+		
+			<!-- <table class="table" width='100%' border cellspacing='0' >
+				<tr>
+					<td width="20%"><b>FECHA DILIGENCIAMIENTO</b></td>
+					<td colspan="3" onclick="make_visible(0)">
+						<div style="text-align:center">
+							<input class="date_input" id="einput0"  type="date">
+						</div>
+					</td>
+					<td width="20%"><b>CIUDAD</b></td>
+					<td colspan="3" contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td colspan="6" class="theader" style="text-align:center;">DATOS CONDUCTOR</td>	
+				</tr>
+				<tr>
+					<td width="20%"><b>NOMBRE</b></td>
+					<td colspan="3" contenteditable="true"></td>
+					<td width="20%"><b>CEDULA</b></td>
+					<td colspan="3" contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td ><b>DIRECCIÓN</b></td>
+					<td  colspan="2" contenteditable="true"></td>
+					<td ><b>TELEFONO</b></td>
+					<td  colspan="2" contenteditable="true"></td>					
+				</tr>
+				<tr>
+					<td ><b>CELULAR</b></td>
+					<td  colspan="2" width="30%" contenteditable="true"></td>
+					<td ><b>EMAIL</b></td>
+					<td  colspan="2" width="30%" contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td colspan="6" class="theader" style="text-align:center;">INFORMACIÓN</td>	
+				</tr>
+				<tr>
+					<td ><b>PLACA</b></td>
+					<td width="20%" contenteditable="true"></td>
+					<td ><b>CIUDAD INCIDENTE</b></td>
+					<td  contenteditable="true"></td>
+					<td ><b>ASEGURADORA</b></td>
+					<td  contenteditable="true"></td>
+				</tr>
+				<tr>
+					<td ><b>NUMERO SINIESTRO</b></td>
+					<td  colspan="2" width="30%" contenteditable="true"></td>
+					<td ><b>¿UTILIZO ASISTENCIA DE ASEGURADORA?</b></td>
+					<td  width="20%" contenteditable="true">
+						SI<input type="radio" name="asistencia_aseguradora" class="form-control">						
+					</td>
+					<td width="20%">
+						NO<input type="radio" name="asistencia_aseguradora" class="form-control">
+					</td>
+				</tr>
+				<tr>
+					<td ><b>DIRECCIÓN DEL INCIDENTE</b></td>
+					<td  colspan="2" contenteditable="true"></td>
+					<td ><b>FECHA Y HORA DEL INCIDENTE</b></td>
+					<td  colspan="2" contenteditable="true"></td>					
+				</tr>
+				<tr>
+					<td ><b>PARTES DE VEHICULOS AFECTADAS</b></td>
+					<td  colspan="5" contenteditable="true"><br><br><br></td>										
+				</tr>
+				<tr>
+					<td ><b>DAÑOS A TERCEROS</b></td>
+					<td  colspan="5" contenteditable="true"><br><br><br></td>										
+				</tr>
+				<tr>
+					<td ><b>NÚMERO DE FACTURA DE REINTEGRO</b></td>
+					<td  contenteditable="true"></td>
+					<td><b>¿El VEHÍCULO FUE INMOBILIZADO?</b></td>
+					<td>SI <input type="radio" name="vehiculo_inmobilizado" class="form-control"></td>
+					<td>NO <input type="radio" name="vehiculo_inmobilizado" class="form-control"></td>
+					<td>¿Cuantos Días? <br> <input type="text" placeholder="cuantos dias"> </td>	
+				</tr>
+				<tr>
+					<td colspan="6" class="theader" style="text-align:center;">EN EL SIGUIENTE CAMPO DESCRIBA EXPLICITAMENTE LO OCURRIDO CON EL VEHICULO DE REEMPLAZO</td>	
+				</tr>
+				<tr>
+					<td colspan="6" contenteditable="true"> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> </td>
+				</tr>
+				<tr>
+					<td>Firma</td>
+					<td colspan="5" contenteditable="true"><br><br><br><br></td>
+				</tr>
+				<tr>
+					<td>Nombre completo</td>
+					<td contenteditable="true"></td>
+					<td>Cedula</td>
+					<td contenteditable="true"></td>
+					<td>De</td>
+					<td contenteditable="true"></td>
+				</tr>
+			</table> -->
+
+			<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">		
+			<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+		</body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="/Administrativo/views/js/editable_table.js"></script>
+	<script src="/Administrativo/views/js/basicinput.js"></script>
+	<script src="/Administrativo/views/js/save_document.js"></script>
+
+</html>

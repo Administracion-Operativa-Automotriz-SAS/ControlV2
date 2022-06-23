@@ -1,0 +1,173 @@
+<html>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+	<style>
+		td{
+			font-size: <?php echo $Tam_Fuente ?>;
+		}
+	</style>
+		<body>
+			<table width='90%' class='table_image' border cellspacing='0' align='center'>
+				<tr>
+					<td width='20%' rowspan=3 align='center' valign='middle'>
+						<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+					</td>
+					<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo utf8_encode($Tipo->nombre) ?></b></td>
+					<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+				</tr>
+			</table>
+			<table border='0' cellspacing='0' cellpadding='0' width='90%' align='center'>
+				<tr>
+					<td width='20%'></td>
+					<td align='center' style='font-size:8px;' width='50%'>
+						<span id='subtitle'><?php echo utf8_encode("Consecutivo Interno N�mero") ?></span>:<?php echo $Nconsecutivo ?></td>
+					<td width='30%'></td>
+				</tr>
+			</table>
+				<!--cabecera-->
+			<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+		
+		<p width='110%' style='font-size:<?php echo $Tam_Fuente ?>;text-align:justify;'>Para la Empresa es importante conocer su apreciación acerca del proceso de inducción que se lleva a cabo. Marque con una X en SI o NO dependiendo si el tema en mención le fue explicado y/o entregado en la Inducción.</p>
+		
+		<table class="table" width='100%' border cellspacing='0'>
+			<tr>
+				<td id="theader" class="theader" style='font-size:<?php echo $Tam_Fuente ?>;' align='center' colspan=3><b>DATOS GENERALES DE LA INDUCCIÓN</b></td>
+			</tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;'>Nombre del empleado </td>
+				<td colspan="3" contenteditable=true></td>
+			</tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' >Fecha de realización de la inducción </td>
+				<td onclick="make_visible(0)" ondblclick="make_invisible(0)" colspan="2">
+					<input class="date_input" id="einput0"  type="date">
+				</td>
+			</tr>
+			<tr><td id="theader" class="theader" style='font-size:<?php echo $Tam_Fuente ?>;' align='center' colspan=3><b>INDUCCIÓN GENERAL</b></td></tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' align='center'><b>Los siguientes temas fueron explicados por el Director de Gestión Humana S&SO</b></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' align='center'><b>SI</b></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' align='center'><b>NO</b></td>
+			</tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' >1. Misión</td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="mision"></div></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="mision"></div></td>
+			</tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' >2. Visión</td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="vision"></div></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="vision"></div></td>
+			</tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' >3. Organigrama</td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="organigrama"></div></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="organigrama"></div></td>
+			</tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' >4. Mapa de procesos</td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="mapa"></div></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="mapa"></div></td>
+			</tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' >5. Política de calidad</td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="politica_calidad"></div></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="politica_calidad"></div></td>
+		    </tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' >6. Mapa estratégico</td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="mapa_estrategico"></div></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="mapa_estrategico"></div></td>
+			</tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' align='center'><b>Los siguientes documentos le fueron entregados por el Director de Gestión Humana S&SO</b></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' align='center'><b>SI</b></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' align='center'><b>NO</b></td>
+			</tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' >Fotocopia de sus funciones</td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="fotocopia_funciones"></div></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="fotocopia_funciones"></div></td>
+			</tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' >Fotocopia de su contrato</td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="fotocopia_contrato"></div></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="fotocopia_contrato"></div></td>
+			</tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' >Fotocopia de su anexo de confidencialidad</td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="fotocopia_confidencialidad"></div></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="fotocopia_confidencialidad"></div></td>
+			</tr>
+			<tr>	
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' >Folleto de Direccionamiento Estratégico</td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="folleto_direccionamiento"></div></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="folleto_direccionamiento"></div></td>
+			</tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' >Fue presentado a los Empleados de la Empresa</td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="presentado"></div></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="presentado"></div></td>
+			</tr>
+			<tr><td id="theader" class="theader" style='font-size:<?php echo $Tam_Fuente ?>;' align='center' colspan=3><b>INDUCCIÓN ESPECIFICA AL CARGO</b></td></tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' align='center'><b>Los siguientes temas o documentos fueron explicados por el Jefe Inmediato</b></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' align='center'><b>SI</b></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' align='center'><b>NO</b></td>
+			</tr>
+			<tr>
+				<td  style='font-size:<?php echo $Tam_Fuente ?>;'>Procedimientos y manuales que orientan las actividades a realizar por parte del empleado</td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="procedimiento"></div></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="procedimiento"></div></td>
+			</tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' contenteditable=true>Tema o documento:</td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="tema_documento"></div></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="tema_documento"></div></td>
+			</tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' contenteditable=true>Tema o documento:</td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="tema_documento2"></div></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="tema_documento2"></div></td>
+			</tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' contenteditable=true>Tema o documento:</td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="tema_documento3"></div></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="tema_documento3"></div></td>
+			</tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' contenteditable=true>Tema o documento:</td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="tema_documento4"></div></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="tema_documento4"></div></td>
+			</tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' contenteditable=true>Tema o documento:</td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="tema_documento5"></div></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="tema_documento5"></div></td>
+			</tr>
+			<tr>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' contenteditable=true>Tema o documento:</td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="tema_documento6"></div></td>
+				<td style='font-size:<?php echo $Tam_Fuente ?>;' ><div style="text-align:center;"><input type="radio" name="tema_documento6"></div></td>
+			</tr>
+		</table>&nbsp;&nbsp;&nbsp;&nbsp;
+		<p style='text-align:center;font-size:<?php echo $Tam_Fuente ?>;'><input type="text" name="nombre_empleado" placeholder="__________________________________________________">&nbsp;
+		Empleado que recibe la inducción&nbsp;&nbsp;
+		Nombre:<input type="text" name="nombre_empleado" placeholder="_______________________________________________">&nbsp;&nbsp;
+		Cédula:<input type="text" name="nombre_empleado" placeholder="_______________________________________________"></p>
+			<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">		
+			<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+	</body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="/Administrativo/views/js/editable_table.js"></script>
+	<script src="/Administrativo/views/js/basicinput.js"></script>
+	<script src="/Administrativo/views/js/save_document.js"></script>
+
+</html>

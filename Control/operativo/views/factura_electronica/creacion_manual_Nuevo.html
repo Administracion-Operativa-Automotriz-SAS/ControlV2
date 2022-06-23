@@ -1,0 +1,427 @@
+<html lang="en">
+  <head>
+  
+  <title>AOA</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Jquery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!--- Bootstrap --> 
+        
+  <script type="text/javascript" id="bootstrap_script" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+
+  <link id="bootstrap_style" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- Font Awesome -->
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  
+  <!-- Custom Stylesheet -->
+  
+   <link  rel="stylesheet" href="/Control/operativo/views/css/factura_manual.css">	
+  
+  <!--  Angular -->
+   
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>				
+		
+   <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+   
+   
+	<script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+	<link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+	<script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
+    <script type="text/javascript" src="/Control/operativo/Angular/Programs/generar_factura_manual.js"></script>
+	
+	<script type="text/javascript" src="/Control/operativo/Angular/Directives/loading.js"></script>
+    <script type="text/javascript" src="/Control/operativo/Angular/Libraries/FileSaver.js"></script>
+    <script type="text/javascript" src="/Control/operativo/Angular/Directives/JsonExportExcel.js"></script>
+	
+	
+	<script type="text/javascript" src="/Control/operativo/Angular/Services/ReportService.js"></script>   
+	<script type="text/javascript" src="/Control/operativo/Angular/Controller/ReportController.js"></script>
+   
+	 <!-- System Services -->
+    <script type="text/javascript" src="/Control/operativo/Angular/Services/SystemServices.js"></script>   
+	<script type="text/javascript" src="/Control/operativo/Angular/Controller/SystemController.js"></script>
+   
+   
+   
+	<!-- Sweet Alert -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.1/sweetalert2.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.1/sweetalert2.all.js"></script>
+   
+   <!-- Short Icon -->
+   <link rel="shortcut icon" href="/Control/operativo/img/aoa.ico">
+  
+  </head>
+  <body ng-app="generar_factura_manual">
+  
+	<div class="content-block tabs3">
+			<div class="container">
+				<div class="row">
+					<h2>Facturación Manual</h2>
+			       <div class="row">
+			            <div class="board">
+			                <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+			                <div class="board-inner">
+			                    <ul class="nav nav-tabs" id="myTab">
+			                        <div class="liner"></div>
+			                        
+			                        <li class="">
+			                            <a href="#tabs3_Event" data-toggle="tab" onclick="run_table()" title="" aria-expanded="false" data-original-title="Event">
+			                                <span class="round-tabs four">
+			                                    <i class="glyphicon glyphicon-calendar"></i>
+			                                </span>
+			                            </a>
+			                        </li>
+			                        <li class="active">
+			                            <a href="#tabs3_Club" data-toggle="tab" title="" aria-expanded="false" data-original-title="Club">
+			                                <span class="round-tabs four">
+			                                    <i class="glyphicon glyphicon-comment"></i>
+			                                </span>
+			                            </a>
+			                        </li>
+
+			                        
+			                    </ul>
+			                </div>
+							
+							<script>
+								
+								function run_table()
+								{
+									angular.element(document.getElementById('r_controller_id')).scope().run_report('documentos_manuales_electronicos_generados');
+									$("#show_all").show();
+									$("#show_last_state").hide();
+								}
+								
+								function pasteCopiedRows()
+								{
+									angular.element(document.getElementById('r_controller_id')).scope().pasteCopiedRows();
+									$("#show_all").hide();
+									$("#show_last_state").show();
+									//Maybe implement a facade
+								}
+							
+							</script>
+
+			                <div class="tab-content">
+			                    <div class="tab-pane fade" id="tabs3_Event">
+								
+									<style>
+										.table{
+											font-size:10px;
+										}
+										
+									</style>
+			                        
+								 <section>
+									<br>
+									<div class="container">
+										<button onclick="pasteCopiedRows()" class="btn btn-success" id='show_all'>Mostrar todos los estados disponibles de las transacciones</button>
+										<button onclick="run_table()" class="btn btn-warning" id='show_last_state' style='display:none'>Mostrar solo el ultimo estado de las transacciones</button>
+										<br><br>
+										<div class="alert alert-warning" role="alert">
+										  Por defecto solo se muestran los ultimos estados de cada elemento.
+										</div>
+									</div>
+									
+									
+									<div ng-controller="SystemController">
+						
+						
+										<button  ng-if="Session.Role == 1" class="btn btn-default" ng-click="formInModal('RegisterModal')" >Insertar factura manualmente</button>
+									
+										
+										<!-- Modal -->
+										<div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										  <div class="modal-dialog" role="document">
+											<div class="modal-content">
+											  <div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel">Ingresar factura</h5>
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												  <span aria-hidden="true">&times;</span>
+												</button>
+											  </div>
+											  <div class="modal-body">
+												<div class="form-group">
+													<label class="form-control">Tipo de documento</label>
+													<select class="form-Control" ng-model="FormData.tipoDocumento">
+														<option value="">Selecciona</option>
+														<option value="TA">Factura electrónica taller - TA</option>
+														<option value="ND">Nota debito AOA - ND</option>
+														<option value="DT">Nota Credito taller - DT</option>
+													</select>
+												</div>
+												<div class="form-group">
+													<label class="form-control">Consecutivo</label>
+													<input class="form-control"  ng-model="FormData.consecutivo" type="number">
+												</div>
+												<div class="form-group">
+													<label class="form-control">Cufe (CODIGO UNICO DE LA FACTURA ELECTRONICA)</label>
+													<input class="form-control" ng-model="FormData.cufe" type="text">
+												</div>												
+											  </div>
+											  <div class="modal-footer">
+												<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+												<button type="button" class="btn btn-primary" ng-click="generatePostRequest({endPoint:'https://app.aoacolombia.com/Control/operativo/controllers/Fact_electronica_angular/Fact_electronica_angular.php',request:{acc:'verifyElecDocument'}},['consecutivo','cufe','tipoDocumento'])" >Verificar</button>
+											  </div>
+											</div>
+										  </div>
+										</div>
+										
+										<!------------------------>
+									
+									</div>
+									
+									<div class="container" id="r_controller_id" ng-controller="ReportController as Rc" ng-init="report_to_run = 'documentos_manuales_electronicos_generados'" ng-include="'/Control/operativo/Angular/views/basic_report_view.html'"></div>
+								 
+								 </section>			
+		
+									
+			                    </div>
+			                    <div class="tab-pane fade active in" ng-controller="InterfazController" id="tabs3_Club">
+									<br><br>	
+								   <section class="content" style="max-width: 800px; margin-left:auto; margin-right:auto;" >
+										<div class="panel panel-default">
+										  <div class="panel-heading">
+											<h3 class="panel-title"><strong>*Tipo de documento</strong></h3>
+											<br>
+												<select class="form-Control" name="tipo_documento"  id="tipo_documento">
+													<option>Selecciona</option>
+													<option value="TA">Factura electrónica taller - TA</option>
+													<option value="ND">Nota debito AOA - ND</option>
+													<option value="DT">Nota Credito taller - DT</option>
+												</select>			
+										   </div>
+										   <div class="panel-body">
+										   
+											<div style="max-height: 420px !important">
+											
+
+												<div class="col-lg-9">
+													<form name="form1" id="form1" class='form_factura' action="registrarfactura" onsubmit="return validar()" method="post" enctype="multipart/form-data">
+			
+														<div class="form-group" style="display:none">      
+															<label>*Consecutivo de la factura a cruzar con nota credito o debito</label>
+															<input  class="form-control" id="consecutivo_factura" ng-model="invoice_consecutive" ng-blur="get_invoice_items(invoice_consecutive)"  name="consecutivo_factura" type="text" required/>            
+														</div>	
+														
+														
+														<div class="form-group">      
+															<label>*Consecutivo del documento a realizar</label>
+															<input  class="form-control" id="consecutivo" name="consecutivo" type="number" required/>            
+														</div>		
+														
+														<div class="form-group">      
+															<label>*Fecha Elaboración</label>
+															<input  class="form-control" id="fecha_elaboracion" name="fecha_elaboracion" type="date" required/>            
+														</div>         
+
+														<div class="form-group">
+													  
+															<label>*Por favor ponga el número de identificación o nit del cliente</label>
+															<input type="text" class="form-control" ng-model="customer_iden" ng-blur="find_customer_by_iden(customer_iden)" id="identificacion_cliente" name="identificacion_cliente"> 
+														</div>
+														
+														<!--
+														<div class="form-group">      
+														  <label>*Items a facturar</label>
+														  <br>
+															<a href="" onclick="add_item()" class="btn btn-success btn-md">
+															  <span class="glyphicon glyphicon-plus"></span> Agregar
+															</a>
+															<a href="" onclick="remove_item()" class="btn btn-danger btn-md">
+															  <span class="glyphicon glyphicon-minus"></span> eliminar
+															</a>
+															<hr>
+															<div id="container">
+															</div>
+														</div>
+														-->
+													  
+														<div class="form-group">
+															<label>*Kilometraje</label>
+															<br>
+															<input  class="form-control" id="kilometraje" name="kilometraje" type="text" required/>
+														</div>
+														
+														<div class="form-group">
+															<label>*Orden</label>
+															<br>
+															<input  class="form-control" id="orden" name="orden" type="text" required/>
+														</div> 
+													  
+														<div class="form-group">
+															<label>Observaciones</label>
+															<br>
+															<textarea  class="form-control" id="observaciones" name="observaciones"></textarea>
+														</div>
+													  
+														<input type="hidden" value="0" id="cont_items" name="cont">
+											
+													   <!--	
+													   <div class="form-group">      
+														  <label>*Valor del iva (Escribir el valor en el % correspondiente)</label>
+														  <input  class="form-control" name="iva" id="total_iva"  max="25" min="0" type="number" step="any" required/>            
+													  </div>
+													  -->
+
+													  
+														<div class="form-group">      
+														  <label>*Fecha de vencimiento</label>
+														  <input  class="form-control" id="fecha_vencimiento" name="fecha_vencimiento" type="date" required/>            
+														</div>
+													
+														
+
+														<div class="col-lg-6 col-lg-offset-6 col-xs-12">
+															<a href="#" data-toggle="modal" data-target="#myModal" ng-click="generate_invoice_details()"  class="btn btn-success pull-right">
+																  <i class="fa fa-floppy-o"></i> <b>Factura</b>
+															</a>
+															<button type="reset" class="btn btn-danger pull-right" style="margin-right:10px;"><i class="fa fa-eraser"></i> <b>Limpiar</b></button>      
+														</div>  
+													</form>
+												</div>
+
+											
+											
+											
+											
+											<div class="divider"></div>
+
+											  
+										   
+											</div>
+										   </div>
+										   
+										   <div class="panel-footer">
+											<strong>Nota:</strong> Todos los campos marcados con asteriscos (*) son obligatorios
+										   </div>
+													
+										</div>							
+									</section>
+									
+									
+									<div class="container">
+											<div ng-include="'/Control/operativo/Angular/views/Facturacion/fact_items.html'"></div>
+									</div>
+										
+										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										   <div class="modal-dialog modal-lg">
+											  <div class="modal-content">
+												 <div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+													<h4 class="modal-title" id="myModalLabel">
+													   <i class="fa fa-plus-square-o"></i>Factura
+													</h4>
+												 </div>
+												 <div class="modal-body">
+												 
+													<div class="row">  
+													  <div class="col-lg-12">
+													   <table class="table table-bordered">
+														<thead>
+														 
+														</thead>
+														<tbody>
+														  <tr>
+															<td><b>fecha</b></td>
+															<td id="pre_inicio"></td>
+															<td><b>vence</b></td>
+															<td id="pre_final"></td>
+														  </tr>
+															<td><b>Señores</b></td>
+															<td id="pre_nombre" style="text-align:center" colspan="3">{{customer.nombre+" "+customer.apellido}}</td>
+														  <tr>
+														  </tr>
+															<td><b>Nit / CC</b></td>
+															<td id="pre_nit">{{customer.identificacion}}</td>
+															<td><b>Teléfono</b></td>
+															<td id="pre_telefono">{{customer.celular}}</td>
+														  <tr>
+														  </tr>
+															<td><b>Dirección</b></td>
+															<td id="pre_direccion">{{customer.direccion}}</td>
+															<td><b>Ciudad</b></td>
+															<td id="pre_ciudad">{{city.nombre}}</td>
+														  <tr>
+															<td colspan="2" style="text-align:center;"><b>Descripción</b></td>
+															<td><b>Valor Unitario</b></td>
+															<td><b>Valor Total</b></td>
+														  </tr>
+														  <tr>
+															<td rowspan="7" id="pre_desc" style="font-size: 85%; max-width: 550px;" colspan="2"></td>
+															<td id="pre_valor"></td>
+															<td id="pre_mult"></td>
+														  </tr>  
+														  <tr>                  
+															<td><b>Ingresos que generan iva</b></td>
+															<td id="pre_iva">{{doc_details.ingresos_generan_iva}}</td>                
+														  </tr>
+														  <tr>                  
+															<td><b>Ingresos que no generan iva</b></td>
+															<td id="pre_noiva">{{doc_details.ingresos_no_generan_iva}}</td>                
+														  </tr>
+														  <!--
+														  <tr>                  
+															<td><b>Reembolsados de gastos no generadores de iva</b></td>
+															<td id="pre_reembolso"></td>                
+														  </tr>
+														  -->
+														  <tr>                  
+															<td><b>Subtotal</b></td>
+															<td id="pre_subtotal">{{doc_details.subtotal}}</td>                
+														  </tr>
+														  <tr>                  
+															<td><b>Iva</b></td>
+															<td id="pre_valoriva">{{doc_details.iva}}</td>                
+														  </tr>
+														  <tr>                  
+															<td><b>Total</b></td>
+															<td id="pre_total">{{doc_details.total}}</td>                
+														  </tr>
+														</tbody>
+													  
+													  </table>
+														Observaciones: <span id="comments"></span>
+													  </div>
+													</div>
+											  
+												 </div>
+												 <div class="modal-footer">
+													<button type="button"  class="btn btn-default" data-dismiss="modal">Cerrar</button>
+													<button ng-click="send_document_to_server()" class="btn btn-success"><i class="fa fa-floppy-o"></i> Guardar</button>
+												 </div>
+											  </div>
+										   </div>
+										</div>	
+									
+									
+									
+									
+									
+			                    </div>
+			                    
+			                   
+			                </div>
+			            </div>
+			        </div>
+
+				</div>
+			</div>
+		</div>
+	
+	<br><br>
+	
+
+
+
+	<script type="text/javascript"  src="/Control/operativo/views/js/factura_manual.js"></script>  
+
+  </body>
+	
+
+</html>  

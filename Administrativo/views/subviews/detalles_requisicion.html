@@ -1,0 +1,59 @@
+<table class="table table-condensed  table-bordered">
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>tipo</th>
+			<th>clase</th>
+			<th>valor</th>
+			<th>obervaciones</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach($filas as $detalle){ ?>
+		<tr>
+			<td><?php echo $detalle->id?></td>
+			<td><?php echo $detalle->tipo_req?></td>
+			<td><?php echo $detalle->nombre_clase?></td>			
+			<td><?php echo $detalle->valor?></td>
+			<td><?php echo $detalle->observaciones?></td>
+		</tr>
+		<?php } ?>
+	</tbody>
+</table>
+<table class="table table-condensed  table-bordered">
+	<tbody>
+		<tr>
+			<td style="text-align:center;"><b><?php echo utf8_decode("Observaciones de la requisición") ?><b></td>
+		</tr>
+		<tr>	
+			<td><?php echo $requisicion->observaciones; ?></td>
+		</tr>
+		<tr>	
+			<td style="text-align:center;"><b><?php echo utf8_decode("Comentarios de evaluación") ?><b></td>
+		</tr>
+		<tr>	
+			<td><?php echo $requisicion->comentarios_evaluacion; ?></td>
+		</tr>
+	</tbody>
+</table>
+<p><b><?php echo utf8_decode("Detalles de evaluación:")?></b></p>
+<table class="table table-condensed  table-bordered">
+	<thead>
+		<tr>
+			<th>Criterio</th>
+			<th><?php echo utf8_decode("Calificación") ?></th>
+			<th><?php echo utf8_decode("Razón") ?></th>
+			<th>Comentarios</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach($detalle_evaluacion as $detalle) { ?>
+			<tr>
+				<td><?php echo $detalle->nombre ?></td>
+				<td><?php echo $detalle->calificacion ?></td>
+				<td><?php echo $detalle->opcion ?></td>
+				<td><?php echo $detalle->observaciones ?></td>
+			</tr>
+		<?php } ?>
+	</tbody>
+</table>

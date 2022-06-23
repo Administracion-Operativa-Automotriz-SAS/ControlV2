@@ -1,0 +1,6 @@
+<?php
+			/*Archvio inicial */
+			echo "<select name='_cs_' id='_cs_' style='width:100px' onchange=\"crea_perfil(this.value,'_top')\"><option value=''>Cambiar Perfil</option>"; echo "<option value='X1NFU1NJT05bJ05pY2snXT0nV2VuZHkubW9yZW5vJztfU0VTU0lPTlsnVXNlciddPSc1JztfU0VTU0lPTlsnRGlzZW5hZG9yJ109JzAnO19TRVNTSU9OWydJZF9hbHRlcm5vJ109JzI0Myc7X1NFU1NJT05bJ05vbWJyZSddPSdXZW5keSBNb3Jlbm8nO19TRVNTSU9OWydUYWJsYV91c3VhcmlvJ109J3VzdWFyaW9fYXV0b3JpemFjaW9uJztfU0VTU0lPTlsnRW1haWwnXT0nJztfU0VTU0lPTlsnTmdydXBvJ109J0FVVE9SSVpBQ0lPTkVTJw==' >AUTORIZACIONES</option>";
+				echo "<option value='X1NFU1NJT05bJ05pY2snXT0nV2VuZHkubW9yZW5vJztfU0VTU0lPTlsnVXNlciddPSczMic7X1NFU1NJT05bJ0Rpc2VuYWRvciddPScwJztfU0VTU0lPTlsnSWRfYWx0ZXJubyddPSc2MSc7X1NFU1NJT05bJ05vbWJyZSddPSdXZW5keSBNb3Jlbm8nO19TRVNTSU9OWydUYWJsYV91c3VhcmlvJ109J3VzdWFyaW9fcmVjZXBjaW9uJztfU0VTU0lPTlsnRW1haWwnXT0nJztfU0VTU0lPTlsnTmdydXBvJ109J1JFQ0VQQ0lPTiBZIFNFUlZJQ0lPIEFMIENMSUVOVEUn' >RECEPCION Y SERVICIO AL CLIENTE</option>";
+				echo "</select>";
+			?>

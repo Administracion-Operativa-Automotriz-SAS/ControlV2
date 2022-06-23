@@ -1,0 +1,394 @@
+<html>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+	<style>
+			td{
+				font-size: <?php echo $Tam_Fuente ?>;
+			}
+	</style>
+	<table width='100%' class='table_image' border cellspacing='0' align='center'>
+		<tr>
+			<td width='20%' rowspan=3 align='center' valign='middle'>
+				<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+			</td>
+			<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo utf8_encode($Tipo->nombre) ?></b></td>
+			<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+		</tr>
+		<tr>
+			<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+		</tr>
+		<tr>
+			<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+		</tr>
+	</table>
+	<table border='0' cellspacing='0' cellpadding='0' width='100%' align='center'>
+		<tr>
+			<td width='20%'></td>
+			<td align='center' style='font-size:8px;' width='50%'>
+				<span id='subtitle'><?php echo utf8_encode("Consecutivo Interno Número") ?></span>:<?php echo $Nconsecutivo ?></td>
+			<td width='30%'></td>
+		</tr>
+	</table>
+		<!--cabecera-->
+	<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+	
+	<table cellspacing='0'  width="100%" border='1'>
+	  
+	  <tr height='24'>
+		<td width='82' height='24' class='Estilo4 theader'>PLACA:</td>
+		<td colspan='7' class='Estilo4'>
+			<input class="input_lists" id="placa_lists" list="placas">
+			<datalist id="placas">
+			 <?php foreach($placas as $placa){ ?>
+					<option><?php echo $placa->dplaca ?></option>
+			 <?php } ?>
+			</datalist>
+		</td>
+		<td width='78' class='Estilo4 theader'>Fecha:</td>
+		<td colspan='5' class='Estilo4' class='writetd' onclick="make_visible(0)" ondblclick="make_invisible(0)"><input class="date_input" id="einput0"  type="date"></td>
+	  </tr>
+	  <tr height='24'>
+		<td height='24' colspan='4' class='Estilo4 theader'>Responsable    inspecci&oacute;n:</td>
+		<td colspan='10' class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='8'>
+		<td height='8' colspan='14' class='Estilo4'>&nbsp;</td>
+	  </tr>
+	  <tr height='20'>
+		<td height='38' colspan='5' rowspan='2' class='Estilo4 theader'><div align='center'>TIPO</div></td>
+		<td colspan='6' rowspan='2' width="20%" class='Estilo4 theader'><div align='center'>CRITERIO</div></td>
+		<td colspan='2' class='Estilo4 theader'><div align='center'>CONFORME</div></td>
+		<td width='257' rowspan='2' class='Estilo4 theader'><div align='center'>OBSERVACIONES</div></td>
+	  </tr>
+	  <tr height='18'>
+		<td width='40' height='18' class='Estilo4 theader'><div align='center'>SI</div></td>
+		<td width='46' class='Estilo4 theader'><div align='center'>NO</div></td>
+	  </tr>
+	  <tr height='20'>
+		<td height='54' colspan='2' rowspan='3' class='Estilo4 theader'>DOCUMENTOS</td>
+		<td colspan='3' class='Estilo4'>Tarjeta propiedad</td>
+		<td colspan='6' rowspan='3' class='Estilo4'>Verificar    su presencia y fecha de vigencia adecuada</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='documentos'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='documentos'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>SOAT</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='soat'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='soat'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Contrato</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='contrato'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='contrato'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='20'>
+		<td height='37' colspan='2' rowspan='2' class='Estilo4 theader'>CALCOMAN&Iacute;AS</td>
+		<td colspan='3' class='Estilo4'>L&iacute;nea asistencia</td>
+		<td colspan='6' rowspan='2' class='Estilo4'>Verificar su    presencia y fecha de vigencia adecuada</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='calco'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='calco'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Prohibido fumar</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='prohibido'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='prohibido'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='20'>
+		<td height='37' colspan='2' rowspan='2' class='Estilo4 theader'>DIRECCIONALES</td>
+		<td colspan='3' class='Estilo4'>Delanteras</td>
+		<td colspan='6' rowspan='2' class='Estilo4'>Funcionamiento    y respuesta inmediata</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='delantero'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='delantero'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Traseras</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='trasera'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='trasera'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  
+	  <tr height='20'>
+		<td height='88' colspan='2' rowspan='5' class='Estilo4 theader'>LUCES</td>
+		<td colspan='3' class='Estilo4'>Altas</td>
+		<td colspan='6' rowspan='5' class='Estilo4'>Funcionamiento    de bombillos, cubiertas sin roturas, respuesta inmediata</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='altas'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='altas'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Bajas</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='bajas'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='bajas'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Stops</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='stops'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='stops'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Reversa</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='reversa'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='reversa'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Parqueo</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='parqueo'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='parqueo'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='68' colspan='2' rowspan='4' class='Estilo4 theader'>LLAVES</td>
+		<td colspan='3' class='Estilo4'>Carcasa</td>
+		<td colspan='6' class='Estilo4'>Sin    roturas</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='llaves'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='llaves'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Llavero</td>
+		<td colspan='6' class='Estilo4'>Coincide    la placa y est&aacute; en buen estado</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='llavero'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='llavero'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Bater&iacute;a</td>
+		<td colspan='6' class='Estilo4'>Funcionando    y tapada</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='bateria'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='bateria'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Botones</td>
+		<td colspan='6' class='Estilo4'>Funcionando</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='botones'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='botones'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='2' class='Estilo4 theader'>PLUMILLAS</td>
+		<td colspan='3' class='Estilo4'>Der / Izq / Atr&aacute;s</td>
+		<td colspan='6' class='Estilo4'>Estado,    limpieza y funcionamiento</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='plumillas'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='plumillas'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='20'>
+		<td height='37' colspan='2' rowspan='2' class='Estilo4 theader'>FRENOS</td>
+		<td colspan='3' class='Estilo4'>Principal</td>
+		<td colspan='6' rowspan='2' class='Estilo4'>Verificar    antes de iniciar un servicio</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='frenos'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='frenos'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Emergencia</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='emergencia'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='emergencia'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='20'>
+		<td height='37' colspan='2' rowspan='3' class='Estilo4 theader'>LLANTAS</td>
+		<td colspan='3' class='Estilo4'>Delanteras</td>
+		<td colspan='6' rowspan='3' class='Estilo4'>Verificar    presi&oacute;n y profundidad de labrado</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='teras'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='teras'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Traseras</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='seras'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='seras'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Repuestos</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='repuestos'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='repuestos'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  
+	  <tr height='20'>
+		<td height='37' colspan='2' rowspan='2' class='Estilo4 theader'>ESPEJOS</td>
+		<td colspan='3' class='Estilo4'>Laterales</td>
+		<td colspan='6' rowspan='2' class='Estilo4'>Verificar    cubiertas sin roturas y limpieza</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='espejo'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='espejo'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Retrovisor</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='retrovisor'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='retrovisor'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='2' class='Estilo4 theader'>PITO</td>
+		<td colspan='9' class='Estilo4'>Verificar que responde adecuadamente</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='pito'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='pito'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='20'>
+		<td height='54' colspan='2' rowspan='3' class='Estilo4 theader'>FLUIDOS</td>
+		<td colspan='3' class='Estilo4'>Frenos</td>
+		<td colspan='6' rowspan='3' class='Estilo4'>Verificar    niveles y reportar fugas</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='enos'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='enos'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Aceite</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='aceite'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='aceite'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Refrigerante</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='rante'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='rante'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='20'>
+		<td height='37' colspan='2' rowspan='2' class='Estilo4 theader'>APOYA<br />
+		CABEZAS</td>
+		<td colspan='3' class='Estilo4'>Delanteros</td>
+		<td colspan='6' rowspan='2' class='Estilo4'>Verificar su    presencia y estado</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='apo_del'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='apo_del'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Traseros</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='apo_tra'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='apo_tra'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='20'>
+		<td height='37' colspan='2' rowspan='2' class='Estilo4 theader'>CINTURONES DE SEGURIDAD</td>
+		<td colspan='3' class='Estilo4'>Delanteros</td>
+		<td colspan='6' rowspan='2' class='Estilo4'>Verificar su    presencia y estado</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='cin_del'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='cin_del'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Traseros</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='cin_tra'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='cin_tra'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='20'>
+		<td height='295' colspan='2' rowspan='9' class='Estilo4 theader'>HERRAMIENTA    Y KIT DE CARRETERA</td>
+		<td colspan='9' class='Estilo4'>Alicate, destornilladores, llaves de expansi&oacute;n y    llaves fijas</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='alicate'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='alicate'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Extintor</td>
+		<td colspan='6' class='Estilo4'>Fecha    vencimiento</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='extintor'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='extintor'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Cruceta</td>
+		<td colspan='6' class='Estilo4'>Adecuado    para las tuercas</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='cruceta'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='cruceta'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Linterna</td>
+		<td colspan='6' class='Estilo4'>Presente    y con bater&iacute;a</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='linterna'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='linterna'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Gato</td>
+		<td colspan='6' class='Estilo4'>Que    soporte el peso</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='gato'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='gato'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Tacos</td>
+		<td colspan='6' class='Estilo4'>2    tacos</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='tacos'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='tacos'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='33'>
+		<td height='33' colspan='3' class='Estilo4 '>Se&ntilde;ales</td>
+		<td colspan='6' class='Estilo4'>2    se&ntilde;ales de forma triangular, reflectivas y con soporte</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='senal'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='senal'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='17'>
+		<td height='17' colspan='3' class='Estilo4'>Chaleco</td>
+		<td colspan='6' class='Estilo4'>Reflectivo</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='reflectivo'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='reflectivo'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='140'>
+		<td height='140' colspan='3' class='Estilo4'>Botiqu&iacute;n</td>
+		<td colspan='6' class='Estilo4'>Yodoplvidona    soluci&oacute;n antis&eacute;ptico bolsa (120ml), jab&oacute;n, gasas, curas, venda el&aacute;stica,    mlcropore rollo, algod&oacute;n paquete (25 gr), acetaminof&eacute;n tabletas}, mareol    tabletas, sales de rehldratacl&oacute;n oral, baja lenguas, suero fisiol&oacute;gico bolsa    (250 mi). guantes latex desechables, toallas higi&eacute;nicas, tijeras y term&oacute;metro    oral.</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='botiquin'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='botiquin'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	  <tr height='20'>
+		<td height='20' colspan='2'  class='Estilo4 theader'>MOTOR</td>
+		<td colspan='3' class='Estilo4'>Moto ventilador</td>
+		<td colspan='6' class='Estilo4'>Verifica giro de moto ventilador</td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='ventilador'></div></td>
+		<td class='Estilo4'><div style='text-align:center;'><input type='radio' name='ventilador'></div></td>
+		<td class='Estilo4' class='writetd' contenteditable="true">&nbsp;</td>
+	  </tr>
+	
+	  <tr>
+		<td colspan="14" class="theader"><b>OBSERVACIONES GENERALES</b></td>		
+	  </tr>
+	  <tr>
+		<td colspan="14" contenteditable="true"><br><br><br><br></td>
+	  </tr>
+	  <tr>
+		<td colspan="7" style="text-align:center">
+			<br><br>
+			_______________________________
+			<br>
+			REALIZO
+		</td>
+		<td colspan="7" style="text-align:center">
+			<br><br>
+			_______________________________
+			<br>
+			AUTORIZO	
+		</td>
+	  </tr>
+	</table>
+	<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">	
+	<input type="hidden">
+	<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+	<button  id="reset_button"  onclick="reset_checks()">Resetear controles</button>
+	 </body>
+	 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="/Administrativo/views/js/editable_table.js"></script>	
+	<script src="/Administrativo/views/js/basicinput.js"></script>
+	<script src="/Administrativo/views/js/save_document.js"></script>
+	
+ </html>

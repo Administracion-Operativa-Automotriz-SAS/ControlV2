@@ -1,0 +1,166 @@
+<html>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+	<style>
+			td{
+				font-size: <?php echo $Tam_Fuente ?>; 
+			}
+	</style>
+	<body>
+		<div class='container'>
+			<table width='90%' class='table_image' border cellspacing='0' align='center'>
+				<tr>
+					<td width='20%' rowspan=3 align='center' valign='middle'>
+						<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+					</td>
+					<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo utf8_encode($Tipo->nombre) ?></b></td>
+					<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+				</tr>
+			</table>
+			<table border='0' cellspacing='0' cellpadding='0' width='90%' align='center'>
+				<tr>
+					<td width='20%'></td>
+					<td align='center' style='font-size:8px;' width='50%'>
+						<span id='subtitle'><?php echo utf8_encode("Consecutivo Interno N�mero") ?></span>:<?php echo $Nconsecutivo ?></td>
+					<td width='30%'></td>
+				</tr>
+			</table>
+				<!--cabecera-->
+			<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+			
+			<H3>I. CONSIDERACIONES AL EVALUADOR</H3>
+			<p style='text-align:justify;' >La evaluación del período de prueba, es un análisisde los servicios prestados por el empleado en su nueva gestión. Su finalidad es calificar objetivamente eldesarrollo de la labor y la adaptación a la nuevasituación, con base en la observación, los hechos, los resultados y el comportamiento del evaluado en el cargo que este desempeñe.</p>
+			<p style='text-align:justify;' >Esta evaluación debe realizarse con un alto grado de criterio y objetividad, pues constituye una de las más delicadas responsabilidades del evaluador, desde elpunto de vista de justicia y desarrollo humano, por lo cual es necesario que la calificación haga referencia a la línea de conducta general del empleado y no ha hechos aislados.</p>
+			<p style='text-align:justify;' >El sistema de calificación empleado tiene tres alternativas, desde sobresaliente hasta no satisfactorio, así:</p>
+			<table border cellspacing='0' width='90%' align='center'>
+				<tr><td style=''> 1  <b> SOBRESALIENTE: </b> Se destaca y es considerado excepcional en este campo&nbsp;
+					2 <b> SATISFACTORIO: </b> Está de acuerdo con el nivel requerido&nbsp;
+					3. <b> NO SATISFACTORIO: </b> En  ocasiones alcanza el nivel requerido</td>
+				</tr>
+			</table>&nbsp;
+			<p style='text-align:justify;' >Es importante que usted sepa, que si el contrato del funcionario es a un año o superior, la duración del 
+			período de prueba es de dos meses. Para contratos inferiores a un año, la duración del período de prueba 
+			será el equivalente a la quinta parte del tiempo. Le recordamos leer detalladamente los factores de evaluación 
+			antes de responder, si eventualmente no tiene información al respecto, por favor no lo conteste.</p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			
+			<H3 style="margin-top:-15px;">II. EVALUACION</H3>
+			<h3>1. EVALUADO:</H3>
+			<p style=''>Nombre: <input type='text'>  Cargo: <input type='text'></p>
+			<p style=''>Dependencia: <input type='text'></p>
+			<table border cellspacing='0' width='90%' align='center'>
+				<tr>
+					<td style=''>Fecha de ingreso:    DÍA <select>
+							<option></option>
+							<?php for($i=1;$i<32;$i++){ ?>
+								<option><?php echo $i; ?></option>
+							<?php  } ?>
+						</select> / MES: <select>
+							<option></option>
+							<option>Enero</option>
+							<option>Febrero</option>
+							<option>Marzo</option>
+							<option>Abril</option>
+							<option>Mayo</option>
+							<option>Junio</option>
+							<option>Julio</option>
+							<option>Agosto</option>
+							<option>Septiembre</option>
+							<option>Octubre</option>
+							<option>Noviembre</option>
+							<option>Diciembre</option>
+						</select> / AÑO: <select>
+							<option></option>
+							<option>2017</option>
+							<option>2018</option>
+							<option>2019</option>
+							<option>2020</option>
+							<option>2021</option>
+							<option>2022</option>
+							<option>2023</option>
+						</select>
+					</td>
+				</tr>
+			</table>&nbsp;
+			<h3>2. EVALUADOR:</H3>
+			<p style=''>Nombre: <input type='text'>  Cargo Actual: <input type='text'></p>
+			<table border cellspacing='0' width='90%' align='center'>
+				<tr>
+					<td style=''>Fecha de Evaluación:    DÍA <select>
+							<option></option>
+							<?php for($i=1;$i<32;$i++){ ?>
+								<option><?php echo $i; ?></option>
+							<?php  } ?>
+						</select> / MES: <select>
+							<option></option>
+							<option>Enero</option>
+							<option>Febrero</option>
+							<option>Marzo</option>
+							<option>Abril</option>
+							<option>Mayo</option>
+							<option>Junio</option>
+							<option>Julio</option>
+							<option>Agosto</option>
+							<option>Septiembre</option>
+							<option>Octubre</option>
+							<option>Noviembre</option>
+							<option>Diciembre</option>
+						</select> / AÑO: <select>
+							<option></option>
+							<option>2017</option>
+							<option>2018</option>
+							<option>2019</option>
+							<option>2020</option>
+							<option>2021</option>
+							<option>2022</option>
+							<option>2023</option>
+						</select>
+					</td>
+				</tr>
+			</table>&nbsp;
+			
+			<h3>I. FACTORES DE EVALUACIÓN (marque sobre la calificación)</H3>
+			<table width='90%' align='center'>
+				<tr><td style='' width='70%'><b>ASISTENCIA Y PUNTUALIDAD: </b>Cumplimiento de la jornada, asistencia regular al trabajo </td><td> 1 &nbsp;<input type='radio' name='asistencia'> &nbsp;&nbsp; 2 <input type='radio' name='asistencia'>  &nbsp;&nbsp; 3 <input type='radio' name='asistencia'> </td></tr>
+				<tr><td style='' width='70%'><b>NORMAS DISCIPLINARIAS: </b>Cumplimiento de instrucciones y órdenes dadas por los superiores. Cumplimiento de normas y  reglamentos internos </td><td> 1 &nbsp;<input type='radio' name='reglamento'> &nbsp;&nbsp; 2 <input type='radio' name='reglamento'>  &nbsp;&nbsp; 3 <input type='radio' name='reglamento'> </td></tr>
+				<tr><td style='' width='70%'><b>RELACIONES CON SUS SUPERIORES: </b>Facilidad de interacción con sus superiores.</td><td> 1 &nbsp;<input type='radio' name='relacions'> &nbsp;&nbsp; 2 <input type='radio' name='relacions'>  &nbsp;&nbsp; 3 <input type='radio' name='relacions'></td></tr>
+				<tr><td style='' width='70%'><b>RELACIONES CON SUS COMPAÑEROS: </b>Facilidad de interacción con los nuevos compañeros de trabajo y colaboración conestos.</td><td> 1 &nbsp;<input type='radio' name='relacionc'> &nbsp;&nbsp; 2 <input type='radio' name='relacionc'>  &nbsp;&nbsp; 3 <input type='radio' name='relacionc'></td></tr>
+				<tr><td style='' width='70%'><b>SERVICIO AL ASEGURADO: </b>Calidad y efectividad en la atención al público y los asegurados.</td><td> 1 &nbsp;<input type='radio' name='servicio'> &nbsp;&nbsp; 2 <input type='radio' name='servicio'>  &nbsp;&nbsp; 3 <input type='radio' name='servicio'></td></tr>
+				<tr><td style='' width='70%'><b>CONOCIMIENTO DEL TRABAJO: </b>Asimilación de la información necesaria para desempeñar el cargo, aprovechamientode la experiencia anterior.</td><td> 1 &nbsp;<input type='radio' name='conocimiento'> &nbsp;&nbsp; 2 <input type='radio' name='conocimiento'>  &nbsp;&nbsp; 3 <input type='radio' name='conocimiento'></td></tr>
+				<tr><td style='' width='70%'><b>RESPONSABILIDAD Y DEDICACIÓN AL TRABAJO: </b>Cumplimiento de sus deberes sin necesidad de excesivos controles. Atención oportuna a los asuntos que competen a su cargo.</td><td> 1 &nbsp;<input type='radio' name='responsabilidad'> &nbsp;&nbsp; 2 <input type='radio' name='responsabilidad'>  &nbsp;&nbsp; 3 <input type='radio' name='responsabilidad'></td></tr>
+				<tr><td style='' width='70%'><b>INICIATIVA: </b>Capacidad de plantear, analizar y dar solución a dificultades relacionadas con su trabajo.</td><td> 1 &nbsp;<input type='radio' name='iniciativa'> &nbsp;&nbsp; 2 <input type='radio' name='iniciativa'>  &nbsp;&nbsp; 3 <input type='radio' name='iniciativa'></td></tr>
+				<tr><td style='' width='70%'><b>MOTIVACIÓN: </b>Interés por el trabajo y las actividades desarrolladas por la dependencia.</td><td> 1 &nbsp;<input type='radio' name='motivacion'> &nbsp;&nbsp; 2 <input type='radio' name='motivacion'>  &nbsp;&nbsp; 3 <input type='radio' name='motivacion'></td></tr>
+			</table>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+		
+			<table width='90%' align='center'>
+				<tr><td style='' width='70%'><b>ORGANIZACIÓN DEL TRABAJO: </b>Habilidad para planear, ordenar y distribuir el tiempo y los recursos disponibles, con el fin de realizar mejor sus labores en forma adecuada, en beneficio del trabajo y de los objetivos del área. </td><td> 1 &nbsp;<input type='radio' name='organizacion'> &nbsp;&nbsp; 2 <input type='radio' name='organizacion'>  &nbsp;&nbsp; 3 <input type='radio' name='organizacion'></td></tr>
+				<tr><td style='' width='70%'><b>ADAPTACIÓN AL CARGO: </b>Ajuste a las nuevas situaciones de trabajo, métodos, procedimientos y clima organizacional en general.</td><td> 1 &nbsp;<input type='radio' name='adaptacion'> &nbsp;&nbsp; 2 <input type='radio' name='adaptacion'>  &nbsp;&nbsp; 3 <input type='radio' name='adaptacion'></td></tr>
+				<tr><td style='' width='70%'><b>EFICIENCIA EN EL TRABAJO: </b>Calidad del desempeño y rendimiento alcanzado.</td><td> 1 &nbsp;<input type='radio' name='eficacia'> &nbsp;&nbsp; 2 <input type='radio' name='eficacia'>  &nbsp;&nbsp; 3 <input type='radio' name='eficacia'></td></tr>
+				<tr><td style='' width='70%'><b>GENERAL: </b>De modo general, la calificación que da usted al evaluado durante el periodo de prueba.</td><td> 1 &nbsp;<input type='radio' name='general'> &nbsp;&nbsp; 2 <input type='radio' name='general'>  &nbsp;&nbsp; 3 <input type='radio' name='general'></td></tr>
+				
+			</table>
+			<p style=''>Considera usted que el concepto sobre el desempeño del evaluado en el período de prueba es:</p>
+			<p style='font-size:16px; text-align:center'><b>FAVORABLE |<input type='radio' name='favorable'>|    DESFAVORABLE |<input type='radio' name='favorable'>|</b></p>
+			<p style=''><b>Observaciones:</b></p>
+			<textarea name='innerarea' style="width:100%"></textarea>
+			<p style=''><b>Acuerdos y Compromisos:</b></p>
+			<textarea name='innerarea' style="width:100%"></textarea>
+			<p style=''><b>Firma del Empleado:</b>_______________________________</p>&nbsp;
+			<p style=''><b>Firma del Evaluador:</b>_______________________________</p>
+			<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">		
+			<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+		</div>	
+	</body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="/Administrativo/views/js/editable_table.js"></script>
+	<script src="/Administrativo/views/js/basicinput.js"></script>
+	<script src="/Administrativo/views/js/save_document.js"></script>
+</html>

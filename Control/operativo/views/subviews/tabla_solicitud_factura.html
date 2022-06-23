@@ -1,0 +1,44 @@
+<button onclick="select_all()">Seleccionar todos</button> <button onclick="unselect_all()">Desseleccionar todos</button>
+<table  id='scrap_table'  class='table table-responsive table-bordered'>
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Siniestro</th>
+			<th>Cita</th>
+			<th>Concepto</th>
+			<th>Aseguradora</th>
+			<th>Descripción</th>
+			<th>cantidad</th>
+			<th>valor a facturar</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php if($solicitudes != null){  foreach($solicitudes as $solicitud){ ?>
+		<tr id="<?php echo $solicitud->cita ?>"> 
+			<td><input type="checkbox" value="<?php echo $solicitud->cita ?>"> <?php echo $solicitud->id ?>  </td>
+			<td><?php echo $solicitud->siniestro_id ?></td>
+			<td><?php echo $solicitud->cita ?></td>
+			<td><?php echo utf8_encode($solicitud->concepto) ?></td>
+			<td><?php echo utf8_encode($solicitud->aseguradora) ?></td>
+			<td><?php echo utf8_encode($solicitud->descripcion) ?></td>
+			<td><?php echo $solicitud->cantidad ?></td>
+			<td>
+				<input type='number' id="valor_facturar<?php echo $solicitud->cita ?>">
+				<input type="hidden" id="iva_factura<?php echo $solicitud->cita ?>" value="<?php echo $solicitud->iva ?>">
+				<input type="hidden" id="concepto_id<?php echo $solicitud->cita ?>" value="<?php echo $solicitud->concepto_id ?>">
+			</td>
+		</tr>
+		<?php }} ?>
+	</tbody>
+<table>
+<script>
+	function select_all()
+	{
+		$("input[type='checkbox']").attr( "checked" , true );
+	}
+	
+	function unselect_all()
+	{
+		$("input[type='checkbox']").attr( "checked" , false );
+	}
+</script>

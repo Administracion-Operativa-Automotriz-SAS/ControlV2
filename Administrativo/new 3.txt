@@ -1,0 +1,65 @@
+ <el-form  v-if='flujo_normal' :inline='true' :model='formInlin' class='demo-form-inline' :rules='rule' ref='ruleFo'>
+      <h6 class='row justify-content-center align-items-center'>Ingresar novedad del Siniestro &nbsp {{formInline.user}}</h6>
+	     <br>
+	  <el-form-item  label='Novedad' prop='user'>
+          <el-input v-model='formInlin.user'  type='textarea'  placeholder='Ingresar Novedad'></el-input>
+        </el-form-item>
+		
+        <el-form-item label='Tipo de novedad' prop='region'>
+          <el-select
+					class=' mr-sm-2 align-items-center' 
+					 v-model='formInlin.region'
+					filterable
+					allow-create
+					placeholder='Selecione un tipo de novedad '>
+					<el-option
+					  v-for='item in tipo'
+					  :key='item.id'
+					  :label='item.nombre'
+					  :value='item.id'>
+			</el-option>
+			
+		  </el-select>
+		  
+        </el-form-item>
+		 
+      </el-form>
+
+    </tab-content>
+	  <tab-content title='Agregar cotización' icon='ti-check' :before-change='validateCotisacion'>
+	   <el-form :inline='true' :model='formCont'  id='formCo'
+	   class='demo-form-inline' :rules='rulesCon' ref='formCo'>
+      <h6 class='row justify-content-center align-items-center'>Ingresar cotización de la novedad  {{novedadId}}</h6>
+       <br>
+		<el-form-item label='Poveedor' prop='proveedor'>
+               <el-select
+				title='Poveedor'
+					class=' mr-sm-2 align-items-center' 
+					filterable
+					
+					allow-create
+				v-model='formCont.proveedor'
+					filterable
+					allow-create
+                    placeholder='Selecione un tipo  proveedor'>
+                  <el-option
+                      	  v-for='item in proveedor'
+					  :key='item.id'
+					  :label='item.nombre'
+					  :value='item.id'>
+                </el-option>
+            </el-select>
+		  </el-form-item>
+		  
+		 <el-form-item  label='Descripción' prop='descripcion'>
+          <el-input type='textarea' v-model='formCont.descripcion' placeholder='Ingresar  descripción'></el-input>
+        </el-form-item>
+		<br>
+		 <el-form-item   label='Actividad Solicitante ' prop='actividad_solitante'>
+          <el-input type='textarea'    v-model='formCont.actividad_solitante' placeholder='Ingresar actividad solicitamte'></el-input>
+        </el-form-item>
+		 <el-form-item   label='Actividad  Proveedor' prop='actividad_provedor'>
+          <el-input type='textarea'   v-model='formCont.actividad_provedor' placeholder='Ingresar actividad proveedor'></el-input>
+        </el-form-item>
+
+      </el-form>

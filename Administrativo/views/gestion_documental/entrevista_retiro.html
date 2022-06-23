@@ -1,0 +1,99 @@
+<html>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+	<style>
+		td{
+			font-size: <?php echo $Tam_Fuente ?>;
+		}
+	</style>
+		<table width='100%' class='table_image' border cellspacing='0' align='center'>
+			<tr>
+				<td width='20%' rowspan=3 align='center' valign='middle'>
+					<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+				</td>
+				<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo $Tipo->nombre ?></b></td>
+				<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+			</tr>
+			<tr>
+				<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+			</tr>
+			<tr>
+				<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+			</tr>
+		</table>
+		<table border='0' cellspacing='0' cellpadding='0' width='100%'>
+			<tr>
+				<td width='20%'></td>
+				<td align='center' style='font-size:8px;' width='50%'>
+					<span id='subtitle'>Consecutivo Interno Número</span>:<?php echo $Nconsecutivo ?></td>
+				<td width='30%'></td>
+			</tr>
+	    </table>
+		<!--cabecera-->
+		<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+		
+		&nbsp;
+		
+		<table border cellspacing='0' width='50%'>
+			<tr>
+				<td  rowspan="2" class='theader'>Fecha</td>
+				<td contenteditable="true" height="30px;"></td>
+				<td contenteditable="true" height="30px;"></td>
+				<td contenteditable="true" height="30px;"></td>
+			</tr>
+			<tr>
+				<td   class='theader'>AAAA</td>
+				<td   class='theader'>MM</td>
+				<td   class='theader'>DD</td>
+			</tr>
+		</table>
+		
+		<br>
+		
+		<table border cellspacing='0' width='100%'>
+			<tr>
+				<td class='theader' height="30px;"><b>NOMBRE DEL COLABORADOR</b></td>
+				<td class='writetd' contenteditable="true"></td>
+			</tr>
+			<tr>
+				<td   class='theader' height="30px;"><b>CARGO</b></td>
+				<td class='writetd' contenteditable="true" WIDTH="50%"></td>
+			</tr>
+				
+		</table>
+		&nbsp;
+		
+		<table border cellspacing='0' width='100%'>
+			<tr>
+				<td class='theader' style="text-align:center;"><b>MOTIVO DEL RETIRO</b></td>
+			</tr>
+			<tr>
+				<td contenteditable="true" style="font-size:12px;" height="100px;"></td>
+			</tr>
+		</table>
+
+		&nbsp;
+		<table border cellspacing='0' width='100%'>
+			
+			
+		</table>
+
+		<table border cellspacing='0' width='100%'>
+			<tr>
+				<td  height="50px"></td>
+			</tr>
+			<tr>
+				<td class='theader'>FIRMA DIRECTOR GESTIÓN HUMANA</td>				
+			</tr>		
+		</table>
+		
+	<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">	
+	<input type="hidden">
+	<button id="document_save_button" onclick="save_document()">Guardar</button>	
+	</body>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<script src="/Administrativo/views/js/editable_table.js"></script>
+		<script src="/Administrativo/views/js/basicinput.js"></script>
+		<script src="/Administrativo/views/js/save_document.js"></script>
+</html>

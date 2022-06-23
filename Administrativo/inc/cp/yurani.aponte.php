@@ -1,0 +1,6 @@
+<?php
+			/*Archvio inicial */
+			echo "<select name='_cs_' id='_cs_' style='width:100px' onchange=\"crea_perfil(this.value,'_top')\"><option value=''>Cambiar Perfil</option>"; echo "<option value='X1NFU1NJT05bJ05pY2snXT0neXVyYW5pLmFwb250ZSc7X1NFU1NJT05bJ1VzZXInXT0nMyc7X1NFU1NJT05bJ0Rpc2VuYWRvciddPScwJztfU0VTU0lPTlsnSWRfYWx0ZXJubyddPScyNCc7X1NFU1NJT05bJ05vbWJyZSddPSdZdXJhbmkgU3RlZmFueSBBcG9udGUgQXZlbmRh8W8nO19TRVNTSU9OWydUYWJsYV91c3VhcmlvJ109J3VzdWFyaW9fYWRtaW4nO19TRVNTSU9OWydFbWFpbCddPScnO19TRVNTSU9OWydOZ3J1cG8nXT0nQURNSU5JU1RSQVRJVk8n' >ADMINISTRATIVO</option>";
+				echo "<option value='X1NFU1NJT05bJ05pY2snXT0neXVyYW5pLmFwb250ZSc7X1NFU1NJT05bJ1VzZXInXT0nOCc7X1NFU1NJT05bJ0Rpc2VuYWRvciddPScwJztfU0VTU0lPTlsnSWRfYWx0ZXJubyddPScxNSc7X1NFU1NJT05bJ05vbWJyZSddPSdTdGVmYW55QXBvbnRlQXZlbmRh8W8nO19TRVNTSU9OWydUYWJsYV91c3VhcmlvJ109J3VzdWFyaW9fY29tcHJhcyc7X1NFU1NJT05bJ0VtYWlsJ109Jyc7X1NFU1NJT05bJ05ncnVwbyddPSdDT01QUkFTJw==' >COMPRAS</option>";
+				echo "</select>";
+			?>

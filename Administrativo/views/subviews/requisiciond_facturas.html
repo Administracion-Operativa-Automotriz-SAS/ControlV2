@@ -1,0 +1,143 @@
+<html>
+	<?php //print_r($_SESSION); ?>
+	<H2>Facturas asociadas al detalle de requisición</H2>
+	<div class="container">
+		<input type="hidden" id="currentid">
+		<div class="table-responsive" style="max-width:550px !important;">
+			<table class='table table-bordered table-responsive'>
+				<thead>					
+					<th>id</th>
+					<th>detalle de la <br>requisicion</th>
+					<th>consecutivo uno</th>
+					<th>consecutivo proveedor</th>
+					<th>Imagen</th>
+					<th>Valor</th>
+					<th>Opciones</th>
+				</thead>
+				<tbody> 
+					<?php foreach($facturas as $factura){ ?>
+						<?php if($factura->facprov_f != null){ ?>
+					<tr id="<?php echo $factura->id ?>">
+						<td><?php echo $factura->id ?></td>
+						<td <?php if($_SESSION['User']==1 ){ echo "contenteditable=true"; } ?> ><?php echo $factura->requisiciond ?></td>
+						<td <?php if($_SESSION['User']==1 or $factura->consecutivo_suno == null){ echo "contenteditable=true"; } ?>><?php echo $factura->consecutivo_suno ?></td>
+						<td <?php if($_SESSION['User']==1 ){ echo "contenteditable=true"; } ?>><?php echo $factura->consecutivo_provee ?></td>
+						<td>
+							<?php if($factura->facprov_f != null){ ?>
+							<button class="btn btn-warning"><a href="/Administrativo/<?php echo $factura->facprov_f ?>" target="_blank">Ver factura</a></button>
+							<br><br>
+							<?php } ?>
+							<?php if($_SESSION['User']==1 or isset($_SESSION['factura_requisicion'.$factura->id])){ ?>
+							
+							<button style="width:100%"  onclick="assign_form(<?php echo $factura->id ?>)">Cambiar imagen</button>
+							<form id="change_image<?php echo $factura->id?>" method="post" action="zrequisicion.php">
+								<input type="hidden" name="id" value="<?php echo $factura->id ?>">
+								<input type="hidden" name="requisiciond" value="<?php echo $factura->requisiciond ?>">
+								<input type="hidden" name="tipo" value="<?php echo $factura->tipo ?>">
+								<input type="hidden" name="Acc" value="incluir_factura_requisiciond">
+								<input type="hidden" name="prev_file" value="<?php echo $factura->facprov_f ?>">	
+								<input type='file' name="image" id="getFile<?php echo $factura->id ?>" style="display:none">
+							</form>
+							<?php } ?>
+						</td>
+						<td onkeypress="only_numbers()" <?php if($_SESSION['User']==1 or isset($_SESSION['factura_requisicion'.$factura->id]) or $factura->valor_factura == null ){ echo "contenteditable=true"; } ?>>
+							 <?php echo $factura->valor_factura ?>
+						</td>
+						<td>
+							<?php if($factura->consecutivo_suno == null or $_SESSION['User']==1 or isset($_SESSION['factura_requisicion'.$factura->id])){ ?>
+								<button style="width:100%" onclick="edit_row(<?php echo $factura->id ?>,'<?php echo $factura->tipo ?>')">Guardar</button><button style="width:100%" onclick="delete_row('<?php echo $factura->id ?>','<?php echo $factura->tipo ?>','<?php echo $factura->facprov_f ?>','<?php echo $factura->requisiciond ?>')">Eliminar</button>
+							<?php } ?>							
+							<?php if(isset($_SESSION['factura_requisicion'.$factura->id])){ ?>
+								<button style="width:100%" onclick="delete_row('<?php echo $factura->id ?>','<?php echo $factura->tipo ?>','<?php echo $factura->facprov_f ?>','<?php echo $factura->requisiciond ?>')">Eliminar</button>
+							<?php } ?>
+						</td>
+					</tr>
+						<?php } ?>
+					<?php } ?>
+				</tbody>
+			</table>
+		</div>		
+	</div>
+	
+	<script>
+		function edit_row(id,tipo)
+		{
+			tds = $("#"+id).find('td');
+			var requisiciond = tds.eq(1).text();			
+			var consecutivo_suno = tds.eq(2).text();
+			var consecutivo_provee = tds.eq(3).text();
+			
+			var formobject = {id:id,tipo:tipo,Acc:"editar_requisiciond_factura",requisiciond:requisiciond,consecutivo_suno:consecutivo_suno,consecutivo_provee:consecutivo_provee}
+			
+			$.post('zrequisicion.php',formobject,function(data){
+				//alert(data);
+				alert(data);
+			});
+		}	
+
+		function delete_row(id,tipo,prevfile,requisiciond)
+		{
+			$.post('zrequisicion.php',{id:id,tipo:tipo,Acc:"borrar_requisiciond_factura",prev_file:prevfile},function(data){
+				//alert(data);
+				alert(data);
+				facturas_agregadas(requisiciond);
+				
+			});
+			
+		}
+		
+		
+		function assign_form(id)
+		{
+			$("#currentid").val(id);
+			document.getElementById('getFile'+id).click();
+		}
+		
+		$("input[name='image']").change(function(){
+			
+			console.log($(this).attr('id'));
+			
+			 var val = $(this).val().toLowerCase(),
+            regex = new RegExp("(.*?)\.(pdf|tif|bmp|jpg|jpeg|png)$");
+
+			if (!(regex.test(val))) {
+				$(this).val('');
+				event.preventDefault();
+				return alert('El archivo que intenta subir no es valido');
+			}
+			
+			if($(this).attr('id') != "insert_new_image")
+			{		
+			
+				var fid = $("#currentid").val();
+				action_url = $('#change_image'+fid).attr( 'action' );
+				//return alert(action_url);	 
+				var formData = new FormData($("#change_image"+fid)[0]);
+					$.ajax({
+						url: action_url,
+						type: 'POST',
+						data: formData,
+						async: false,
+					  success: function (data) {					  
+						  //alert(data);
+						  alert("Ïmagen cambiada");
+					  },
+					  cache: false,
+					  contentType: false,
+					  processData: false
+				  });
+			}
+		});	
+		
+		
+		function only_numbers()
+		{
+			console.log(event.keyCode);
+			if(event.keyCode < 48 || event.keyCode > 57)
+			{				 
+				 event.preventDefault();				 
+			}
+		}
+	</script>
+
+</html>

@@ -1,0 +1,415 @@
+<html>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+	<script src="/Administrativo/views/js/interact.js"></script>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+	<style>
+		
+		#document_date{
+			margin-top: -10px;
+		}
+		
+		input {
+			border: 0px ;
+			background-color: rgba(255,255,255,.5);
+			padding: 1px;
+		}
+
+		/*img{border:solid 1px red; margin:10px;}*/
+		
+		.selected{
+			border:solid 1px red; margin:10px;
+			box-shadow:0px 12px 22px 1px #333;
+		}
+		
+		.container{
+			z-index:1;
+			border-style: outset !important;
+			max-width: 55% !important;
+		}
+		
+		img{
+			z-index:2;
+			position:absolute;
+		}
+		
+		@media print {
+		
+			.container{
+				max-width: 100% !important;
+				border-style: none !important;
+			}
+		
+			#document_save_button{
+				display:none;
+			}
+			
+			body
+			{
+			  margin: 2cm 1.5cm 1.5cm 1.5cm;
+			  font-family: Arial;
+			  font-size: 15px !important;
+			}
+			
+			
+		}
+
+	</style>	
+	<body id="drop">
+			<div class='container'>
+				<p align='left' class='first_line'><?php echo /*$Tipo->codigo."-".*/ $Nconsecutivo ?></p>				
+				<p id="document_date">Bogotá D.C. <?php echo $Fecha_completa ?></p>&nbsp;
+				<br>
+				
+				Señor (a):&nbsp;<br>				
+				<span><b><input type='text' name="para" placeholder='Para'></b></span>	
+				<br>
+				<span style='margin-top="-0.3em;"'><b><input type='text' name="cargo" placeholder='Cargo para'></b>&nbsp;
+				<br>
+				<span><input type='text' name="empresa" placeholder='Empresa'>&nbsp;		
+				<br>
+				<span><input type='text' name="direccion" placeholder='Dirección'></b>&nbsp;&nbsp;
+				<br>
+				<span><input type='text' name="direccion" placeholder='Ciudad'>&nbsp;&nbsp;
+				
+				<br>
+				<br>
+				Asunto: <input type='text' name="asunto" placeholder='Asunto'>&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+				
+				<p align='justify'>
+					<!--<textarea style='width:100%;' name="texto" id='textArea'></textarea>-->					
+					<span contenteditable="true"  id="span_redact">Contenido de la pagina</span>
+				</p>
+				
+				
+				  <div id="status"></div>
+				  
+				  <div id="list"></div>
+				  
+				
+			
+				
+				 <p>Cordialmente</p>
+			<br>
+				
+				<p ><b><input type="text" name="remitente" placeholder='Remitente'></b>&nbsp;<br><b><input type="text" name="cargo_remitente" placeholder='Cargo remitente'></b>&nbsp;<br>&nbsp;
+			    Anexos:
+				<br>
+				<p align='justify'>
+					<!--<textarea style='width:100%;' name="texto" id='textArea'></textarea>-->					
+					<span contenteditable="true"  id="span_anexo">-</span>
+				</p>
+				
+				<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+			</div>
+		<!--<button  onclick="imprimir_pagina()" class="btn btn-warning form-control">Imprimir</button>-->
+		<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">	
+		<input type="hidden" name="page_consecutivo" value="<?php echo $Tipo->codigo."-".$Nconsecutivo; ?>">
+		
+	</body>
+	 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>		
+		
+		<script>
+		    $(document).on('click', ".resize-drag", function() {
+				//alert("clicked");
+				$('.selected').removeClass('selected');
+				$(this).addClass('selected');
+			});
+			  
+		
+			$('html').keyup(function(e){
+				if(e.keyCode == 46) {
+					$(".selected").remove();
+				}
+			});
+			
+			$("#span_redact").blur(function(){
+				console.log($(this).text().length);
+				if($(this).text().length==0)
+				{
+					console.log($(this).text());
+					$(this).text("Contenido de la pagina");
+				}
+			});
+			
+			$("#span_redact").click(function(){
+				console.log($(this).text().length);
+				if($(this).text()=="Contenido de la pagina")
+				{
+					$(this).text("");
+				}
+			});
+			
+			
+			  
+			if (window.FileReader) {
+			  var drop;
+			  addEventHandler(window, 'load', function() {
+				var status = document.getElementById('status');
+				drop = document.getElementById('drop');
+				var list = document.getElementById('list');
+
+				function cancel(e) {
+				  if (e.preventDefault) {
+					e.preventDefault();
+				  }
+				  return false;
+				}
+
+				// Tells the browser that we *can* drop on this target
+				addEventHandler(drop, 'dragover', cancel);
+				addEventHandler(drop, 'dragenter', cancel);
+
+				addEventHandler(drop, 'drop', function(e) {
+				  e = e || window.event; // get window.event if e argument missing (in IE)   
+				  if (e.preventDefault) {
+					e.preventDefault();
+				  } // stops the browser from redirecting off to the image.
+
+				  var dt = e.dataTransfer;
+				  var files = dt.files;
+				  for (var i = 0; i < files.length; i++) {
+					var file = files[i];
+					var reader = new FileReader();
+
+					//attach event handlers here...
+
+					reader.readAsDataURL(file);
+					addEventHandler(reader, 'loadend', function(e, file) {
+					  var bin = this.result;
+					  var newFile = document.createElement('div');
+					  //newFile.innerHTML = 'Loaded : ' + file.name + ' size ' + file.size + ' B';
+					  list.appendChild(newFile);
+					  var fileNumber = list.getElementsByTagName('div').length;
+					  /*status.innerHTML = fileNumber < files.length ?
+						'Loaded 100% of file ' + fileNumber + ' of ' + files.length + '...' :
+						'Done loading. processed ' + fileNumber + ' files.';*/
+
+					  var img = document.createElement("img");
+					  img.file = file;
+					  img.src = bin; 
+					  img.className = "resize-drag";
+					  /*img.onclick = function img_selection(this){
+						alert("clicked");
+						$('.selected').removeClass('selected');
+						$(this).addClass('selected');
+					  };*/
+					  list.appendChild(img);
+					}.bindToEventHandler(file));
+				  }
+				  return false;
+				});
+				Function.prototype.bindToEventHandler = function bindToEventHandler() {
+				  var handler = this;
+				  var boundParameters = Array.prototype.slice.call(arguments);
+				  console.log(boundParameters);
+				  //create closure
+				  return function(e) {
+					e = e || window.event; // get window.event if e argument missing (in IE)   
+					boundParameters.unshift(e);
+					handler.apply(this, boundParameters);
+				  }
+				};
+			  });
+			} else {
+			  document.getElementById('status').innerHTML = 'Your browser does not support the HTML5 FileReader.';
+			}
+
+			function addEventHandler(obj, evt, handler) {
+			  if (obj.addEventListener) {
+				// W3C method
+				obj.addEventListener(evt, handler, false);
+			  } else if (obj.attachEvent) {
+				// IE method.
+				obj.attachEvent('on' + evt, handler);
+			  } else {
+				// Old school method.
+				obj['on' + evt] = handler;
+			  }
+			}
+		
+			interact('.resize-drag')
+			  .draggable({
+				onmove: window.dragMoveListener
+			  })
+			  .resizable({
+				preserveAspectRatio: true,
+				edges: { left: true, right: true, bottom: true, top: true }
+			  })
+			  .on('resizemove', function (event) {
+				var target = event.target,
+					x = (parseFloat(target.getAttribute('data-x')) || 0),
+					y = (parseFloat(target.getAttribute('data-y')) || 0);
+
+				// update the element's style
+				target.style.width  = event.rect.width + 'px';
+				target.style.height = event.rect.height + 'px';
+
+				// translate when resizing from top or left edges
+				x += event.deltaRect.left;
+				y += event.deltaRect.top;
+
+				target.style.webkitTransform = target.style.transform =
+					'translate(' + x + 'px,' + y + 'px)';
+
+				target.setAttribute('data-x', x);
+				target.setAttribute('data-y', y);
+				target.textContent = event.rect.width + '×' + event.rect.height;
+			  });
+
+			function dragMoveListener (event) {
+				var target = event.target,
+					// keep the dragged position in the data-x/data-y attributes
+					x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+					y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+				// translate the element
+				target.style.webkitTransform =
+				target.style.transform =
+				  'translate(' + x + 'px, ' + y + 'px)';
+
+				// update the posiion attributes
+				target.setAttribute('data-x', x);
+				target.setAttribute('data-y', y);
+			  }
+			  
+		
+			function save_document()
+			{
+				prepared_html();
+				
+				
+				console.log(typeof edit);
+				
+				if (typeof edit !== 'undefined') {
+				  //alert("updating");
+				  $.post( "gestion_documental_helper.php?Acc=update_document",
+					{html:document.getElementsByTagName('html')[0].innerHTML},function(data){
+						var res = JSON.parse(data);
+						if(res.estado == 1){
+							alert("Documento guardado");
+						}
+						if(res.estado == 3){
+							alert("El consecutivo actual ya fue guardado por otra persona , recargue y vuelva intentarlo");
+						}
+						if(res.estado == 2){
+							alert("Existen problemas para guardar el documento");
+						}
+						
+						location.reload();
+						
+						
+						
+					});
+				  return "";
+				  
+				}
+				
+		
+				
+				$.post( "Controllers/gestion_documental_helper.php?Acc=save_document",
+				{html:document.getElementsByTagName('html')[0].innerHTML,consecutivo:$('input[name="consecutivo"]').val()},function(data){
+					var res = JSON.parse(data);
+					if(res.estado == 1){
+						alert("Documento guardado");
+					}
+					if(res.estado == 3){
+						alert("El consecutivo actual ya fue guardado por otra persona , recargue y vuelva intentarlo");
+					}
+					if(res.estado == 2){
+						alert("Existen problemas para guardar el documento");
+					}
+					
+					
+					
+				});
+				
+				
+			}
+			
+			function prepared_html()
+			{			
+				$('input[type="text"]').each(function(){
+					if($(this).val()!="")
+					{
+						//alert($(this).val());
+						$(this).removeAttr( "size" );
+						var innertext = $(this).val();
+						//alert(innertext);
+						$(this).attr("value",innertext);
+					}
+					if($(this).attr("value") != null && $(this).val() == "")
+					{
+						//alert($(this).attr("value"));
+						$(this).removeAttr("value");
+					}
+				});	
+
+				$("textarea").each(function(){
+					if($(this).val()!="")
+					{
+						//alert($(this).val());
+						$(this).html($(this).val());	
+					}
+					//this.value = this.value.replace("AFFURL",producturl);
+				});
+			}
+			
+			function resizeInput()
+			{
+				if($(this).val().length>4)
+				{				
+					$(this).attr('size', ($(this).val().length-3));				
+				}
+				else
+				{				
+					$(this).attr('size', ($(this).val().length+1));				
+				}			
+			}
+			
+			$('input[type="text"]').keyup(resizeInput);
+			
+			
+			window.onafterprint = function(){
+				
+				prepared_html();
+				
+				var url = window.location.toString();
+				if(url.indexOf("load_save_document")>1)
+				{
+					//alert("edición de documento");
+					$.post( "gestion_documental_helper.php?Acc=save_print_document",
+					{html:document.getElementsByTagName('html')[0].innerHTML,modo:1,consecutivo:null},function(data){
+						var res = JSON.parse(data);
+						if(res.estado == 1){
+							alert("Impresión guardada");
+							location.reload();
+						}				
+					});
+					
+				}
+			
+				if(url.indexOf("zgendoc_funciones")>1)
+				{
+					//alert("creación de documento");
+					$.post( "Controllers/gestion_documental_helper.php?Acc=save_print_document",
+					{html:document.getElementsByTagName('html')[0].innerHTML,modo:2,consecutivo:$('input[name="consecutivo"]').val()},function(data){
+						var res = JSON.parse(data);
+					if(res.estado == 1){
+						alert("Impresión guardada");
+						
+					}			
+					if(res.estado == 2){
+						alert("Documento creado e impresión guardada");
+						
+					}
+					});
+				}
+			
+			}
+	
+		</script>
+
+		
+		<!--script src="/Administrativo/views/js/comunicacion_externa.js"></script>-->	
+</html>

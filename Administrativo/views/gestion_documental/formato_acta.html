@@ -1,0 +1,111 @@
+<html>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="/Administrativo/views/js/jquery-2.1.3.js"></script>
+	<meta http-equiv='Content-Type' content='text/html; charset=Windows-1252'>
+	<style>
+		td{
+			font-size: <?php echo $Tam_Fuente ?>;
+		}
+	</style>
+		<body>
+		<table width='90%' class='table_image' border cellspacing='0' align='center'>
+				<tr>
+					<td width='20%' rowspan=3 align='center' valign='middle'>
+						<img src='http://app.aoacolombia.com/Administrativo/img/nlogo_aoa_200.jpg' border='0' class='print_image' height='50' width='110'>
+					</td>
+					<td align='center' rowspan=3 width='50%'><b style='font-size:16px'><?php echo utf8_encode($Tipo->nombre) ?></b></td>
+					<td width='30%' style='font-size:12px'>CODIGO: <?php echo $Tipo->codigo ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:12px'>VERSION: <?php echo $Tipo->version ?></td>
+				</tr>
+				<tr>
+					<td style='font-size:10px'>FECHA DE VIGENCIA: <?php echo $Tipo->fecha_version //echo date('Y/m/d'); ?> </td>
+				</tr>
+		</table>
+		<table border='0' cellspacing='0' cellpadding='0' width='90%' align='center'>
+			<tr>
+				<td width='20%'></td>
+				<td align='center' style='font-size:8px;' width='50%'>
+					<span id='subtitle'><?php echo utf8_encode("Consecutivo Interno N�mero") ?></span>:<?php echo $Nconsecutivo ?></td>
+				<td width='30%'></td>
+			</tr>
+		</table>
+			<!--cabecera-->
+		<link rel="stylesheet" href="/Administrativo/views/css/styles1.css">
+		<span>
+			<input style="font-size:18px;" type="text" name="nombre_reunion" placeholder='Nombre reunión'>
+		</span>
+		<br>
+		<br>
+		<table width='90%' align='center'>
+			<tr><td style='font-size:<?php echo $Tam_Fuente ?>;' width='90'>FECHA:</td><td style='font-size:<?php echo $Tam_Fuente ?>;' width='500'><?php echo $Hoy ?></td></tr>
+			<tr><td style='font-size:<?php echo $Tam_Fuente ?>;'>HORA:</td><td style='font-size:<?php echo $Tam_Fuente ?>;'><b><?php echo $Ahora; ?></b></td></tr>
+			<tr><td style='font-size:<?php echo $Tam_Fuente ?>;'>LUGAR:</td><td style='font-size:<?php echo $Tam_Fuente ?>;'><b><input type="text" name="Lugar" placeholder='Lugar'></b></td></tr>
+		</table>&nbsp;
+		<table width='90%' align='center'>
+			<tr><td style='font-size:<?php echo $Tam_Fuente ?>;' width='90'>ASISTENTES:</td><td style='font-size:<?php echo $Tam_Fuente ?>;' width='500' contenteditable="true">(Nombre, Cargo; Nombre, Cargo)</td></tr>
+			<tr><td style='font-size:<?php echo $Tam_Fuente ?>;' width='90'>INVITADOS:</td><td style='font-size:<?php echo $Tam_Fuente ?>;' width='500' contenteditable="true">(Nombre, Cargo; Nombre, Cargo)</td></tr>
+			<tr><td style='font-size:<?php echo $Tam_Fuente ?>;' width='90'>AUSENTES:</td><td style='font-size:<?php echo $Tam_Fuente ?>;' width='500' contenteditable="true">(Nombre, Cargo; Nombre, Cargo)</td></tr>
+		</table>
+		<br>
+		ORDEN DEL DÍA
+		<br>
+		<ol>
+		<li>Verificación de Quorum
+		<li>Lectura, discusión y aprobación Acta anterior
+		<li>(Tema a tratar en la reunión)
+		<li>(Varios)
+		<li>(Compromisos acordados - Responsable - Fecha)
+		<li>Plan de seguimiento - Actividades programadas - Actividades ejecutadas
+		</ol>
+		DESARROLLO
+		<table border cellspacing='0' align='center' width='90%'>
+		<tr>
+			<td style="height:50px;" contenteditable="true">(Escribir en tiempo pasado)</td>
+		</tr>
+		</table>
+		COMPROMISOS
+		<table border cellspacing='0' align='center' width='90%'>
+		<tr><td class="theader" align='center'>Acciones Claves</td><td class="theader" align='center'>Responsables</td><td class="theader" align='center'>Fecha de Programación</td></tr>
+		<tr>
+			<td height="30px" contenteditable="true">&nbsp;</td>
+			<td height="30px" contenteditable="true">&nbsp;</td>
+			<td height="30px" contenteditable="true">&nbsp;</td>
+		</tr>
+		
+		</table>
+		&nbsp;
+		PLAN DE SEGUIMIENTO
+		<table border cellspacing='0' align='center' width='90%'>
+		<tr>
+			<td class="theader" align='center'>Acciones Programadas</td><td  class="theader" align='center'>Actividades Ejecutadas</td>
+		</tr>
+		<tr>
+			<td height="30px" contenteditable="true">&nbsp;</td>
+			<td height="30px" contenteditable="true">&nbsp;</td>
+		</tr>
+		
+		</table>
+		&nbsp;
+		CONVOCATORIA&nbsp;
+		(Aplica en los casos en que se programa una nueva reunión)&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<table border cellspacing='0' width='90%' align='center'>
+			<tr>
+				<td width='160' height="30px" valign='bottom' align='center' contenteditable="true">
+					<b style='font-size:8px'>
+					</b>
+				</td>
+				<td width='160' height="30px" valign='bottom' align='center' style='font-size:8px' contenteditable="true">Nombres y Apellidos&nbsp;Cargo</td>
+			</tr>
+		</table>&nbsp;&nbsp;
+		<p style='font-size:9px'>Proyectó: (nombre y apellidos, cargo, dependencia)</br>Revisó: (nombre y apellidos, cargo, dependencia)</p>
+		<input type="hidden" name="consecutivo" value="<?php echo $consecutivo ?>">		
+			<button  id="document_save_button"  onclick="save_document()">Guardar</button>
+	</body>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="/Administrativo/views/js/editable_table.js"></script>
+	<script src="/Administrativo/views/js/basicinput.js"></script>
+	<script src="/Administrativo/views/js/save_document.js"></script>
+</html>

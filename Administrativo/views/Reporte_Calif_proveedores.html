@@ -1,0 +1,456 @@
+<?php
+//print_r($requisiciones);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+$acumulado = 0;
+$counter = 0;
+$nombre = null;
+$makeline = 0;
+?>
+<html lang="en">
+<head>
+  <title>Evaluacion por compra </title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="inc/css/headboot.css">
+	
+  <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+  <script src="https://use.fontawesome.com/ba7765318c.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+  <link rel="stylesheet" href="inc/css/loading.css">
+</head>
+<style>
+	.table-condensed{
+	  font-size: 10px;
+	}
+	#accordion{
+		display:none;
+	}
+	.panel-heading {background-color: red!important}
+</style>
+
+<script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"> </script>
+<script>
+webshims.setOptions('forms-ext', {types: 'date'});
+webshims.polyfill('forms forms-ext');
+$.webshims.formcfg = {
+en: {
+    dFormat: '-',
+    dateSigns: '-',
+    patterns: {
+        d: "yy-mm-dd"
+    }
+}
+};
+
+</script>
+
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<style>
+
+</style>
+   
+	
+<body>
+
+	<header class="header-basic">
+
+	<div class="header-limiter">
+
+		<h1><a href="zproveedor.php?Acc=reporte_calificacion">Evaluación por compra <span>proveedores</span></a></h1>		
+	
+	</div>
+
+</header>
+<?php
+	if(isset($_POST['excel_generate']) and  $_POST['excel_generate']=="generate" )  { 
+		 $forms = 1; 
+	}
+	else{ $forms = 0;}
+ ?>
+ 
+<?php if( $forms == 0): ?>
+<div class="loading-container">
+    <div class="loading"></div>
+    <div id="loading-text">cargando</div>
+</div>
+<?php endif ?>
+
+<div class="menu">
+	<div class="container">
+		
+	
+		<?php if( $forms == 0) { ?>
+		<form action="zproveedor.php?Acc=reporte_calificacion_ok" onsubmit="return filter_form(this)" id="filter_data" method="post">
+		<div class="form-group">
+			<label>Proveedores</label>
+			<select class="form-control " name="proveedor" onclick="excel_op(this.value)" data-show-subtext="true" data-live-search="true" >
+				<option value="">Selecciona</option>
+				<?php foreach($filas as $proveedor){ ?>
+				<option value="<?php echo $proveedor->id ?>"<?php if(isset($_POST['proveedor']) and $proveedor->id ==  $_POST['proveedor']) {echo "selected";} ?>><?php echo utf8_encode($proveedor->nombre) ?></option>
+				<?php } ?>
+			</select>
+			<br>
+			<label>Fecha </label>
+			
+			<label>Desde</label>
+			<input type="date" class="form-control" max=<?php echo date('Y-m-d'); ?> <?php if(isset($_POST['fecha1'])){ ?> value="<?php echo $_POST['fecha1'] ?>" <?php } ?> name="fecha1" id="fecha1">
+			<br>			
+			<label>Hasta</label>
+			<input type="date" class="form-control" max=<?php echo date('Y-m-d'); ?> <?php if(isset($_POST['fecha2'])){ ?> value="<?php echo $_POST['fecha2'] ?>" <?php } ?> name="fecha2" id="fecha2">
+			<input type="hidden" id="param1" name="excel_generate" >
+		</div>
+		<button class="btn btn-warning form-control">Filtrar</button>
+		</form>		
+			<button class="btn btn-success form-control" onclick="generate_excel()" type="submit">Excel</button>	
+		<br>
+		
+		<?php } ?>
+		<br>
+		
+		
+		<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filtrar información con palabras" />
+		<table class="table table-condensed  table-bordered" id="dev-table" >
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>Fecha</th>
+					<th>Proveedor</th>
+					<th>Solicitado por</th>
+					<th>Aprobado por</th>
+					<th>Evaluado por</th>
+					<th>Comentario<br>evaluación</th>
+					<th>Fecha Evaluación</th>
+					<th>Estado</th>
+					<th>Nota</th>
+					<?php if( $forms == 0): ?>
+					<th>Opciones</th>
+					<?php endif ?>
+				</tr>
+			</thead>
+			<tbody>
+				<?php if($requisiciones != null) { $i = 0 ;foreach($requisiciones as $requisicion){ $i++;?>
+				
+				<tr>
+				
+				
+				<?php
+				
+					if($nombre == null)
+					{
+						$nombre = utf8_encode($requisicion->nom_proveedor);
+					}
+					else
+					{
+					
+						if($makeline == 1)
+						{
+							$makeline = 0;								
+						}
+						
+						if($nombre != utf8_encode($requisicion->nom_proveedor))
+						{
+							$makeline = 1;
+							$prev_nombre = $nombre;
+							$nombre = utf8_encode($requisicion->nom_proveedor);							
+						}
+						
+						
+					}					
+					
+				?>
+				
+				<?php if( $makeline == 1): ?>
+				<tr>
+					<td colspan="4"><b>Promedio de notas calificadas <?php echo $prev_nombre ?></b></td>
+					<td colspan="5" style="text-align:center;"><b><?php if($counter!=0): echo ceil(($acumulado)/($counter)); echo "%"; endif ?></b></td>
+				</tr>
+				<?php $acumulado = 0; $counter = 0; endif ?>
+				
+				
+					<?php
+					  $fechaTest = $requisicion->fecha_evaluacion;
+					  if($fechaTest >= '2019-10-30 09:00:00'){
+					  $nota = (($requisicion->calificacion)*100)/40;
+					  }else{
+					  $nota = (($requisicion->calificacion)*100)/30;
+					  }
+					?>					
+					<td><?php echo $requisicion->id ?></td>
+					<td><?php echo $requisicion->fecha ?></td>
+					<td><?php echo utf8_encode($requisicion->nom_proveedor) ?></td>
+					<td><?php echo utf8_encode($requisicion->solicitado_por) ?></td>
+					<td><?php echo utf8_encode($requisicion->aprobado_por) ?></td>
+					<td><?php echo utf8_encode($requisicion->evaluada_por) ?></td>
+					<td><?php echo utf8_encode($requisicion->comentarios_evaluacion) ?></td>
+					<td><?php echo $requisicion->fecha_evaluacion ?></td>
+					<td><?php echo $requisicion->estado_requisicion ?></td>
+					<td><?php echo $nota."%"; ?></td>
+					<?php if( $forms == 0): ?>
+						<td><button onclick="consultar_detalles(<?php echo $requisicion->id ?>)" class="btn btn-warning">Detalles</button></td>
+					<?php endif ?>
+				</tr>
+				
+				<?php
+					if($requisicion->estado_requisicion == "CALIFICADO")
+					{
+						$acumulado += $nota;
+						$counter++;	
+					}	
+
+					$prev_nombre = utf8_encode($requisicion->nom_proveedor);
+				?>
+				
+				<?php if(count($requisiciones) == ($i) ): ?>
+				<tr>
+					<td colspan="4"><b>Promedio de notas calificadas <?php echo $prev_nombre ?></b></td>
+					<td colspan="5" style="text-align:center;"><b><?php if($counter!=0): echo ceil(($acumulado)/($counter)); echo "%"; endif ?></b></td>
+				</tr>
+				<?php endif ?>
+				
+				<?php  }} ?>
+				
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Detalles de la requisición</h4>
+      </div>
+      <div class="modal-body">
+		<div id="ajax-content"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+	
+</body>
+<footer class="footer1">
+<div class="container">
+
+<div class="row"><!-- row -->
+            
+                
+</div>
+</footer>
+<!--header-->
+<style>
+
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+@import url(https://fonts.googleapis.com/css?family=Gudea);
+.footer1 {
+    background: #fff url("../images/footer/footer-bg.png") repeat scroll left top;
+	padding-top: 40px;
+	padding-right: 0;
+	padding-bottom: 20px;
+	padding-left: 0;/*	border-top-width: 4px;
+	border-top-style: solid;
+	border-top-color: #003;*/
+}
+
+.footerp p {font-family: 'Gudea', sans-serif; }
+
+
+#social:hover {
+    			-webkit-transform:scale(1.1); 
+-moz-transform:scale(1.1); 
+-o-transform:scale(1.1); 
+			}
+			#social {
+				-webkit-transform:scale(0.8);
+                /* Browser Variations: */
+-moz-transform:scale(0.8);
+-o-transform:scale(0.8); 
+-webkit-transition-duration: 0.5s; 
+-moz-transition-duration: 0.5s;
+-o-transition-duration: 0.5s;
+			}           
+/* 
+    Only Needed in Multi-Coloured Variation 
+                                               */
+			.social-fb:hover {
+				color: #3B5998;
+			}
+			.social-tw:hover {
+				color: #4099FF;
+			}
+			.social-gp:hover {
+				color: #d34836;
+			}
+			.social-em:hover {
+				color: #f39c12;
+			}
+			.nomargin { margin:0px; padding:0px;}
+
+.footer-bottom {
+    background-color: #15224f;
+    min-height: 30px;
+    width: 100%;
+}
+
+.copyright {
+    color: #fff;
+    line-height: 30px;
+    min-height: 30px;
+    padding: 7px 0;
+}
+
+.design a {
+    color: #fff;
+}
+
+</style>
+<div class="footer-bottom" style="margin-top:100%">
+
+	<div class="container">
+
+		<div class="row">
+
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+				<div class="copyright">
+
+					Reporte de Calificación a Proveedores
+
+				</div>
+
+			</div>
+
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+				<div class="design">
+
+					
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+<script>
+	 $( document ).ready(function(){
+			var timeleft = 3;
+			var downloadTimer = setInterval(function(){
+			timeleft--;			
+			if(timeleft <= 0)
+				clear_wait();
+				
+			},1000);	
+		});
+
+	 function filter_form(elem)
+	 {
+		$("#param1").val('dsdasdjk');
+		if($("select[name='proveedor']").val() == "" && ($("#fecha1").val() == "" || $("#fecha2").val() == ""))
+		{
+			alert("Debe seleccionar una fecha o un proveedor para filtrar");
+			return false;
+		}
+		else{
+			return true;
+		}
+	 }
+		
+     function clear_wait()
+	 {
+		$('.loading-container').hide();			
+		document.body.style.backgroundColor = "white";
+	 }
+	 
+
+	 function generate_excel()
+	 {
+		//alert("triggered");
+		$("#param1").val('generate');
+		document.getElementById("filter_data").submit();
+	 }
+	 
+	$("#fecha1").click(function(){
+		$("#fecha2").prop('required',true);
+	});
+	
+	$("#fecha2").click(function(){	
+		$("#fecha1").prop('required',true);
+	});
+	
+	function consultar_detalles(id)
+	{
+		$("#myModal").modal('show');
+		$.post( "zproveedor.php?Acc=detalles_informe_requisicion",{foid:id}, function( data ) {
+		  $("#ajax-content").html( data );
+		});	
+	}
+
+	(function(){
+    'use strict';
+   var $ = jQuery;
+   $.fn.extend({
+      filterTable: function(){
+         return this.each(function(){
+            $(this).on('keyup', function(e){
+               $('.filterTable_no_results').remove();
+               var $this = $(this), search = $this.val().toLowerCase(), target = $this.attr('data-filters'), $target = $(target), $rows = $target.find('tbody tr');
+               if(search == '') {
+                  $rows.show(); 
+               } else {
+                  $rows.each(function(){
+                     var $this = $(this);
+                     $this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
+                  })
+                  if($target.find('tbody tr:visible').size() === 0) {
+                     var col_count = $target.find('tr').first().find('td').size();
+                     var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">No results found</td></tr>')
+                     $target.find('tbody').append(no_results);
+                  }
+               }
+            });
+         });
+      }
+   });
+   $('[data-action="filter"]').filterTable();
+})(jQuery);
+$(function(){
+    // attach table filter plugin to inputs
+   $('[data-action="filter"]').filterTable();
+   
+   $('.container').on('click', '.panel-heading span.filter', function(e){
+      var $this = $(this), 
+            $panel = $this.parents('.panel');
+      
+      $panel.find('.panel-body').slideToggle();
+      if($this.css('display') != 'none') {
+         $panel.find('.panel-body input').focus();
+      }
+   });
+   $('[data-toggle="tooltip"]').tooltip();
+})
+
+	
+</script>
+
+</html>	

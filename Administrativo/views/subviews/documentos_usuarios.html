@@ -1,0 +1,28 @@
+	<table id="prints" class='table table-hover table-bordered'>
+		<thead>
+			<tr>							
+				<th>Usuario</th>
+				<th>Opciones</th>				
+			</tr>
+		</thead>
+		<tbody>
+		<?php foreach($usuarios as $usuario){ ?>
+			<tr>				
+				<td><?php echo $usuario->usuario ?></td>				
+				<td>
+					<form method="post" id="save_document"  target="_blank" action="">
+						<input type="hidden" name="usuario" value="<?php echo $usuario->usuario ?>">	
+						<button  class="form-control"><?php echo utf8_decode("Observar Documentos") ?></button>
+					</form>							
+				</td>			
+			</tr>
+		<?php } ?>
+		</tbody>
+	</table>
+	<script>
+		$( document ).ready(function(){
+			$('#prints').DataTable({"language": {"url": "//cdn.datatables.net/plug-ins/1.10.13/i18n/Spanish.json"},"pageLength": 10});
+			
+		});			
+	</script>
+</html>

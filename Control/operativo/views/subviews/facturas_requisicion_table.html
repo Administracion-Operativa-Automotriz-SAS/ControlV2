@@ -1,0 +1,24 @@
+<div class="table-responsive" width="50%">
+	<table class="table table-stripered table-bordered">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>Requisición</th>
+				<th>Consecutivo / Ref factura</th>
+				<th>Siniestro</th>
+				<th>Opciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach($facturas as $factura) { ?>
+				<tr>
+					<td><?php echo $factura->id ?></td>
+					<td><?php echo $factura->requisicion ?></td>
+					<td><?php echo $factura->factura_referencia ?></td>
+					<td><?php echo $factura->siniestro ?></td>
+					<td><a onclick="modal('zsiniestro.php?Acc=buscar_siniestro&id=<?php echo $factura->siniestro ?>',0,0,600,800,'vsin');"><img src='gifs/standar/Search.png' title='Ver Siniestro'></a></td>
+				</tr>
+			<?php } ?>
+		</tbody>
+	</table>
+</div>
